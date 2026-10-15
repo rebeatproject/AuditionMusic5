@@ -1,0 +1,6253 @@
+ID;PWXL;N;E
+P;PGeneral
+P;P0
+P;P0.00
+P;P#,##0
+P;P#,##0.00
+P;P#,##0;;\-#,##0
+P;P#,##0;;[Red]\-#,##0
+P;P#,##0.00;;\-#,##0.00
+P;P#,##0.00;;[Red]\-#,##0.00
+P;P"$"#,##0;;\-"$"#,##0
+P;P"$"#,##0;;[Red]\-"$"#,##0
+P;P"$"#,##0.00;;\-"$"#,##0.00
+P;P"$"#,##0.00;;[Red]\-"$"#,##0.00
+P;P0%
+P;P0.00%
+P;P0.00E+00
+P;P##0.0E+0
+P;P#\ ?/?
+P;P#\ ??/??
+P;Pyyyy/mm/dd
+P;Pdd/mmm/yy
+P;Pdd/mmm
+P;Pmmm/yy
+P;Ph:mm\ AM/PM
+P;Ph:mm:ss\ AM/PM
+P;Ph:mm
+P;Ph:mm:ss
+P;Pyyyy/mm/dd\ h:mm
+P;Pmm:ss
+P;Pmm:ss.0
+P;P@
+P;P[h]:mm:ss
+P;P_-"$"* #,##0_-;;\-"$"* #,##0_-;;_-"$"* "-"_-;;_-@_-
+P;P_-* #,##0_-;;\-* #,##0_-;;_-* "-"_-;;_-@_-
+P;P_-"$"* #,##0.00_-;;\-"$"* #,##0.00_-;;_-"$"* "-"??_-;;_-@_-
+P;P_-* #,##0.00_-;;\-* #,##0.00_-;;_-* "-"??_-;;_-@_-
+P;P\$#,##0_);;\(\$#,##0\)
+P;P\$#,##0_);;[Red]\(\$#,##0\)
+P;P\$#,##0.00_);;\(\$#,##0.00\)
+P;P\$#,##0.00_);;[Red]\(\$#,##0.00\)
+P;Pmm/dd/yy
+P;Pyyyy"?"\ mm"?"\ dd"?"
+P;Ph"?"\ mm"?"
+P;Ph"?"\ mm"?"\ ss"?"
+P;Pmm/dd
+P;Pyyyy\/mm\/dd
+P;F?? ??;M220;L9
+P;E?? ??;M220;L9
+P;E?? ??;M360;L55
+P;E?? ??;M300;SB;L55
+P;E?? ??;M260;SB;L55
+P;E?? ??;M220;SB;L55
+P;E?? ??;M220;L18
+P;E?? ??;M220;L21
+P;E?? ??;M220;L61
+P;E?? ??;M220;L63
+P;E?? ??;M220;SB;L64
+P;E?? ??;M220;SB;L53
+P;E?? ??;M220;L53
+P;E?? ??;M220;SB;L10
+P;E?? ??;M220;L11
+P;E?? ??;M220;SI;L24
+P;E?? ??;M220;SB;L9
+P;E?? ??;M220;L10
+P;EMalgun Gothic;M200;L9
+P;E?? ??;M160
+F;P0;DG0G8;M330
+B;Y562;X11;D0 0 561 10
+O;L;F;D;V0;K47;T0;G100 0.001
+C;Y1;X1;K"SINGER"
+C;X2;K"MUSIC NAME"
+C;X3;K"FILE NAME"
+C;X4;K"START MADI"
+C;X5;K"END DELETE MADI"
+C;X6;K"BPM"
+C;X7;K"Offset"
+C;X8;K"NEW"
+C;X9;K"USE"
+C;X10;K"level"
+C;X11;K"TOTAL MADI"
+C;Y2;X1;K"string"
+C;X2;K"string"
+C;X3;K"string"
+C;X4;K"int"
+C;X5;K"int"
+C;X6;K"float"
+C;X7;K"float"
+C;X8;K"int"
+C;X9;K"int"
+C;X10;K"int"
+C;X11;K"int"
+C;Y3;X1;K"All"
+C;X2;K"Random Music"
+C;X3;K"RANDOM"
+C;X4;K0
+C;X5;K0
+C;X6;K0
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K0
+C;X11;K0
+C;Y4;X1;K"Easy"
+C;X2;K"Random(Lv.1 Easy)"
+C;X3;K"RANDOM"
+C;X4;K0
+C;X5;K0
+C;X6;K0
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K0
+C;X11;K0
+C;Y5;X1;K"Normal"
+C;X2;K"Random(Lv.2 Normal)"
+C;X3;K"RANDOM"
+C;X4;K0
+C;X5;K0
+C;X6;K0
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K0
+C;X11;K0
+C;Y6;X1;K"Hard"
+C;X2;K"Random(Lv.3 Hard)"
+C;X3;K"RANDOM"
+C;X4;K0
+C;X5;K0
+C;X6;K0
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K0
+C;X11;K0
+C;Y7;X1;K"Crazy"
+C;X2;K"Random(Lv.4 Crazy)"
+C;X3;K"RANDOM"
+C;X4;K0
+C;X5;K0
+C;X6;K0
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K0
+C;X11;K0
+C;Y8;X1;K"Hard & Crazy"
+C;X2;K"Random(Lv.3 Hard & Lv.4 Crazy)"
+C;X3;K"RANDOM"
+C;X4;K0
+C;X5;K0
+C;X6;K0
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K0
+C;X11;K0
+C;Y9;X1;K"Audition"
+C;X2;K"Dancing Queen(Lv.1 Easy)"
+C;X3;K"kg0051.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K119
+C;Y10;X1;K"Audition"
+C;X2;K"Dancing Queen(Lv.2 Normal)"
+C;X3;K"kg0052.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K119
+C;Y11;X1;K"Audition"
+C;X2;K"Dancing Queen(Lv.3 Hard)"
+C;X3;K"kg0052.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K119
+C;Y12;X1;K"Audition"
+C;X2;K"Dancing Queen(Lv.4 Crazy)"
+C;X3;K"kg0052.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K119
+C;Y13;X1;K"Audition"
+C;X2;K"You are the Sunshine of my life(Lv.1 Easy)"
+C;X3;K"kg0045.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K92
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K68
+C;Y14;X1;K"Audition"
+C;X2;K"You are the Sunshine of my life(Lv.2 Normal)"
+C;X3;K"kg0045.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K92
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K68
+C;Y15;X1;K"Audition"
+C;X2;K"You are the Sunshine of my life(Lv.3 Hard)"
+C;X3;K"kg0045.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K92
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K68
+C;Y16;X1;K"Audition"
+C;X2;K"December(Lv.1 Easy)"
+C;X3;K"kg0044.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K91
+C;Y17;X1;K"Audition"
+C;X2;K"December(Lv.2 Normal)"
+C;X3;K"kg0044.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K91
+C;Y18;X1;K"Audition"
+C;X2;K"December(Lv.3 Hard)"
+C;X3;K"kg0044.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K91
+C;Y19;X1;K"Audition"
+C;X2;K"Wedding Day(Lv.1 Easy)"
+C;X3;K"kg0042.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K101
+C;Y20;X1;K"Audition"
+C;X2;K"Wedding Day(Lv.2 Normal)"
+C;X3;K"kg0043.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K101
+C;Y21;X1;K"Audition"
+C;X2;K"Wedding Day(Lv.3 Hard)"
+C;X3;K"kg0043.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K101
+C;Y22;X1;K"Audition"
+C;X2;K"Maybe(Vocal ver.)(Lv.1 Easy)"
+C;X3;K"kg0070.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K112
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K94
+C;Y23;X1;K"Audition"
+C;X2;K"Maybe(Vocal ver.)(Lv.2 Normal)"
+C;X3;K"kg0070.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K112
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K94
+C;Y24;X1;K"Audition"
+C;X2;K"Maybe(Guitar ver.)(Lv.3 Hard)"
+C;X3;K"kg0071.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K112
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K94
+C;Y25;X1;K"Audition"
+C;X2;K"Fly High(Lv.1 Easy)"
+C;X3;K"kg0065.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K162
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K143
+C;Y26;X1;K"Audition"
+C;X2;K"Fly High(Lv.2 Normal)"
+C;X3;K"kg0065.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K162
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K143
+C;Y27;X1;K"Audition"
+C;X2;K"Fly High(Lv.3 Hard)"
+C;X3;K"kg0066.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K162
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K143
+C;Y28;X1;K"Audition"
+C;X2;K"Kiss Kiss(Lv.1 Easy)"
+C;X3;K"kg0063.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K101
+C;Y29;X1;K"Audition"
+C;X2;K"Kiss Kiss(Lv.2 Normal)"
+C;X3;K"kg0064.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K101
+C;Y30;X1;K"Audition"
+C;X2;K"Kiss Kiss(Lv.3 Hard)"
+C;X3;K"kg0064.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K101
+C;Y31;X1;K"Audition"
+C;X2;K"Run Again(Lv.1 Easy)"
+C;X3;K"kg0028.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K110
+C;Y32;X1;K"Audition"
+C;X2;K"Run Again(Lv.2 Normal)"
+C;X3;K"kg0028.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K110
+C;Y33;X1;K"Audition"
+C;X2;K"Run Again(Lv.3 Hard)"
+C;X3;K"kg0029.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K110
+C;Y34;X1;K"Audition"
+C;X2;K"Run Again(Lv.4 Crazy)"
+C;X3;K"kg0029.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K110
+C;Y35;X1;K"Audition"
+C;X2;K"Audition(Lv.1 Easy)"
+C;X3;K"kg0024.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K168
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K175
+C;Y36;X1;K"Audition"
+C;X2;K"Audition(Lv.2 Normal)"
+C;X3;K"kg0024.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K168
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K175
+C;Y37;X1;K"Audition"
+C;X2;K"Audition(Lv.3 Hard)"
+C;X3;K"kg0024.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K168
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K175
+C;Y38;X1;K"Audition"
+C;X2;K"Audition(Lv.4 Crazy)"
+C;X3;K"kg0024.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K168
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K175
+C;Y39;X1;K"Audition"
+C;X2;K"Come On(Lv.1 Easy)"
+C;X3;K"kg0068.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K145
+C;Y40;X1;K"Audition"
+C;X2;K"Come On(Lv.2 Normal)"
+C;X3;K"kg0068.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K145
+C;Y41;X1;K"Audition"
+C;X2;K"Come On(Lv.3 Hard)"
+C;X3;K"kg0069.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K145
+C;Y42;X1;K"Audition"
+C;X2;K"Come On(Lv.4 Crazy)"
+C;X3;K"kg0069.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K145
+C;Y43;X1;K"Audition"
+C;X2;K"How can I say(Lv.1 Easy)"
+C;X3;K"kg0073.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K131
+C;Y44;X1;K"Audition"
+C;X2;K"How can I say(Lv.2 Normal)"
+C;X3;K"kg0073.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K131
+C;Y45;X1;K"Audition"
+C;X2;K"How can I say(Lv.3 Hard)"
+C;X3;K"kg0073.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K131
+C;Y46;X1;K"Audition"
+C;X2;K"Love Mode(Lv.1 Easy)"
+C;X3;K"kg0077.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K95
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K89
+C;Y47;X1;K"Audition"
+C;X2;K"Love Mode(Lv.2 Normal)"
+C;X3;K"kg0078.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K95
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K89
+C;Y48;X1;K"Audition"
+C;X2;K"Love Mode(Lv.3 Hard)"
+C;X3;K"kg0078.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K95
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K89
+C;Y49;X1;K"Audition"
+C;X2;K"Love Mode(Lv.4 Crazy)"
+C;X3;K"kg0078.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K95
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K89
+C;Y50;X1;K"Audition"
+C;X2;K"With You(Vocal ver.)(Lv.1 Easy)"
+C;X3;K"kg0079.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K131
+C;Y51;X1;K"Audition"
+C;X2;K"With You(Vocal ver.)(Lv.2 Normal)"
+C;X3;K"kg0079.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K131
+C;Y52;X1;K"Audition"
+C;X2;K"With You(Vocal ver.)(Lv.3 Hard)"
+C;X3;K"kg0079.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K131
+C;Y53;X1;K"Audition"
+C;X2;K"With You(Vocal ver.)(Lv.4 Crazy)"
+C;X3;K"kg0079.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K4
+C;X11;K131
+C;Y54;X1;K"Audition"
+C;X2;K"With You(Guitar ver.)(Lv.1 Easy)"
+C;X3;K"kg0082.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K130
+C;Y55;X1;K"Audition"
+C;X2;K"With You(Guitar ver.)(Lv.2 Normal)"
+C;X3;K"kg0082.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K130
+C;Y56;X1;K"Audition"
+C;X2;K"With You(Guitar ver.)(Lv.3 Hard)"
+C;X3;K"kg0083.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K130
+C;Y57;X1;K"Audition"
+C;X2;K"With You(Guitar ver.)(Lv.4 Crazy)"
+C;X3;K"kg0083.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K130
+C;Y58;X1;K"Audition"
+C;X2;K"Symphony From The Rock World(Lv.1 Easy)"
+C;X3;K"kg0097.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K152
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K112
+C;Y59;X1;K"Audition"
+C;X2;K"Symphony From The Rock World(Lv.2 Normal)"
+C;X3;K"kg0097.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K152
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K112
+C;Y60;X1;K"Audition"
+C;X2;K"Symphony From The Rock World(Lv.3 Hard)"
+C;X3;K"kg0098.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K152
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K112
+C;Y61;X1;K"Audition"
+C;X2;K"Symphony From The Rock World(Lv.4 Crazy)"
+C;X3;K"kg0098.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K152
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K112
+C;Y62;X1;K"Audition"
+C;X2;K"Be Together in Your World(Lv.1 Easy)"
+C;X3;K"kg0104.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K109
+C;Y63;X1;K"Audition"
+C;X2;K"Be Together in Your World(Lv.2 Normal)"
+C;X3;K"kg0104.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K109
+C;Y64;X1;K"Audition"
+C;X2;K"Be Together in Your World(Lv.3 Hard)"
+C;X3;K"kg0105.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K109
+C;Y65;X1;K"Audition"
+C;X2;K"Bang!!(Lv.1 Easy)"
+C;X3;K"kg0107.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K200
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K181
+C;Y66;X1;K"Audition"
+C;X2;K"Bang!!(Lv.2 Normal)"
+C;X3;K"kg0107.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K200
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K181
+C;Y67;X1;K"Audition"
+C;X2;K"Bang!!(Lv.3 Hard)"
+C;X3;K"kg0108.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K200
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K181
+C;Y68;X1;K"Audition"
+C;X2;K"Bang!!(Lv.4 Crazy)"
+C;X3;K"kg0108.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K200
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K181
+C;Y69;X1;K"Audition"
+C;X2;K"Better(Lv.1 Easy)"
+C;X3;K"kg0109.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K165
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K130
+C;Y70;X1;K"Audition"
+C;X2;K"Better(Lv.2 Normal)"
+C;X3;K"kg0109.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K165
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K130
+C;Y71;X1;K"Audition"
+C;X2;K"Better(Lv.3 Hard)"
+C;X3;K"kg0110.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K165
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K130
+C;Y72;X1;K"Audition"
+C;X2;K"Better(Lv.4 Crazy)"
+C;X3;K"kg0110.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K165
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K130
+C;Y73;X1;K"Audition"
+C;X2;K"Father's Hands(Lv.1 Easy)"
+C;X3;K"kg0115.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K124
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K109
+C;Y74;X1;K"Audition"
+C;X2;K"Father's Hands(Lv.2 Normal)"
+C;X3;K"kg0115.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K124
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K109
+C;Y75;X1;K"Audition"
+C;X2;K"Father's Hands(Lv.3 Hard)"
+C;X3;K"kg0116.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K124
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K109
+C;Y76;X1;K"Audition"
+C;X2;K"Let's Dance(feat.Joe Brown)(Lv.1 Easy)"
+C;X3;K"kg0120.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K126
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K111
+C;Y77;X1;K"Audition"
+C;X2;K"Let's Dance(feat.Joe Brown)(Lv.2 Normal)"
+C;X3;K"kg0120.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K126
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K111
+C;Y78;X1;K"Audition"
+C;X2;K"Let's Dance(feat.Joe Brown)(Lv.3 Hard)"
+C;X3;K"kg0121.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K126
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K111
+C;Y79;X1;K"Audition"
+C;X2;K"Let's Dance(feat.Joe Brown)(Lv.4 Crazy)"
+C;X3;K"kg0121.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K126
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K111
+C;Y80;X1;K"Audition"
+C;X2;K"3(Lv.1 Easy)"
+C;X3;K"kg0122.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K108
+C;Y81;X1;K"Audition"
+C;X2;K"3(Lv.2 Normal)"
+C;X3;K"kg0122.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K108
+C;Y82;X1;K"Audition"
+C;X2;K"3(Lv.3 Hard)"
+C;X3;K"kg0122.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K108
+C;Y83;X1;K"Audition"
+C;X2;K"3(Lv.4 Crazy)"
+C;X3;K"kg0123.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K108
+C;Y84;X1;K"Audition"
+C;X2;K"Symphony No.40(Rock ver.)(Lv.1 Easy)"
+C;X3;K"kg0126.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K170
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K156
+C;Y85;X1;K"Audition"
+C;X2;K"Symphony No.40(Rock ver.)(Lv.2 Normal)"
+C;X3;K"kg0126.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K170
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K156
+C;Y86;X1;K"Audition"
+C;X2;K"Symphony No.40(Rock ver.)(Lv.3 Hard)"
+C;X3;K"kg0127.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K170
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K156
+C;Y87;X1;K"Audition"
+C;X2;K"Symphony No.40(Rock ver.)(Lv.4 Crazy)"
+C;X3;K"kg0127.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K170
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K156
+C;Y88;X1;K"Audition"
+C;X2;K"Sweden(Lv.1 Easy)"
+C;X3;K"kg0128.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K98
+C;Y89;X1;K"Audition"
+C;X2;K"Sweden(Lv.2 Normal)"
+C;X3;K"kg0128.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K98
+C;Y90;X1;K"Audition"
+C;X2;K"Sweden(Lv.3 Hard)"
+C;X3;K"kg0128.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K98
+C;Y91;X1;K"Audition"
+C;X2;K"Sweden(Lv.4 Crazy)"
+C;X3;K"kg0129.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K98
+C;Y92;X1;K"Audition"
+C;X2;K"Seoul Cat(Lv.1 Easy)"
+C;X3;K"kg0145.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K84
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K96
+C;Y93;X1;K"Audition"
+C;X2;K"Seoul Cat(Lv.2 Normal)"
+C;X3;K"kg0145.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K84
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K96
+C;Y94;X1;K"Audition"
+C;X2;K"Seoul Cat(Lv.3 Hard)"
+C;X3;K"kg0146.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K84
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K96
+C;Y95;X1;K"Audition"
+C;X2;K"Seoul Cat(Lv.4 Crazy)"
+C;X3;K"kg0146.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K84
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K96
+C;Y96;X1;K"Audition"
+C;X2;K"Strawbarry Jam(Lv.1 Easy)"
+C;X3;K"kg0150.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K188
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K178
+C;Y97;X1;K"Audition"
+C;X2;K"Strawbarry Jam(Lv.2 Normal)"
+C;X3;K"kg0150.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K188
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K178
+C;Y98;X1;K"Audition"
+C;X2;K"Strawbarry Jam(Lv.3 Hard)"
+C;X3;K"kg0151.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K188
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K178
+C;Y99;X1;K"Audition"
+C;X2;K"Strawbarry Jam(Lv.4 Crazy)"
+C;X3;K"kg0151.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K188
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K178
+C;Y100;X1;K"Audition"
+C;X2;K"Night Drive(Slow)(Lv.1 Easy)"
+C;X3;K"kg0152.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K99
+C;Y101;X1;K"Audition"
+C;X2;K"Night Drive(Slow)(Lv.2 Normal)"
+C;X3;K"kg0152.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K99
+C;Y102;X1;K"Audition"
+C;X2;K"Night Drive(Slow)(Lv.3 Hard)"
+C;X3;K"kg0153.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K99
+C;Y103;X1;K"Audition"
+C;X2;K"Night Drive(Slow)(Lv.4 Crazy)"
+C;X3;K"kg0153.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K99
+C;Y104;X1;K"Audition"
+C;X2;K"Night Drive(Lv.1 Easy)"
+C;X3;K"kg0154.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K232
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K196
+C;Y105;X1;K"Audition"
+C;X2;K"Night Drive(Lv.2 Normal)"
+C;X3;K"kg0154.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K232
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K196
+C;Y106;X1;K"Audition"
+C;X2;K"Night Drive(Lv.3 Hard)"
+C;X3;K"kg0155.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K232
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K196
+C;Y107;X1;K"Audition"
+C;X2;K"Night Drive(Lv.4 Crazy)"
+C;X3;K"kg0155.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K232
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K196
+C;Y108;X1;K"Audition"
+C;X2;K"Barbecue Party(Grand Mer OST)(Lv.1 Easy)"
+C;X3;K"kg0156.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K100
+C;Y109;X1;K"Audition"
+C;X2;K"Barbecue Party(Grand Mer OST)(Lv.2 Normal)"
+C;X3;K"kg0156.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K100
+C;Y110;X1;K"Audition"
+C;X2;K"Barbecue Party(Grand Mer OST)(Lv.3 Hard)"
+C;X3;K"kg0157.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K100
+C;Y111;X1;K"Audition"
+C;X2;K"Barbecue Party(Grand Mer OST)(Lv.4 Crazy)"
+C;X3;K"kg0157.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K100
+C;Y112;X1;K"Audition"
+C;X2;K"Muscular Man(Grand Mer OST)(Lv.1 Easy)"
+C;X3;K"kg0158.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K107
+C;Y113;X1;K"Audition"
+C;X2;K"Muscular Man(Grand Mer OST)(Lv.2 Normal)"
+C;X3;K"kg0158.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K107
+C;Y114;X1;K"Audition"
+C;X2;K"Muscular Man(Grand Mer OST)(Lv.3 Hard)"
+C;X3;K"kg0159.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K107
+C;Y115;X1;K"Audition"
+C;X2;K"Muscular Man(Grand Mer OST)(Lv.4 Crazy)"
+C;X3;K"kg0159.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K107
+C;Y116;X1;K"12Moments"
+C;X2;K"Goodbye(Lv.1 Easy)"
+C;X3;K"kg0160.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K157
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K143
+C;Y117;X1;K"12Moments"
+C;X2;K"Goodbye(Lv.2 Normal)"
+C;X3;K"kg0160.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K157
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K143
+C;Y118;X1;K"12Moments"
+C;X2;K"Goodbye(Lv.3 Hard)"
+C;X3;K"kg0161.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K157
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K143
+C;Y119;X1;K"12Moments"
+C;X2;K"Goodbye(Lv.4 Crazy)"
+C;X3;K"kg0161.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K157
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K143
+C;Y120;X1;K"12Moments"
+C;X2;K"Way Back(Lv.1 Easy)"
+C;X3;K"kg0162.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K151
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K158
+C;Y121;X1;K"12Moments"
+C;X2;K"Way Back(Lv.2 Normal)"
+C;X3;K"kg0162.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K151
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K158
+C;Y122;X1;K"12Moments"
+C;X2;K"Way Back(Lv.3 Hard)"
+C;X3;K"kg0163.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K151
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K158
+C;Y123;X1;K"12Moments"
+C;X2;K"Way Back(Lv.4 Crazy)"
+C;X3;K"kg0163.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K151
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K158
+C;Y124;X1;K"Taeha"
+C;X2;K"Kiss & Cry(Lv.1 Easy)"
+C;X3;K"kg0137.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K92
+C;Y125;X1;K"Taeha"
+C;X2;K"Kiss & Cry(Lv.2 Normal)"
+C;X3;K"kg0137.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K92
+C;Y126;X1;K"Taeha"
+C;X2;K"Kiss & Cry(Lv.3 Hard)"
+C;X3;K"kg0138.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K92
+C;Y127;X1;K"Taeha"
+C;X2;K"Kiss & Cry(Lv.4 Crazy)"
+C;X3;K"kg0138.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K92
+C;Y128;X1;K"Day break"
+C;X2;K"Honey Delivery(Lv.1 Easy)"
+C;X3;K"kg0095.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K112
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K1
+C;X11;K84
+C;Y129;X1;K"Day break"
+C;X2;K"Honey Delivery(Lv.2 Normal)"
+C;X3;K"kg0095.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K112
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K2
+C;X11;K84
+C;Y130;X1;K"Day break"
+C;X2;K"Honey Delivery(Lv.3 Hard)"
+C;X3;K"kg0096.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K112
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K3
+C;X11;K84
+C;Y131;X1;K"Day break"
+C;X2;K"Honey Delivery(Lv.4 Crazy)"
+C;X3;K"kg0096.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K112
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K4
+C;X11;K84
+C;Y132;X1;K"Go Go Boys"
+C;X2;K"Stand Up!(Lv.1 Easy)"
+C;X3;K"kg0067.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K96
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K1
+C;X11;K91
+C;Y133;X1;K"Go Go Boys"
+C;X2;K"Stand Up!(Lv.2 Normal)"
+C;X3;K"kg0067.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K96
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K2
+C;X11;K91
+C;Y134;X1;K"Go Go Boys"
+C;X2;K"Stand Up!(Lv.3 Hard)"
+C;X3;K"kg0067.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K96
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K3
+C;X11;K91
+C;Y135;X1;K"Rb. Duke"
+C;X2;K"Rhythm(Lv.1 Easy)"
+C;X3;K"kg0166.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K1
+C;X11;K79
+C;Y136;X1;K"Rb. Duke"
+C;X2;K"Rhythm(Lv.2 Normal)"
+C;X3;K"kg0166.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K2
+C;X11;K79
+C;Y137;X1;K"Rb. Duke"
+C;X2;K"Rhythm(Lv.3 Hard)"
+C;X3;K"kg0166.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K3
+C;X11;K79
+C;Y138;X1;K"Alice"
+C;X2;K"Can't You See easy(Lv.1 Easy)"
+C;X3;K"kg0165.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K125
+C;Y139;X1;K"Alice"
+C;X2;K"Can't You See easy(Lv.2 Normal)"
+C;X3;K"kg0165.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K125
+C;Y140;X1;K"Alice"
+C;X2;K"Can't You See easy(Lv.3 Hard)"
+C;X3;K"kg0165.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K125
+C;Y141;X1;K"Ch. DK"
+C;X2;K"Turkish March(Lv.1 Easy)"
+C;X3;K"kg0167.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K145
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K99
+C;Y142;X1;K"Ch. DK"
+C;X2;K"Turkish March(Lv.2 Normal)"
+C;X3;K"kg0167.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K145
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K99
+C;Y143;X1;K"Ch. DK"
+C;X2;K"Turkish March(Lv.3 Hard)"
+C;X3;K"kg0167.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K145
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K99
+C;Y144;X1;K"Ch. DK"
+C;X2;K"Turkish March(Lv.4 Crazy)"
+C;X3;K"kg0167.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K145
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K99
+C;Y145;X1;K"Spicy Soda"
+C;X2;K"My Love(Lv.1 Easy)"
+C;X3;K"kg0046.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K160
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K123
+C;Y146;X1;K"Spicy Soda"
+C;X2;K"My Love(Lv.2 Normal)"
+C;X3;K"kg0046.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K160
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K123
+C;Y147;X1;K"Spicy Soda"
+C;X2;K"My Love(Lv.3 Hard)"
+C;X3;K"kg0046.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K160
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K123
+C;Y148;X1;K"Spicy Soda"
+C;X2;K"My Love(Lv.4 Crazy)"
+C;X3;K"kg0046.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K160
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K123
+C;Y149;X1;K"Super Kidd"
+C;X2;K"Please Don't Say Goodbye(Lv.1 Easy)"
+C;X3;K"kg0139.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K84.599999999999994
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K73
+C;Y150;X1;K"Super Kidd"
+C;X2;K"Please Don't Say Goodbye(Lv.2 Normal)"
+C;X3;K"kg0139.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K84.599999999999994
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K73
+C;Y151;X1;K"Super Kidd"
+C;X2;K"Please Don't Say Goodbye(Lv.3 Hard)"
+C;X3;K"kg0139.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K84.599999999999994
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K73
+C;Y152;X1;K"Super Kidd"
+C;X2;K"Music Show(Lv.1 Easy)"
+C;X3;K"kg0047.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K1
+C;X11;K107
+C;Y153;X1;K"Super Kidd"
+C;X2;K"Music Show(Lv.2 Normal)"
+C;X3;K"kg0047.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K2
+C;X11;K107
+C;Y154;X1;K"Super Kidd"
+C;X2;K"Music Show(Lv.3 Hard)"
+C;X3;K"kg0047.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K3
+C;X11;K107
+C;Y155;X1;K"BellaMafia"
+C;X2;K"BellaMafia (Band ver.)(Lv.1 Easy)"
+C;X3;K"kg0049.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K132
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K1
+C;X11;K108
+C;Y156;X1;K"BellaMafia"
+C;X2;K"BellaMafia (Band ver.)(Lv.2 Normal)"
+C;X3;K"kg0049.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K132
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K2
+C;X11;K108
+C;Y157;X1;K"BellaMafia"
+C;X2;K"BellaMafia (Band ver.)(Lv.3 Hard)"
+C;X3;K"kg0049.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K132
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K3
+C;X11;K108
+C;Y158;X1;K"Super Kidd"
+C;X2;K"RockStar(Lv.1 Easy)"
+C;X3;K"kg0053.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K1
+C;X11;K108
+C;Y159;X1;K"MixMatch"
+C;X2;K"Sweetday(Lv.1 Easy)"
+C;X3;K"kg0080.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K96
+C;Y160;X1;K"MixMatch"
+C;X2;K"Sweetday(Lv.2 Normal)"
+C;X3;K"kg0081.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K96
+C;Y161;X1;K"MixMatch"
+C;X2;K"Sweetday(Lv.3 Hard)"
+C;X3;K"kg0081.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K96
+C;Y162;X1;K"Go Go Boys"
+C;X2;K"I like You(Lv.1 Easy)"
+C;X3;K"kg0084.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K1
+C;X11;K99
+C;Y163;X1;K"Go Go Boys"
+C;X2;K"I like You(Lv.2 Normal)"
+C;X3;K"kg0084.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K2
+C;X11;K99
+C;Y164;X1;K"Go Go Boys"
+C;X2;K"I like You(Lv.3 Hard)"
+C;X3;K"kg0084.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K3
+C;X11;K99
+C;Y165;X1;K"Go Go Boys"
+C;X2;K"Jump Around(Lv.1 Easy)"
+C;X3;K"kg0085.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K102
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K1
+C;X11;K93
+C;Y166;X1;K"Go Go Boys"
+C;X2;K"Jump Around(Lv.2 Normal)"
+C;X3;K"kg0085.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K102
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K2
+C;X11;K93
+C;Y167;X1;K"Go Go Boys"
+C;X2;K"Jump Around(Lv.3 Hard)"
+C;X3;K"kg0085.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K102
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K3
+C;X11;K93
+C;Y168;X1;K"Super Kidd"
+C;X2;K"Dance Dance(Lv.1 Easy)"
+C;X3;K"kg0086.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K108
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K1
+C;X11;K97
+C;Y169;X1;K"Super Kidd"
+C;X2;K"Dance Dance(Lv.2 Normal)"
+C;X3;K"kg0086.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K108
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K2
+C;X11;K97
+C;Y170;X1;K"Super Kidd"
+C;X2;K"Dance Dance(Lv.3 Hard)"
+C;X3;K"kg0086.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K108
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K3
+C;X11;K97
+C;Y171;X1;K"Audition"
+C;X2;K"Christmas Party (Eric's Cover)(Lv.1 Easy)"
+C;X3;K"tg0000.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K166
+C;Y172;X1;K"Audition"
+C;X2;K"Christmas Party (Eric's Cover)(Lv.2 Normal)"
+C;X3;K"tg0000.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K166
+C;Y173;X1;K"Audition"
+C;X2;K"Christmas Party (Eric's Cover)(Lv.3 Hard)"
+C;X3;K"tg0000.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K166
+C;Y174;X1;K"Audition"
+C;X2;K"Christmas Party (Eric's Cover)(Lv.4 Crazy)"
+C;X3;K"tg0000.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K166
+C;Y175;X1;K"Audition"
+C;X2;K"You (Phil's Cover)(Lv.1 Easy)"
+C;X3;K"tg0001.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K136
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K141
+C;Y176;X1;K"Audition"
+C;X2;K"You (Phil's Cover)(Lv.2 Normal)"
+C;X3;K"tg0001.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K136
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K141
+C;Y177;X1;K"Audition"
+C;X2;K"You (Phil's Cover)(Lv.3 Hard)"
+C;X3;K"tg0002.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K136
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K141
+C;Y178;X1;K"Audition"
+C;X2;K"You (Phil's Cover)(Lv.4 Crazy)"
+C;X3;K"tg0002.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K136
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K141
+C;Y179;X1;K"Audition"
+C;X2;K"Sweetie (Eric's Cover)(Lv.1 Easy)"
+C;X3;K"tg0003.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K89
+C;Y180;X1;K"Audition"
+C;X2;K"Sweetie (Eric's Cover)(Lv.2 Normal)"
+C;X3;K"tg0003.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K89
+C;Y181;X1;K"Audition"
+C;X2;K"Sweetie (Eric's Cover)(Lv.3 Hard)"
+C;X3;K"tg0003.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K89
+C;Y182;X1;K"Audition"
+C;X2;K"Sweetie (Eric's Cover)(Lv.4 Crazy)"
+C;X3;K"tg0003.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K89
+C;Y183;X1;K"Audition"
+C;X2;K"Diet (Guitar ver.)(Lv.1 Easy)"
+C;X3;K"tg0004.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K128
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K120
+C;Y184;X1;K"Audition"
+C;X2;K"Diet (Guitar ver.)(Lv.2 Normal)"
+C;X3;K"tg0004.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K128
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K120
+C;Y185;X1;K"Audition"
+C;X2;K"Diet (Guitar ver.)(Lv.3 Hard)"
+C;X3;K"tg0004.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K128
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K120
+C;Y186;X1;K"Audition"
+C;X2;K"Diet (Guitar ver.)(Lv.4 Crazy)"
+C;X3;K"tg0004.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K128
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K120
+C;Y187;X1;K"Audition"
+C;X2;K"Ur Ma Angel (Guitar ver.)(Lv.1 Easy)"
+C;X3;K"tg0005.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K111
+C;Y188;X1;K"Audition"
+C;X2;K"Ur Ma Angel (Guitar ver.)(Lv.2 Normal)"
+C;X3;K"tg0005.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K111
+C;Y189;X1;K"Audition"
+C;X2;K"Ur Ma Angel (Guitar ver.)(Lv.3 Hard)"
+C;X3;K"tg0006.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K111
+C;Y190;X1;K"Audition"
+C;X2;K"Ur Ma Angel (Guitar ver.)(Lv.4 Crazy)"
+C;X3;K"tg0006.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K111
+C;Y191;X1;K"Audition"
+C;X2;K"A Little (Guitar ver.)(Lv.1 Easy)"
+C;X3;K"tg0007.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K122
+C;Y192;X1;K"Audition"
+C;X2;K"A Little (Guitar ver.)(Lv.2 Normal)"
+C;X3;K"tg0007.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K122
+C;Y193;X1;K"Audition"
+C;X2;K"A Little (Guitar ver.)(Lv.3 Hard)"
+C;X3;K"tg0007.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K122
+C;Y194;X1;K"Audition"
+C;X2;K"A Little (Guitar ver.)(Lv.4 Crazy)"
+C;X3;K"tg0007.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K122
+C;Y195;X1;K"Audition"
+C;X2;K"Like a Fool (Phil's Cover)(Lv.1 Easy)"
+C;X3;K"tg0008.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K133
+C;Y196;X1;K"Audition"
+C;X2;K"Like a Fool (Phil's Cover)(Lv.2 Normal)"
+C;X3;K"tg0008.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K133
+C;Y197;X1;K"Audition"
+C;X2;K"Like a Fool (Phil's Cover)(Lv.3 Hard)"
+C;X3;K"tg0009.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K133
+C;Y198;X1;K"Audition"
+C;X2;K"Like a Fool (Phil's Cover)(Lv.4 Crazy)"
+C;X3;K"tg0009.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K133
+C;Y199;X1;K"Audition"
+C;X2;K"Don't Give Up (Phil's Cover)(Lv.1 Easy)"
+C;X3;K"tg0010.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K84
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K97
+C;Y200;X1;K"Audition"
+C;X2;K"Don't Give Up (Phil's Cover)(Lv.2 Normal)"
+C;X3;K"tg0010.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K84
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K97
+C;Y201;X1;K"Audition"
+C;X2;K"Don't Give Up (Phil's Cover)(Lv.3 Hard)"
+C;X3;K"tg0010.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K84
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K97
+C;Y202;X1;K"Audition"
+C;X2;K"Don't Give Up (Phil's Cover)(Lv.4 Crazy)"
+C;X3;K"tg0010.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K84
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K97
+C;Y203;X1;K"Audition"
+C;X2;K"Driving At Night (Guitar ver.)(Lv.1 Easy)"
+C;X3;K"tg0011.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K196
+C;Y204;X1;K"Audition"
+C;X2;K"Driving At Night (Guitar ver.)(Lv.2 Normal)"
+C;X3;K"tg0011.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K196
+C;Y205;X1;K"Audition"
+C;X2;K"Driving At Night (Guitar ver.)(Lv.3 Hard)"
+C;X3;K"tg0011.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K196
+C;Y206;X1;K"Audition"
+C;X2;K"Driving At Night (Guitar ver.)(Lv.4 Crazy)"
+C;X3;K"tg0011.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K196
+C;Y207;X1;K"Audition"
+C;X2;K"One Step (Phil's Cover)(Lv.1 Easy)"
+C;X3;K"tg0012.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K100
+C;Y208;X1;K"Audition"
+C;X2;K"One Step (Phil's Cover)(Lv.2 Normal)"
+C;X3;K"tg0012.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K100
+C;Y209;X1;K"Audition"
+C;X2;K"One Step (Phil's Cover)(Lv.3 Hard)"
+C;X3;K"tg0012.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K100
+C;Y210;X1;K"Audition"
+C;X2;K"One Step (Phil's Cover)(Lv.4 Crazy)"
+C;X3;K"tg0012.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K100
+C;Y211;X1;K"Audition"
+C;X2;K"Listen (Phil's Cover)(Lv.1 Easy)"
+C;X3;K"tg0013.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K98
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K87
+C;Y212;X1;K"Audition"
+C;X2;K"Listen (Phil's Cover)(Lv.2 Normal)"
+C;X3;K"tg0013.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K98
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K87
+C;Y213;X1;K"Audition"
+C;X2;K"Listen (Phil's Cover)(Lv.3 Hard)"
+C;X3;K"tg0014.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K98
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K87
+C;Y214;X1;K"Audition"
+C;X2;K"Listen (Phil's Cover)(Lv.4 Crazy)"
+C;X3;K"tg0014.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K98
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K87
+C;Y215;X1;K"Audition"
+C;X2;K"Wedding Party (Eric's Cover)(Lv.1 Easy)"
+C;X3;K"tg0015.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K124
+C;Y216;X1;K"Audition"
+C;X2;K"Wedding Party (Eric's Cover)(Lv.2 Normal)"
+C;X3;K"tg0015.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K124
+C;Y217;X1;K"Audition"
+C;X2;K"Wedding Party (Eric's Cover)(Lv.3 Hard)"
+C;X3;K"tg0015.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K124
+C;Y218;X1;K"Audition"
+C;X2;K"Wedding Party (Eric's Cover)(Lv.4 Crazy)"
+C;X3;K"tg0015.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K124
+C;Y219;X1;K"Audition"
+C;X2;K"Everyday (Phil's Cover)(Lv.1 Easy)"
+C;X3;K"tg0016.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K175
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K162
+C;Y220;X1;K"Audition"
+C;X2;K"Everyday (Phil's Cover)(Lv.2 Normal)"
+C;X3;K"tg0016.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K175
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K162
+C;Y221;X1;K"Audition"
+C;X2;K"Everyday (Phil's Cover)(Lv.3 Hard)"
+C;X3;K"tg0016.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K175
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K162
+C;Y222;X1;K"Audition"
+C;X2;K"Everyday (Phil's Cover)(Lv.4 Crazy)"
+C;X3;K"tg0016.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K175
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K162
+C;Y223;X1;K"Audition"
+C;X2;K"Thank You Kindly(Lv.1 Easy)"
+C;X3;K"tg0017.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K90
+C;Y224;X1;K"Audition"
+C;X2;K"Thank You Kindly(Lv.2 Normal)"
+C;X3;K"tg0017.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K90
+C;Y225;X1;K"Audition"
+C;X2;K"Thank You Kindly(Lv.3 Hard)"
+C;X3;K"tg0018.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K90
+C;Y226;X1;K"Audition"
+C;X2;K"Thank You Kindly(Lv.4 Crazy)"
+C;X3;K"tg0018.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K90
+C;Y227;X1;K"Cool"
+C;X2;K"Aloha (Phil's Cover)(Lv.1 Easy)"
+C;X3;K"tg0019.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K101.06
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K110
+C;Y228;X1;K"Cool"
+C;X2;K"Aloha (Phil's Cover)(Lv.2 Normal)"
+C;X3;K"tg0019.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K101.06
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K110
+C;Y229;X1;K"Cool"
+C;X2;K"Aloha (Phil's Cover)(Lv.3 Hard)"
+C;X3;K"tg0020.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K101.06
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K110
+C;Y230;X1;K"Cool"
+C;X2;K"Aloha (Phil's Cover)(Lv.4 Crazy)"
+C;X3;K"tg0020.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K101.06
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K110
+C;Y231;X1;K"Grand Chase OST"
+C;X2;K"Hope (Rock ver.)(Wingkx4's Cover)(Lv.1 Easy)"
+C;X3;K"tg0021.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K122
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K122
+C;Y232;X1;K"Grand Chase OST"
+C;X2;K"Hope (Rock ver.)(Wingkx4's Cover)(Lv.2 Normal)"
+C;X3;K"tg0021.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K122
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K122
+C;Y233;X1;K"Grand Chase OST"
+C;X2;K"Hope (Rock ver.)(Wingkx4's Cover)(Lv.3 Hard)"
+C;X3;K"tg0021.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K122
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K122
+C;Y234;X1;K"Grand Chase OST"
+C;X2;K"Hope (Rock ver.)(Wingkx4's Cover)(Lv.4 Crazy)"
+C;X3;K"tg0021.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K122
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K122
+C;Y235;X1;K"Neko Jump"
+C;X2;K"จุ๊บ จุ๊บ (Phil's Cover) (Lv.1 Easy)"
+C;X3;K"tg0022.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K128
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K116
+C;Y236;X1;K"Neko Jump"
+C;X2;K"จุ๊บ จุ๊บ (Phil's Cover) (Lv.2 Normal)"
+C;X3;K"tg0022.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K128
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K116
+C;Y237;X1;K"Neko Jump"
+C;X2;K"จุ๊บ จุ๊บ (Phil's Cover) (Lv.3 Hard)"
+C;X3;K"tg0022.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K128
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K116
+C;Y238;X1;K"Neko Jump"
+C;X2;K"จุ๊บ จุ๊บ (Phil's Cover) (Lv.4 Crazy)"
+C;X3;K"tg0022.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K128
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K116
+C;Y239;X1;K"Tilly Birds"
+C;X2;K"ผู้เดียว (The One) (Lv.1 Easy)"
+C;X3;K"tg0033.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K123
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K172
+C;Y240;X1;K"Tilly Birds"
+C;X2;K"ผู้เดียว (The One) (Lv.2 Normal)"
+C;X3;K"tg0033.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K123
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K172
+C;Y241;X1;K"Tilly Birds"
+C;X2;K"ผู้เดียว (The One) (Lv.3 Hard)"
+C;X3;K"tg0033.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K123
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K172
+C;Y242;X1;K"Anime Song"
+C;X2;K"Samurai Heart (Some Like It Hot!!) (Lv.4 Crazy)"
+C;X3;K"tg0023.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K113
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K92
+C;Y243;X1;K"CLASH"
+C;X2;K"ยิ้มเข้าไว้ (Lv.1 Easy)"
+C;X3;K"tg0024.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K137
+C;Y244;X1;K"CLASH"
+C;X2;K"ยิ้มเข้าไว้ (Lv.2 Normal)"
+C;X3;K"tg0024.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K137
+C;Y245;X1;K"CLASH"
+C;X2;K"ยิ้มเข้าไว้ (Lv.3 Hard)"
+C;X3;K"tg0024.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K137
+C;Y246;X1;K"Paper Planes"
+C;X2;K"เสแสร้ง (Pretend) (Feat. MOON) (Lv.1 Easy)"
+C;X3;K"tg0025.tbm"
+C;X4;K3
+C;X5;K0
+C;X6;K80
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K75
+C;Y247;X1;K"Paper Planes"
+C;X2;K"เสแสร้ง (Pretend) (Feat. MOON) (Lv.2 Normal)"
+C;X3;K"tg0025.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K160
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K150
+C;Y248;X1;K"Paper Planes"
+C;X2;K"เสแสร้ง (Pretend) (Feat. MOON) (Lv.3 Hard)"
+C;X3;K"tg0025.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K160
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K150
+C;Y249;X1;K"Potato"
+C;X2;K"ขอบคุณที่รักกัน (Lv.1 Easy)"
+C;X3;K"tg0026.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K118
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K118
+C;Y250;X1;K"Potato"
+C;X2;K"ขอบคุณที่รักกัน (Lv.2 Normal)"
+C;X3;K"tg0026.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K118
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K118
+C;Y251;X1;K"Potato"
+C;X2;K"ขอบคุณที่รักกัน (Lv.3 Hard)"
+C;X3;K"tg0026.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K118
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K118
+C;Y252;X1;K"Potato"
+C;X2;K"ขอบคุณที่รักกัน (Lv.4 Crazy)"
+C;X3;K"tg0026.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K118
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K118
+C;Y253;X1;K"Potato"
+C;X2;K"เพียงพอ (Lv.4 Crazy)"
+C;X3;K"tg0027.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K134
+C;Y254;X1;K"Anime Song"
+C;X2;K"Kyouran Hey Kids!! (Lv.4 Crazy)"
+C;X3;K"tg0028.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K142
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K156
+C;Y255;X1;K"SILLY FOOLS"
+C;X2;K"ขี้หึง (Lv.3 Hard)"
+C;X3;K"tg0029.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K134
+C;Y256;X1;K"TaitosmitH"
+C;X2;K"นักเลงเก่า (Feat. D GERRARD) (Lv.4 Crazy)"
+C;X3;K"tg0030.tbm"
+C;X4;K11
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K172
+C;Y257;X1;K"Anime Song"
+C;X2;K"Like Flames(Lv.1 Easy)"
+C;X3;K"tg0031.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K175
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K191
+C;Y258;X1;K"Anime Song"
+C;X2;K"Like Flames(Lv.2 Normal)"
+C;X3;K"tg0031.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K175
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K191
+C;Y259;X1;K"Anime Song"
+C;X2;K"Like Flames(Lv.3 Hard)"
+C;X3;K"tg0031.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K175
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K191
+C;Y260;X1;K"Anime Song"
+C;X2;K"Like Flames(Lv.4 Crazy)"
+C;X3;K"tg0031.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K175
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K191
+C;Y261;X1;K"Audition"
+C;X2;K"Can Can (Guitar ver.) (Lv.1 Easy)"
+C;X3;K"tg0032.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K143
+C;Y262;X1;K"Audition"
+C;X2;K"Can Can (Guitar ver.) (Lv.2 Normal)"
+C;X3;K"tg0032.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K143
+C;Y263;X1;K"Audition"
+C;X2;K"Can Can (Guitar ver.) (Lv.3 Hard)"
+C;X3;K"tg0032.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K143
+C;Y264;X1;K"Audition"
+C;X2;K"Can Can (Guitar ver.) (Lv.4 Crazy)"
+C;X3;K"tg0032.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K143
+C;Y265;X1;K"Audition"
+C;X2;K"It's Alright (Guitar ver.) (Lv.1 Easy)"
+C;X3;K"tg0034.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K112
+C;Y266;X1;K"Audition"
+C;X2;K"It's Alright (Guitar ver.) (Lv.2 Normal)"
+C;X3;K"tg0034.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K112
+C;Y267;X1;K"Audition"
+C;X2;K"It's Alright (Guitar ver.) (Lv.3 Hard)"
+C;X3;K"tg0034.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K112
+C;Y268;X1;K"Audition"
+C;X2;K"It's Alright (Guitar ver.) (Lv.4 Crazy)"
+C;X3;K"tg0034.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K112
+C;Y269;X1;K"International Song"
+C;X2;K"Senorita (Lv.1 Easy)"
+C;X3;K"tg0035.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K117
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K94
+C;Y270;X1;K"International Song"
+C;X2;K"Senorita (Lv.2 Normal)"
+C;X3;K"tg0035.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K117
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K94
+C;Y271;X1;K"International Song"
+C;X2;K"Senorita (Lv.3 Hard)"
+C;X3;K"tg0035.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K117
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K94
+C;Y272;X1;K"pinyin"
+C;X2;K"xue mao jiao (Phil's Cover) (Lv.1 Easy)"
+C;X3;K"tg0036.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K103
+C;Y273;X1;K"pinyin"
+C;X2;K"xue mao jiao (Phil's Cover) (Lv.2 Normal)"
+C;X3;K"tg0036.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K103
+C;Y274;X1;K"pinyin"
+C;X2;K"xue mao jiao (Phil's Cover) (Lv.3 Hard)"
+C;X3;K"tg0037.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K103
+C;Y275;X1;K"pinyin"
+C;X2;K"xue mao jiao (Phil's Cover) (Lv.4 Crazy)"
+C;X3;K"tg0037.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K115
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K103
+C;Y276;X1;K"Cool"
+C;X2;K"Already Now (Phil's Cover) (Lv.1 Easy)"
+C;X3;K"tg0038.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K78
+C;Y277;X1;K"Cool"
+C;X2;K"Already Now (Phil's Cover)(Lv.2 Normal)"
+C;X3;K"tg0038.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K78
+C;Y278;X1;K"Cool"
+C;X2;K"Already Now (Phil's Cover) (Lv.3 Hard)"
+C;X3;K"tg0038.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K78
+C;Y279;X1;K"Cool"
+C;X2;K"Already Now (Phil's Cover) (Lv.4 Crazy)"
+C;X3;K"tg0039.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K78
+C;Y280;X1;K"Three Man Down"
+C;X2;K"ปล่อยให้เวลา(Lv.1 Easy)"
+C;X3;K"tg0040.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K90
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K71
+C;Y281;X1;K"Three Man Down"
+C;X2;K"ปล่อยให้เวลา(Lv.2 Normal)"
+C;X3;K"tg0040.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K90
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K71
+C;Y282;X1;K"Three Man Down"
+C;X2;K"ปล่อยให้เวลา(Lv.3 Hard)"
+C;X3;K"tg0040.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K90
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K71
+C;Y283;X1;K"Paper Planes"
+C;X2;K"ทรงอย่างแบด (Bad Boy) (Lv.3 Hard)"
+C;X3;K"tg0041.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K166
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K148
+C;Y284;X1;K"Potato"
+C;X2;K"เพียงพอ (Lv.1 Easy)"
+C;X3;K"tg0027.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K134
+C;Y285;X1;K"Potato"
+C;X2;K"เพียงพอ (Lv.2 Normal)"
+C;X3;K"tg0027.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K134
+C;Y286;X1;K"Potato"
+C;X2;K"เพียงพอ (Lv.3 Hard)"
+C;X3;K"tg0027.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K134
+C;Y287;X1;K"Anime Song"
+C;X2;K"PAPERMOON(Lv.1 Easy)"
+C;X3;K"tg0042.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K164
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K187
+C;Y288;X1;K"Anime Song"
+C;X2;K"PAPERMOON(Lv.2 Normal)"
+C;X3;K"tg0042.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K164
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K187
+C;Y289;X1;K"Anime Song"
+C;X2;K"PAPERMOON(Lv.3 Hard)"
+C;X3;K"tg0042.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K164
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K187
+C;Y290;X1;K"Anime Song"
+C;X2;K"PAPERMOON(Lv.4 Crazy)"
+C;X3;K"tg0042.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K164
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K187
+C;Y291;X1;K"Audition"
+C;X2;K"You're Already Gone (Phil's Cover) (Lv.1 Easy)"
+C;X3;K"tg0043.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K134
+C;Y292;X1;K"Audition"
+C;X2;K"You're Already Gone (Phil's Cover) (Lv.2 Normal)"
+C;X3;K"tg0043.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K134
+C;Y293;X1;K"Audition"
+C;X2;K"You're Already Gone (Phil's Cover) (Lv.3 Hard)"
+C;X3;K"tg0044.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K134
+C;Y294;X1;K"Audition"
+C;X2;K"You're Already Gone (Phil's Cover) (Lv.4 Crazy)"
+C;X3;K"tg0044.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K134
+C;Y295;X1;K"Audition"
+C;X2;K"I'll Be Very Good To You (Phil's Cover) (Lv.1 Easy)"
+C;X3;K"tg0045.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K120
+C;Y296;X1;K"Audition"
+C;X2;K"I'll Be Very Good To You (Phil's Cover) (Lv.2 Normal)"
+C;X3;K"tg0045.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K120
+C;Y297;X1;K"Audition"
+C;X2;K"I'll Be Very Good To You (Phil's Cover) (Lv.3 Hard)"
+C;X3;K"tg0046.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K120
+C;Y298;X1;K"Audition"
+C;X2;K"I'll Be Very Good To You (Phil's Cover) (Lv.4 Crazy)"
+C;X3;K"tg0046.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K120
+C;Y299;X1;K"Audition"
+C;X2;K"No Space (Guitar ver.) (Lv.1 Easy)"
+C;X3;K"tg0047.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K138
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K129
+C;Y300;X1;K"Audition"
+C;X2;K"No Space (Guitar ver.) (Lv.2 Normal)"
+C;X3;K"tg0047.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K138
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K129
+C;Y301;X1;K"Audition"
+C;X2;K"No Space (Guitar ver.) (Lv.3 Hard)"
+C;X3;K"tg0047.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K138
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K129
+C;Y302;X1;K"Audition"
+C;X2;K"In The Groove (Guitar ver.) (Lv.1 Easy)"
+C;X3;K"tg0048.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K117
+C;Y303;X1;K"Audition"
+C;X2;K"In The Groove (Guitar ver.) (Lv.2 Normal)"
+C;X3;K"tg0048.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K117
+C;Y304;X1;K"Audition"
+C;X2;K"In The Groove (Guitar ver.) (Lv.3 Hard)"
+C;X3;K"tg0048.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K120
+C;Y305;X1;K"International Song"
+C;X2;K"10,000 Hours (Lv.1 Easy)"
+C;X3;K"tg0049.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K90.129000000000005
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K66
+C;Y306;X1;K"International Song"
+C;X2;K"10,000 Hours (Lv.2 Normal)"
+C;X3;K"tg0049.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K90.129000000000005
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K66
+C;Y307;X1;K"International Song"
+C;X2;K"10,000 Hours (Lv.3 Hard)"
+C;X3;K"tg0049.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K90.129000000000005
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K66
+C;Y308;X1;K"International Song"
+C;X2;K"Left and Right (Lv.1 Easy)"
+C;X3;K"tg0050.tbm"
+C;X4;K5
+C;X5;K-1
+C;X6;K100.992
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K67
+C;Y309;X1;K"International Song"
+C;X2;K"Left and Right (Lv.2 Normal)"
+C;X3;K"tg0050.tbm"
+C;X4;K5
+C;X5;K-1
+C;X6;K100.992
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K67
+C;Y310;X1;K"International Song"
+C;X2;K"Left and Right (Lv.3 Hard)"
+C;X3;K"tg0050.tbm"
+C;X4;K5
+C;X5;K-1
+C;X6;K100.992
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K67
+C;Y311;X1;K"Anime Song"
+C;X2;K"Rolling Star (Lv.1 Easy)"
+C;X3;K"tg0051.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K161
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K132
+C;Y312;X1;K"Anime Song"
+C;X2;K"Rolling Star (Lv.2 Normal)"
+C;X3;K"tg0051.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K161
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K132
+C;Y313;X1;K"Anime Song"
+C;X2;K"Rolling Star (Lv.3 Hard)"
+C;X3;K"tg0051.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K161
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K132
+C;Y314;X1;K"Anime Song"
+C;X2;K"Rolling Star (Lv.4 Crazy)"
+C;X3;K"tg0051.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K161
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K132
+C;Y315;X1;K"Anime Song"
+C;X2;K"veil (Lv.3 Hard)"
+C;X3;K"tg0052.tbm"
+C;X4;K9
+C;X5;K1
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K131
+C;Y316;X1;K"Anime Song"
+C;X2;K"Centimeter (Lv.4 Crazy)"
+C;X3;K"tg0053.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K136
+C;Y317;X1;K"Anime Song"
+C;X2;K"veil (Lv.1 Easy)"
+C;X3;K"tg0052.tbm"
+C;X4;K9
+C;X5;K1
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K131
+C;Y318;X1;K"Anime Song"
+C;X2;K"veil (Lv.2 Normal)"
+C;X3;K"tg0052.tbm"
+C;X4;K9
+C;X5;K1
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K131
+C;Y319;X1;K"CLASH"
+C;X2;K"It's Gonna Be Ok (Lv.1 Easy)"
+C;X3;K"tg0054.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K147
+C;Y320;X1;K"CLASH"
+C;X2;K"It's Gonna Be Ok (Lv.2 Normal)"
+C;X3;K"tg0054.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K147
+C;Y321;X1;K"CLASH"
+C;X2;K"It's Gonna Be Ok (Lv.3 Hard)"
+C;X3;K"tg0054.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K147
+C;Y322;X1;K"CLASH"
+C;X2;K"It's Gonna Be Ok (Lv.4 Crazy)"
+C;X3;K"tg0054.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K147
+C;Y323;X1;K"Korean Song"
+C;X2;K"Everytime (newAlive's Cover) (Lv.1 Easy)"
+C;X3;K"tg0055.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K90
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K71
+C;Y324;X1;K"Korean Song"
+C;X2;K"Everytime (newAlive's Cover) (Lv.2 Normal)"
+C;X3;K"tg0055.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K90
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K71
+C;Y325;X1;K"Korean Song"
+C;X2;K"Everytime (newAlive's Cover) (Lv.3 Hard)"
+C;X3;K"tg0055.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K90
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K71
+C;Y326;X1;K"Korean Song"
+C;X2;K"Everytime (newAlive's Cover) (Lv.4 Crazy)"
+C;X3;K"tg0055.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K90
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K71
+C;Y327;X1;K"Paper Planes"
+C;X2;K"ทรงอย่างแบด (Bad Boy) (Lv.1 Easy)"
+C;X3;K"tg0041.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K166
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K148
+C;Y328;X1;K"Paper Planes"
+C;X2;K"ทรงอย่างแบด (Bad Boy) (Lv.2 Normal)"
+C;X3;K"tg0041.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K166
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K148
+C;Y329;X1;K"Three Man Down"
+C;X2;K"น้อง (Feat. URBOYTJ) (Lv.1 Easy)"
+C;X3;K"tg0056.tbm"
+C;X4;K9
+C;X5;K2
+C;X6;K180
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K143
+C;Y330;X1;K"Three Man Down"
+C;X2;K"น้อง (Feat. URBOYTJ) (Lv.2 Normal)"
+C;X3;K"tg0056.tbm"
+C;X4;K9
+C;X5;K2
+C;X6;K180
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K143
+C;Y331;X1;K"Three Man Down"
+C;X2;K"น้อง (Feat. URBOYTJ) (Lv.3 Hard)"
+C;X3;K"tg0056.tbm"
+C;X4;K9
+C;X5;K2
+C;X6;K180
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K143
+C;Y332;X1;K"Three Man Down"
+C;X2;K"น้อง (Feat. URBOYTJ) (Lv.4 Crazy)"
+C;X3;K"tg0056.tbm"
+C;X4;K9
+C;X5;K2
+C;X6;K180
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K143
+C;Y333;X1;K"PALMY"
+C;X2;K"กุญแจที่หายไป (Acoustic ver.) (Lv.1 Easy)"
+C;X3;K"tg0057.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K108
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K86
+C;Y334;X1;K"PALMY"
+C;X2;K"กุญแจที่หายไป (Acoustic ver.) (Lv.2 Normal)"
+C;X3;K"tg0057.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K108
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K86
+C;Y335;X1;K"PALMY"
+C;X2;K"กุญแจที่หายไป (Acoustic ver.) (Lv.3 Hard)"
+C;X3;K"tg0057.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K108
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K86
+C;Y336;X1;K"PALMY"
+C;X2;K"กุญแจที่หายไป (Acoustic ver.) (Lv.4 Crazy)"
+C;X3;K"tg0057.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K108
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K86
+C;Y337;X1;K"Korean Song"
+C;X2;K"Say Yes (newAlive's Cover) (Lv.1 Easy)"
+C;X3;K"tg0058.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K95
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K92
+C;Y338;X1;K"Korean Song"
+C;X2;K"Say Yes (newAlive's Cover) (Lv.2 Normal)"
+C;X3;K"tg0058.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K95
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K92
+C;Y339;X1;K"Korean Song"
+C;X2;K"Say Yes (newAlive's Cover) (Lv.3 Hard)"
+C;X3;K"tg0058.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K95
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K92
+C;Y340;X1;K"Only Monday"
+C;X2;K"บรรยากาศ (Lv.3 Hard)"
+C;X3;K"tg0059.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K105
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K124
+C;Y341;X1;K"Korean Song"
+C;X2;K"Ditto (Guitar ver.) (Lv.1 Easy)"
+C;X3;K"tg0060.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K134
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K110
+C;Y342;X1;K"Korean Song"
+C;X2;K"Ditto (Guitar ver.) (Lv.2 Normal)"
+C;X3;K"tg0060.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K134
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K110
+C;Y343;X1;K"Korean Song"
+C;X2;K"Ditto (Guitar ver.) (Lv.3 Hard)"
+C;X3;K"tg0060.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K134
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K110
+C;Y344;X1;K"Owl City"
+C;X2;K"Fireflies (Lv.1 Easy)"
+C;X3;K"tg0061.tbm"
+C;X4;K3
+C;X5;K5
+C;X6;K90
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K88
+C;Y345;X1;K"Owl City"
+C;X2;K"Fireflies (Lv.2 Normal)"
+C;X3;K"tg0061.tbm"
+C;X4;K3
+C;X5;K5
+C;X6;K90
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K88
+C;Y346;X1;K"Owl City"
+C;X2;K"Fireflies (Lv.3 Hard)"
+C;X3;K"tg0061.tbm"
+C;X4;K3
+C;X5;K5
+C;X6;K90
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K88
+C;Y347;X1;K"Only Monday"
+C;X2;K"บรรยากาศ (Lv.1 Easy)"
+C;X3;K"tg0059.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K105
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K124
+C;Y348;X1;K"Only Monday"
+C;X2;K"บรรยากาศ (Lv.2 Normal)"
+C;X3;K"tg0059.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K105
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K124
+C;Y349;X1;K"ลำเพลิน วงศกร"
+C;X2;K"ขี้เมาเอาแต่ใจ (Feat. ลำไย ไหทองคำ) (Lv.4 Crazy)"
+C;X3;K"tg0062.tbm"
+C;X4;K4
+C;X5;K-1
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K122
+C;Y350;X1;K"Sweet Mullet"
+C;X2;K"Something's Missing (Lv.4 Crazy)"
+C;X3;K"tg0063.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K129.333
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K120
+C;Y351;X1;K"Paper Planes"
+C;X2;K"ขอให้โชคเลว (Good luck, Not!) (Lv.3 Hard)"
+C;X3;K"tg0064.tbm"
+C;X4;K3
+C;X5;K0
+C;X6;K86
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K76
+C;Y352;X1;K"Anime Song"
+C;X2;K"Kimi no Namae(Lv.1 Easy)"
+C;X3;K"tg0065.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K162
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K210
+C;Y353;X1;K"Anime Song"
+C;X2;K"Kimi no Namae(Lv.2 Normal)"
+C;X3;K"tg0065.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K162
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K210
+C;Y354;X1;K"Anime Song"
+C;X2;K"Kimi no Namae(Lv.3 Hard)"
+C;X3;K"tg0065.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K162
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K210
+C;Y355;X1;K"The Darkest Romance"
+C;X2;K"นางฟ้ากับควาย (ซนซน 40 ปี GMM GRAMMY) (Lv.4 Crazy)"
+C;X3;K"tg0066.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K163
+C;Y356;X1;K"Japanese Song"
+C;X2;K"Oddloop (Lv.4 Crazy)"
+C;X3;K"tg0067.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K172
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K188
+C;Y357;X1;K"Yes Indeed"
+C;X2;K"กลัวเธอหายไป (Lv.3 Hard)"
+C;X3;K"tg0068.tbm"
+C;X4;K4
+C;X5;K2
+C;X6;K113.25
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K124
+C;Y358;X1;K"Yes Indeed"
+C;X2;K"กลัวเธอหายไป (Lv.4 Crazy)"
+C;X3;K"tg0068.tbm"
+C;X4;K4
+C;X5;K2
+C;X6;K113.25
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K124
+C;Y359;X1;K"Anime Song"
+C;X2;K"Ano Yume wo Nazotte (newAlive's Cover) (Lv.4 Crazy)"
+C;X3;K"tg0069.tbm"
+C;X4;K20
+C;X5;K0
+C;X6;K180
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K182
+C;Y360;X1;K"Japanese Song"
+C;X2;K"Yoru ni Kakeru (Lv.3 Hard)"
+C;X3;K"tg0070.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K142
+C;Y361;X1;K"Japanese Song"
+C;X2;K"Yoru ni Kakeru (Lv.4 Crazy)"
+C;X3;K"tg0070.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K142
+C;Y362;X1;K"International Song"
+C;X2;K"Believer (Lv.1 Easy)"
+C;X3;K"tg0071.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K108
+C;Y363;X1;K"International Song"
+C;X2;K"Believer (Lv.2 Normal)"
+C;X3;K"tg0071.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K108
+C;Y364;X1;K"International Song"
+C;X2;K"Believer (Lv.3 Hard)"
+C;X3;K"tg0071.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K125
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K108
+C;Y365;X1;K"Palmy"
+C;X2;K"Tick Tock (Lv.1 Easy)"
+C;X3;K"tg0072.tbm"
+C;X4;K15
+C;X5;K2
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K91
+C;Y366;X1;K"Palmy"
+C;X2;K"Tick Tock (Lv.2 Normal)"
+C;X3;K"tg0072.tbm"
+C;X4;K15
+C;X5;K2
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K91
+C;Y367;X1;K"Palmy"
+C;X2;K"Tick Tock (Lv.3 Hard)"
+C;X3;K"tg0072.tbm"
+C;X4;K15
+C;X5;K2
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K91
+C;Y368;X1;K"Palmy"
+C;X2;K"Tick Tock (Lv.4 Crazy)"
+C;X3;K"tg0072.tbm"
+C;X4;K15
+C;X5;K2
+C;X6;K100
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K91
+C;Y369;X1;K"Only Monday"
+C;X2;K"ขวางทางปืน (Mini Song) (Lv.3 Hard)"
+C;X3;K"tg0073.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K0
+C;X10;K3
+C;X11;K80
+C;Y370;X1;K"Korean Song"
+C;X2;K"Be With You (Lv.1 Easy)"
+C;X3;K"tg0074.tbm"
+C;X4;K4
+C;X5;K1
+C;X6;K104
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K84
+C;Y371;X1;K"Korean Song"
+C;X2;K"Be With You (Lv.2 Normal)"
+C;X3;K"tg0074.tbm"
+C;X4;K4
+C;X5;K1
+C;X6;K104
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K84
+C;Y372;X1;K"Korean Song"
+C;X2;K"Be With You (Lv.3 Hard)"
+C;X3;K"tg0074.tbm"
+C;X4;K4
+C;X5;K1
+C;X6;K104
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K84
+C;Y373;X1;K"Korean Song"
+C;X2;K"You Were Beautiful (Lv.1 Easy)"
+C;X3;K"tg0075.tbm"
+C;X4;K7
+C;X5;K-1
+C;X6;K84
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K103
+C;Y374;X1;K"Korean Song"
+C;X2;K"You Were Beautiful (Lv.2 Normal)"
+C;X3;K"tg0075.tbm"
+C;X4;K7
+C;X5;K-1
+C;X6;K84
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K103
+C;Y375;X1;K"Korean Song"
+C;X2;K"You Were Beautiful (Lv.3 Hard)"
+C;X3;K"tg0075.tbm"
+C;X4;K7
+C;X5;K-1
+C;X6;K84
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K103
+C;Y376;X1;K"Anime Song"
+C;X2;K"Bling-Bang-Bang-Born (Lv.1 Easy)"
+C;X3;K"tg0076.tbm"
+C;X4;K14
+C;X5;K2
+C;X6;K157
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K114
+C;Y377;X1;K"Anime Song"
+C;X2;K"Bling-Bang-Bang-Born (Lv.2 Normal)"
+C;X3;K"tg0076.tbm"
+C;X4;K14
+C;X5;K2
+C;X6;K157
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K114
+C;Y378;X1;K"Anime Song"
+C;X2;K"Bling-Bang-Bang-Born (Lv.3 Hard)"
+C;X3;K"tg0076.tbm"
+C;X4;K14
+C;X5;K2
+C;X6;K157
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K114
+C;Y379;X1;K"Anime Song"
+C;X2;K"Bling-Bang-Bang-Born (Lv.4 Crazy)"
+C;X3;K"tg0076.tbm"
+C;X4;K14
+C;X5;K2
+C;X6;K157
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K114
+C;Y380;X1;K"Only Monday"
+C;X2;K"ขวางทางปืน (Lv.3 Hard)"
+C;X3;K"tg0077.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K124
+C;Y381;X1;K"Only Monday"
+C;X2;K"ขวางทางปืน (Lv.4 Crazy)"
+C;X3;K"tg0077.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K124
+C;Y382;X1;K"Anime Song"
+C;X2;K"Hana ni Natte (Guitar ver.) (Lv.1 Easy)"
+C;X3;K"tg0078.tbm"
+C;X4;K10
+C;X5;K2
+C;X6;K192
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K166
+C;Y383;X1;K"Anime Song"
+C;X2;K"Hana ni Natte (Guitar ver.) (Lv.2 Normal)"
+C;X3;K"tg0078.tbm"
+C;X4;K10
+C;X5;K2
+C;X6;K192
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K166
+C;Y384;X1;K"Anime Song"
+C;X2;K"Hana ni Natte (Guitar ver.) (Lv.3 Hard)"
+C;X3;K"tg0078.tbm"
+C;X4;K10
+C;X5;K2
+C;X6;K192
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K166
+C;Y385;X1;K"Anime Song"
+C;X2;K"Hana ni Natte (Guitar ver.) (Lv.4 Crazy)"
+C;X3;K"tg0078.tbm"
+C;X4;K10
+C;X5;K2
+C;X6;K192
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K166
+C;Y386;X1;K"Korean Song"
+C;X2;K"FLOWER (Guitar ver.) (Lv.1 Easy)"
+C;X3;K"tg0079.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K124
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K96
+C;Y387;X1;K"Korean Song"
+C;X2;K"FLOWER (Guitar ver.) (Lv.2 Normal)"
+C;X3;K"tg0079.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K124
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K96
+C;Y388;X1;K"Korean Song"
+C;X2;K"FLOWER (Guitar ver.) (Lv.3 Hard)"
+C;X3;K"tg0079.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K124
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K96
+C;Y389;X1;K"Rocketman"
+C;X2;K"Orange Coffee (Lv.1 Easy)"
+C;X3;K"tg0080.tbm"
+C;X4;K9
+C;X5;K3
+C;X6;K109
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K109
+C;Y390;X1;K"Rocketman"
+C;X2;K"Orange Coffee (Lv.2 Normal)"
+C;X3;K"tg0080.tbm"
+C;X4;K9
+C;X5;K3
+C;X6;K109
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K109
+C;Y391;X1;K"Rocketman"
+C;X2;K"Orange Coffee (Lv.3 Hard)"
+C;X3;K"tg0080.tbm"
+C;X4;K9
+C;X5;K3
+C;X6;K109
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K109
+C;Y392;X1;K"International Song"
+C;X2;K"Birds of a Feather (Lv.1 Easy)"
+C;X3;K"tg0081.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K105
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K95
+C;Y393;X1;K"International Song"
+C;X2;K"Birds of a Feather (Lv.2 Normal)"
+C;X3;K"tg0081.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K105
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K95
+C;Y394;X1;K"International Song"
+C;X2;K"Birds of a Feather (Lv.3 Hard)"
+C;X3;K"tg0081.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K105
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K95
+C;Y395;X1;K"International Song"
+C;X2;K"Blue (Lv.1 Easy)"
+C;X3;K"tg0082.tbm"
+C;X4;K11
+C;X5;K1
+C;X6;K97.5
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K91
+C;Y396;X1;K"International Song"
+C;X2;K"Blue (Lv.2 Normal)"
+C;X3;K"tg0082.tbm"
+C;X4;K11
+C;X5;K1
+C;X6;K97.5
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K91
+C;Y397;X1;K"International Song"
+C;X2;K"Blue (Lv.3 Hard)"
+C;X3;K"tg0082.tbm"
+C;X4;K11
+C;X5;K1
+C;X6;K97.5
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K91
+C;Y398;X1;K"International Song"
+C;X2;K"Call Me Maybe (Lv.1 Easy)"
+C;X3;K"tg0083.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K101
+C;Y399;X1;K"International Song"
+C;X2;K"Call Me Maybe (Lv.2 Normal)"
+C;X3;K"tg0083.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K101
+C;Y400;X1;K"International Song"
+C;X2;K"Call Me Maybe (Lv.3 Hard)"
+C;X3;K"tg0083.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K101
+C;Y401;X1;K"International Song"
+C;X2;K"Call Me Maybe (Lv.4 Crazy)"
+C;X3;K"tg0083.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K101
+C;Y402;X1;K"International Song"
+C;X2;K"APT. (Guitar ver) (Lv.1 Easy)"
+C;X3;K"tg0084.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K149
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K108
+C;Y403;X1;K"International Song"
+C;X2;K"APT. (Guitar ver) (Lv.2 Normal)"
+C;X3;K"tg0084.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K149
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K108
+C;Y404;X1;K"International Song"
+C;X2;K"APT. (Guitar ver) (Lv.3 Hard)"
+C;X3;K"tg0084.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K149
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K108
+C;Y405;X1;K"International Song"
+C;X2;K"APT. (Guitar ver) (Lv.4 Crazy)"
+C;X3;K"tg0085.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K149
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K108
+C;Y406;X1;K"Jang Na-ra"
+C;X2;K"Sweet Dream (Lv.1 Easy)"
+C;X3;K"tg0086.tbm"
+C;X4;K9
+C;X5;K7
+C;X6;K96
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K96
+C;Y407;X1;K"Jang Na-ra"
+C;X2;K"Sweet Dream (Lv.2 Normal)"
+C;X3;K"tg0086.tbm"
+C;X4;K9
+C;X5;K7
+C;X6;K96
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K96
+C;Y408;X1;K"Jang Na-ra"
+C;X2;K"Sweet Dream (Lv.3 Hard)"
+C;X3;K"tg0086.tbm"
+C;X4;K9
+C;X5;K7
+C;X6;K96
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K96
+C;Y409;X1;K"Jang Na-ra"
+C;X2;K"Sweet Dream (Lv.4 Crazy)"
+C;X3;K"tg0086.tbm"
+C;X4;K9
+C;X5;K7
+C;X6;K96
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K96
+C;Y410;X1;K"Korean Song"
+C;X2;K"To Reach You (Lv.1 Easy)"
+C;X3;K"tg0087.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K126
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K82
+C;Y411;X1;K"Korean Song"
+C;X2;K"To Reach You (Lv.2 Normal)"
+C;X3;K"tg0087.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K126
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K82
+C;Y412;X1;K"Korean Song"
+C;X2;K"To Reach You (Lv.3 Hard)"
+C;X3;K"tg0087.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K126
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K82
+C;Y413;X1;K"International Song"
+C;X2;K"Survive (Lv.1 Easy)"
+C;X3;K"tg0088.tbm"
+C;X4;K4
+C;X5;K-2
+C;X6;K99
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K96
+C;Y414;X1;K"International Song"
+C;X2;K"Survive (Lv.2 Normal)"
+C;X3;K"tg0088.tbm"
+C;X4;K4
+C;X5;K-2
+C;X6;K99
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K96
+C;Y415;X1;K"International Song"
+C;X2;K"Survive (Lv.3 Hard)"
+C;X3;K"tg0088.tbm"
+C;X4;K4
+C;X5;K-2
+C;X6;K99
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K96
+C;Y416;X1;K"Getsunova"
+C;X2;K"แตกต่างเหมือนกัน (Lv.1 Easy)"
+C;X3;K"tg0089.tbm"
+C;X4;K14
+C;X5;K2
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K132
+C;Y417;X1;K"Getsunova"
+C;X2;K"แตกต่างเหมือนกัน (Lv.2 Normal)"
+C;X3;K"tg0089.tbm"
+C;X4;K14
+C;X5;K2
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K132
+C;Y418;X1;K"Getsunova"
+C;X2;K"แตกต่างเหมือนกัน (Lv.3 Hard)"
+C;X3;K"tg0089.tbm"
+C;X4;K14
+C;X5;K2
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K132
+C;Y419;X1;K"Getsunova"
+C;X2;K"แตกต่างเหมือนกัน (Lv.4 Crazy)"
+C;X3;K"tg0089.tbm"
+C;X4;K14
+C;X5;K2
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K132
+C;Y420;X1;K"Paper Planes"
+C;X2;K"หากว่าฉันดีกว่านี้ (What If) (Lv.1 Easy)"
+C;X3;K"tg0090.tbm"
+C;X4;K4
+C;X5;K2
+C;X6;K93
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K102
+C;Y421;X1;K"Paper Planes"
+C;X2;K"หากว่าฉันดีกว่านี้ (What If) (Lv.2 Normal)"
+C;X3;K"tg0090.tbm"
+C;X4;K4
+C;X5;K2
+C;X6;K93
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K102
+C;Y422;X1;K"Paper Planes"
+C;X2;K"หากว่าฉันดีกว่านี้ (What If) (Lv.3 Hard)"
+C;X3;K"tg0090.tbm"
+C;X4;K4
+C;X5;K2
+C;X6;K93
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K102
+C;Y423;X1;K"Tata Young"
+C;X2;K"I Believe (Lv.1 Easy)"
+C;X3;K"tg0091.tbm"
+C;X4;K9
+C;X5;K2
+C;X6;K117
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K97
+C;Y424;X1;K"Tata Young"
+C;X2;K"I Believe (Lv.2 Normal)"
+C;X3;K"tg0091.tbm"
+C;X4;K9
+C;X5;K2
+C;X6;K117
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K97
+C;Y425;X1;K"Tata Young"
+C;X2;K"I Believe (Lv.3 Hard)"
+C;X3;K"tg0091.tbm"
+C;X4;K9
+C;X5;K2
+C;X6;K117
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K97
+C;Y426;X1;K"Tata Young"
+C;X2;K"I Believe (Lv.4 Crazy)"
+C;X3;K"tg0091.tbm"
+C;X4;K9
+C;X5;K2
+C;X6;K117
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K97
+C;Y427;X1;K"International Song"
+C;X2;K"Die With A Smile (Lv.1 Easy)"
+C;X3;K"tg0092.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K105.334
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K113
+C;Y428;X1;K"International Song"
+C;X2;K"Die With A Smile (Lv.2 Normal)"
+C;X3;K"tg0092.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K105.334
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K113
+C;Y429;X1;K"International Song"
+C;X2;K"Die With A Smile (Lv.3 Hard)"
+C;X3;K"tg0092.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K105.334
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K113
+C;Y430;X1;K"Anime Song"
+C;X2;K"Unravel (Lv.1 Easy)"
+C;X3;K"tg0093.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K135
+C;Y431;X1;K"Anime Song"
+C;X2;K"Unravel (Lv.2 Normal)"
+C;X3;K"tg0093.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K135
+C;Y432;X1;K"Anime Song"
+C;X2;K"Unravel (Lv.3 Hard)"
+C;X3;K"tg0093.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K135
+C;Y433;X1;K"Anime Song"
+C;X2;K"Unravel (Lv.4 Crazy)"
+C;X3;K"tg0094.tbm"
+C;X4;K6
+C;X5;K1
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K135
+C;Y434;X1;K"Anime Song"
+C;X2;K"Zankyo Sanka (Lv.1 Easy)"
+C;X3;K"tg0095.tbm"
+C;X4;K15
+C;X5;K3
+C;X6;K171
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K129
+C;Y435;X1;K"Anime Song"
+C;X2;K"Zankyo Sanka (Lv.2 Normal)"
+C;X3;K"tg0095.tbm"
+C;X4;K15
+C;X5;K3
+C;X6;K171
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K129
+C;Y436;X1;K"Anime Song"
+C;X2;K"Zankyo Sanka (Lv.3 Hard)"
+C;X3;K"tg0095.tbm"
+C;X4;K15
+C;X5;K3
+C;X6;K171
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K129
+C;Y437;X1;K"Anime Song"
+C;X2;K"Zankyo Sanka (Lv.4 Crazy)"
+C;X3;K"tg0095.tbm"
+C;X4;K15
+C;X5;K3
+C;X6;K171
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K129
+C;Y438;X1;K"Only Monday Feat. ปั๊บ POTATO"
+C;X2;K"ยอมอยู่แล้ว (Lv.1 Easy)"
+C;X3;K"tg0096.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K135
+C;Y439;X1;K"Only Monday Feat. ปั๊บ POTATO"
+C;X2;K"ยอมอยู่แล้ว (Lv.2 Normal)"
+C;X3;K"tg0096.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K135
+C;Y440;X1;K"Only Monday Feat. ปั๊บ POTATO"
+C;X2;K"ยอมอยู่แล้ว (Lv.3 Hard)"
+C;X3;K"tg0096.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K135
+C;Y441;X1;K"Only Monday Feat. ปั๊บ POTATO"
+C;X2;K"ยอมอยู่แล้ว (Lv.4 Crazy)"
+C;X3;K"tg0096.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K120
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K135
+C;Y442;X1;K"SPF"
+C;X2;K"9 นาฬิกา (Lv.1 Easy)"
+C;X3;K"tg0097.tbm"
+C;X4;K8
+C;X5;K-3
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K112
+C;Y443;X1;K"SPF"
+C;X2;K"9 นาฬิกา (Lv.2 Normal)"
+C;X3;K"tg0097.tbm"
+C;X4;K8
+C;X5;K-3
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K112
+C;Y444;X1;K"SPF"
+C;X2;K"9 นาฬิกา (Lv.3 Hard)"
+C;X3;K"tg0097.tbm"
+C;X4;K8
+C;X5;K-3
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K112
+C;Y445;X1;K"SPF"
+C;X2;K"9 นาฬิกา (Lv.4 Crazy)"
+C;X3;K"tg0097.tbm"
+C;X4;K8
+C;X5;K-3
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K112
+C;Y446;X1;K"Phum Viphurit"
+C;X2;K"Lover Boy (Lv.1 Easy)"
+C;X3;K"tg0098.tbm"
+C;X4;K9
+C;X5;K2
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K109
+C;Y447;X1;K"Phum Viphurit"
+C;X2;K"Lover Boy (Lv.2 Normal)"
+C;X3;K"tg0098.tbm"
+C;X4;K9
+C;X5;K2
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K109
+C;Y448;X1;K"Phum Viphurit"
+C;X2;K"Lover Boy (Lv.3 Hard)"
+C;X3;K"tg0098.tbm"
+C;X4;K9
+C;X5;K2
+C;X6;K110
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K109
+C;Y449;X1;K"International Song"
+C;X2;K"Every Second (Lv.1 Easy)"
+C;X3;K"tg0099.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K103
+C;Y450;X1;K"International Song"
+C;X2;K"Every Second (Lv.2 Normal)"
+C;X3;K"tg0099.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K103
+C;Y451;X1;K"International Song"
+C;X2;K"Every Second (Lv.3 Hard)"
+C;X3;K"tg0099.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K103
+C;Y452;X1;K"International Song"
+C;X2;K"The Fate Of Ophelia (Lv.1 Easy)"
+C;X3;K"tg0100.tbm"
+C;X4;K10
+C;X5;K3
+C;X6;K124
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K121
+C;Y453;X1;K"International Song"
+C;X2;K"The Fate Of Ophelia (Lv.2 Normal)"
+C;X3;K"tg0100.tbm"
+C;X4;K10
+C;X5;K3
+C;X6;K124
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K121
+C;Y454;X1;K"International Song"
+C;X2;K"The Fate Of Ophelia (Lv.3 Hard)"
+C;X3;K"tg0100.tbm"
+C;X4;K10
+C;X5;K3
+C;X6;K124
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K121
+C;Y455;X1;K"Korean Song"
+C;X2;K"HAPPEN (Lv.1 Easy)"
+C;X3;K"tg0101.tbm"
+C;X4;K4
+C;X5;K1
+C;X6;K113
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K94
+C;Y456;X1;K"Korean Song"
+C;X2;K"HAPPEN (Lv.2 Normal)"
+C;X3;K"tg0101.tbm"
+C;X4;K4
+C;X5;K1
+C;X6;K113
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K94
+C;Y457;X1;K"Korean Song"
+C;X2;K"HAPPEN (Lv.3 Hard)"
+C;X3;K"tg0101.tbm"
+C;X4;K4
+C;X5;K1
+C;X6;K113
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K94
+C;Y458;X1;K"Korean Song"
+C;X2;K"Don't Say You Love Me (Lv.1 Easy)"
+C;X3;K"tg0102.tbm"
+C;X4;K12
+C;X5;K2
+C;X6;K112
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K88
+C;Y459;X1;K"Korean Song"
+C;X2;K"Don't Say You Love Me (Lv.2 Normal)"
+C;X3;K"tg0102.tbm"
+C;X4;K12
+C;X5;K2
+C;X6;K112
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K88
+C;Y460;X1;K"Korean Song"
+C;X2;K"Don't Say You Love Me (Lv.3 Hard)"
+C;X3;K"tg0102.tbm"
+C;X4;K12
+C;X5;K2
+C;X6;K112
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K88
+C;Y461;X1;K"Anime Song"
+C;X2;K"Only My Railgun (Lv.1 Easy)"
+C;X3;K"tg0103.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K145
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K152
+C;Y462;X1;K"Anime Song"
+C;X2;K"Only My Railgun (Lv.2 Normal)"
+C;X3;K"tg0103.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K145
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K152
+C;Y463;X1;K"Anime Song"
+C;X2;K"Only My Railgun (Lv.3 Hard)"
+C;X3;K"tg0103.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K145
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K152
+C;Y464;X1;K"Anime Song"
+C;X2;K"Only My Railgun (Lv.4 Crazy)"
+C;X3;K"tg0103.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K145
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K152
+C;Y465;X1;K"Anime Song"
+C;X2;K"LEVEL5 -judgelight- (Lv.1 Easy)"
+C;X3;K"tg0104.tbm"
+C;X4;K17
+C;X5;K0
+C;X6;K139.49799999999999
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K153
+C;Y466;X1;K"Anime Song"
+C;X2;K"LEVEL5 -judgelight- (Lv.2 Normal)"
+C;X3;K"tg0104.tbm"
+C;X4;K17
+C;X5;K0
+C;X6;K139.49799999999999
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K153
+C;Y467;X1;K"Anime Song"
+C;X2;K"LEVEL5 -judgelight- (Lv.3 Hard)"
+C;X3;K"tg0104.tbm"
+C;X4;K17
+C;X5;K0
+C;X6;K139.49799999999999
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K153
+C;Y468;X1;K"Anime Song"
+C;X2;K"LEVEL5 -judgelight- (Lv.4 Crazy)"
+C;X3;K"tg0104.tbm"
+C;X4;K17
+C;X5;K0
+C;X6;K139.49799999999999
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K153
+C;Y469;X1;K"Paper Planes"
+C;X2;K"ชัดเจน (Complicated) (Lv.1 Easy)"
+C;X3;K"tg0105.tbm"
+C;X4;K7
+C;X5;K-1
+C;X6;K87
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K89
+C;Y470;X1;K"Paper Planes"
+C;X2;K"ชัดเจน (Complicated) (Lv.2 Normal)"
+C;X3;K"tg0105.tbm"
+C;X4;K7
+C;X5;K-1
+C;X6;K87
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K89
+C;Y471;X1;K"Paper Planes"
+C;X2;K"ชัดเจน (Complicated) (Lv.3 Hard)"
+C;X3;K"tg0105.tbm"
+C;X4;K7
+C;X5;K-1
+C;X6;K87
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K89
+C;Y472;X1;K"Anime Song"
+C;X2;K"Kawaki wo Ameku (Lv.1 Easy)"
+C;X3;K"tg0106.tbm"
+C;X4;K17
+C;X5;K0
+C;X6;K129
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K139
+C;Y473;X1;K"Anime Song"
+C;X2;K"Kawaki wo Ameku (Lv.2 Normal)"
+C;X3;K"tg0106.tbm"
+C;X4;K17
+C;X5;K0
+C;X6;K129
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K139
+C;Y474;X1;K"Anime Song"
+C;X2;K"Kawaki wo Ameku (Lv.3 Hard)"
+C;X3;K"tg0106.tbm"
+C;X4;K17
+C;X5;K0
+C;X6;K129
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K139
+C;Y475;X1;K"Anime Song"
+C;X2;K"Kawaki wo Ameku (Lv.4 Crazy)"
+C;X3;K"tg0106.tbm"
+C;X4;K17
+C;X5;K0
+C;X6;K129
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K139
+C;Y476;X1;K"International Song"
+C;X2;K"End Of Beginning (Lv.1 Easy)"
+C;X3;K"tg0107.tbm"
+C;X4;K3
+C;X5;K0
+C;X6;K80
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K55
+C;Y477;X1;K"International Song"
+C;X2;K"End Of Beginning (Lv.2 Normal)"
+C;X3;K"tg0107.tbm"
+C;X4;K3
+C;X5;K0
+C;X6;K80
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K55
+C;Y478;X1;K"International Song"
+C;X2;K"End Of Beginning (Lv.3 Hard)"
+C;X3;K"tg0107.tbm"
+C;X4;K3
+C;X5;K0
+C;X6;K80
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K55
+C;Y479;X1;K"Freestyle"
+C;X2;K"Y (Lv.1 Easy)"
+C;X3;K"tg0108.tbm"
+C;X4;K13
+C;X5;K1
+C;X6;K80
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K97
+C;Y480;X1;K"Freestyle"
+C;X2;K"Y (Lv.2 Norrmal)"
+C;X3;K"tg0108.tbm"
+C;X4;K13
+C;X5;K1
+C;X6;K80
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K97
+C;Y481;X1;K"Freestyle"
+C;X2;K"Y (Lv.3 Hard)"
+C;X3;K"tg0108.tbm"
+C;X4;K13
+C;X5;K1
+C;X6;K80
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K97
+C;Y482;X1;K"Japanese Song"
+C;X2;K"IRIS OUT (Guitar ver.) (Lv.1 Easy)"
+C;X3;K"tg0109.tbm"
+C;X4;K14
+C;X5;K0
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K86
+C;Y483;X1;K"Japanese Song"
+C;X2;K"IRIS OUT (Guitar ver.) (Lv.2 Normal)"
+C;X3;K"tg0109.tbm"
+C;X4;K14
+C;X5;K0
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K86
+C;Y484;X1;K"Japanese Song"
+C;X2;K"IRIS OUT (Guitar ver.) (Lv.3 Hard)"
+C;X3;K"tg0110.tbm"
+C;X4;K14
+C;X5;K0
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K86
+C;Y485;X1;K"Japanese Song"
+C;X2;K"IRIS OUT (Guitar ver.) (Lv.4 Crazy)"
+C;X3;K"tg0110.tbm"
+C;X4;K14
+C;X5;K0
+C;X6;K135
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K86
+C;Y486;X1;K"Korean Song"
+C;X2;K"Love Language (Lv.1 Easy)"
+C;X3;K"tg0111.tbm"
+C;X4;K24
+C;X5;K1
+C;X6;K190
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K154
+C;Y487;X1;K"Korean Song"
+C;X2;K"Love Language (Lv.2 Normal)"
+C;X3;K"tg0111.tbm"
+C;X4;K24
+C;X5;K1
+C;X6;K190
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K154
+C;Y488;X1;K"Korean Song"
+C;X2;K"Love Language (Lv.3 Hard)"
+C;X3;K"tg0111.tbm"
+C;X4;K24
+C;X5;K1
+C;X6;K190
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K154
+C;Y489;X1;K"Korean Song"
+C;X2;K"Love Language (Lv.4 Crazy)"
+C;X3;K"tg0111.tbm"
+C;X4;K24
+C;X5;K1
+C;X6;K190
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K154
+C;Y490;X1;K"เน็ค นฤพล OST.เพลงรัก'สู้'ชีวิต"
+C;X2;K"สู้บ่สนฟ้า (Lv.1 Easy)"
+C;X3;K"tg0112.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K131
+C;Y491;X1;K"เน็ค นฤพล OST.เพลงรัก'สู้'ชีวิต"
+C;X2;K"สู้บ่สนฟ้า (Lv.2 Normal)"
+C;X3;K"tg0112.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K131
+C;Y492;X1;K"เน็ค นฤพล OST.เพลงรัก'สู้'ชีวิต"
+C;X2;K"สู้บ่สนฟ้า (Lv.3 Hard)"
+C;X3;K"tg0112.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K131
+C;Y493;X1;K"เน็ค นฤพล OST.เพลงรัก'สู้'ชีวิต"
+C;X2;K"สู้บ่สนฟ้า (Lv.4 Crazy)"
+C;X3;K"tg0112.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K116
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K131
+C;Y494;X1;K"Instrumental Song"
+C;X2;K"Champagne (Lv.4 Crazy)"
+C;X3;K"tg0113.tbm"
+C;X4;K14
+C;X5;K1
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K148
+C;Y495;X1;K"Japanese Song"
+C;X2;K"If I could be a constellation (Lv.4 Crazy)"
+C;X3;K"tg0114.tbm"
+C;X4;K6
+C;X5;K-1
+C;X6;K123
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K136
+C;Y496;X1;K"International Song"
+C;X2;K"Demonheart (Lv.1 Easy)"
+C;X3;K"tg0115.tbm"
+C;X4;K17
+C;X5;K2
+C;X6;K180
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K231
+C;Y497;X1;K"International Song"
+C;X2;K"Demonheart (Lv.2 Normal)"
+C;X3;K"tg0115.tbm"
+C;X4;K17
+C;X5;K2
+C;X6;K180
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K231
+C;Y498;X1;K"International Song"
+C;X2;K"Demonheart (Lv.3 Hard)"
+C;X3;K"tg0115.tbm"
+C;X4;K17
+C;X5;K2
+C;X6;K180
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K231
+C;Y499;X1;K"International Song"
+C;X2;K"Demonheart (Lv.4 Crazy)"
+C;X3;K"tg0115.tbm"
+C;X4;K17
+C;X5;K2
+C;X6;K180
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K231
+C;Y500;X1;K"Korean Song"
+C;X2;K"Human Extinction (Lv.1 Easy)"
+C;X3;K"tg0116.tbm"
+C;X4;K14
+C;X5;K-2
+C;X6;K145
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K128
+C;Y501;X1;K"Korean Song"
+C;X2;K"Human Extinction (Lv.2 Normal)"
+C;X3;K"tg0116.tbm"
+C;X4;K14
+C;X5;K-2
+C;X6;K145
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K128
+C;Y502;X1;K"Korean Song"
+C;X2;K"Human Extinction (Lv.3 Hard)"
+C;X3;K"tg0117.tbm"
+C;X4;K14
+C;X5;K-2
+C;X6;K145
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K128
+C;Y503;X1;K"Korean Song"
+C;X2;K"Human Extinction (Lv.4 Crazy)"
+C;X3;K"tg0117.tbm"
+C;X4;K14
+C;X5;K-2
+C;X6;K145
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K128
+C;Y504;X1;K"International Song"
+C;X2;K"Honeymoon (Lv.4 Crazy)"
+C;X3;K"tg0118.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K116
+C;Y505;X1;K"Instrumental Song"
+C;X2;K"Canon Rock (Lv.1 Easy)"
+C;X3;K"tg0119.tbm"
+C;X4;K37
+C;X5;K1
+C;X6;K200
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K269
+C;Y506;X1;K"Instrumental Song"
+C;X2;K"Canon Rock (Lv.2 Normal)"
+C;X3;K"tg0119.tbm"
+C;X4;K37
+C;X5;K1
+C;X6;K200
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K269
+C;Y507;X1;K"Instrumental Song"
+C;X2;K"Canon Rock (Lv.3 Hard)"
+C;X3;K"tg0119.tbm"
+C;X4;K37
+C;X5;K1
+C;X6;K200
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K269
+C;Y508;X1;K"Instrumental Song"
+C;X2;K"Canon Rock (Lv.4 Crazy)"
+C;X3;K"tg0119.tbm"
+C;X4;K37
+C;X5;K1
+C;X6;K200
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K269
+C;Y509;X1;K"International Song"
+C;X2;K"Two Faced (Lv.1 Easy)"
+C;X3;K"tg0120.tbm"
+C;X4;K13
+C;X5;K0
+C;X6;K138
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K107
+C;Y510;X1;K"International Song"
+C;X2;K"Two Faced (Lv.2 Normal)"
+C;X3;K"tg0120.tbm"
+C;X4;K13
+C;X5;K0
+C;X6;K138
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K107
+C;Y511;X1;K"International Song"
+C;X2;K"Two Faced (Lv.3 Hard)"
+C;X3;K"tg0120.tbm"
+C;X4;K13
+C;X5;K0
+C;X6;K138
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K107
+C;Y512;X1;K"International Song"
+C;X2;K"Two Faced (Lv.4 Crazy)"
+C;X3;K"tg0120.tbm"
+C;X4;K13
+C;X5;K0
+C;X6;K138
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K107
+C;Y513;X1;K"Japanese Song"
+C;X2;K"First Love (Lv.1 Easy)"
+C;X3;K"tg0121.tbm"
+C;X4;K3
+C;X5;K-1
+C;X6;K80
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K81
+C;Y514;X1;K"Japanese Song"
+C;X2;K"First Love (Lv.2 Normal)"
+C;X3;K"tg0121.tbm"
+C;X4;K3
+C;X5;K-1
+C;X6;K80
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K81
+C;Y515;X1;K"Japanese Song"
+C;X2;K"First Love (Lv.3 Hard)"
+C;X3;K"tg0121.tbm"
+C;X4;K3
+C;X5;K-1
+C;X6;K80
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K81
+C;Y516;X1;K"Vietnamese Song"
+C;X2;K"Thuy Trieu (Lv.1 Easy)"
+C;X3;K"tg0122.tbm"
+C;X4;K12
+C;X5;K4
+C;X6;K119
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K96
+C;Y517;X1;K"Vietnamese Song"
+C;X2;K"Thuy Trieu (Lv.2 Normal)"
+C;X3;K"tg0122.tbm"
+C;X4;K12
+C;X5;K4
+C;X6;K119
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K96
+C;Y518;X1;K"Vietnamese Song"
+C;X2;K"Thuy Trieu (Lv.3 Hard)"
+C;X3;K"tg0122.tbm"
+C;X4;K12
+C;X5;K4
+C;X6;K119
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K96
+C;Y519;X1;K"Vietnamese Song"
+C;X2;K"Thuy Trieu (Lv.4 Crazy)"
+C;X3;K"tg0123.tbm"
+C;X4;K12
+C;X5;K4
+C;X6;K119
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K96
+C;Y520;X1;K"Instrumental Song"
+C;X2;K"Classical Dragon (Feat. Tim Henson) (Lv.4 Crazy)"
+C;X3;K"tg0124.tbm"
+C;X4;K5
+C;X5;K2
+C;X6;K117
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K97
+C;Y521;X1;K"International Song"
+C;X2;K"Hey You (Lv.4 Crazy)"
+C;X3;K"tg0125.tbm"
+C;X4;K7
+C;X5;K-3
+C;X6;K154.5
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K173
+C;Y522;X1;K"Japanese Song"
+C;X2;K"Fuwa Fuwa Time (Lv.4 Crazy)"
+C;X3;K"tg0126.tbm"
+C;X4;K15
+C;X5;K2
+C;X6;K180
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K183
+C;Y523;X1;K"International Song"
+C;X2;K"Dilemma (Lv.1 Easy)"
+C;X3;K"tg0127.tbm"
+C;X4;K6
+C;X5;K-1
+C;X6;K121
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K106
+C;Y524;X1;K"International Song"
+C;X2;K"Dilemma (Lv.2 Normal)"
+C;X3;K"tg0127.tbm"
+C;X4;K6
+C;X5;K-1
+C;X6;K121
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K106
+C;Y525;X1;K"International Song"
+C;X2;K"Dilemma (Lv.3 Hard)"
+C;X3;K"tg0127.tbm"
+C;X4;K6
+C;X5;K-1
+C;X6;K121
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K106
+C;Y526;X1;K"International Song"
+C;X2;K"Killing in the Name (Lv.1 Easy)"
+C;X3;K"tg0128.tbm"
+C;X4;K5
+C;X5;K1
+C;X6;K108.83499999999999
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K146
+C;Y527;X1;K"International Song"
+C;X2;K"Killing in the Name (Lv.2 Normal)"
+C;X3;K"tg0128.tbm"
+C;X4;K5
+C;X5;K1
+C;X6;K108.83499999999999
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K146
+C;Y528;X1;K"International Song"
+C;X2;K"Killing in the Name (Lv.3 Hard)"
+C;X3;K"tg0129.tbm"
+C;X4;K5
+C;X5;K1
+C;X6;K108.83499999999999
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K146
+C;Y529;X1;K"International Song"
+C;X2;K"Killing in the Name (Lv.4 Crazy)"
+C;X3;K"tg0129.tbm"
+C;X4;K5
+C;X5;K1
+C;X6;K108.83499999999999
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K146
+C;Y530;X1;K"Japanese Song"
+C;X2;K"God knows... (Lv.1 Easy)"
+C;X3;K"tg0130.tbm"
+C;X4;K23
+C;X5;K-2
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K179
+C;Y531;X1;K"Japanese Song"
+C;X2;K"God knows... (Lv.2 Normal)"
+C;X3;K"tg0130.tbm"
+C;X4;K23
+C;X5;K-2
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K179
+C;Y532;X1;K"Japanese Song"
+C;X2;K"God knows... (Lv.3 Hard)"
+C;X3;K"tg0130.tbm"
+C;X4;K23
+C;X5;K-2
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K179
+C;Y533;X1;K"Japanese Song"
+C;X2;K"God knows... (Lv.4 Crazy)"
+C;X3;K"tg0131.tbm"
+C;X4;K23
+C;X5;K-2
+C;X6;K150
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K179
+C;Y534;X1;K"Indonesian Song"
+C;X2;K"Berharap (Lv.4 Crazy)"
+C;X3;K"tg0132.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K195
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K192
+C;Y535;X1;K"International Song"
+C;X2;K"Whistle (Lv.1 Easy)"
+C;X3;K"tg0133.tbm"
+C;X4;K5
+C;X5;K2
+C;X6;K104
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K99
+C;Y536;X1;K"International Song"
+C;X2;K"Whistle (Lv.2 Normal)"
+C;X3;K"tg0133.tbm"
+C;X4;K5
+C;X5;K2
+C;X6;K104
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K99
+C;Y537;X1;K"International Song"
+C;X2;K"Whistle (Lv.3 Hard)"
+C;X3;K"tg0133.tbm"
+C;X4;K5
+C;X5;K2
+C;X6;K104
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K99
+C;Y538;X1;K"International Song"
+C;X2;K"You’ll Always Find Your Way Back Home (Lv.1 Easy)"
+C;X3;K"tg0134.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K153
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K148
+C;Y539;X1;K"International Song"
+C;X2;K"You’ll Always Find Your Way Back Home (Lv.2 Normal)"
+C;X3;K"tg0134.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K153
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K148
+C;Y540;X1;K"International Song"
+C;X2;K"You’ll Always Find Your Way Back Home (Lv.3 Hard)"
+C;X3;K"tg0134.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K153
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K148
+C;Y541;X1;K"Instrumental Song"
+C;X2;K"King (Lv.4 Crazy)"
+C;X3;K"tg0135.tbm"
+C;X4;K6
+C;X5;K3
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K150
+C;Y542;X1;K"Korean Song"
+C;X2;K"Flowering (Guitar ver.) (Lv.4 Crazy)"
+C;X3;K"tg0136.tbm"
+C;X4;K10
+C;X5;K-2
+C;X6;K148
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K146
+C;Y543;X1;K"International Song"
+C;X2;K"Hold Me Like A Grudge (Lv.1 Easy)"
+C;X3;K"tg0137.tbm"
+C;X4;K5
+C;X5;K2
+C;X6;K114
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K103
+C;Y544;X1;K"International Song"
+C;X2;K"Hold Me Like A Grudge (Lv.2 Normal)"
+C;X3;K"tg0137.tbm"
+C;X4;K5
+C;X5;K2
+C;X6;K114
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K103
+C;Y545;X1;K"International Song"
+C;X2;K"Hold Me Like A Grudge (Lv.3 Hard)"
+C;X3;K"tg0137.tbm"
+C;X4;K5
+C;X5;K2
+C;X6;K114
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K103
+C;Y546;X1;K"International Song"
+C;X2;K"Hold Me Like A Grudge (Lv.4 Crazy)"
+C;X3;K"tg0137.tbm"
+C;X4;K5
+C;X5;K2
+C;X6;K114
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K103
+C;Y547;X1;K"International Song"
+C;X2;K"Just Dance (Feat. Colby O'Donis) (Lv.1 Easy)"
+C;X3;K"tg0138.tbm"
+C;X4;K5
+C;X5;K-1
+C;X6;K119
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K121
+C;Y548;X1;K"International Song"
+C;X2;K"Just Dance (Feat. Colby O'Donis) (Lv.2 Normal)"
+C;X3;K"tg0138.tbm"
+C;X4;K5
+C;X5;K-1
+C;X6;K119
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K121
+C;Y549;X1;K"International Song"
+C;X2;K"Just Dance (Feat. Colby O'Donis) (Lv.3 Hard)"
+C;X3;K"tg0138.tbm"
+C;X4;K5
+C;X5;K-1
+C;X6;K119
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K121
+C;Y550;X1;K"International Song"
+C;X2;K"Just Dance (Feat. Colby O'Donis) (Lv.4 Crazy)"
+C;X3;K"tg0138.tbm"
+C;X4;K5
+C;X5;K-1
+C;X6;K119
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K121
+C;Y551;X1;K"International Song"
+C;X2;K"Rude (Lv.1 Easy)"
+C;X3;K"tg0139.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K140
+C;Y552;X1;K"International Song"
+C;X2;K"Rude (Lv.2 Normal)"
+C;X3;K"tg0139.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K140
+C;Y553;X1;K"International Song"
+C;X2;K"Rude (Lv.3 Hard)"
+C;X3;K"tg0139.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K140
+C;Y554;X1;K"International Song"
+C;X2;K"Rude (Lv.4 Crazy)"
+C;X3;K"tg0139.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K140
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K140
+C;Y555;X1;K"Vietnamese Song"
+C;X2;K"2 Phut Hon (KAIZ Remix) (Lv.1 Easy)"
+C;X3;K"tg0140.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K128
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K102
+C;Y556;X1;K"Vietnamese Song"
+C;X2;K"2 Phut Hon (KAIZ Remix) (Lv.2 Normal)"
+C;X3;K"tg0140.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K128
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K102
+C;Y557;X1;K"Vietnamese Song"
+C;X2;K"2 Phut Hon (KAIZ Remix) (Lv.3 Hard)"
+C;X3;K"tg0140.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K128
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K102
+C;Y558;X1;K"Vietnamese Song"
+C;X2;K"2 Phut Hon (KAIZ Remix) (Lv.4 Crazy)"
+C;X3;K"tg0140.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K128
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K102
+C;Y559;X1;K"Chinese Song"
+C;X2;K"Zai Yu Zhong (Lv.1 Easy)"
+C;X3;K"tg0141.tbm"
+C;X4;K22
+C;X5;K8
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K1
+C;X11;K164
+C;Y560;X1;K"Chinese Song"
+C;X2;K"Zai Yu Zhong (Lv.2 Normal)"
+C;X3;K"tg0141.tbm"
+C;X4;K22
+C;X5;K8
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K2
+C;X11;K164
+C;Y561;X1;K"Chinese Song"
+C;X2;K"Zai Yu Zhong (Lv.3 Hard)"
+C;X3;K"tg0142.tbm"
+C;X4;K22
+C;X5;K8
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K3
+C;X11;K164
+C;Y562;X1;K"Chinese Song"
+C;X2;K"Zai Yu Zhong (Lv.4 Crazy)"
+C;X3;K"tg0142.tbm"
+C;X4;K22
+C;X5;K8
+C;X6;K130
+C;X7;K0
+C;X8;K0
+C;X9;K1
+C;X10;K4
+C;X11;K164
+E

@@ -1,0 +1,19 @@
+# --- decoder: JANGAN pernah masuk GitHub / browser ---
+# Dipakai server-vps.js di VPS (decode server-side).
+js/tbm.js
+js/tbm-crypto.js
+js/server-vps.js
+heads.au5
+
+# --- lokal / test (bukan bagian situs) ---
+server-lokal.py
+server-lokal.bat
+test-lokal.bat
+__pycache__/
+*.pyc
+push.bat
+
+# --- OS ---
+Thumbs.db
+desktop.ini
+.DS_Store

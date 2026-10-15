@@ -1,0 +1,17 @@
+# Cloudflare Pages / Workers static assets headers.
+# NOTE: _headers is STATIC — it cannot run logic or check a secret.
+# Maintenance gating + admin key is done in js/worker.js (env vars).
+# This file only pins sane defaults.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: no-referrer-when-downgrade
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+/maintenance.html
+  Cache-Control: no-store
+  X-Robots-Tag: noindex
+
+/*.au5
+  Cache-Control: public, max-age=31536000, immutable

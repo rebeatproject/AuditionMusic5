@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>AuditionMusic5 — Maintenance</title>
+<link rel="icon" href="image/au.ico">
+<style>
+  :root { --accent:#a238ff; --bg:#0e0e14; --panel:#171722; --text:#e8e8f0; --muted:#9a9aae; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; height:100%; }
+  body {
+    background:radial-gradient(1200px 600px at 50% -10%, #241040 0%, var(--bg) 60%);
+    color:var(--text); font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    display:flex; align-items:center; justify-content:center; padding:24px; text-align:center;
+  }
+  .card { max-width:520px; width:100%; }
+  .ico { font-size:56px; line-height:1; filter:drop-shadow(0 0 18px rgba(162,56,255,.55)); }
+  h1 { font-size:1.7rem; margin:18px 0 6px; letter-spacing:.3px; }
+  h1 span { color:var(--accent); }
+  p { color:var(--muted); line-height:1.6; margin:8px 0; }
+  .bar {
+    height:6px; border-radius:3px; margin:26px auto 0; max-width:280px;
+    background:linear-gradient(90deg, transparent, var(--accent), transparent);
+    background-size:200% 100%; animation:sw 1.4s linear infinite;
+  }
+  @keyframes sw { from { background-position:200% 0; } to { background-position:-200% 0; } }
+  .ver { margin-top:22px; font-size:.8rem; color:#5a5a70; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="ico">🛠️</div>
+    <h1>Audition<span>Music5</span></h1>
+    <p><strong>We&rsquo;re doing maintenance.</strong></p>
+    <p>The music player is temporarily offline while we update the servers.<br>
+       Please check back in a little while.</p>
+    <div class="bar"></div>
+    <div class="ver">Maintenance mode</div>
+  </main>
+</body>
+</html>

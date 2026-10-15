@@ -1,6 +1,10 @@
 // app.js - AuditionMusic5: live-sync (music.slk + /api/list), player, download.
 // example: const WORKER = "https://auditionmusic5.xxx.workers.dev";
 const WORKER = "https://WORKER_URL_DISINI";
+// Decode server (server-vps.js di VPS): TBM -> OGG dilakukan di server,
+// decoder JS (tbm.js/tbm-crypto.js/heads.au5) TIDAK ikut ke browser.
+// Kosongkan ("") untuk decode di browser (butuh 3 file decoder itu di folder web).
+const DECODE_BASE = "https://vm.auditionmusic5.com/am5";
 const DIRECT_BASE = "http://122.102.49.131/audition/ABM";  // local fallback (no worker)
 const DIRECT_PKG_BASE = "http://122.102.49.131/audition/package/ABM";  // .abm files live here
 const VTC_BASE = "http://aumusic.vtcgame.vn/abm";
@@ -49,7 +53,7 @@ try {
 } catch (e) {}
 const LAMEJS_CDN = "https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js";
 const SLK_DIR = "script/";   // semua .slk (server + ballroom + _gt) di subfolder ini
-const ASSET_V = "?v=163";   // naikkan tiap update biar browser tidak pakai cache lama
+const ASSET_V = "?v=164";   // naikkan tiap update biar browser tidak pakai cache lama
 const PAGE = 300;
 
 function workerReady() { return WORKER && !WORKER.includes("WORKER_URL"); }
@@ -280,16 +284,42 @@ function more() {
 }
 
 async function fetchTbm(name) {
+  // Server mode: the decode server also proxies the raw file (/api/<srv>/f/),
+  // so no CF worker is needed at all.
+  if (DECODE_BASE) {
+    const r = await fetch(DECODE_BASE + "/api/" + SRV.api + "/f/" + encodeURIComponent(name));
+    if (!r.ok) throw new Error("download " + r.status);
+    return new Uint8Array(await r.arrayBuffer());
+  }
   const base = apiBase() + "/api/" + (SRV.api === "ayo" ? "f/" : SRV.api + "/f/");
   const r = await fetch(base + encodeURIComponent(name));
   if (!r.ok) throw new Error("download " + r.status);
   return new Uint8Array(await r.arrayBuffer());
 }
 
+// OGG bytes for a song. Server mode (DECODE_BASE set): ask the decode server,
+// the decoder never reaches the browser. Browser mode: fetch raw TBM and
+// decode locally with tbm.js (requires the decoder files in the web folder).
+async function fetchOgg(name) {
+  const key = SRV.id + "|" + name;
+  if (OGG_CACHE.has(key)) return OGG_CACHE.get(key);
+  let ogg;
+  if (DECODE_BASE) {
+    const url = DECODE_BASE + "/api/" + SRV.api + "/ogg/" + encodeURIComponent(name);
+    const r = await fetch(url);
+    if (!r.ok) throw new Error("decode server " + r.status);
+    ogg = new Uint8Array(await r.arrayBuffer());
+  } else {
+    ogg = await decodeName(name, await fetchTbm(name));
+  }
+  OGG_CACHE.set(key, ogg);
+  return ogg;
+}
+
 async function ensureHeads() {
   if (HEADS) return HEADS;
   if (HEADS_FAIL) throw new Error("heads.au5 is missing from the web server");
-  const r = await fetch("heads.au5" + ASSET_V);
+  const r = await fetch("js/heads.au5" + ASSET_V);
   if (!r.ok) { HEADS_FAIL = true; throw new Error("heads.au5 is missing (decoder needs the head pack)"); }
   const buf = new Uint8Array(await r.arrayBuffer());
   const dv = new DataView(buf.buffer);
@@ -393,10 +423,8 @@ async function playBoth(backing) {
   try { $("audio").pause(); } catch (e) {}
   const myGen = ++BOTH_GEN;
   const note = noteName(backing);
-  const tb = await fetchTbm(backing);
-  const tn = await fetchTbm(note);
-  const ogB = await decodeName(backing, tb);
-  const ogN = await decodeName(note, tn);
+  const ogB = await fetchOgg(backing);
+  const ogN = await fetchOgg(note);
   if (myGen !== BOTH_GEN) return;   // superseded by a newer Both request
   const AC = window.AudioContext || window.webkitAudioContext;
   const ctx = new AC();
@@ -462,8 +490,7 @@ function hideBar(name) {
 async function playFile(name) {
   showWait();
   stopBoth();
-  const tbm = await fetchTbm(name);
-  const ogg = await decodeName(name, tbm);
+  const ogg = await fetchOgg(name);
   const url = URL.createObjectURL(new Blob([ogg], { type: "audio/ogg" }));
   const au = $("audio");
   if (au.src && au.src.startsWith("blob:")) URL.revokeObjectURL(au.src);
@@ -483,10 +510,10 @@ function noteName(name) {
 async function onAction(btn) {
   const act = btn.dataset.act, name = btn.dataset.f;
   const base = name.replace(/\.(tbm|abm)$/i, "");
-  // play/ogg/mp3 need bytes via API. If the worker URL is empty,
-  // only direct TBM download works.
-  if (act !== "tbm" && !apiReady()) {
-    status("Play/OGG/MP3 need the worker URL in app.js (deploy worker.js first).");
+  // play/ogg/mp3 need OGG bytes. With DECODE_BASE set the decode server
+  // supplies them; otherwise they go through the worker/same-origin API.
+  if (act !== "tbm" && !DECODE_BASE && !apiReady()) {
+    status("Play/OGG/MP3 need DECODE_BASE or the worker URL in app.js.");
     return;
   }
   if (!SRV.api && (act === "play" || act === "ogg" || act === "mp3" || !SRV.rawDirect)) {
@@ -521,14 +548,12 @@ async function onAction(btn) {
       }
     } else if (act === "ogg") {
       showWait();
-      const tbm = await fetchTbm(name);
-      const ogg = await decodeName(name, tbm);
+      const ogg = await fetchOgg(name);
       saveBlob(new Blob([ogg], { type: "audio/ogg" }), base + ".ogg");
       hideBar(name);
     } else if (act === "mp3") {
       showWait();
-      const tbm = await fetchTbm(name);
-      const ogg = await decodeName(name, tbm);
+      const ogg = await fetchOgg(name);
       const actx = new (window.AudioContext || window.webkitAudioContext)();
       const ab = await actx.decodeAudioData(ogg.slice().buffer);
       // fixed 44.1 kHz: resample via OfflineAudioContext (browser does it)

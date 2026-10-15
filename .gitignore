@@ -3,7 +3,7 @@
 js/tbm.js
 js/tbm-crypto.js
 js/server-vps.js
-heads.au5
+js/heads.au5
 
 # --- lokal / test (bukan bagian situs) ---
 server-lokal.py

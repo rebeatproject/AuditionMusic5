@@ -1,23 +1,14 @@
 // MT.js — Cloudflare Worker (maintenance gate) for AuditionMusic5.
 // Static site is served by the assets binding; this script only adds a
-// maintenance switch. All the old /api/* proxy routes were dead (the app
-// uses the decode server on the VPS), so they are gone.
+// maintenance switch.
 //
-// Config (Worker vars / secrets, then redeploy):
-//   MAINTENANCE = "1"      -> non-admin visitors get /maintenance.html (503)
-//   ADMIN_KEY   = secret   -> /?admin=KEY (or ?key=KEY) sets a cookie that
-//                             bypasses maintenance for 7 days.
-// Set ADMIN_KEY via `wrangler secret put ADMIN_KEY` (never plaintext in git).
+// Maintenance state:
+//   MAINTENANCE = "1" (or "true")  -> non-admin visitors see /maintenance.html
+//   ADMIN_KEY   = secret           -> /?admin=KEY sets a cookie that bypasses
+//                                     maintenance for 7 days.
 //
-// wrangler.toml:
-//   name = "auditionmusic5"
-//   main = "js/MT.js"
-//   compatibility_date = "2024-01-01"
-//   [assets]
-//   directory = "."
-//   binding = "BINDING_ASSETS"
-//   [vars]
-//   MAINTENANCE = "0"
+// Toggle maintenance by editing wrangler.toml [vars] MAINTENANCE then pushing
+// (the GitHub-connected build redeploys automatically).
 
 const ADMIN_COOKIE = "am5admin";
 const MAINT_PAGE = "/maintenance.html";
@@ -45,18 +36,6 @@ async function serveAssets(env, req) {
 }
 
 async function handleMaintenance(req, env, url, admin) {
-  if (admin === "grant") {
-    const clean = new URL(url);
-    clean.searchParams.delete("admin");
-    clean.searchParams.delete("key");
-    return new Response(null, {
-      status: 302,
-      headers: {
-        Location: clean.pathname + clean.search,
-        "Set-Cookie": ADMIN_COOKIE + "=" + env.ADMIN_KEY + "; Path=/; HttpOnly; SameSite=Lax; Max-Age=604800",
-      },
-    });
-  }
   if (admin === "ok") return null;
   if (url.pathname === MAINT_PAGE || url.pathname === "/maintenance") return null;
   // Cloudflare assets may 307 "/x.html" -> "/x" (html_handling). Follow it.
@@ -73,6 +52,7 @@ export default {
   async fetch(req, env) {
     env = env || {};
     const url = new URL(req.url);
+    const admin = isAdmin(req, env);
 
     // never serve git metadata, dotfiles or build tooling as assets
     if (/\/\.(git|env|dev\.vars|wrangler)|(^|\/)\.(gitignore|gitattributes)$/i.test(url.pathname)
@@ -82,8 +62,22 @@ export default {
       return new Response("not found", { status: 404 });
     }
 
+    // grant cookie: /?admin=KEY
+    if (admin === "grant") {
+      const clean = new URL(url);
+      clean.searchParams.delete("admin");
+      clean.searchParams.delete("key");
+      return new Response(null, {
+        status: 302,
+        headers: {
+          Location: clean.pathname + clean.search,
+          "Set-Cookie": ADMIN_COOKIE + "=" + env.ADMIN_KEY + "; Path=/; HttpOnly; SameSite=Lax; Max-Age=604800",
+        },
+      });
+    }
+
     if (env.MAINTENANCE === "1" || env.MAINTENANCE === "true") {
-      const gate = await handleMaintenance(req, env, url, isAdmin(req, env));
+      const gate = await handleMaintenance(req, env, url, admin);
       if (gate) return gate;
     }
 

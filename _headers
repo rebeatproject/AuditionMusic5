@@ -9,6 +9,13 @@
   Referrer-Policy: no-referrer-when-downgrade
   Permissions-Policy: geolocation=(), microphone=(), camera=()
 
+/.git/*
+  X-Robots-Tag: noindex
+  Cache-Control: no-store
+
+/.gitignore
+  X-Robots-Tag: noindex
+
 /maintenance.html
   Cache-Control: no-store
   X-Robots-Tag: noindex

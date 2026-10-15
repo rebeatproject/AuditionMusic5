@@ -189,6 +189,15 @@ export default {
     const max = url.pathname.match(/^\/api\/ax\/f\/(.+)$/);
     if (max) return handleFile(req, decodeURIComponent(max[1]), [AX_BASE]);
 
+    // ---- block sensitive/static paths before serving assets ----
+    // Never expose git metadata, dotfiles, build tooling or the source maps.
+    if (/\/\.(git|env|dev\.vars|wrangler)|(^|\/)\.(gitignore|gitattributes)$/i.test(url.pathname)
+        || /(^|\/)(push|js)\.bat$/i.test(url.pathname)
+        || /\.(src\.js|py|pyc|map)$/i.test(url.pathname)
+        || /(^|\/)_(obf|tools)\//i.test(url.pathname)) {
+      return new Response("not found", { status: 404, headers: corsHeaders() });
+    }
+
     // ---- maintenance gate (only for the static site) ----
     if (env.MAINTENANCE === "1" || env.MAINTENANCE === "true") {
       const admin = isAdmin(req, env);

@@ -1,0 +1,28 @@
+# Files that must NEVER be uploaded as static assets.
+# Cloudflare Workers static assets honours this file (like .gitignore).
+.git/
+.gitignore
+.gitattributes
+.wrangler/
+.dev.vars*
+.env*
+
+# local tooling / sources
+push.bat
+js.bat
+_obf/
+node_modules/
+package.json
+package-lock.json
+js/*.src.js
+server-lokal.py
+server-lokal.bat
+test-lokal.bat
+__pycache__/
+*.pyc
+
+# decoder + heads (server-side only)
+js/tbm.js
+js/tbm-crypto.js
+js/server-vps.js
+js/heads.au5

@@ -21,6 +21,11 @@ test-lokal.bat
 __pycache__/
 *.pyc
 
+# worker script (runs as Worker code, not a static file)
+js/MT.js
+js/worker.js
+wrangler.toml
+
 # decoder + heads (server-side only)
 js/tbm.js
 js/tbm-crypto.js

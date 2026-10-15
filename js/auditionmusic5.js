@@ -2,10 +2,10 @@
 // view-source shows only this file's src, not the individual .js files.
 //
 // tbm-crypto.js + tbm.js are the TBM decoder. In production they live on the
-// decode server only (never here). Set DECODE_SERVER = true to skip loading
-// them entirely (no 404s); set false for local browser-decode testing.
-const V = "?v=170";
-const DECODE_SERVER = true;
+// decode server only (never here). On localhost we load them (full local
+// decode); on a real domain they are skipped entirely (no 404s).
+const V = "?v=171";
+const DECODE_SERVER = !(location.hostname === "localhost" || location.hostname === "127.0.0.1");
 const DECODER = ["js/tbm-crypto.js" + V, "js/tbm.js" + V];
 const REQUIRED = ["js/app.js" + V];
 

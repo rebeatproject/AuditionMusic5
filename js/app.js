@@ -3,8 +3,9 @@
 const WORKER = "https://WORKER_URL_DISINI";
 // Decode server (server-vps.js di VPS): TBM -> OGG dilakukan di server,
 // decoder JS (tbm.js/tbm-crypto.js/heads.au5) TIDAK ikut ke browser.
-// Kosongkan ("") untuk decode di browser (butuh 3 file decoder itu di folder web).
-const DECODE_BASE = "https://vm.auditionmusic5.com/am5";
+// Otomatis: di localhost decode di browser (full lokal), di domain pakai VPS.
+const IS_LOCAL = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+const DECODE_BASE = IS_LOCAL ? "" : "https://vm.auditionmusic5.com/am5";
 const DIRECT_BASE = "http://122.102.49.131/audition/ABM";  // local fallback (no worker)
 const DIRECT_PKG_BASE = "http://122.102.49.131/audition/package/ABM";  // .abm files live here
 const VTC_BASE = "http://aumusic.vtcgame.vn/abm";
@@ -53,7 +54,7 @@ try {
 } catch (e) {}
 const LAMEJS_CDN = "https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js";
 const SLK_DIR = "script/";   // semua .slk (server + ballroom + _gt) di subfolder ini
-const ASSET_V = "?v=170";   // naikkan tiap update biar browser tidak pakai cache lama
+const ASSET_V = "?v=171";   // naikkan tiap update biar browser tidak pakai cache lama
 const PAGE = 300;
 
 function workerReady() { return WORKER && !WORKER.includes("WORKER_URL"); }

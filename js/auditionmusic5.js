@@ -2,11 +2,11 @@
 // view-source shows only this file's src, not the individual .js files.
 //
 // tbm-crypto.js + tbm.js are the TBM decoder. In production they live on the
-// decode server only (never here); this loader tries them and silently skips
-// if absent, so the same page works with browser-decode (files present) or
-// server-decode (files absent, app.js DECODE_BASE set).
-const V = "?v=164";
-const OPTIONAL = ["js/tbm-crypto.js" + V, "js/tbm.js" + V];
+// decode server only (never here). Set DECODE_SERVER = true to skip loading
+// them entirely (no 404s); set false for local browser-decode testing.
+const V = "?v=165";
+const DECODE_SERVER = true;
+const DECODER = ["js/tbm-crypto.js" + V, "js/tbm.js" + V];
 const REQUIRED = ["js/app.js" + V];
 
 function loadScript(file) {
@@ -25,12 +25,8 @@ function loadScript(file) {
     });
 }
 
-// Optional decoder files: ignore if missing (server-decode mode).
-const pre = OPTIONAL.reduce(
-  (p, f) => p.then(() => loadScript(f).catch(() => {})),
-  Promise.resolve()
-);
-// Required app, loaded after the (optional) decoder.
-pre
-  .then(() => REQUIRED.reduce((p, f) => p.then(() => loadScript(f)), Promise.resolve()))
+// Decoder first (only in browser-decode mode), then the app.
+const chain = DECODE_SERVER ? REQUIRED : DECODER.concat(REQUIRED);
+chain
+  .reduce((p, f) => p.then(() => loadScript(f)), Promise.resolve())
   .catch((e) => console.error("Load failed:", e));

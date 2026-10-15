@@ -53,7 +53,7 @@ try {
 } catch (e) {}
 const LAMEJS_CDN = "https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js";
 const SLK_DIR = "script/";   // semua .slk (server + ballroom + _gt) di subfolder ini
-const ASSET_V = "?v=166";   // naikkan tiap update biar browser tidak pakai cache lama
+const ASSET_V = "?v=169";   // naikkan tiap update biar browser tidak pakai cache lama
 const PAGE = 300;
 
 function workerReady() { return WORKER && !WORKER.includes("WORKER_URL"); }

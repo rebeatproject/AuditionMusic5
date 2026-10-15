@@ -12,6 +12,11 @@ test-lokal.bat
 __pycache__/
 *.pyc
 push.bat
+js.bat
+_obf/
+node_modules/
+package.json
+package-lock.json
 
 # --- OS ---
 Thumbs.db

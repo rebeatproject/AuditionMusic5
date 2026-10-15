@@ -4,7 +4,7 @@
 // tbm-crypto.js + tbm.js are the TBM decoder. In production they live on the
 // decode server only (never here). Set DECODE_SERVER = true to skip loading
 // them entirely (no 404s); set false for local browser-decode testing.
-const V = "?v=166";
+const V = "?v=169";
 const DECODE_SERVER = true;
 const DECODER = ["js/tbm-crypto.js" + V, "js/tbm.js" + V];
 const REQUIRED = ["js/app.js" + V];

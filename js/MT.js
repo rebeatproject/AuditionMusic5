@@ -58,9 +58,14 @@ async function handleMaintenance(req, env, url, admin) {
     });
   }
   if (admin === "ok") return null;
-  if (url.pathname === MAINT_PAGE) return null;
-  const body = await serveAssets(env, new Request(new URL(MAINT_PAGE, url).toString(), req));
-  if (body && body.ok) return new Response(body.body, { status: 503, headers: body.headers });
+  if (url.pathname === MAINT_PAGE || url.pathname === "/maintenance") return null;
+  // Cloudflare assets may 307 "/x.html" -> "/x" (html_handling). Follow it.
+  let res = await serveAssets(env, new Request(new URL(MAINT_PAGE, url).toString(), req));
+  if (res && (res.status === 301 || res.status === 302 || res.status === 307 || res.status === 308)) {
+    const loc = res.headers.get("Location");
+    if (loc) res = await serveAssets(env, new Request(new URL(loc, url).toString(), req));
+  }
+  if (res && res.ok) return new Response(res.body, { status: 503, headers: res.headers });
   return new Response("Under maintenance.", { status: 503, headers: { "Content-Type": "text/plain" } });
 }
 

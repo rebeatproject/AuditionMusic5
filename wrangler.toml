@@ -11,5 +11,5 @@ run_worker_first = true
 [vars]
 # Maintenance switch: "1" = maintenance on, "0" = site online.
 # Edit here, then push -> GitHub build redeploys automatically.
-MAINTENANCE = "1"
+MAINTENANCE = "0"
 # ADMIN_KEY is a SECRET (set in the dashboard), not here.

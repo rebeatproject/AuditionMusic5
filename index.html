@@ -134,7 +134,7 @@
   tr.found td { background: #3a2a5a !important; transition: background 0.3s; }
   tr.playing td { background: #241a3d; }
   tr.playing td:first-child { border-left: 3px solid var(--accent); }
-  th { background: #101010; position: sticky; top: 0; padding: 11px 10px; text-align: left; border: 0; border-bottom: 1px solid #2a2a2a; background-clip: padding-box; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.7px; z-index: 5; }
+  th { background: #101010; position: sticky; top: 0; padding: 11px 10px; text-align: left; border: 0; box-shadow: inset 0 -1px 0 #2a2a2a; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.7px; z-index: 5; }
   td { padding: 9px 10px; border-bottom: 1px solid #1f1f1f; vertical-align: middle; }
   tr:hover td { background: var(--panel-2); }
   td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--muted); }
@@ -163,7 +163,7 @@
 </head>
 <body>
 <header>
-  <h1>Audition<span>Music5</span> <span class="ver">(v1.7.4)</span></h1>
+  <h1>Audition<span>Music5</span> <span class="ver">(v1.7.5)</span></h1>
   <div id="bar">
     <select id="srv"></select>
     <div id="qwrap">
@@ -211,6 +211,6 @@
 <button id="more" style="display:none">Show more</button>
 <footer>&copy; <span id="yr">2026</span> AuditionMusic5 &mdash; Made by <a href="https://www.facebook.com/raiszhe" target="_blank">mello</a></footer>
 <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
-<script src="js/auditionmusic5.js?v=174"></script>
+<script src="js/auditionmusic5.js?v=175"></script>
 </body>
 </html>

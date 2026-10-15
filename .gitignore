@@ -17,6 +17,7 @@ _obf/
 node_modules/
 package.json
 package-lock.json
+js/*.src.js
 
 # --- OS ---
 Thumbs.db

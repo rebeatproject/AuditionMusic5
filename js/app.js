@@ -53,7 +53,7 @@ try {
 } catch (e) {}
 const LAMEJS_CDN = "https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js";
 const SLK_DIR = "script/";   // semua .slk (server + ballroom + _gt) di subfolder ini
-const ASSET_V = "?v=165";   // naikkan tiap update biar browser tidak pakai cache lama
+const ASSET_V = "?v=166";   // naikkan tiap update biar browser tidak pakai cache lama
 const PAGE = 300;
 
 function workerReady() { return WORKER && !WORKER.includes("WORKER_URL"); }
@@ -659,9 +659,7 @@ function switchServer(id) {
   $("pv-dur").textContent = "0:00";
   $("pv-seek").value = 0;
   document.querySelectorAll("tr.playing").forEach((r) => r.classList.remove("playing"));
-  const pl = $("player");
-  pl.style.display = "none";
-  pl.classList.remove("on");
+  hideBar("");   // keep the player bar visible; reset to "Empty"
   boot();
 }
 

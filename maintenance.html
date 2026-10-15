@@ -26,7 +26,9 @@
     background-size:200% 100%; animation:sw 1.4s linear infinite;
   }
   @keyframes sw { from { background-position:200% 0; } to { background-position:-200% 0; } }
-  .ver { margin-top:22px; font-size:.8rem; color:#5a5a70; }
+  .ver { margin-top:22px; font-size:.8rem; color:#6a6a6a; }
+  .ver a { color:var(--accent); text-decoration:none; }
+  .ver a:hover { text-decoration:underline; }
 </style>
 </head>
 <body>
@@ -34,10 +36,11 @@
     <div class="ico">🛠️</div>
     <h1>Audition<span>Music5</span></h1>
     <p><strong>We&rsquo;re doing maintenance.</strong></p>
-    <p>The music player is temporarily offline while we update the servers.<br>
+    <p>AuditionMusic5 is temporarily offline while we update the servers.<br>
        Please check back in a little while.</p>
     <div class="bar"></div>
-    <div class="ver">Maintenance mode</div>
+    <div class="ver">&copy; <span id="yr"></span> AuditionMusic5 &mdash; Made by <a href="https://www.facebook.com/raiszhe" target="_blank">mello</a></div>
   </main>
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
 </body>
 </html>

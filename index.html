@@ -163,7 +163,7 @@
 </head>
 <body>
 <header>
-  <h1>Audition<span>Music5</span> <span class="ver">(v1.7.2)</span></h1>
+  <h1>Audition<span>Music5</span> <span class="ver">(v1.7.4)</span></h1>
   <div id="bar">
     <select id="srv"></select>
     <div id="qwrap">
@@ -209,7 +209,8 @@
   <tbody id="rows"></tbody>
 </table>
 <button id="more" style="display:none">Show more</button>
-<footer>&copy; 2026 AuditionMusic5 &mdash; Made by <a href="https://www.facebook.com/raiszhe" target="_blank">mello</a></footer>
-<script src="js/auditionmusic5.js?v=172"></script>
+<footer>&copy; <span id="yr">2026</span> AuditionMusic5 &mdash; Made by <a href="https://www.facebook.com/raiszhe" target="_blank">mello</a></footer>
+<script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+<script src="js/auditionmusic5.js?v=174"></script>
 </body>
 </html>

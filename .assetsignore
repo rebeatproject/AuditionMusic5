@@ -23,6 +23,7 @@ __pycache__/
 *.pyc
 token_am5.txt
 .wrangler/
+_*.log
 
 # worker script (runs as Worker code, not a static file)
 js/MT.js

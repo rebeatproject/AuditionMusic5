@@ -448,6 +448,17 @@ export default {
       t.pathname = url.pathname.replace(/\.html$/i, ".aspx");
       return new Response(null, { status: 301, headers: { Location: t.toString() } });
     }
+    // halaman tanpa ekstensi -> .aspx (generik: /login, /maintenance, /index, dst.)
+    if (url.pathname !== "/" && !/\./.test(url.pathname) && env.BINDING_ASSETS) {
+      const probeUrl = new URL(url);
+      probeUrl.pathname = url.pathname + ".html";
+      const probe = await env.BINDING_ASSETS.fetch(new Request(probeUrl.toString(), req));
+      if (probe && probe.status < 400) {
+        const t = new URL(url);
+        t.pathname = url.pathname + ".aspx";
+        return new Response(null, { status: 301, headers: { Location: t.toString() } });
+      }
+    }
 
     // everything else -> MT.js (maintenance gate, assets, panel API, SLK)
     return MT.fetch(req, env);

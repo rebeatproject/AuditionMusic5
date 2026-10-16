@@ -101,7 +101,15 @@ function isAdminKey(req, env) {
 
 async function serveAssets(env, req) {
   const a = ASSETS(env);
-  return a ? a.fetch(req) : null;
+  if (!a) return null;
+  let res = await a.fetch(req);
+  // binding assets default html_handling=auto-trailing-slash: /x.html -> 307 /x.
+  // Ikuti redirect-nya internal biar URL browser tetap .aspx (bukan kebalik ke /x).
+  if (res && [301, 302, 307, 308].includes(res.status)) {
+    const loc = res.headers.get("Location");
+    if (loc) res = await a.fetch(new Request(new URL(loc, req.url).toString(), req));
+  }
+  return res;
 }
 function json(obj, status, extra) {
   return new Response(JSON.stringify(obj), {

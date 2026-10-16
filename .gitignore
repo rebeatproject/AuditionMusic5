@@ -21,6 +21,7 @@ package-lock.json
 js/*.src.js
 token_am5.txt
 .wrangler/
+_*.log
 
 # --- OS ---
 Thumbs.db

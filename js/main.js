@@ -199,15 +199,35 @@ async function appendFbUser(env, u) {
   return false;
 }
 
+// Google login history: satu baris per akun (dedupe by Id, fallback Email).
 async function appendGoogleUser(env, u) {
   if (!env.GH_TOKEN || !env.GH_REPO) return false;
   const path = googlePath(env);
   const header = "Nama,Email,Id\n";
   const row = csvRow([u.name || "", u.email || "", u.id || ""]);
+  const key = String(u.id || u.email || "").trim().toLowerCase();
   for (let i = 0; i < 3; i++) {
     const cur = await ghReadFile(env, path);
     if (!cur) return false;
-    const text = (cur.text || header) + row;
+    const lines = String(cur.text || "").split(/\r?\n/).filter((l) => l.trim() !== "");
+    const out = [];
+    const seen = new Set();
+    for (const l of lines) {
+      if (/^(nama|name)\s*,/i.test(l)) { out.push(l); continue; }
+      const cells = splitLine(l, ",");
+      const k = String(cells[2] || cells[1] || "").trim().toLowerCase();
+      if (k && seen.has(k)) continue; // baris ganda -> buang
+      if (k) seen.add(k);
+      out.push(l);
+    }
+    if (key && seen.has(key)) {
+      // akun sudah pernah login: rapikan kalau ada baris ganda, jangan tambah baris baru
+      if (out.length !== lines.length) {
+        await ghWriteFile(env, path, out.join("\n") + "\n", cur.sha, "dedupe: google users");
+      }
+      return true;
+    }
+    const text = (out.length ? out.join("\n") + "\n" : header) + row;
     if (await ghWriteFile(env, path, text, cur.sha, "log: google " + (u.name || u.email || ""))) return true;
     await new Promise((r) => setTimeout(r, 300 * (i + 1)));
   }

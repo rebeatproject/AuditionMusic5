@@ -23,8 +23,12 @@ __pycache__/
 
 # worker script (runs as Worker code, not a static file)
 js/MT.js
+js/main.js
 js/worker.js
 wrangler.toml
+
+# user access log (stored in GitHub; local data/ cuma buat dev, jangan di-upload)
+data/
 
 # decoder + heads (server-side only)
 js/tbm.js

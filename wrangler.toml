@@ -1,15 +1,17 @@
 name = "auditionmusic5"
-main = "js/MT.js"
+main = "js/main.js"
 compatibility_date = "2024-01-01"
 
 [assets]
 directory = "."
 binding = "BINDING_ASSETS"
-# Worker must run before assets so the maintenance gate can intercept "/".
+# Worker must run before assets so maintenance gate + auth can intercept.
 run_worker_first = true
 
-[vars]
-# Maintenance switch: "1" = maintenance on, "0" = site online.
-# Edit here, then push -> GitHub build redeploys automatically.
-MAINTENANCE = "0"
-# ADMIN_KEY is a SECRET (set in the dashboard), not here.
+# NOTE: all secrets/vars live in the Cloudflare dashboard (Variables and
+# Secrets) so the admin panel and the dashboard are the single source:
+#   MAINTENANCE, ADMIN_KEY, ADMIN_USER, ADMIN_PASS, SESSION_SECRET,
+#   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, FB_APP_ID, FB_APP_SECRET,
+#   GH_TOKEN, GH_REPO, GH_BRANCH, GH_DIR  +  KV binding MT_KV.
+# (Cloudflare may ask to "sync" these into wrangler.toml — ignore/dismiss it,
+#  this file intentionally keeps [vars] empty; dashboard is the source of truth.)

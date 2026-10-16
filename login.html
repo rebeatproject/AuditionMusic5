@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Log in — AuditionMusic5</title>
+<link rel="icon" href="image/au.ico">
+<style>
+  :root { --accent:#a238ff; --bg:#000; --panel:#1a1a1a; --text:#fff; --muted:#a7a7a7; --rail:#2a2a2a; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+    font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; min-height:100vh; }
+  header { padding:16px 22px; border-bottom:1px solid var(--rail); }
+  header h1 { margin:0; font-size:18px; font-weight:800; }
+  header h1 span { color:var(--accent); }
+  header h1 a { color:inherit; text-decoration:none; }
+  .wrap { max-width:420px; margin:0 auto; padding:48px 22px 80px; }
+  h2 { text-align:center; font-size:42px; font-weight:800; margin:0 0 34px; letter-spacing:-1px; }
+  label { display:block; font-size:13px; color:var(--muted); margin:0 0 6px; }
+  input[type=text], input[type=password] {
+    width:100%; padding:14px; margin-bottom:18px; background:var(--panel); color:#fff;
+    border:1px solid var(--rail); border-radius:8px; font-size:15px; outline:none; }
+  input:focus { border-color:var(--accent); }
+  .btn { width:100%; padding:14px; background:var(--accent); color:#fff; border:0; border-radius:8px;
+    font-size:15px; font-weight:700; cursor:pointer; }
+  .btn:hover { filter:brightness(1.1); }
+  .or { text-align:center; color:var(--muted); margin:18px 0; font-size:14px; }
+  .fb { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:13px; font-family:inherit;
+    background:#1877f2; color:#fff; border:0; border-radius:8px; font-size:15px; font-weight:700;
+    cursor:pointer; text-decoration:none; }
+  .fb:hover { filter:brightness(1.08); }
+  .fb svg { width:20px; height:20px; fill:#fff; }
+  .goog { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:13px; font-family:inherit;
+    background:#fff; color:#1f1f1f; border:0; border-radius:8px; font-size:15px; font-weight:700;
+    cursor:pointer; text-decoration:none; margin-top:10px; }
+  .goog:hover { filter:brightness(.95); }
+  .goog svg { width:20px; height:20px; }
+  .msg { min-height:0; margin:8px 0 0; font-size:13px; text-align:center; color:#ff6b6b; }
+  .back { display:block; text-align:center; margin-top:18px; color:var(--muted); font-size:13px; text-decoration:none; }
+  .back:hover { color:#fff; }
+</style>
+</head>
+<body>
+<header><h1><a href="/">Audition<span>Music5</span></a></h1></header>
+<main class="wrap">
+  <h2>Log in</h2>
+  <form id="f">
+    <label>Username</label>
+    <input type="text" id="u" autocomplete="username" required>
+    <label>Password</label>
+    <input type="password" id="p" autocomplete="current-password" required>
+    <button class="btn" type="submit">Log in</button>
+    <div class="msg" id="msg"></div>
+  </form>
+  <div class="or">or</div>
+  <button class="fb" type="button" id="fbbtn">
+    <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg>
+    Continue with Facebook
+  </button>
+  <button class="goog" type="button" id="gbtn">
+    <svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+    Continue with Gmail
+  </button>
+  <a class="back" href="/">&larr; Back to AuditionMusic5</a>
+</main>
+<script>
+  const $ = (id) => document.getElementById(id);
+  // already logged in? go home
+  fetch("/api/auth/me", { credentials: "same-origin" })
+    .then((r) => r.json())
+    .then((j) => { if (j.logged || j.admin || j.fb || j.google || j.user) location.href = "/"; })
+    .catch(() => {});
+  $("fbbtn").onclick = () => { location.href = "/api/auth/fb"; };
+  $("gbtn").onclick = () => { location.href = "/api/auth/google"; };
+  $("f").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    $("msg").textContent = "";
+    try {
+      const r = await fetch("/api/auth/login", {
+        method: "POST", credentials: "same-origin",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ u: $("u").value, p: $("p").value }),
+      });
+      const j = await r.json();
+      if (j.ok) location.href = "/";
+      else $("msg").textContent = "Invalid username or password.";
+    } catch (err) {
+      $("msg").textContent = "Login failed. Try again.";
+    }
+  });
+</script>
+</body>
+</html>

@@ -262,8 +262,11 @@ export default {
       const clean = new URL(url);
       clean.searchParams.delete("admin");
       clean.searchParams.delete("key");
+      // path internal hasil rewrite .aspx->.html: balikin ke .aspx biar URL bar
+      // gak sempat nampilin .html (301 tambahan di main.js)
+      const loc = clean.pathname.replace(/\.html$/i, ".aspx") + clean.search;
       return new Response(null, { status: 302, headers: {
-        Location: clean.pathname + clean.search,
+        Location: loc,
         "Set-Cookie": ADMIN_COOKIE + "=" + env.ADMIN_KEY + "; Path=/; HttpOnly; SameSite=Lax; Secure; Max-Age=604800",
       } });
     }

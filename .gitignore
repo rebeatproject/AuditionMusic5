@@ -4,6 +4,7 @@ js/tbm.js
 js/tbm-crypto.js
 js/server-vps.js
 js/heads.au5
+token_am5.txt
 
 # --- lokal / test (bukan bagian situs) ---
 server-lokal.py

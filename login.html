@@ -66,12 +66,27 @@
 </main>
 <script>
   const $ = (id) => document.getElementById(id);
+  // toast setema situs (sama gaya dgn notif di index: 1 toast, tengah layar, tanpa glow)
+  function notify(msg) {
+    let t = $("am5toast");
+    if (!t) {
+      t = document.createElement("div");
+      t.id = "am5toast";
+      t.style.cssText = "position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:9999;pointer-events:none;max-width:min(90vw,420px);padding:12px 16px;border-radius:10px;border:1px solid var(--accent,#a238ff);background:linear-gradient(180deg,#141414,#0a0a0a);color:#fff;font-size:14px;line-height:1.35;text-align:center;white-space:pre-line;opacity:0;transition:opacity .18s ease;";
+      document.body.appendChild(t);
+      requestAnimationFrame(() => { t.style.opacity = "1"; });
+    }
+    t.textContent = msg;
+    clearTimeout(t._am5timer);
+    t.style.opacity = "1";
+    t._am5timer = setTimeout(() => { t.style.opacity = "0"; }, 5000);
+  }
   // already logged in? go home
   fetch("/api/auth/me", { credentials: "same-origin" })
     .then((r) => r.json())
     .then((j) => { if (j.logged || j.admin || j.fb || j.google || j.user) location.href = "/"; })
     .catch(() => {});
-  $("fbbtn").onclick = () => { location.href = "/api/auth/fb"; };
+  $("fbbtn").onclick = () => notify("Facebook login is not ready yet\nPlease use an AM5 or Google account.");
   $("gbtn").onclick = () => { location.href = "/api/auth/google"; };
   $("f").addEventListener("submit", async (e) => {
     e.preventDefault();

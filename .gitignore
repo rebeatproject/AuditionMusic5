@@ -4,7 +4,6 @@ js/tbm.js
 js/tbm-crypto.js
 js/server-vps.js
 js/heads.au5
-token_am5.txt
 
 # --- lokal / test (bukan bagian situs) ---
 server-lokal.py
@@ -13,12 +12,15 @@ test-lokal.bat
 __pycache__/
 *.pyc
 push.bat
+deploy.bat
 js.bat
 _obf/
 node_modules/
 package.json
 package-lock.json
 js/*.src.js
+token_am5.txt
+.wrangler/
 
 # --- OS ---
 Thumbs.db

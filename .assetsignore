@@ -9,6 +9,7 @@
 
 # local tooling / sources
 push.bat
+deploy.bat
 js.bat
 _obf/
 node_modules/
@@ -20,6 +21,8 @@ server-lokal.bat
 test-lokal.bat
 __pycache__/
 *.pyc
+token_am5.txt
+.wrangler/
 
 # worker script (runs as Worker code, not a static file)
 js/MT.js
@@ -35,4 +38,3 @@ js/tbm.js
 js/tbm-crypto.js
 js/server-vps.js
 js/heads.au5
-token_am5.txt

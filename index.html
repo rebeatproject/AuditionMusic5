@@ -488,6 +488,10 @@
         border-collapse: separate;
         border-spacing: 0;
       }
+      /* row bg: nutup celah sub-pixel antar-cell */
+      thead tr {
+        background: #101010;
+      }
       th,
       td {
         border-left: 0;
@@ -502,6 +506,15 @@
       }
       tr.playing td:first-child {
         border-left: 3px solid var(--accent);
+      }
+      tbody tr.found {
+        background: #3a2a5a;
+      }
+      tbody tr.playing {
+        background: #241a3d;
+      }
+      tbody tr:hover {
+        background: var(--panel-2);
       }
       th {
         background: #101010;
@@ -999,12 +1012,12 @@
         text-decoration: underline;
       }
     </style>
-    <link rel="stylesheet" href="css/mobile.css?v=257" />
+    <link rel="stylesheet" href="css/mobile.css?v=258" />
   </head>
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.5.7)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.5.8)</span></h1>
         <div id="authbox"></div>
       </div>
       <div id="bar">
@@ -1142,7 +1155,7 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=257"></script>
-    <script src="js/auditionmusic5.js?v=257"></script>
+    <script src="js/guard.js?v=258"></script>
+    <script src="js/auditionmusic5.js?v=258"></script>
   </body>
 </html>

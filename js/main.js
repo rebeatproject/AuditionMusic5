@@ -341,6 +341,12 @@ async function handleLogin(req, env) {
   const p = String(body.p || "");
   if (!u) return json({ ok: false, error: "invalid credentials" }, 401);
 
+  // lockout per username: maks 10 percobaan/menit (user ada atau tidak, sama saja)
+  if (env.LOGIN_LIMITER) {
+    const gate = await env.LOGIN_LIMITER.limit({ key: "u:" + u.toLowerCase().slice(0, 64) });
+    if (!gate.success) return json({ ok: false, error: "too many attempts" }, 429);
+  }
+
   let role = null;
   const rec = await findUser(env, u);
   if (rec && rec.password === p) {

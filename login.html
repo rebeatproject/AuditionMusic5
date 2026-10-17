@@ -64,7 +64,7 @@
   </button>
   <a class="back" href="/">&larr; Back to AuditionMusic5</a>
 </main>
-<script src="js/guard.js?v=247"></script>
+<script src="js/guard.js?v=248"></script>
 <script>
   const $ = (id) => document.getElementById(id);
   // toast setema situs (sama gaya dgn notif di index: 1 toast, tengah layar, tanpa glow)
@@ -101,6 +101,7 @@
       const j = await r.json();
       if (j.ok) location.href = "/";
       else if (j.error === "maintenance") $("msg").textContent = "Site is under maintenance.";
+      else if (j.error === "too many attempts") $("msg").textContent = "Too many attempts. Wait a minute, then try again.";
       else $("msg").textContent = "Invalid username or password.";
     } catch (err) {
       $("msg").textContent = "Login failed. Try again.";

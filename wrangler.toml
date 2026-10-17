@@ -23,6 +23,16 @@ run_worker_first = true
 binding = "MT_KV"
 id = "59501432e7a1431083676447d99cc25f"
 
+# Lockout login per username: 10 percobaan / 60 detik (key di main.js: "u:<username>").
+# Counter-nya nempel ke username, jadi brute force satu akun mentok walau IP diputar.
+[[ratelimits]]
+name = "LOGIN_LIMITER"
+namespace_id = "1001"
+
+  [ratelimits.simple]
+  limit = 10
+  period = 60
+
 # NOTE: SECRETS tetap di Cloudflare dashboard (Settings > Variables and
 # Secrets, tipe Secret) — secret kebawa lintas build:
 #   ADMIN_KEY, ADMIN_USER, ADMIN_PASS, SESSION_SECRET,

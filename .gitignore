@@ -22,6 +22,7 @@ js/*.src.js
 token_am5.txt
 .wrangler/
 _*.log
+data/login.log
 
 # --- OS ---
 Thumbs.db

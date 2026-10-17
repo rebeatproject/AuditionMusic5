@@ -485,7 +485,7 @@
       th {
         background: #101010;
         position: sticky;
-        top: 0;
+        top: var(--hd, 0px);
         padding: 11px 10px;
         text-align: left;
         border: 0;
@@ -931,12 +931,12 @@
         text-decoration: underline;
       }
     </style>
-    <link rel="stylesheet" href="css/mobile.css?v=229" />
+    <link rel="stylesheet" href="css/mobile.css?v=235" />
   </head>
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.2.9)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.3.5)</span></h1>
         <div id="authbox"></div>
       </div>
       <div id="bar">
@@ -1051,13 +1051,13 @@
         <table>
           <thead>
             <tr>
-              <th>Singer</th>
-              <th>Music Name</th>
-              <th id="th-file">File Name</th>
-              <th>BPM</th>
-              <th id="th-new">New</th>
-              <th id="th-lvl">Level</th>
-              <th>Action</th>
+              <th class="sngc">Singer</th>
+              <th class="musc">Music Name</th>
+              <th id="th-file" class="filec">File Name</th>
+              <th class="bpmc">BPM</th>
+              <th id="th-new" class="newc">New</th>
+              <th id="th-lvl" class="lvlc">Level</th>
+              <th class="btns">Action</th>
             </tr>
           </thead>
           <tbody id="rows"></tbody>
@@ -1071,7 +1071,7 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=229"></script>
-    <script src="js/auditionmusic5.js?v=229"></script>
+    <script src="js/guard.js?v=235"></script>
+    <script src="js/auditionmusic5.js?v=235"></script>
   </body>
 </html>

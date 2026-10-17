@@ -43,30 +43,71 @@
   }
   /* ---------- mobile: table ---------- */
   .tblwrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible;
   }
   table {
-    min-width: 560px;
+    min-width: 0;
+    table-layout: fixed;
+    width: 100%;
   }
-  th:nth-child(3),
-  td:nth-child(3) {
+  th.sngc {
+    width: 24%;
+  }
+  th.musc {
+    width: 30%;
+  }
+  th.filec {
     display: none;
   }
+  th.bpmc {
+    width: 10%;
+  }
+  th.newc {
+    display: none;
+  }
+  th.lvlc {
+    display: none;
+  }
+  th.btns {
+    width: 36%;
+  }
+  td.sngc {
+    width: 24%;
+  }
+  td.musc {
+    width: 30%;
+  }
+  td.filec {
+    display: none;
+  }
+  td.bpmc {
+    width: 10%;
+  }
+  td.newc {
+    display: none;
+  }
+  td.lvlc {
+    display: none;
+  }
+  td.btns {
+    width: 36%;
+  }
   th {
-    font-size: 10.5px;
-    padding: 7px 5px;
-    position: static;
-    letter-spacing: 0.4px;
+    font-size: 10px;
+    padding: 7px 4px;
+    letter-spacing: 0.3px;
   }
   td {
-    font-size: 11.5px;
-    padding: 6px 5px;
+    font-size: 11px;
+    padding: 6px 4px;
+    word-break: break-word;
   }
   .btns {
-    display: flex;
-    gap: 3px;
-    flex-wrap: nowrap;
+    white-space: nowrap;
+    text-align: right;
+  }
+  .btns .mobhide {
+    display: none;
   }
   .btns button {
     font-size: 10.5px;

@@ -18,6 +18,11 @@ binding = "BINDING_ASSETS"
 # Worker must run before assets so maintenance gate + auth can intercept.
 run_worker_first = true
 
+# KV: saklar Maintenance (key "maintenance") + SLK hasil upload (key "slk:<nama>").
+[[kv_namespaces]]
+binding = "MT_KV"
+id = "59501432e7a1431083676447d99cc25f"
+
 # NOTE: SECRETS tetap di Cloudflare dashboard (Settings > Variables and
 # Secrets, tipe Secret) — secret kebawa lintas build:
 #   ADMIN_KEY, ADMIN_USER, ADMIN_PASS, SESSION_SECRET,

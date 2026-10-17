@@ -99,6 +99,7 @@
       });
       const j = await r.json();
       if (j.ok) location.href = "/";
+      else if (j.error === "maintenance") $("msg").textContent = "Site is under maintenance.";
       else $("msg").textContent = "Invalid username or password.";
     } catch (err) {
       $("msg").textContent = "Login failed. Try again.";

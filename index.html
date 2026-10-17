@@ -614,6 +614,83 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        position: relative;
+      }
+      #authbox #userbtn {
+        width: 34px;
+        min-height: 34px;
+        padding: 0;
+        border-radius: 50%;
+        border-color: transparent;
+        background: rgba(255, 255, 255, 0.14);
+      }
+      /* netralkan `button svg { margin-right:4px; vertical-align:-2px }` biar ikon pas di tengah */
+      #authbox #userbtn svg {
+        display: block;
+        margin: 0;
+        vertical-align: 0;
+      }
+      #authbox #userbtn:hover {
+        background: rgba(255, 255, 255, 0.24);
+        border-color: transparent;
+      }
+      .umenu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        min-width: 220px;
+        background: var(--panel-2);
+        border: 1px solid var(--rail);
+        border-radius: 10px;
+        padding: 6px;
+        z-index: 60;
+      }
+      .umenu.on {
+        display: block;
+      }
+      .uhead {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 10px 12px;
+        margin-bottom: 6px;
+        border-bottom: 1px solid var(--rail);
+        color: var(--muted);
+      }
+      .uname {
+        font-size: 14px;
+        font-weight: 700;
+        color: #fff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      #authbox .umenu button.uitem {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+        min-height: 0;
+        text-align: left;
+        background: transparent;
+        border: 0;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 13.5px;
+        font-weight: 600;
+        padding: 10px;
+      }
+      #authbox .umenu button.uitem:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border: 0;
+        transform: none;
+        filter: none;
+      }
+      .umenu .chev {
+        color: var(--muted);
+        flex: 0 0 auto;
       }
       #authbox .who {
         font-size: 13px;
@@ -664,7 +741,7 @@
         background: var(--panel);
         border: 1px solid var(--rail);
         border-radius: 14px;
-        width: 380px;
+        width: 430px;
         max-width: 92vw;
         overflow: hidden;
       }
@@ -705,14 +782,106 @@
         padding: 7px;
         font-size: 12px;
       }
+      .prow select {
+        flex: 0 1 auto;
+        min-width: 0;
+        max-width: 62%;
+      }
       .prow button {
         background: var(--accent);
         color: #fff;
+      }
+      .prow.pbtns {
+        justify-content: flex-start;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .prow.pbtns button {
+        font-size: 12px;
+        padding: 7px 12px;
+      }
+      .prow.pbtns.pdl {
+        padding-top: 10px;
+        border-top: 1px solid var(--rail);
+      }
+      .prow.pbtns.pdl button {
+        font-size: 11px;
+        padding: 6px 9px;
+        background: transparent;
+        border: 1px solid #4a4a4a;
+        color: #fff;
+      }
+      .prow.pbtns.pdl button:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: #6a6a6a;
+      }
+      .prow input[type="text"] {
+        flex: 0 1 auto;
+        min-width: 0;
+        width: 62%;
+        background: var(--panel-2);
+        color: #fff;
+        border: 1px solid var(--rail);
+        border-radius: 8px;
+        padding: 7px;
+        font-size: 12px;
       }
       .pmsg {
         font-size: 12px;
         color: var(--muted);
         min-height: 16px;
+      }
+      .pmsg.err {
+        color: #ff5c5c;
+        font-weight: 700;
+      }
+      .ival {
+        font-size: 13px;
+        color: #fff;
+        font-weight: 600;
+      }
+      .rbadge {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.3px;
+      }
+      .rbadge.r-user {
+        background: var(--accent);
+        color: #fff;
+      }
+      .rbadge.r-vip {
+        background: #d4af37;
+        color: #1a1400;
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.45);
+      }
+      .rbadge.r-admin {
+        background: #e03a3a;
+        color: #fff;
+        box-shadow: 0 0 10px rgba(224, 58, 58, 0.45);
+      }
+      .rbadge.r-dev {
+        background: #ff8a1f;
+        color: #201000;
+        box-shadow: 0 0 10px rgba(255, 138, 31, 0.45);
+      }
+      .inote {
+        margin-top: 14px;
+        padding-top: 12px;
+        border-top: 1px solid var(--rail);
+        text-align: center;
+      }
+      .inote-main {
+        font-size: 12.5px;
+        font-weight: 700;
+        color: #fff;
+      }
+      .inote-sub {
+        margin-top: 4px;
+        font-size: 11.5px;
+        color: #6f6f7a;
       }
       .switch {
         position: relative;
@@ -771,7 +940,7 @@
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v1.9.5)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.2.4)</span></h1>
         <div id="authbox"></div>
       </div>
       <div id="bar">
@@ -904,6 +1073,6 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/auditionmusic5.js?v=195"></script>
+    <script src="js/auditionmusic5.js?v=224"></script>
   </body>
 </html>

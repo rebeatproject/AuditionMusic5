@@ -6,7 +6,7 @@
 //   data/google-users.csv  Nama,Email,Id                 (Google login history)
 //
 // Routes handled here:
-//   GET  /api/auth/me              -> session info (fb/google/admin/special/user)
+//   GET  /api/auth/me              -> session info (fb/google/admin/dev/vip/user)
 //   POST /api/auth/login {u,p}     -> check data/user.csv, set cookie
 //   POST /api/auth/logout
 //   GET  /api/auth/fb              -> redirect to Facebook
@@ -16,9 +16,10 @@
 //   GET  /api/admin/users          -> download user.csv (admin only)
 //   GET  /api/admin/fbusers        -> download fb-user.csv (admin only)
 //   GET  /api/admin/googleusers    -> download google-users.csv (admin only)
+//   POST /api/admin/createuser     -> add a users.csv account (role 4 / DEV only)
 //
-// Everything else (maintenance gate, static assets, admin panel API, SLK from
-// KV) is delegated to MT.js (library).
+// Everything else (static assets, admin panel API, SLK from KV) lives HERE.
+// MT.js is imported for MAINTENANCE MODE ONLY.
 //
 // Secrets / vars (dashboard):
 //   GH_TOKEN    secret        GitHub PAT with "Contents: read & write"
@@ -26,22 +27,91 @@
 //   GH_BRANCH   var/secret    branch (default "main")
 //   GH_DIR      var/secret    csv folder (default "data")
 //   GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET            (Google OAuth, production)
-//   FB_APP_ID / FB_APP_SECRET / SESSION_SECRET / ADMIN_KEY are read via MT.js.
+//   FB_APP_ID / FB_APP_SECRET / SESSION_SECRET / ADMIN_KEY
+//   MT_KV       KV binding    optional maintenance flag + uploaded SLKs
 
-import MT, {
-  b64url,
-  constEq,
-  hmac,
-  makeSession,
-  readSession,
-  setCookie,
-  json,
-  secret,
-  isAdminKey,
-  SESS_COOKIE,
-} from "./MT.js";
+import { readMT, adminState, adminSet, maintenanceGate } from "./MT.js";
 
 const enc = new TextEncoder();
+const ADMIN_COOKIE = "am5admin";
+const SESS_COOKIE = "am5sess";
+const SLK_PREFIX = "slk:";
+
+// ---------- session / crypto helpers ----------
+function b64url(buf) {
+  const b = btoa(String.fromCharCode(...new Uint8Array(buf)));
+  return b.replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+function unb64url(s) {
+  s = s.replace(/-/g, "+").replace(/_/g, "/");
+  while (s.length % 4) s += "=";
+  const bin = atob(s);
+  const out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out;
+}
+async function hmac(secret, msg) {
+  const key = await crypto.subtle.importKey("raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  return b64url(await crypto.subtle.sign("HMAC", key, enc.encode(msg)));
+}
+function constEq(a, b) {
+  if (typeof a !== "string" || typeof b !== "string" || a.length !== b.length) return false;
+  let d = 0;
+  for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return d === 0;
+}
+function secret(env) { return env.SESSION_SECRET || env.ADMIN_KEY || "am5-fallback-secret"; }
+
+async function makeSession(env, obj) {
+  const payload = b64url(enc.encode(JSON.stringify(obj)));
+  return payload + "." + (await hmac(secret(env), payload));
+}
+async function readSession(env, cookieHeader) {
+  const m = (cookieHeader || "").match(new RegExp("(?:^|;\\s*)" + SESS_COOKIE + "=([^;]+)"));
+  if (!m) return null;
+  const [payload, sig] = m[1].split(".");
+  if (!payload || !sig) return null;
+  if (!constEq(sig, await hmac(secret(env), payload))) return null;
+  try {
+    const o = JSON.parse(new TextDecoder().decode(unb64url(payload)));
+    if (!o.exp || o.exp < Date.now()) return null;
+    return o;
+  } catch (e) { return null; }
+}
+function setCookie(name, val, maxAge) {
+  return name + "=" + val + "; Path=/; HttpOnly; SameSite=Lax; Secure; Max-Age=" + maxAge;
+}
+function json(obj, status, extra) {
+  return new Response(JSON.stringify(obj), {
+    status: status || 200,
+    headers: { "Content-Type": "application/json", "Cache-Control": "no-store", ...(extra || {}) },
+  });
+}
+
+// ---------- admin key bypass ----------
+function isAdminKey(req, env) {
+  const url = new URL(req.url);
+  const key = env.ADMIN_KEY || "";
+  if (!key) return false;
+  const given = url.searchParams.get("admin") || url.searchParams.get("key");
+  if (given && constEq(given, key)) return "grant";
+  const m = (req.headers.get("Cookie") || "").match(new RegExp("(?:^|;\\s*)" + ADMIN_COOKIE + "=" + key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?:;|$)"));
+  return m ? "ok" : false;
+}
+
+// ---------- static assets ----------
+async function serveAssets(env, req) {
+  const a = env && env.BINDING_ASSETS;
+  if (!a) return null;
+  let res = await a.fetch(req);
+  // binding assets default html_handling=auto-trailing-slash: /x.html -> 307 /x.
+  // Ikuti redirect-nya internal biar URL browser tetap .aspx (bukan kebalik ke /x).
+  if (res && [301, 302, 307, 308].includes(res.status)) {
+    const loc = res.headers.get("Location");
+    if (loc) res = await a.fetch(new Request(new URL(loc, req.url).toString(), req));
+  }
+  return res;
+}
 
 // ---------- GitHub CSV storage ----------
 function ghConf(env) {
@@ -164,11 +234,12 @@ function parseTable(text) {
   if (["username", "user", "nama", "name", "time", "fb_id"].includes(h)) rows.shift();
   return rows;
 }
-// poweruser column: 1=admin, 2=special, 3=user (text names also accepted)
+// poweruser column: 1=admin, 2=vip, 3=user, 4=dev (admin panel + create account)
 function roleOf(power) {
   const v = String(power == null ? "" : power).trim().toLowerCase();
   if (v === "1" || v === "admin" || v === "a") return "admin";
-  if (v === "2" || v === "special" || v === "s") return "special";
+  if (v === "2" || v === "vip" || v === "s") return "vip";
+  if (v === "4" || v === "dev" || v === "d") return "dev";
   if (v === "3" || v === "user" || v === "u") return "user";
   return v || "user";
 }
@@ -236,6 +307,9 @@ async function appendGoogleUser(env, u) {
 
 // ---------- helpers ----------
 function isAdmSess(s) { return !!(s && (s.t === "adm" || s.r === "admin")); }
+// panel akses: admin (role 1) atau dev (role 4)
+function isPanelSess(s) { return !!(s && (s.t === "adm" || s.r === "admin" || s.r === "dev")); }
+function isDevSess(s) { return !!(s && s.r === "dev"); }
 function isLogged(s) { return !!s; }
 function fbUsername(u) {
   const link = u.link || "";
@@ -250,13 +324,14 @@ function clearCookie() {
 // ---------- auth handlers ----------
 async function handleMe(req, env) {
   const s = await readSession(env, req.headers.get("Cookie"));
-  if (!s) return json({ logged: false, fb: false, google: false, admin: false, special: false, user: false, name: "", role: "" });
+  if (!s) return json({ logged: false, fb: false, google: false, admin: false, dev: false, vip: false, user: false, name: "", role: "" });
   const fb = s.t === "fb" || s.fb === true;
   const google = s.t === "goo" || s.g === true;
   const admin = s.t === "adm" || s.r === "admin";
-  const special = s.r === "special";
+  const vip = s.r === "vip";
+  const dev = s.r === "dev";
   const user = s.t === "usr" || admin || fb || google;
-  return json({ logged: true, fb, google, admin, special, user, name: s.n || "", role: s.r || (fb || google ? "user" : "") });
+  return json({ logged: true, fb, google, admin, dev, vip, user, name: s.n || "", role: s.r || (fb || google ? "user" : "") });
 }
 
 async function handleLogin(req, env) {
@@ -276,8 +351,15 @@ async function handleLogin(req, env) {
   }
   if (role === null) return json({ ok: false, error: "invalid credentials" }, 401);
 
+  // MT nyala: cuma admin/dev yang boleh login (biar bisa matiin MT dari panel)
+  if (await readMT(env)) {
+    const ok = role === "admin" || role === "dev";
+    if (!ok) return json({ ok: false, error: "maintenance" }, 403);
+  }
+
   const t = role === "admin" ? "adm" : "usr";
   const sess = await makeSession(env, { t, n: u, r: role, exp: Date.now() + 7 * 864e5 });
+  await logLogin(env, req, { user: u, role, type: "AM5" });
   return json({ ok: true, role }, 200, { "Set-Cookie": setCookie(SESS_COOKIE, sess, 604800) });
 }
 
@@ -336,6 +418,7 @@ async function handleFbCallback(req, env, url) {
 
   // Facebook login = role 3 (user): general server + MP3/OGG download
   const sess = await makeSession(env, { t: "usr", r: "user", fb: true, n: u.name || "Facebook user", id: u.id || "", exp: Date.now() + 7 * 864e5 });
+  await logLogin(env, req, { user: u.name || "Facebook user", role: "user", type: "Facebook" });
   return new Response(null, {
     status: 302,
     headers: { Location: "/", "Set-Cookie": setCookie(SESS_COOKIE, sess, 604800) },
@@ -398,6 +481,7 @@ async function handleGoogleCallback(req, env, url) {
 
   // Google login = role 3 (user): general server + MP3/OGG download
   const sess = await makeSession(env, { t: "usr", r: "user", g: true, n: u.name || "Google user", id: u.sub || "", exp: Date.now() + 7 * 864e5 });
+  await logLogin(env, req, { user: u.name || u.email || "Google user", role: "user", type: "Google" });
   return new Response(null, {
     status: 302,
     headers: { Location: "/", "Set-Cookie": setCookie(SESS_COOKIE, sess, 604800) },
@@ -408,17 +492,144 @@ async function handleGoogleCallback(req, env, url) {
 async function adminDownload(req, env, filename) {
   const s = await readSession(env, req.headers.get("Cookie"));
   const ak = isAdminKey(req, env);
-  if (!isAdmSess(s) && ak !== "grant" && ak !== "ok") return json({ ok: false, error: "forbidden" }, 403);
+  // role 4 (DEV) only — dipakai tombol di dialog Create Account
+  if (!isDevSess(s) && ak !== "grant" && ak !== "ok") return json({ ok: false, error: "forbidden" }, 403);
   const cur = await readStore(env, filename);
   if (!cur) return json({ ok: false, error: "store not available" }, 502);
+  const isLog = /\.log$/i.test(filename);
   return new Response(cur.text || "", {
     status: 200,
     headers: {
-      "Content-Type": "text/csv; charset=utf-8",
+      "Content-Type": isLog ? "text/plain; charset=utf-8" : "text/csv; charset=utf-8",
       "Cache-Control": "no-store",
       "Content-Disposition": 'attachment; filename="' + filename + '"',
     },
   });
+}
+
+// ---------- admin: upload an SLK into KV ----------
+async function handleAdminSlk(req, env, url) {
+  const name = (url.searchParams.get("name") || "").toLowerCase();
+  if (!/^[a-z0-9_]+\.slk$/.test(name)) return json({ ok: false, error: "bad name" }, 400);
+  if (!env.MT_KV) return json({ ok: false, error: "no MT_KV binding" }, 500);
+  const buf = await req.arrayBuffer();
+  if (buf.byteLength === 0 || buf.byteLength > 20 * 1024 * 1024) return json({ ok: false, error: "bad size" }, 400);
+  await env.MT_KV.put(SLK_PREFIX + name, buf);
+  return json({ ok: true, name, size: buf.byteLength });
+}
+
+// ---------- admin/dev: create a users.csv account (role 4 only) ----------
+async function handleCreateUser(req, env) {
+  let body = {};
+  try { body = await req.json(); } catch (e) {}
+  const u = String(body.u || "").trim();
+  const p = String(body.p || "");
+  const power = String(body.power == null ? "" : body.power).trim();
+  if (!u || !p) return json({ ok: false, error: "Username and password are required" }, 400);
+  if (!/^[A-Za-z0-9_.-]{3,32}$/.test(u))
+    return json({ ok: false, error: "Username must be 3-32 chars (letters, numbers, . _ -)" }, 400);
+  if (!["1", "2", "3"].includes(power)) return json({ ok: false, error: "Role must be 1, 2 or 3" }, 400);
+  if (/[;\r\n]/.test(u) || /[;\r\n]/.test(p))
+    return json({ ok: false, error: "Username or password contains an illegal character" }, 400);
+
+  const path = userPath(env);
+  const header = "Username;Password;PowerUser\n";
+  for (let i = 0; i < 3; i++) {
+    const cur = await ghReadFile(env, path);
+    if (!cur) return json({ ok: false, error: "user store not available" }, 502);
+    const lines = String(cur.text || "").split(/\r?\n/).filter((l) => l.trim() !== "");
+    const head = lines.length && /^username/i.test(lines[0]) ? lines.shift() : "Username;Password;PowerUser";
+    for (const l of lines) {
+      const cells = splitLine(l, detectDelim(l));
+      if ((cells[0] || "").trim().toLowerCase() === u.toLowerCase())
+        return json({ ok: false, error: "Username already exist" }, 409);
+    }
+    const text = [head, ...lines].join("\n") + "\n" + u + ";" + p + ";" + power + "\n";
+    if (await ghWriteFile(env, path, text, cur.sha, "user: create " + u)) return json({ ok: true, username: u, power });
+    await new Promise((r) => setTimeout(r, 300 * (i + 1)));
+  }
+  return json({ ok: false, error: "write failed, try again" }, 502);
+}
+
+// ---------- login log (data/login.log) ----------
+// format baris: [27/12/2026 10:25:54 AM] user / role / login type / ip / country
+function jakartaStamp() {
+  const p = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Jakarta",
+    day: "2-digit", month: "2-digit", year: "numeric",
+    hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true,
+  }).formatToParts(new Date());
+  const g = (t) => (p.find((x) => x.type === t) || {}).value || "";
+  const ap = (g("dayPeriod") || "AM").toUpperCase().replace(/\./g, "");
+  return "[" + g("day") + "/" + g("month") + "/" + g("year") + " " + g("hour") + ":" + g("minute") + ":" + g("second") + " " + ap + "]";
+}
+function rolePower(role) {
+  const r = String(role || "").toLowerCase();
+  if (r === "admin") return "1";
+  if (r === "vip") return "2";
+  if (r === "dev") return "4";
+  return "3";
+}
+async function geoOf(env, ip) {
+  const token = env.IPINFO_TOKEN || "";
+  if (!ip || !token) return { country: "", code: "" };
+  try {
+    const r = await fetch("https://api.ipinfo.io/lite/" + encodeURIComponent(ip) + "?token=" + encodeURIComponent(token));
+    if (!r.ok) return { country: "", code: "" };
+    const j = await r.json();
+    return { country: j.country || "", code: j.country_code || "" };
+  } catch (e) {
+    return { country: "", code: "" };
+  }
+}
+// best-effort: gagal log TIDAK boleh menggagalkan login
+async function logLogin(env, req, rec) {
+  try {
+    const ip = (req && req.headers.get("CF-Connecting-IP")) || "";
+    const geo = await geoOf(env, ip);
+    const c = ghConf(env);
+    if (!c.token || !c.repo) return false;
+    const path = c.dir + "/login.log";
+    const header = "Date|Username|PowerUser|Login Type|IP Address|Country\n";
+    const stamp = jakartaStamp();
+    const line = [stamp, rec.user, rolePower(rec.role), rec.type, ip || "-", geo.country || "-"]
+      .map((v) => String(v == null ? "" : v).replace(/[|\r\n]/g, " "))
+      .join("|") + "\n";
+    for (let i = 0; i < 3; i++) {
+      const cur = await ghReadFile(env, path);
+      if (!cur) return false;
+      const base = cur.text && cur.text.trim() ? cur.text.replace(/\n*$/, "\n") : header;
+      if (await ghWriteFile(env, path, base + line, cur.sha, "log: login " + rec.user)) return true;
+      await new Promise((r) => setTimeout(r, 300 * (i + 1)));
+    }
+  } catch (e) {}
+  return false;
+}
+
+// ---------- geo (IPinfo Lite) ----------
+// Token disimpan server-side (env IPINFO_TOKEN). Lite = unlimited country-level.
+// Endpoint "me" dibaca dari IP pemanggil -> harus dipanggil per-IP user, bukan cache global.
+async function handleGeo(req, env) {
+  const ip = req.headers.get("CF-Connecting-IP") || "";
+  const token = env.IPINFO_TOKEN || "";
+  if (!ip) return json({ ok: false, error: "no client ip" }, 400);
+  if (!token) return json({ ok: false, error: "IPINFO_TOKEN not set" }, 500);
+  try {
+    const r = await fetch("https://api.ipinfo.io/lite/" + encodeURIComponent(ip) + "?token=" + encodeURIComponent(token));
+    if (!r.ok) return json({ ok: false, error: "ipinfo " + r.status }, 502);
+    const j = await r.json();
+    return json({
+      ok: true,
+      ip: j.ip || ip,
+      country: j.country || "",
+      country_code: j.country_code || "",
+      continent: j.continent || "",
+      asn: j.asn || "",
+      as_name: j.as_name || "",
+    });
+  } catch (e) {
+    return json({ ok: false, error: "ipinfo unreachable" }, 502);
+  }
 }
 
 export default {
@@ -433,15 +644,84 @@ export default {
     if (url.pathname === "/api/auth/fb/callback") return handleFbCallback(req, env, url);
     if (url.pathname === "/api/auth/google") return handleGoogleStart(req, env);
     if (url.pathname === "/api/auth/google/callback") return handleGoogleCallback(req, env, url);
+    if (url.pathname === "/api/geo") return handleGeo(req, env);
     if (url.pathname === "/api/admin/users") return adminDownload(req, env, "users.csv");
     if (url.pathname === "/api/admin/fbusers") return adminDownload(req, env, "fb-users.csv");
     if (url.pathname === "/api/admin/googleusers") return adminDownload(req, env, "google-users.csv");
+    if (url.pathname === "/api/admin/loginlog") return adminDownload(req, env, "login.log");
+
+    // block sensitive paths
+    if (/\/\.(git|env|dev\.vars|wrangler)|(^|\/)\.(gitignore|gitattributes)$/i.test(url.pathname)
+        || /(^|\/)(push|js)\.bat$/i.test(url.pathname)
+        || /\.(src\.js|py|pyc|map)$/i.test(url.pathname)
+        || /(^|\/)_(obf|tools)\//i.test(url.pathname)
+        || /(^|\/)data\//i.test(url.pathname)) {
+      return new Response("not found", { status: 404 });
+    }
+
+    const adminKey = isAdminKey(req, env);
+    const sess = await readSession(env, req.headers.get("Cookie"));
+
+    // ---- admin panel API (maintenance = MT.js) ----
+    if (url.pathname.startsWith("/api/admin/")) {
+      // create account = role 4 (dev) only; sisanya admin atau dev
+      if (url.pathname === "/api/admin/createuser") {
+        if (req.method !== "POST") return json({ ok: false, error: "unknown" }, 404);
+        if (!isDevSess(sess)) return json({ ok: false, error: "forbidden" }, 403);
+        return handleCreateUser(req, env);
+      }
+      if (!isPanelSess(sess) && adminKey !== "grant" && adminKey !== "ok")
+        return json({ ok: false, error: "forbidden" }, 403);
+      if (url.pathname === "/api/admin/state") return json(await adminState(env));
+      if (url.pathname === "/api/admin/maintenance" && req.method === "POST") {
+        let body = {};
+        try { body = await req.json(); } catch (e) {}
+        return json(await adminSet(env, !!body.on));
+      }
+      if (url.pathname === "/api/admin/slk" && req.method === "POST") return handleAdminSlk(req, env, url);
+      return json({ ok: false, error: "unknown" }, 404);
+    }
+
+    // ---- uploaded SLK from KV overrides the static file ----
+    const mslk = url.pathname.match(/^\/script\/([a-z0-9_]+\.slk)$/i);
+    if (mslk && env.MT_KV) {
+      const v = await env.MT_KV.get(SLK_PREFIX + mslk[1].toLowerCase(), "arrayBuffer");
+      if (v) return new Response(v, { headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } });
+    }
+
+    // ---- admin key grant ----
+    if (adminKey === "grant") {
+      const clean = new URL(url);
+      clean.searchParams.delete("admin");
+      clean.searchParams.delete("key");
+      // path internal hasil rewrite .aspx->.html: balikin ke .aspx biar URL bar
+      // gak sempat nampilin .html
+      let p = clean.pathname.replace(/\.html$/i, ".aspx");
+      // path tanpa ekstensi (/login) -> /login.aspx kalau halamannya ada
+      if (p !== "/" && !/\./.test(p) && env.BINDING_ASSETS) {
+        const probe = await env.BINDING_ASSETS.fetch(new Request(new URL(p + ".html", url).toString(), req));
+        if (probe && probe.status < 400) p = p + ".aspx";
+      }
+      return new Response(null, { status: 302, headers: {
+        Location: p + clean.search,
+        "Set-Cookie": ADMIN_COOKIE + "=" + env.ADMIN_KEY + "; Path=/; HttpOnly; SameSite=Lax; Secure; Max-Age=604800",
+      } });
+    }
+
+    // ---- maintenance gate (satu-satunya urusan MT.js) ----
+    // admin/dev yang sudah login juga boleh nembus, biar bisa matiin MT dari panel
+    if (await readMT(env)) {
+      const bypass = adminKey || isPanelSess(sess) ? "ok" : false;
+      const gate = await maintenanceGate(req, env, url, bypass, (r) => serveAssets(env, r));
+      if (gate) return gate;
+    }
 
     // pretty URL: file tetap .html, tapi URL di browser selalu .aspx
     if (/\.aspx$/i.test(url.pathname)) {
       const t = new URL(url);
       t.pathname = url.pathname.replace(/\.aspx$/i, ".html");
-      return MT.fetch(new Request(t.toString(), req), env);
+      const res = await serveAssets(env, new Request(t.toString(), req));
+      if (res) return res;
     }
     if (/\.html$/i.test(url.pathname)) {
       const t = new URL(url);
@@ -460,7 +740,8 @@ export default {
       }
     }
 
-    // everything else -> MT.js (maintenance gate, assets, panel API, SLK)
-    return MT.fetch(req, env);
+    const asset = await serveAssets(env, req);
+    if (asset) return asset;
+    return new Response("not found", { status: 404 });
   },
 };

@@ -485,8 +485,7 @@
       th {
         background: #101010;
         position: sticky;
-        top: var(--hd, 0px);
-        padding: 11px 10px;
+        top: var(--hd, 0px);        padding: 11px 10px;
         text-align: left;
         border: 0;
         box-shadow: inset 0 -1px 0 #2a2a2a;
@@ -495,6 +494,41 @@
         text-transform: uppercase;
         letter-spacing: 0.7px;
         z-index: 5;
+      }
+      th[data-sort] {
+        cursor: pointer;
+        user-select: none;
+      }
+      th[data-sort]:hover {
+        color: #fff;
+      }
+      th.sorted {
+        color: #fff;
+      }
+      th[data-sort]::after {
+        content: "\25B2\A\25BC";
+        white-space: pre;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 4px;
+        font-size: 6px;
+        line-height: 0.8;
+        letter-spacing: 0;
+        color: var(--accent);
+        opacity: 0.5;
+      }
+      th[data-sort]:hover::after {
+        opacity: 0.85;
+      }
+      th[data-sort][data-dir="asc"]::after {
+        content: "\25B2";
+        font-size: 9px;
+        opacity: 1;
+      }
+      th[data-sort][data-dir="desc"]::after {
+        content: "\25BC";
+        font-size: 9px;
+        opacity: 1;
       }
       td {
         padding: 9px 10px;
@@ -931,12 +965,12 @@
         text-decoration: underline;
       }
     </style>
-    <link rel="stylesheet" href="css/mobile.css?v=242" />
+    <link rel="stylesheet" href="css/mobile.css?v=247" />
   </head>
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.4.2)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.4.7)</span></h1>
         <div id="authbox"></div>
       </div>
       <div id="bar">
@@ -1051,10 +1085,10 @@
         <table>
           <thead>
             <tr>
-              <th class="sngc">Singer</th>
-              <th class="musc">Music Name</th>
+              <th class="sngc" data-sort="a">Singer</th>
+              <th class="musc" data-sort="t">Music Name</th>
               <th id="th-file" class="filec">File Name</th>
-              <th class="bpmc">BPM</th>
+              <th class="bpmc" data-sort="bpm">BPM</th>
               <th id="th-new" class="newc">New</th>
               <th id="th-lvl" class="lvlc">Level</th>
               <th class="btns">Action</th>
@@ -1071,7 +1105,7 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=242"></script>
-    <script src="js/auditionmusic5.js?v=242"></script>
+    <script src="js/guard.js?v=247"></script>
+    <script src="js/auditionmusic5.js?v=247"></script>
   </body>
 </html>

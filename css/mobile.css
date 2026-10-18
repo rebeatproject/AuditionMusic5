@@ -115,12 +115,6 @@
     padding: 7px 4px;
     letter-spacing: 0.3px;
   }
-  /* ikon sort turun ke bawah label biar gak kepotong */
-  th[data-sort]::after {
-    display: block;
-    margin: 2px 0 0;
-    line-height: 1;
-  }
   td {
     font-size: 11px;
     padding: 6px 4px;
@@ -171,5 +165,49 @@
   .prow input[type="text"],
   .prow input[type="file"] {
     font-size: 16px;
+  }
+}
+/* ---------- HP kecil: kolom BPM dilebarin dikit biar ikon sort gak kepotong ---------- */
+/* ikon sort TIDAK diubah: tetap 6px, margin-left 4px, ▲▼ asli */
+@media (max-width: 430px) {
+  th.sngc,
+  td.sngc {
+    width: 20%;
+  }
+  th.musc,
+  td.musc {
+    width: 28%;
+  }
+  th.bpmc,
+  td.bpmc {
+    width: 13%;
+  }
+  th.newc,
+  td.newc {
+    width: 8%;
+  }
+}
+@media (max-width: 380px) {
+  th.sngc,
+  td.sngc {
+    width: 21%;
+  }
+  th.musc,
+  td.musc {
+    width: 27%;
+  }
+}
+@media (max-width: 340px) {
+  th.musc,
+  td.musc {
+    width: 24%;
+  }
+  th.bpmc,
+  td.bpmc {
+    width: 15%;
+  }
+  th.newc,
+  td.newc {
+    width: 9%;
   }
 }

@@ -23,6 +23,13 @@ run_worker_first = true
 binding = "MT_KV"
 id = "59501432e7a1431083676447d99cc25f"
 
+# D1: live chat (visitor <-> admin via Telegram). Dipilih D1 karena KV
+# eventual consistent (balasan admin bisa telat ~60 dtk antar-colo).
+[[d1_databases]]
+binding = "CHAT_DB"
+database_name = "am5-chat"
+database_id = "a3682fba-0ec8-4951-81b3-b719a4206488"
+
 # Lockout login per username: 10 percobaan / 60 detik (key di main.js: "u:<username>").
 # Counter-nya nempel ke username, jadi brute force satu akun mentok walau IP diputar.
 [[ratelimits]]

@@ -31,6 +31,7 @@
 //   MT_KV       KV binding    optional maintenance flag + uploaded SLKs
 
 import { readMT, adminState, adminSet, maintenanceGate } from "./MT.js";
+import { chatRoute } from "./chatapi.js";
 
 const enc = new TextEncoder();
 const ADMIN_COOKIE = "am5admin";
@@ -667,6 +668,9 @@ export default {
 
     const adminKey = isAdminKey(req, env);
     const sess = await readSession(env, req.headers.get("Cookie"));
+
+    // ---- live chat (visitor -> Telegram admin) ----
+    if (url.pathname.startsWith("/api/chat/")) return chatRoute(req, env, url, sess);
 
     // ---- admin panel API (maintenance = MT.js) ----
     if (url.pathname.startsWith("/api/admin/")) {

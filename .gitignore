@@ -29,3 +29,6 @@ data/login-lokal.log
 Thumbs.db
 desktop.ini
 .DS_Store
+data/chat-lokal.json
+
+.dev.vars

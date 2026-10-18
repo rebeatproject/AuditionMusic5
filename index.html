@@ -800,6 +800,221 @@
         justify-content: center;
         z-index: 100;
       }
+      /* ---------- live chat widget ---------- */
+      #amc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 78px;
+        z-index: 90;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        height: 46px;
+        padding: 0 18px 0 14px;
+        border: 1px solid #3d3d3d;
+        border-radius: 999px;
+        background: #2a2a2a;
+        color: #fff;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+        transition:
+          transform 0.15s,
+          background 0.15s,
+          border-color 0.15s;
+      }
+      #amc-btn svg {
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+      #amc-btn:hover {
+        background: #3a3a3a;
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+      #amc-btn.on {
+        transform: scale(0.95);
+      }
+      #amc-btn .amc-lbl {
+        line-height: 1;
+      }
+      #amc-badge {
+        position: absolute;
+        top: -3px;
+        right: -3px;
+        display: none;
+        min-width: 19px;
+        height: 19px;
+        padding: 0 5px;
+        border-radius: 999px;
+        background: #ff3b5c;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 19px;
+        text-align: center;
+      }
+      #amc-panel {
+        position: fixed;
+        right: 20px;
+        bottom: 142px;
+        z-index: 91;
+        display: none;
+        flex-direction: column;
+        width: 330px;
+        max-width: calc(100vw - 32px);
+        height: 430px;
+        max-height: calc(100vh - 130px);
+        border: 1px solid var(--rail);
+        border-radius: 14px;
+        background: var(--panel);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+      }
+      #amc-panel.on {
+        display: flex;
+      }
+      .amc-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--rail);
+        background: var(--panel-2);
+      }
+      .amc-title {
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .amc-x {
+        width: 26px;
+        height: 26px;
+        padding: 0;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .amc-x:hover {
+        background: var(--hover);
+        color: #fff;
+      }
+      .amc-body {
+        flex: 1;
+        overflow: hidden;
+        display: none;
+      }
+      .amc-list {
+        height: 100%;
+        overflow-y: auto;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .amc-row {
+        display: flex;
+      }
+      .amc-row.me {
+        justify-content: flex-end;
+      }
+      .amc-bub {
+        max-width: 82%;
+        padding: 7px 10px 16px;
+        border-radius: 12px;
+        background: var(--panel-2);
+        font-size: 13px;
+        line-height: 1.4;
+        word-break: break-word;
+        position: relative;
+      }
+      .amc-row.me .amc-bub {
+        background: var(--accent);
+        color: #fff;
+      }
+      .amc-time {
+        position: absolute;
+        right: 8px;
+        bottom: 3px;
+        font-size: 9px;
+        opacity: 0.55;
+      }
+      .amc-foot {
+        display: none;
+        gap: 6px;
+        padding: 9px;
+        border-top: 1px solid var(--rail);
+        background: var(--panel-2);
+      }
+      .amc-foot input {
+        flex: 1;
+        min-width: 0;
+        padding: 9px 11px;
+        border: 1px solid var(--rail);
+        border-radius: 999px;
+        background: #101010;
+        color: #fff;
+        font-size: 13px;
+        font-family: inherit;
+        outline: none;
+      }
+      .amc-foot input:focus {
+        border-color: var(--accent);
+      }
+      .amc-send {
+        padding: 0 14px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        font-family: inherit;
+        cursor: pointer;
+      }
+      .amc-send:hover {
+        filter: brightness(1.12);
+      }
+      .amc-send:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
+      .amc-guest {
+        display: none;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 20px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .amc-guest p {
+        margin: 0;
+      }
+      .amc-login {
+        padding: 9px 20px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        font-family: inherit;
+        cursor: pointer;
+      }
+      .amc-login:hover {
+        filter: brightness(1.12);
+      }
       .panelbox {
         background: var(--panel);
         border: 1px solid var(--rail);
@@ -1012,12 +1227,12 @@
         text-decoration: underline;
       }
     </style>
-    <link rel="stylesheet" href="css/mobile.css?v=259" />
+    <link rel="stylesheet" href="css/mobile.css?v=260" />
   </head>
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.5.9)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.6.0)</span></h1>
         <div id="authbox"></div>
       </div>
       <div id="bar">
@@ -1155,7 +1370,8 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=259"></script>
-    <script src="js/auditionmusic5.js?v=259"></script>
+    <script src="js/guard.js?v=260"></script>
+    <script src="js/auditionmusic5.js?v=260"></script>
+    <script src="js/chat.js?v=260"></script>
   </body>
 </html>

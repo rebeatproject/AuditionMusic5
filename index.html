@@ -588,12 +588,16 @@
       th.lvlc {
         text-align: center;
       }
-      /* desktop lebar: tombol Action dipatok biar sisa ruang gak numpuk di 1 sel
-         (kolom lain yang ambil sisa). Di mobile.css lebar ini di-override %. */
+      /* desktop lebar: kolom Action "hug" ke lebar tombolnya sendiri.
+         width:1px = trik tabel -> menyusut sampai min-content (262px tombol +
+         padding), jadi sisa ruang otomatis lari ke Singer/Music Name dan
+         kolom tombol gak pernah melar walau layar 2560px.
+         Di mobile.css lebar ini di-override persen. */
       @media (min-width: 761px) {
         th.btns,
         td.btns {
-          width: 340px;
+          width: 1px;
+          white-space: nowrap;
         }
       }
       td.newc {
@@ -1245,12 +1249,12 @@
         text-decoration: underline;
       }
     </style>
-    <link rel="stylesheet" href="css/mobile.css?v=265" />
+    <link rel="stylesheet" href="css/mobile.css?v=266" />
   </head>
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.6.5)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.6.6)</span></h1>
         <div id="authbox"></div>
       </div>
       <div id="bar">
@@ -1388,8 +1392,8 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=265"></script>
-    <script src="js/auditionmusic5.js?v=265"></script>
-    <script src="js/chat.js?v=265"></script>
+    <script src="js/guard.js?v=266"></script>
+    <script src="js/auditionmusic5.js?v=266"></script>
+    <script src="js/chat.js?v=266"></script>
   </body>
 </html>

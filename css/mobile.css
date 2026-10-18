@@ -9,6 +9,14 @@
   #topline {
     margin-bottom: 6px;
   }
+  #onnow {
+    flex: 0 0 auto;
+    padding: 3px 9px;
+    font-size: 10px;
+  }
+  #onnow .onnow-n {
+    font-size: 10px;
+  }
   #bar {
     gap: 6px;
   }
@@ -152,5 +160,15 @@
   .prow input[type="text"],
   .prow input[type="file"] {
     font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  #topline {
+    flex-wrap: wrap;
+  }
+  #onnow {
+    order: 3;
+    flex: 0 0 auto;
+    margin: 6px auto 0;
   }
 }

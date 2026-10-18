@@ -292,15 +292,30 @@ function clearCookie() {
 }
 
 // ---------- auth handlers ----------
-async function handleMe(req, env) {
+function logSoon(env, req, ctx, rec) {
+  const p = logOnline(env, req, rec);
+  if (ctx && ctx.waitUntil) ctx.waitUntil(p);
+  return p;
+}
+async function handleMe(req, env, ctx) {
   const s = await readSession(env, req.headers.get("Cookie"));
-  if (!s) return json({ logged: false, fb: false, google: false, admin: false, dev: false, vip: false, user: false, name: "", role: "" });
+  if (!s) {
+    logSoon(env, req, ctx, { user: "-", power: "-", type: "guest" });
+    return json({ logged: false, fb: false, google: false, admin: false, dev: false, vip: false, user: false, name: "", role: "" });
+  }
   const fb = s.t === "fb" || s.fb === true;
   const google = s.t === "goo" || s.g === true;
   const admin = s.t === "adm" || s.r === "admin";
   const vip = s.r === "vip";
   const dev = s.r === "dev";
   const user = s.t === "usr" || admin || fb || google;
+  const rec = {
+    user: user ? (s.n || "-") : "-",
+    power: user ? rolePower(s.r || (fb || google ? "user" : "")) : "-",
+    type: fb ? "Facebook" : google ? "Google" : user ? "AM5" : "guest",
+  };
+  const p = logSoon(env, req, ctx, rec);
+  if (!ctx || !ctx.waitUntil) await p;
   return json({ logged: true, fb, google, admin, dev, vip, user, name: s.n || "", role: s.r || (fb || google ? "user" : "") });
 }
 
@@ -582,6 +597,47 @@ async function logLogin(env, req, rec) {
   return false;
 }
 
+// ---------- online log (data/online.log) ----------
+function stampMs(stamp) {
+  const m = /^\[(\d{1,2})\/(\d{1,2})\/(\d{4}) (\d{1,2}):(\d{2}):(\d{2}) ?(AM|PM)\]$/i.exec(String(stamp || "").trim());
+  if (!m) return 0;
+  let h = Number(m[4]) % 12;
+  if ((m[7] || "").toUpperCase() === "PM") h += 12;
+  return Date.UTC(Number(m[3]), Number(m[2]) - 1, Number(m[1]), h - 7, Number(m[5]), Number(m[6]));
+}
+async function logOnline(env, req, rec) {
+  try {
+    const c = ghConf(env);
+    if (!c.token || !c.repo) return false;
+    const ip = (req && req.headers.get("CF-Connecting-IP")) || "";
+    const path = c.dir + "/online.log";
+    const header = "Date|Username|PowerUser|Login Type|IP Address|Country\n";
+    for (let i = 0; i < 2; i++) {
+      const cur = await ghReadFile(env, path);
+      if (!cur) return false;
+      const text = cur.text || "";
+      const lines = text.split("\n");
+      let dup = false;
+      for (let k = lines.length - 1, n = 0; k >= 0 && n < 400; k--, n++) {
+        const f = lines[k].split("|");
+        if (f.length < 6) continue;
+        if (f[1] !== rec.user || f[4] !== (ip || "-")) continue;
+        dup = Date.now() - stampMs(f[0]) < 30 * 6e4;
+        break;
+      }
+      if (dup) return false;
+      const geo = await geoOf(env, ip);
+      const base = text.trim() ? text.replace(/\n*$/, "\n") : header;
+      const line = [jakartaStamp(), rec.user, rec.power, rec.type, ip || "-", geo.country || "-"]
+        .map((v) => String(v == null ? "" : v).replace(/[|\r\n]/g, " "))
+        .join("|") + "\n";
+      if (await ghWriteFile(env, path, base + line, cur.sha, "log: online " + rec.user)) return true;
+      await new Promise((r) => setTimeout(r, 300 * (i + 1)));
+    }
+  } catch (e) {}
+  return false;
+}
+
 // ---------- geo (IPinfo Lite) ----------
 // panggil per-IP user, jangan cache global
 async function handleGeo(req, env) {
@@ -607,12 +663,53 @@ async function handleGeo(req, env) {
   }
 }
 
+// ---------- visitor online (realtime, D1) ----------
+const ONLINE_TTL = 75000;   // 3x ping client (25s)
+let ONLINE_SCHEMA = false;
+async function onlineEnsure(env) {
+  if (ONLINE_SCHEMA) return true;
+  const d = env.CHAT_DB || null;
+  if (!d) return false;
+  try {
+    await d.batch([
+      d.prepare("CREATE TABLE IF NOT EXISTS online_now (k TEXT PRIMARY KEY, name TEXT, ip TEXT, at INTEGER NOT NULL)"),
+      d.prepare("CREATE INDEX IF NOT EXISTS idx_online_at ON online_now(at)"),
+    ]);
+    ONLINE_SCHEMA = true;
+  } catch (e) { return false; }
+  return true;
+}
+async function handleOnlinePing(req, env, sess) {
+  if (!(await onlineEnsure(env))) return json({ ok: false, error: "online off" }, 503);
+  let body = {};
+  try { body = await req.json(); } catch (e) {}
+  const d = env.CHAT_DB;
+  const ip = req.headers.get("CF-Connecting-IP") || "";
+  const vid = String(body.v || "").replace(/[^0-9a-z]/gi, "").slice(0, 24);
+  const nm = sess && sess.n ? String(sess.n).slice(0, 40) : "";
+  const key = nm ? "u:" + nm.toLowerCase() : vid ? "v:" + vid : "ip:" + (ip || "?");
+  const now = Date.now();
+  try {
+    await d.prepare("INSERT INTO online_now (k, name, ip, at) VALUES (?, ?, ?, ?) ON CONFLICT(k) DO UPDATE SET name = excluded.name, ip = excluded.ip, at = excluded.at")
+      .bind(key, nm, ip, now).run();
+  } catch (e) {
+    return json({ ok: false, error: "db" }, 500);
+  }
+  const row = await d.prepare("SELECT COUNT(*) AS c, SUM(CASE WHEN k LIKE 'u:%' THEN 1 ELSE 0 END) AS m FROM online_now WHERE at >= ?").bind(now - ONLINE_TTL).first();
+  if (Math.random() < 0.02) {
+    try { await d.prepare("DELETE FROM online_now WHERE at < ?").bind(now - 864e5).run(); } catch (e) {}
+  }
+  const total = (row && row.c) || 0;
+  const mem = (row && row.m) || 0;
+  return json({ ok: true, now: total, members: mem, guests: Math.max(0, total - mem) });
+}
+
 export default {
-  async fetch(req, env) {
+  async fetch(req, env, ctx) {
     env = env || {};
     const url = new URL(req.url);
 
-    if (url.pathname === "/api/auth/me") return handleMe(req, env);
+    if (url.pathname === "/api/auth/me") return handleMe(req, env, ctx);
     if (url.pathname === "/api/auth/login" && req.method === "POST") return handleLogin(req, env);
     if (url.pathname === "/api/auth/logout") return handleLogout();
     if (url.pathname === "/api/auth/fb") return handleFbStart(req, env);
@@ -624,6 +721,7 @@ export default {
     if (url.pathname === "/api/admin/fbusers") return adminDownload(req, env, "fb-users.csv");
     if (url.pathname === "/api/admin/googleusers") return adminDownload(req, env, "google-users.csv");
     if (url.pathname === "/api/admin/loginlog") return adminDownload(req, env, "login.log");
+    if (url.pathname === "/api/admin/onlinelog") return adminDownload(req, env, "online.log");
 
     // block sensitive paths
     if (/\/\.(git|env|dev\.vars|wrangler)|(^|\/)\.(gitignore|gitattributes)$/i.test(url.pathname)
@@ -636,6 +734,9 @@ export default {
 
     const adminKey = isAdminKey(req, env);
     const sess = await readSession(env, req.headers.get("Cookie"));
+
+    // ---- visitor online (realtime) ----
+    if (url.pathname === "/api/online/ping") return handleOnlinePing(req, env, sess);
 
     // ---- live chat (visitor -> Telegram admin) ----
     if (url.pathname.startsWith("/api/chat/")) return chatRoute(req, env, url, sess);

@@ -113,6 +113,57 @@
         font-weight: 600;
         letter-spacing: 0;
       }
+      #onnow {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 0 auto;
+        padding: 4px 11px;
+        border-radius: 999px;
+        border: 1px solid #3d3d3d;
+        background: #2a2a2a;
+        font-size: 11px;
+        font-weight: 400;
+        color: var(--muted);
+        white-space: nowrap;
+        user-select: none;
+      }
+      #onnow .onnow-n {
+        font-size: 11px;
+        color: #fff;
+      }
+      #onnow i {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #555;
+        flex: 0 0 auto;
+      }
+      #onnow[data-on="1"] i {
+        background: #35c759;
+        box-shadow: 0 0 6px rgba(53, 199, 89, 0.8);
+        animation: onnowpulse 2s ease-in-out infinite;
+      }
+      @keyframes onnowpulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.35;
+        }
+      }
+      @media (min-width: 761px) {
+        #topline {
+          position: relative;
+        }
+        #onnow {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          margin: 0;
+        }
+      }
       #bar {
         display: flex;
         align-items: center;
@@ -1254,12 +1305,12 @@
         text-decoration: underline;
       }
     </style>
-    <link rel="stylesheet" href="css/mobile.css?v=268" />
+    <link rel="stylesheet" href="css/mobile.css?v=274" />
   </head>
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.6.8)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.7.4)</span></h1>
         <div id="authbox"></div>
       </div>
       <div id="bar">
@@ -1397,8 +1448,9 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=268"></script>
-    <script src="js/auditionmusic5.js?v=268"></script>
-    <script src="js/chat.js?v=268"></script>
+    <script src="js/guard.js?v=274"></script>
+    <script src="js/auditionmusic5.js?v=274"></script>
+    <script src="js/chat.js?v=274"></script>
+    <script src="js/online-now.js?v=274"></script>
   </body>
 </html>

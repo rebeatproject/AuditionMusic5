@@ -1,19 +1,4 @@
-// chatapi.js — live chat visitor <-> admin lewat Telegram.
-//
-// Alur:
-//   visitor (login wajib) -> POST /api/chat/send -> simpan di D1 + notif ke Telegram admin
-//   admin reply pesan notif di Telegram -> POST /api/chat/tg (webhook) -> simpan ke thread
-//   visitor -> GET /api/chat/poll?since=<id> -> balasan muncul (instan)
-//
-// Kenapa D1, bukan KV: KV eventual consistent (bisa telat ~60 dtk antar-colo,
-// webhook Telegram masuk di colo lain -> balasan terasa ngadat). D1 baca dari
-// primary, jadi read-after-write langsung kelihatan.
-//
-// Env yang dibutuhkan (dashboard, tipe Secret):
-//   TG_TOKEN    token bot dari @BotFather
-//   TG_CHAT_ID  chat id admin (angka, atau "-100..." kalau grup)
-//   TG_SECRET   string acak; dipakai sebagai secret_token webhook Telegram
-// Binding: CHAT_DB (D1). Kalau belum ada -> route chat balas 503, sisa situs normal.
+// live chat: visitor <-> admin Telegram (D1 + webhook)
 
 const MAX_LEN = 500;      // panjang pesan visitor
 const MIN_GAP_MS = 2000;  // jeda minimal antar pesan
@@ -42,8 +27,7 @@ async function hmacBytes(env, msg) {
   const key = await crypto.subtle.importKey("raw", enc.encode(sec(env)), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
   return new Uint8Array(await crypto.subtle.sign("HMAC", key, enc.encode(msg)));
 }
-// identitas thread: username (atau nama tampilan) + id provider biar dua akun
-// dengan nama sama (FB/Google) gak nyampur ke satu thread
+// id thread: username + id provider
 function identOf(sess) {
   return String(sess.n || "") + "|" + String(sess.id || "");
 }
@@ -79,7 +63,7 @@ async function tgSend(env, text) {
   } catch (e) { return false; }
 }
 
-// rate limit: jeda antar pesan + cap per jam (counter di KV, TTL 1 jam)
+// rate limit: jeda antar pesan + cap per jam
 async function rateOk(env, sid) {
   const kv = env.MT_KV;
   if (!kv) return true;

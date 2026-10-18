@@ -1,34 +1,4 @@
-// main.js — entry Worker for AuditionMusic5 (Cloudflare).
-//
-// Owns the login system + user store (plain CSV files in a GitHub repo):
-//   data/users.csv         username,password,poweruser   (accounts, manual)
-//   data/fb-users.csv      Nama,Username,url             (Facebook login history)
-//   data/google-users.csv  Nama,Email,Id                 (Google login history)
-//
-// Routes handled here:
-//   GET  /api/auth/me              -> session info (fb/google/admin/dev/vip/user)
-//   POST /api/auth/login {u,p}     -> check data/user.csv, set cookie
-//   POST /api/auth/logout
-//   GET  /api/auth/fb              -> redirect to Facebook
-//   GET  /api/auth/fb/callback     -> log to fb-user.csv, set cookie
-//   GET  /api/auth/google          -> redirect to Google
-//   GET  /api/auth/google/callback -> log to google-users.csv, set cookie
-//   GET  /api/admin/users          -> download user.csv (admin only)
-//   GET  /api/admin/fbusers        -> download fb-user.csv (admin only)
-//   GET  /api/admin/googleusers    -> download google-users.csv (admin only)
-//   POST /api/admin/createuser     -> add a users.csv account (role 4 / DEV only)
-//
-// Everything else (static assets, admin panel API, SLK from KV) lives HERE.
-// MT.js is imported for MAINTENANCE MODE ONLY.
-//
-// Secrets / vars (dashboard):
-//   GH_TOKEN    secret        GitHub PAT with "Contents: read & write"
-//   GH_REPO     var/secret    "owner/repo"   <-- MUST be a PRIVATE repo!
-//   GH_BRANCH   var/secret    branch (default "main")
-//   GH_DIR      var/secret    csv folder (default "data")
-//   GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET            (Google OAuth, production)
-//   FB_APP_ID / FB_APP_SECRET / SESSION_SECRET / ADMIN_KEY
-//   MT_KV       KV binding    optional maintenance flag + uploaded SLKs
+// main.js - Worker entry: login, users, API, static assets
 
 import { readMT, adminState, adminSet, maintenanceGate } from "./MT.js";
 import { chatRoute } from "./chatapi.js";
@@ -105,8 +75,7 @@ async function serveAssets(env, req) {
   const a = env && env.BINDING_ASSETS;
   if (!a) return null;
   let res = await a.fetch(req);
-  // binding assets default html_handling=auto-trailing-slash: /x.html -> 307 /x.
-  // Ikuti redirect-nya internal biar URL browser tetap .aspx (bukan kebalik ke /x).
+  // ikuti redirect .aspx internal (html_handling auto)
   if (res && [301, 302, 307, 308].includes(res.status)) {
     const loc = res.headers.get("Location");
     if (loc) res = await a.fetch(new Request(new URL(loc, req.url).toString(), req));
@@ -161,7 +130,7 @@ async function ghReadFile(env, path) {
   if (j.content) {
     text = b64decode(j.content);
   } else if (j.sha) {
-    // file too large for the JSON payload -> fetch raw (keeps big files intact)
+    // file kegedean buat JSON -> fetch mentah
     const raw = await fetch(base, { headers: { ...ghHeaders(c.token), Accept: "application/vnd.github.raw" } });
     if (raw.ok) text = await raw.text();
   }
@@ -179,7 +148,7 @@ async function ghWriteFile(env, path, text, sha, message) {
   return r.ok;
 }
 
-// Read a store file: GitHub in production, local assets when GH is unset (wrangler dev).
+// baca store: GitHub (prod) atau asset lokal (dev)
 async function readStore(env, filename) {
   const c = ghConf(env);
   if (c.token && c.repo) return ghReadFile(env, c.dir + "/" + filename);
@@ -225,7 +194,7 @@ function splitLine(line, delim) {
   out.push(cur);
   return out.map((s) => s.trim());
 }
-// tolerates ";", "|" or "," separated tables; drops a header row if present
+// terima pemisah ; | , + buang baris header
 function parseTable(text) {
   const lines = String(text || "").split(/\r?\n/).filter((l) => l.trim() !== "");
   if (!lines.length) return [];
@@ -235,7 +204,7 @@ function parseTable(text) {
   if (["username", "user", "nama", "name", "time", "fb_id"].includes(h)) rows.shift();
   return rows;
 }
-// poweruser column: 1=admin, 2=vip, 3=user, 4=dev (admin panel + create account)
+// poweruser: 1=admin 2=vip 3=user 4=dev
 function roleOf(power) {
   const v = String(power == null ? "" : power).trim().toLowerCase();
   if (v === "1" || v === "admin" || v === "a") return "admin";
@@ -271,7 +240,7 @@ async function appendFbUser(env, u) {
   return false;
 }
 
-// Google login history: satu baris per akun (dedupe by Id, fallback Email).
+// google-users.csv: 1 baris per akun (dedupe by Id)
 async function appendGoogleUser(env, u) {
   if (!env.GH_TOKEN || !env.GH_REPO) return false;
   const path = googlePath(env);
@@ -293,7 +262,7 @@ async function appendGoogleUser(env, u) {
       out.push(l);
     }
     if (key && seen.has(key)) {
-      // akun sudah pernah login: rapikan kalau ada baris ganda, jangan tambah baris baru
+      // akun lama: rapikan duplikat, jangan tambah baris
       if (out.length !== lines.length) {
         await ghWriteFile(env, path, out.join("\n") + "\n", cur.sha, "dedupe: google users");
       }
@@ -342,7 +311,7 @@ async function handleLogin(req, env) {
   const p = String(body.p || "");
   if (!u) return json({ ok: false, error: "invalid credentials" }, 401);
 
-  // lockout per username: maks 10 percobaan/menit (user ada atau tidak, sama saja)
+  // lockout: maks 10 percobaan/menit per username
   if (env.LOGIN_LIMITER) {
     const gate = await env.LOGIN_LIMITER.limit({ key: "u:" + u.toLowerCase().slice(0, 64) });
     if (!gate.success) return json({ ok: false, error: "too many attempts" }, 429);
@@ -358,7 +327,7 @@ async function handleLogin(req, env) {
   }
   if (role === null) return json({ ok: false, error: "invalid credentials" }, 401);
 
-  // MT nyala: cuma admin/dev yang boleh login (biar bisa matiin MT dari panel)
+  // MT nyala: cuma admin/dev boleh login
   if (await readMT(env)) {
     const ok = role === "admin" || role === "dev";
     if (!ok) return json({ ok: false, error: "maintenance" }, 403);
@@ -559,7 +528,7 @@ async function handleCreateUser(req, env) {
 }
 
 // ---------- login log (data/login.log) ----------
-// format baris: [27/12/2026 10:25:54 AM] user / role / login type / ip / country
+// format: [tanggal] user / role / type / ip / country
 function jakartaStamp() {
   const p = new Intl.DateTimeFormat("en-GB", {
     timeZone: "Asia/Jakarta",
@@ -614,8 +583,7 @@ async function logLogin(env, req, rec) {
 }
 
 // ---------- geo (IPinfo Lite) ----------
-// Token disimpan server-side (env IPINFO_TOKEN). Lite = unlimited country-level.
-// Endpoint "me" dibaca dari IP pemanggil -> harus dipanggil per-IP user, bukan cache global.
+// panggil per-IP user, jangan cache global
 async function handleGeo(req, env) {
   const ip = req.headers.get("CF-Connecting-IP") || "";
   const token = env.IPINFO_TOKEN || "";
@@ -704,8 +672,7 @@ export default {
       const clean = new URL(url);
       clean.searchParams.delete("admin");
       clean.searchParams.delete("key");
-      // path internal hasil rewrite .aspx->.html: balikin ke .aspx biar URL bar
-      // gak sempat nampilin .html
+      // balikin path .aspx (URL bar jangan nampil .html)
       let p = clean.pathname.replace(/\.html$/i, ".aspx");
       // path tanpa ekstensi (/login) -> /login.aspx kalau halamannya ada
       if (p !== "/" && !/\./.test(p) && env.BINDING_ASSETS) {
@@ -718,8 +685,8 @@ export default {
       } });
     }
 
-    // ---- maintenance gate (satu-satunya urusan MT.js) ----
-    // admin/dev yang sudah login juga boleh nembus, biar bisa matiin MT dari panel
+    // ---- maintenance gate (MT.js) ----
+    // admin/dev boleh login walau MT nyala
     if (await readMT(env)) {
       const bypass = adminKey || isPanelSess(sess) ? "ok" : false;
       const gate = await maintenanceGate(req, env, url, bypass, (r) => serveAssets(env, r));
@@ -738,7 +705,7 @@ export default {
       t.pathname = url.pathname.replace(/\.html$/i, ".aspx");
       return new Response(null, { status: 301, headers: { Location: t.toString() } });
     }
-    // halaman tanpa ekstensi -> .aspx (generik: /login, /maintenance, /index, dst.)
+    // halaman tanpa ekstensi -> .aspx
     if (url.pathname !== "/" && !/\./.test(url.pathname) && env.BINDING_ASSETS) {
       const probeUrl = new URL(url);
       probeUrl.pathname = url.pathname + ".html";

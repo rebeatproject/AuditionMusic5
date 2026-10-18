@@ -1,12 +1,4 @@
-// MT.js — MAINTENANCE MODE ONLY. Nothing else lives in this file.
-//
-// Env:
-//   MAINTENANCE  "1" | "0"    maintenance switch
-//   MT_KV        KV binding   optional: overrides + persists the switch
-//   ADMIN_KEY    secret       bypass key (caller passes the check result in)
-//
-// Used by js/main.js:
-//   readMT / writeMT / adminState / adminSet / maintenanceGate
+// MT.js - maintenance mode only (dipakai js/main.js)
 
 export const MT_KEY = "maintenance";
 export const MAINT_PAGE = "/maintenance.html";
@@ -39,12 +31,11 @@ export async function adminSet(env, on) {
 }
 
 // ---------- gate ----------
-// Returns a 503 Response when the request must be blocked, or null to let it through.
-// assetFetch(req) must serve a static asset (js/main.js passes its own serveAssets).
+// 503 kalau diblok, null kalau lolos
 export async function maintenanceGate(req, env, url, adminKey, assetFetch) {
   if (adminKey === "ok") return null;
   if (url.pathname === MAINT_PAGE || url.pathname === "/maintenance" || url.pathname === "/maintenance.aspx") return null;
-  // login + API auth tetap terbuka: admin/dev harus bisa login buat matiin MT dari panel
+  // login/API auth tetap terbuka
   if (url.pathname === "/login" || url.pathname === "/login.aspx" || url.pathname === "/login.html") return null;
   if (url.pathname.startsWith("/api/auth/")) return null;
   let res = await assetFetch(new Request(new URL(MAINT_PAGE, url).toString(), req));

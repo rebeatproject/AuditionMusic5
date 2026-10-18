@@ -588,11 +588,7 @@
       th.lvlc {
         text-align: center;
       }
-      /* desktop lebar: kolom Action "hug" ke lebar tombolnya sendiri.
-         width:1px = trik tabel -> menyusut sampai min-content (262px tombol +
-         padding), jadi sisa ruang otomatis lari ke Singer/Music Name dan
-         kolom tombol gak pernah melar walau layar 2560px.
-         Di mobile.css lebar ini di-override persen. */
+      /* desktop: kolom Action menyusut ke lebar tombol */
       @media (min-width: 761px) {
         th.btns,
         td.btns {
@@ -612,9 +608,7 @@
       tr.pair + tr td {
         padding-top: 2px;
       }
-      /* mode Guitar (baris pair): padding atas/bawah dibikin simetris KHUSUS
-         sel Action, biar tombol gak geser 4px dari tengah baris. Total tinggi
-         tetap sama (9+2 = 5.5+5.5) jadi layout gak berubah. */
+      /* mode Guitar: padding sel Action simetris */
       tr.pair td.btns {
         padding-top: 5.5px;
         padding-bottom: 5.5px;
@@ -1260,12 +1254,12 @@
         text-decoration: underline;
       }
     </style>
-    <link rel="stylesheet" href="css/mobile.css?v=267" />
+    <link rel="stylesheet" href="css/mobile.css?v=268" />
   </head>
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.6.7)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.6.8)</span></h1>
         <div id="authbox"></div>
       </div>
       <div id="bar">
@@ -1403,8 +1397,8 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=267"></script>
-    <script src="js/auditionmusic5.js?v=267"></script>
-    <script src="js/chat.js?v=267"></script>
+    <script src="js/guard.js?v=268"></script>
+    <script src="js/auditionmusic5.js?v=268"></script>
+    <script src="js/chat.js?v=268"></script>
   </body>
 </html>

@@ -612,6 +612,17 @@
       tr.pair + tr td {
         padding-top: 2px;
       }
+      /* mode Guitar (baris pair): padding atas/bawah dibikin simetris KHUSUS
+         sel Action, biar tombol gak geser 4px dari tengah baris. Total tinggi
+         tetap sama (9+2 = 5.5+5.5) jadi layout gak berubah. */
+      tr.pair td.btns {
+        padding-top: 5.5px;
+        padding-bottom: 5.5px;
+      }
+      tr.pair + tr td.btns {
+        padding-top: 5.5px;
+        padding-bottom: 5.5px;
+      }
       td.lvlc {
         text-align: center;
         white-space: nowrap;
@@ -1249,12 +1260,12 @@
         text-decoration: underline;
       }
     </style>
-    <link rel="stylesheet" href="css/mobile.css?v=266" />
+    <link rel="stylesheet" href="css/mobile.css?v=267" />
   </head>
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.6.6)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v2.6.7)</span></h1>
         <div id="authbox"></div>
       </div>
       <div id="bar">
@@ -1392,8 +1403,8 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=266"></script>
-    <script src="js/auditionmusic5.js?v=266"></script>
-    <script src="js/chat.js?v=266"></script>
+    <script src="js/guard.js?v=267"></script>
+    <script src="js/auditionmusic5.js?v=267"></script>
+    <script src="js/chat.js?v=267"></script>
   </body>
 </html>

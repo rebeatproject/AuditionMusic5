@@ -7,10 +7,15 @@
     font-size: 17px;
   }
   #topline {
-    margin-bottom: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
   }
-  #onnow {
-    flex: 0 0 auto;
+  #topline > #onnow {
+    order: 3;
+    flex: 1 1 100%;
+    margin: 6px 0 0;
+  }
+  #topline > #onnow .onnow-pill {
     padding: 3px 9px;
     font-size: 10px;
   }
@@ -110,6 +115,12 @@
     padding: 7px 4px;
     letter-spacing: 0.3px;
   }
+  /* ikon sort turun ke bawah label biar gak kepotong */
+  th[data-sort]::after {
+    display: block;
+    margin: 2px 0 0;
+    line-height: 1;
+  }
   td {
     font-size: 11px;
     padding: 6px 4px;
@@ -160,15 +171,5 @@
   .prow input[type="text"],
   .prow input[type="file"] {
     font-size: 16px;
-  }
-}
-@media (max-width: 480px) {
-  #topline {
-    flex-wrap: wrap;
-  }
-  #onnow {
-    order: 3;
-    flex: 0 0 auto;
-    margin: 6px auto 0;
   }
 }

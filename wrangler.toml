@@ -18,6 +18,11 @@ binding = "BINDING_ASSETS"
 # Worker must run before assets so maintenance gate + auth can intercept.
 run_worker_first = true
 
+# R2: asset wasm/ffmpeg (self-host, gak ambil CDN pihak ketiga)
+[[r2_buckets]]
+bucket_name = "am5-assets"
+binding = "AM5_ASSETS"
+
 # KV: saklar Maintenance (key "maintenance") + SLK hasil upload (key "slk:<nama>").
 [[kv_namespaces]]
 binding = "MT_KV"

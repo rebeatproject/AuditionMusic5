@@ -482,6 +482,41 @@ async function handleGoogleCallback(req, env, url, ctx) {
   });
 }
 
+// ---------- asset wasm/ffmpeg dari R2 ----------
+async function handleFf(req, env, name) {
+  if (!/^[A-Za-z0-9_.-]{1,64}$/.test(name)) return new Response("not found", { status: 404 });
+  const ext = (name.split(".").pop() || "").toLowerCase();
+  if (ext !== "js" && ext !== "wasm") return new Response("not found", { status: 404 });
+  if (!env.AM5_ASSETS) return new Response("no R2 binding", { status: 500 });
+  const obj = await env.AM5_ASSETS.get("ff/" + name);
+  if (!obj) return new Response("not found", { status: 404 });
+  const md = obj.httpMetadata || {};
+  const h = new Headers();
+  h.set("Content-Type", md.contentType || (ext === "wasm" ? "application/wasm" : "text/javascript; charset=utf-8"));
+  if (md.contentEncoding) h.set("Content-Encoding", md.contentEncoding);
+  h.set("Cache-Control", md.cacheControl || "public, max-age=31536000, immutable");
+  h.set("Access-Control-Allow-Origin", "*");
+  h.set("Accept-Ranges", "bytes");
+  // byte-range: dipakai wasm streaming / download yang di-resume
+  const range = req.headers.get("Range");
+  const m = range ? /^bytes=(\d*)-(\d*)$/.exec(range.trim()) : null;
+  if (m && obj.size) {
+    const size = obj.size;
+    let start = m[1] ? parseInt(m[1], 10) : 0;
+    let end = m[2] ? parseInt(m[2], 10) : size - 1;
+    if (isNaN(start) || isNaN(end) || start > end || start >= size) {
+      return new Response(null, { status: 416, headers: { "Content-Range": "bytes */" + size } });
+    }
+    end = Math.min(end, size - 1);
+    const part = await env.AM5_ASSETS.get("ff/" + name, { range: { offset: start, length: end - start + 1 } });
+    if (!part) return new Response("not found", { status: 404 });
+    h.set("Content-Range", "bytes " + start + "-" + end + "/" + size);
+    h.set("Content-Length", String(end - start + 1));
+    return new Response(part.body, { status: 206, headers: h });
+  }
+  return new Response(obj.body, { status: 200, headers: h });
+}
+
 // ---------- admin: download a csv ----------
 async function adminDownload(req, env, filename) {
   const s = await readSession(env, req.headers.get("Cookie"));
@@ -730,6 +765,10 @@ export default {
     if (url.pathname === "/api/admin/googleusers") return adminDownload(req, env, "google-users.csv");
     if (url.pathname === "/api/admin/loginlog") return adminDownload(req, env, "login.log");
     if (url.pathname === "/api/admin/onlinelog") return adminDownload(req, env, "online.log");
+
+    // ---- asset wasm/ffmpeg dari R2 (self-host, bukan CDN pihak ketiga) ----
+    const mff = url.pathname.match(/^\/ff\/([A-Za-z0-9_.-]+)$/);
+    if (mff) return handleFf(req, env, mff[1]);
 
     // block sensitive paths
     if (/\/\.(git|env|dev\.vars|wrangler)|(^|\/)\.(gitignore|gitattributes)$/i.test(url.pathname)

@@ -773,35 +773,51 @@ function originFile(srv, name) {
   return "";
 }
 
-// server yang nolak egress Cloudflare -> redirect, browser download langsung dari origin
-const DIRECT_ONLY = { ayo: 1 };
+// server yang origin-nya nolak egress Cloudflare: ambil lewat file api (server yg bisa capai origin)
+const RELAY_SRV = { ayo: 1 };
+const RELAY = "https://vm2.auditionmusic5.com/am5/api";
 
-function redir(src) {
-  return new Response(null, {
-    status: 302,
-    headers: { Location: src, "Cache-Control": "no-store" }
-  });
+// teruskan file lewat file api: url publik tetap di domain utama
+async function relayFile(req, srv, name) {
+  const src = RELAY + "/" + srv + "/f/" + encodeURIComponent(name);
+  const probe = req.headers.get("Range") === "bytes=0-0";
+  let r;
+  try {
+    r = await fetch(src, probe ? { method: "HEAD" } : {});
+  } catch (e) {
+    return new Response("upstream error", { status: 502 });
+  }
+  if (r.status === 404 || r.status === 502) {
+    return new Response("File not found on the server: " + name, { status: 404 });
+  }
+  if (!r.ok) return new Response("upstream error " + r.status, { status: 502 });
+  if (probe) return new Response(null, { status: 200, headers: { "Cache-Control": "no-store" } });
+  const out = new Headers();
+  out.set("Content-Type", "application/octet-stream");
+  out.set("Content-Disposition", 'attachment; filename="' + name + '"');
+  out.set("X-Content-Type-Options", "nosniff");
+  out.set("Cache-Control", "public, max-age=3600");
+  const cl = r.headers.get("Content-Length");
+  if (cl) out.set("Content-Length", cl);
+  return new Response(r.body, { status: 200, headers: out });
 }
 
-// teruskan file dari origin; kalau origin nolak egress Cloudflare (403) -> redirect, browser download langsung
+// teruskan file dari origin; server yang diblok -> lewat file api
 async function handleFile(req, srv, name) {
   if (!/^[A-Za-z0-9_.-]{1,80}$/.test(name) || !/\.(tbm|abm)$/i.test(name))
     return new Response("not found", { status: 404 });
+  if (RELAY_SRV[srv]) return relayFile(req, srv, name);
   const src = originFile(srv, name);
   if (!src) return new Response("not found", { status: 404 });
-  if (DIRECT_ONLY[srv]) return redir(src);
   const rg = req.headers.get("Range");
   const probe = rg === "bytes=0-0";
   let r;
   try {
     r = await fetch(src, probe ? { method: "HEAD" } : (rg ? { headers: { Range: rg } } : { cf: { cacheEverything: true, cacheTtl: 3600 } }));
   } catch (e) {
-    return redir(src);
+    return new Response("upstream error", { status: 502 });
   }
   if (r.status === 404) return new Response("File not found on the server: " + name, { status: 404 });
-  if (r.status === 401 || r.status === 403 || r.status === 407 || r.status === 451) {
-    return redir(src);
-  }
   if (!r.ok && r.status !== 206) return new Response("upstream error " + r.status, { status: 502 });
   if (probe) return new Response(null, { status: 200, headers: { "Cache-Control": "no-store" } });
   const out = new Headers();

@@ -747,6 +747,60 @@ async function handleOnlinePing(req, env, sess) {
   return json({ ok: true, now: total, members: mem, guests: Math.max(0, total - mem) });
 }
 
+// origin file mentah per server (samain dengan SRV.direct di app.src.js)
+function originFile(srv, name) {
+  const n = encodeURIComponent(name);
+  switch (srv) {
+    case "ayo":
+      return /\.abm$/i.test(name)
+        ? "http://122.102.49.131/audition/package/ABM/" + n
+        : "http://122.102.49.131/audition/ABM/" + n;
+    case "vtc":
+      return "http://aumusic.vtcgame.vn/abm/" + n;
+    case "next":
+      return "http://auto-audiph.playpark.net/live/audition/package/abm/" + n;
+    case "th":
+      return "https://auto-au.playpark.com/package/abm/" + n;
+    case "cn":
+      return "http://au.patch1.9you.com/ABM/" + n;
+    case "kr":
+      return "http://au-patch.hanbiton.com/adtpatch/audition/package/ABM/" + n;
+    case "tw":
+      return "http://patch-au.mangot5.com.tw/audition_patch/patch/live/audition/package/abm/" + n;
+    case "ax":
+      return "http://audl.axeso5.com/update/content/ABM/" + n;
+  }
+  return "";
+}
+
+// teruskan file dari origin; Range diteruskan biar download bisa resume
+async function handleFile(req, srv, name) {
+  if (!/^[A-Za-z0-9_.-]{1,80}$/.test(name) || !/\.(tbm|abm)$/i.test(name))
+    return new Response("not found", { status: 404 });
+  const src = originFile(srv, name);
+  if (!src) return new Response("not found", { status: 404 });
+  const rg = req.headers.get("Range");
+  let r;
+  try {
+    r = await fetch(src, rg ? { headers: { Range: rg } } : { cf: { cacheEverything: true, cacheTtl: 3600 } });
+  } catch (e) {
+    return new Response("upstream error", { status: 502 });
+  }
+  if (r.status === 404) return new Response("File not found on the server: " + name, { status: 404 });
+  if (!r.ok && r.status !== 206) return new Response("upstream error " + r.status, { status: 502 });
+  const out = new Headers();
+  out.set("Content-Type", "application/octet-stream");
+  out.set("Content-Disposition", 'attachment; filename="' + name + '"');
+  out.set("Accept-Ranges", "bytes");
+  out.set("X-Content-Type-Options", "nosniff");
+  out.set("Cache-Control", rg ? "no-store" : "public, max-age=3600");
+  const cr = r.headers.get("Content-Range");
+  if (cr) out.set("Content-Range", cr);
+  const cl = r.headers.get("Content-Length");
+  if (cl) out.set("Content-Length", cl);
+  return new Response(r.body, { status: r.status, headers: out });
+}
+
 export default {
   async fetch(req, env, ctx) {
     env = env || {};
@@ -769,6 +823,10 @@ export default {
     // ---- asset wasm/ffmpeg dari R2 (self-host, bukan CDN pihak ketiga) ----
     const mff = url.pathname.match(/^\/ff\/([A-Za-z0-9_.-]+)$/);
     if (mff) return handleFf(req, env, mff[1]);
+
+    // ---- download mentah (tbm/abm) lewat domain utama ----
+    const mfd = url.pathname.match(/^\/api\/([a-z0-9]+)\/f\/([^/]+)$/);
+    if (mfd) return handleFile(req, mfd[1], decodeURIComponent(mfd[2]));
 
     // block sensitive paths
     if (/\/\.(git|env|dev\.vars|wrangler)|(^|\/)\.(gitignore|gitattributes)$/i.test(url.pathname)

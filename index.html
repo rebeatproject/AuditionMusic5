@@ -8,7 +8,7 @@
       content="no-cache, no-store, must-revalidate"/>
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>AuditionMusic5 — Audition Music Streaming Online</title>
+    <title>AuditionMusic5 - Audition Music Streaming Online</title>
     <meta
       name="description"
       content="AuditionMusic5 - Play and download Audition music online. 8 servers available (Audition AyoDance, Audition VTC, Audition Next Gen, Audition Thailand, Audition 9you, Audition Hanbiton, Audition Mangot5, Audition Axeso5) - play in browser, download TBM/MP3/OGG."/>
@@ -324,14 +324,18 @@
       #nowplay {
         font-size: 13px;
         flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        min-width: 0;
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis;
-        text-align: center;
         font-weight: 600;
       }
       #np-label {
         color: #fff;
+        flex: 0 0 auto;
       }
       #np-song {
         color: #d4a8ff;
@@ -342,12 +346,19 @@
         padding: 0;
         margin: 0;
         font: inherit;
+        flex: 0 1 auto;
+        min-width: 0;
+        max-width: calc(100% - 120px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       #np-song:hover {
         text-decoration: underline;
       }
       #np-end {
         color: #fff;
+        flex: 0 0 auto;
       }
       #controls {
         display: flex;
@@ -1566,7 +1577,7 @@
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v3.0.7)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v3.1.1)</span></h1>
         <div id="onnow" aria-label="Visitors online now">
           <span class="onnow-pill" data-tip="Visitors online now"
             ><i></i><span class="onnow-lbl">Online:</span><span class="onnow-n">–</span></span
@@ -1718,10 +1729,10 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=307"></script>
-    <script src="js/tip.js?v=307"></script>
-    <script src="js/auditionmusic5.js?v=307"></script>
-    <script src="js/chat.js?v=307"></script>
-    <script src="js/online-now.js?v=307"></script>
+    <script src="js/guard.js?v=311"></script>
+    <script src="js/tip.js?v=311"></script>
+    <script src="js/auditionmusic5.js?v=311"></script>
+    <script src="js/chat.js?v=311"></script>
+    <script src="js/online-now.js?v=311"></script>
   </body>
 </html>

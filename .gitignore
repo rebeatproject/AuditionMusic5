@@ -4,6 +4,8 @@ js/tbm.js
 js/tbm-crypto.js
 js/server-vps.js
 js/heads.au5
+js/ayo-decode-queue.js
+js/drive-cache.js
 
 # --- lokal / test (bukan bagian situs) ---
 auditionmusic5-b4e08e109c41.json

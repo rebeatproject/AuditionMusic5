@@ -41,6 +41,8 @@ js/tbm.js
 js/tbm-crypto.js
 js/server-vps.js
 js/heads.au5
+js/ayo-decode-queue.js
+js/drive-cache.js
 
 # base url asli (jangan di-upload ke Cloudflare)
 base_url_backup.txt

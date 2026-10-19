@@ -292,10 +292,13 @@ function clearCookie() {
 }
 
 // ---------- auth handlers ----------
-function logSoon(env, req, ctx, rec) {
-  const p = logOnline(env, req, rec);
+// tulis log SETELAH response jalan: kalau nunggu, client timeout -> catatan ilang
+function keep(ctx, p) {
   if (ctx && ctx.waitUntil) ctx.waitUntil(p);
   return p;
+}
+function logSoon(env, req, ctx, rec) {
+  return keep(ctx, logOnline(env, req, rec));
 }
 async function handleMe(req, env, ctx) {
   const s = await readSession(env, req.headers.get("Cookie"));
@@ -319,7 +322,7 @@ async function handleMe(req, env, ctx) {
   return json({ logged: true, fb, google, admin, dev, vip, user, name: s.n || "", role: s.r || (fb || google ? "user" : "") });
 }
 
-async function handleLogin(req, env) {
+async function handleLogin(req, env, ctx) {
   let body = {};
   try { body = await req.json(); } catch (e) {}
   const u = String(body.u || "").trim();
@@ -350,7 +353,7 @@ async function handleLogin(req, env) {
 
   const t = role === "admin" ? "adm" : "usr";
   const sess = await makeSession(env, { t, n: u, r: role, exp: Date.now() + 7 * 864e5 });
-  await logLogin(env, req, { user: u, role, type: "AM5" });
+  keep(ctx, logLogin(env, req, { user: u, role, type: "AM5" }));
   return json({ ok: true, role }, 200, { "Set-Cookie": setCookie(SESS_COOKIE, sess, 604800) });
 }
 
@@ -375,7 +378,7 @@ async function handleFbStart(req, env) {
   return new Response(null, { status: 302, headers: { Location: fb } });
 }
 
-async function handleFbCallback(req, env, url) {
+async function handleFbCallback(req, env, url, ctx) {
   const code = url.searchParams.get("code");
   const st = url.searchParams.get("state") || "";
   const [payload, sig] = st.split(".");
@@ -409,7 +412,7 @@ async function handleFbCallback(req, env, url) {
 
   // Facebook login = role 3 (user): general server + MP3/OGG download
   const sess = await makeSession(env, { t: "usr", r: "user", fb: true, n: u.name || "Facebook user", id: u.id || "", exp: Date.now() + 7 * 864e5 });
-  await logLogin(env, req, { user: u.name || "Facebook user", role: "user", type: "Facebook" });
+  keep(ctx, logLogin(env, req, { user: u.name || "Facebook user", role: "user", type: "Facebook" }));
   return new Response(null, {
     status: 302,
     headers: { Location: "/", "Set-Cookie": setCookie(SESS_COOKIE, sess, 604800) },
@@ -435,7 +438,7 @@ async function handleGoogleStart(req, env) {
   return new Response(null, { status: 302, headers: { Location: go } });
 }
 
-async function handleGoogleCallback(req, env, url) {
+async function handleGoogleCallback(req, env, url, ctx) {
   const code = url.searchParams.get("code");
   const st = url.searchParams.get("state") || "";
   const [payload, sig] = st.split(".");
@@ -472,7 +475,7 @@ async function handleGoogleCallback(req, env, url) {
 
   // Google login = role 3 (user): general server + MP3/OGG download
   const sess = await makeSession(env, { t: "usr", r: "user", g: true, n: u.name || "Google user", id: u.sub || "", exp: Date.now() + 7 * 864e5 });
-  await logLogin(env, req, { user: u.name || u.email || "Google user", role: "user", type: "Google" });
+  keep(ctx, logLogin(env, req, { user: u.name || u.email || "Google user", role: "user", type: "Google" }));
   return new Response(null, {
     status: 302,
     headers: { Location: "/", "Set-Cookie": setCookie(SESS_COOKIE, sess, 604800) },
@@ -565,7 +568,10 @@ async function geoOf(env, ip) {
   const token = env.IPINFO_TOKEN || "";
   if (!ip || !token) return { country: "", code: "" };
   try {
-    const r = await fetch("https://api.ipinfo.io/lite/" + encodeURIComponent(ip) + "?token=" + encodeURIComponent(token));
+    const ctl = new AbortController();
+    const t = setTimeout(() => ctl.abort(), 2500);
+    const r = await fetch("https://api.ipinfo.io/lite/" + encodeURIComponent(ip) + "?token=" + encodeURIComponent(token), { signal: ctl.signal });
+    clearTimeout(t);
     if (!r.ok) return { country: "", code: "" };
     const j = await r.json();
     return { country: j.country || "", code: j.country_code || "" };
@@ -577,21 +583,23 @@ async function geoOf(env, ip) {
 async function logLogin(env, req, rec) {
   try {
     const ip = (req && req.headers.get("CF-Connecting-IP")) || "";
-    const geo = await geoOf(env, ip);
     const c = ghConf(env);
     if (!c.token || !c.repo) return false;
     const path = c.dir + "/login.log";
     const header = "Date|Username|PowerUser|Login Type|IP Address|Country\n";
     const stamp = jakartaStamp();
+    const geo = await geoOf(env, ip);
     const line = [stamp, rec.user, rolePower(rec.role), rec.type, ip || "-", geo.country || "-"]
       .map((v) => String(v == null ? "" : v).replace(/[|\r\n]/g, " "))
       .join("|") + "\n";
-    for (let i = 0; i < 3; i++) {
+    // baca gagal (rate limit / 5xx) juga dicoba lagi, jangan langsung nyerah
+    for (let i = 0; i < 4; i++) {
       const cur = await ghReadFile(env, path);
-      if (!cur) return false;
-      const base = cur.text && cur.text.trim() ? cur.text.replace(/\n*$/, "\n") : header;
-      if (await ghWriteFile(env, path, base + line, cur.sha, "log: login " + rec.user)) return true;
-      await new Promise((r) => setTimeout(r, 300 * (i + 1)));
+      if (cur) {
+        const base = cur.text && cur.text.trim() ? cur.text.replace(/\n*$/, "\n") : header;
+        if (await ghWriteFile(env, path, base + line, cur.sha, "log: login " + rec.user)) return true;
+      }
+      await new Promise((r) => setTimeout(r, 400 * (i + 1)));
     }
   } catch (e) {}
   return false;
@@ -710,12 +718,12 @@ export default {
     const url = new URL(req.url);
 
     if (url.pathname === "/api/auth/me") return handleMe(req, env, ctx);
-    if (url.pathname === "/api/auth/login" && req.method === "POST") return handleLogin(req, env);
+    if (url.pathname === "/api/auth/login" && req.method === "POST") return handleLogin(req, env, ctx);
     if (url.pathname === "/api/auth/logout") return handleLogout();
     if (url.pathname === "/api/auth/fb") return handleFbStart(req, env);
-    if (url.pathname === "/api/auth/fb/callback") return handleFbCallback(req, env, url);
+    if (url.pathname === "/api/auth/fb/callback") return handleFbCallback(req, env, url, ctx);
     if (url.pathname === "/api/auth/google") return handleGoogleStart(req, env);
-    if (url.pathname === "/api/auth/google/callback") return handleGoogleCallback(req, env, url);
+    if (url.pathname === "/api/auth/google/callback") return handleGoogleCallback(req, env, url, ctx);
     if (url.pathname === "/api/geo") return handleGeo(req, env);
     if (url.pathname === "/api/admin/users") return adminDownload(req, env, "users.csv");
     if (url.pathname === "/api/admin/fbusers") return adminDownload(req, env, "fb-users.csv");

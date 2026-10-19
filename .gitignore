@@ -7,6 +7,7 @@ js/heads.au5
 
 # --- lokal / test (bukan bagian situs) ---
 auditionmusic5-b4e08e109c41.json
+client_secret_159214436361-lbbvf92h3k5chmak3epbp4jq84q3as6q.apps.googleusercontent.com.json
 server-lokal.py
 server-lokal.bat
 test-lokal.bat
@@ -23,6 +24,7 @@ package.json
 package-lock.json
 js/*.src.js
 token_am5.txt
+client_secret_*.json
 .wrangler/
 _*.log
 # --- logs: yang lokal JANGAN di-commit; data/login.log + data/online.log

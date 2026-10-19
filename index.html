@@ -73,6 +73,7 @@
       body {
         font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         margin: 0;
+        padding-bottom: 62px; /* ruang buat bar bawah fixed */
         background: var(--bg);
         color: var(--text);
         -webkit-font-smoothing: antialiased;
@@ -1311,7 +1312,11 @@
         color: #6a6a6a;
         padding: 14px;
         background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
-        position: sticky;
+        /* fixed, bukan sticky: sticky bikin bar dihitung
+           menutupi tombol baris tabel (target-size) */
+        position: fixed;
+        left: 0;
+        right: 0;
         bottom: 0;
         border-top: 1px solid #2a2a2a;
         box-shadow: 0 -2px 18px rgba(0, 0, 0, 0.6);
@@ -1480,7 +1485,10 @@
     font-size: 10px;
     padding: 8px;
   }
-  /* live chat: hindari footer sticky */
+  body {
+    padding-bottom: 48px;
+  }
+  /* live chat: posisi di atas bar bawah */
   #amc-btn {
     right: 14px;
     bottom: 62px;
@@ -1558,7 +1566,7 @@
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v3.0.2)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v3.0.3)</span></h1>
         <div id="onnow" aria-label="Visitors online now">
           <span class="onnow-pill" data-tip="Visitors online now"
             ><i></i><span class="onnow-lbl">Online:</span><span class="onnow-n">–</span></span
@@ -1710,10 +1718,10 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=302"></script>
-    <script src="js/tip.js?v=302"></script>
-    <script src="js/auditionmusic5.js?v=302"></script>
-    <script src="js/chat.js?v=302"></script>
-    <script src="js/online-now.js?v=302"></script>
+    <script src="js/guard.js?v=303"></script>
+    <script src="js/tip.js?v=303"></script>
+    <script src="js/auditionmusic5.js?v=303"></script>
+    <script src="js/chat.js?v=303"></script>
+    <script src="js/online-now.js?v=303"></script>
   </body>
 </html>

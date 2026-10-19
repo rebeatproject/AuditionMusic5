@@ -747,14 +747,17 @@ async function handleOnlinePing(req, env, sess) {
   return json({ ok: true, now: total, members: mem, guests: Math.max(0, total - mem) });
 }
 
+// Workers gak bisa fetch IP mentah (error 1003) -> pakai hostname publik yang nunjuk ke IP itu
+const AYO_HOST = "122-102-49-131.sslip.io";
+
 // origin file mentah per server (samain dengan SRV.direct di app.src.js)
 function originFile(srv, name) {
   const n = encodeURIComponent(name);
   switch (srv) {
     case "ayo":
       return /\.abm$/i.test(name)
-        ? "http://122.102.49.131/audition/package/ABM/" + n
-        : "http://122.102.49.131/audition/ABM/" + n;
+        ? "http://" + AYO_HOST + "/audition/package/ABM/" + n
+        : "http://" + AYO_HOST + "/audition/ABM/" + n;
     case "vtc":
       return "http://aumusic.vtcgame.vn/abm/" + n;
     case "next":
@@ -773,46 +776,19 @@ function originFile(srv, name) {
   return "";
 }
 
-// server yang origin-nya nolak egress Cloudflare: ambil lewat file api (server yg bisa capai origin)
-const RELAY_SRV = { ayo: 1 };
-const RELAY = "https://vm2.auditionmusic5.com/am5/api";
-// teruskan file lewat file api: url publik tetap di domain utama
-async function relayFile(req, srv, name) {
-  const src = RELAY + "/" + srv + "/f/" + encodeURIComponent(name);
-  const probe = req.headers.get("Range") === "bytes=0-0";
-  let r;
-  try {
-    r = await fetch(src, probe ? { method: "HEAD" } : {});
-  } catch (e) {
-    return new Response("upstream error", { status: 502 });
-  }
-  if (r.status === 404 || r.status === 502) {
-    return new Response("File not found on the server: " + name, { status: 404 });
-  }
-  if (!r.ok) return new Response("upstream error " + r.status, { status: 502 });
-  if (probe) return new Response(null, { status: 200, headers: { "Cache-Control": "no-store" } });
-  const out = new Headers();
-  out.set("Content-Type", "application/octet-stream");
-  out.set("Content-Disposition", 'attachment; filename="' + name + '"');
-  out.set("X-Content-Type-Options", "nosniff");
-  out.set("Cache-Control", "public, max-age=3600");
-  const cl = r.headers.get("Content-Length");
-  if (cl) out.set("Content-Length", cl);
-  return new Response(r.body, { status: 200, headers: out });
-}
-
-// teruskan file dari origin; server yang diblok -> lewat file api
+// teruskan file dari origin; url publik tetap di domain utama (tanpa relay apa pun)
 async function handleFile(req, srv, name) {
   if (!/^[A-Za-z0-9_.-]{1,80}$/.test(name) || !/\.(tbm|abm)$/i.test(name))
     return new Response("not found", { status: 404 });
-  if (RELAY_SRV[srv]) return relayFile(req, srv, name);
   const src = originFile(srv, name);
   if (!src) return new Response("not found", { status: 404 });
   const rg = req.headers.get("Range");
   const probe = rg === "bytes=0-0";
+  const hh = new Headers();
+  if (rg) hh.set("Range", rg);
   let r;
   try {
-    r = await fetch(src, probe ? { method: "HEAD" } : (rg ? { headers: { Range: rg } } : { cf: { cacheEverything: true, cacheTtl: 3600 } }));
+    r = await fetch(src, { headers: hh });
   } catch (e) {
     return new Response("upstream error", { status: 502 });
   }

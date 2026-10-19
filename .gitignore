@@ -42,3 +42,9 @@ desktop.ini
 data/chat-lokal.json
 
 .dev.vars
+
+# --- base url asli (jangan pernah ke GitHub) ---
+base_url_backup.txt
+
+# --- token DNS Cloudflare (jangan pernah ke GitHub) ---
+dns_token.txt

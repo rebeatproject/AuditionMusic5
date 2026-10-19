@@ -747,31 +747,38 @@ async function handleOnlinePing(req, env, sess) {
   return json({ ok: true, now: total, members: mem, guests: Math.max(0, total - mem) });
 }
 
-// Workers gak bisa fetch IP mentah (error 1003) -> pakai hostname publik yang nunjuk ke IP itu
-const AYO_HOST = "122-102-49-131.sslip.io";
+// upstream per server (subdomain sendiri, proxy OFF; ayo wajib hostname karena Workers gak bisa fetch IP mentah)
+const UP = {
+  ayo: "http://ayo.auditionmusic5.com",
+  vtc: "http://aumusic.vtcgame.vn",
+  next: "http://auto-audiph.playpark.net",
+  th: "https://auto-au.playpark.com",
+  cn: "http://au.patch1.9you.com",
+  kr: "http://au-patch.hanbiton.com",
+  tw: "http://patch-au.mangot5.com.tw",
+  ax: "http://audl.axeso5.com"
+};
 
-// origin file mentah per server (samain dengan SRV.direct di app.src.js)
-function originFile(srv, name) {
+// path file mentah per server (samain dengan SRV.direct di app.src.js)
+function originPath(srv, name) {
   const n = encodeURIComponent(name);
   switch (srv) {
     case "ayo":
-      return /\.abm$/i.test(name)
-        ? "http://" + AYO_HOST + "/audition/package/ABM/" + n
-        : "http://" + AYO_HOST + "/audition/ABM/" + n;
+      return (/\.abm$/i.test(name) ? "/audition/package/ABM/" : "/audition/ABM/") + n;
     case "vtc":
-      return "http://aumusic.vtcgame.vn/abm/" + n;
+      return "/abm/" + n;
     case "next":
-      return "http://auto-audiph.playpark.net/live/audition/package/abm/" + n;
+      return "/live/audition/package/abm/" + n;
     case "th":
-      return "https://auto-au.playpark.com/package/abm/" + n;
+      return "/package/abm/" + n;
     case "cn":
-      return "http://au.patch1.9you.com/ABM/" + n;
+      return "/ABM/" + n;
     case "kr":
-      return "http://au-patch.hanbiton.com/adtpatch/audition/package/ABM/" + n;
+      return "/adtpatch/audition/package/ABM/" + n;
     case "tw":
-      return "http://patch-au.mangot5.com.tw/audition_patch/patch/live/audition/package/abm/" + n;
+      return "/audition_patch/patch/live/audition/package/abm/" + n;
     case "ax":
-      return "http://audl.axeso5.com/update/content/ABM/" + n;
+      return "/update/content/ABM/" + n;
   }
   return "";
 }
@@ -780,15 +787,16 @@ function originFile(srv, name) {
 async function handleFile(req, srv, name) {
   if (!/^[A-Za-z0-9_.-]{1,80}$/.test(name) || !/\.(tbm|abm)$/i.test(name))
     return new Response("not found", { status: 404 });
-  const src = originFile(srv, name);
-  if (!src) return new Response("not found", { status: 404 });
+  const hosts = UP[srv];
+  const path = originPath(srv, name);
+  if (!hosts || !path) return new Response("not found", { status: 404 });
   const rg = req.headers.get("Range");
   const probe = rg === "bytes=0-0";
   const hh = new Headers();
   if (rg) hh.set("Range", rg);
   let r;
   try {
-    r = await fetch(src, { headers: hh });
+    r = await fetch(hosts + path, { headers: hh });
   } catch (e) {
     return new Response("upstream error", { status: 502 });
   }

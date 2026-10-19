@@ -30,3 +30,7 @@
 
 /image/og-image.jpg
   Cache-Control: public, max-age=86400
+
+# SLK = teks; content-type ini bikin Cloudflare kompres (br) -> download jauh lebih cepat
+/script/*.slk
+  Content-Type: text/plain

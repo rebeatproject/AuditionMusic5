@@ -773,21 +773,37 @@ function originFile(srv, name) {
   return "";
 }
 
-// teruskan file dari origin; Range diteruskan biar download bisa resume
+// server yang nolak egress Cloudflare -> redirect, browser download langsung dari origin
+const DIRECT_ONLY = { ayo: 1 };
+
+function redir(src) {
+  return new Response(null, {
+    status: 302,
+    headers: { Location: src, "Cache-Control": "no-store" }
+  });
+}
+
+// teruskan file dari origin; kalau origin nolak egress Cloudflare (403) -> redirect, browser download langsung
 async function handleFile(req, srv, name) {
   if (!/^[A-Za-z0-9_.-]{1,80}$/.test(name) || !/\.(tbm|abm)$/i.test(name))
     return new Response("not found", { status: 404 });
   const src = originFile(srv, name);
   if (!src) return new Response("not found", { status: 404 });
+  if (DIRECT_ONLY[srv]) return redir(src);
   const rg = req.headers.get("Range");
+  const probe = rg === "bytes=0-0";
   let r;
   try {
-    r = await fetch(src, rg ? { headers: { Range: rg } } : { cf: { cacheEverything: true, cacheTtl: 3600 } });
+    r = await fetch(src, probe ? { method: "HEAD" } : (rg ? { headers: { Range: rg } } : { cf: { cacheEverything: true, cacheTtl: 3600 } }));
   } catch (e) {
-    return new Response("upstream error", { status: 502 });
+    return redir(src);
   }
   if (r.status === 404) return new Response("File not found on the server: " + name, { status: 404 });
+  if (r.status === 401 || r.status === 403 || r.status === 407 || r.status === 451) {
+    return redir(src);
+  }
   if (!r.ok && r.status !== 206) return new Response("upstream error " + r.status, { status: 502 });
+  if (probe) return new Response(null, { status: 200, headers: { "Cache-Control": "no-store" } });
   const out = new Headers();
   out.set("Content-Type", "application/octet-stream");
   out.set("Content-Disposition", 'attachment; filename="' + name + '"');

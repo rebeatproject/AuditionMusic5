@@ -660,13 +660,11 @@
       th.lvlc {
         text-align: center;
       }
-      /* desktop: kolom Action menyusut ke lebar tombol */
-      @media (min-width: 761px) {
-        th.btns,
-        td.btns {
-          width: 1px;
-          white-space: nowrap;
-        }
+      /* kolom Action selalu menyusut ke lebar tombol (mobile juga, biar mp3 gak kepotong) */
+      th.btns,
+      td.btns {
+        width: 1px;
+        white-space: nowrap;
       }
       td.newc {
         text-align: center;
@@ -1413,7 +1411,7 @@
   }
   table {
     min-width: 0;
-    table-layout: fixed;
+    table-layout: auto;
     width: 100%;
   }
   th.sngc {
@@ -1435,7 +1433,7 @@
     display: none;
   }
   th.btns {
-    width: 31%;
+    width: 1%;
     text-align: left;
   }
   td.sngc {
@@ -1457,7 +1455,7 @@
     display: none;
   }
   td.btns {
-    width: 31%;
+    width: 1%;
   }
   .newimg {
     height: 15px;
@@ -1475,7 +1473,7 @@
   }
   .btns {
     white-space: nowrap;
-    text-align: right;
+    text-align: left;
   }
   .btns .mobhide {
     display: none;
@@ -1577,7 +1575,7 @@
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v3.2.2)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v3.2.6)</span></h1>
         <div id="onnow" aria-label="Visitors online now">
           <span class="onnow-pill" data-tip="Visitors online now"
             ><i></i><span class="onnow-lbl">Online:</span><span class="onnow-n">–</span></span
@@ -1729,10 +1727,10 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=322"></script>
-    <script src="js/tip.js?v=322"></script>
-    <script src="js/auditionmusic5.js?v=322"></script>
-    <script src="js/chat.js?v=322"></script>
-    <script src="js/online-now.js?v=322"></script>
+    <script src="js/guard.js?v=326"></script>
+    <script src="js/tip.js?v=326"></script>
+    <script src="js/auditionmusic5.js?v=326"></script>
+    <script src="js/chat.js?v=326"></script>
+    <script src="js/online-now.js?v=326"></script>
   </body>
 </html>

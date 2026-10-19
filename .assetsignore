@@ -8,6 +8,7 @@
 .env*
 
 # local tooling / sources
+auditionmusic5-b4e08e109c41.json
 push.bat
 deploy.bat
 js.bat

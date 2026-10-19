@@ -776,7 +776,6 @@ function originFile(srv, name) {
 // server yang origin-nya nolak egress Cloudflare: ambil lewat file api (server yg bisa capai origin)
 const RELAY_SRV = { ayo: 1 };
 const RELAY = "https://vm2.auditionmusic5.com/am5/api";
-
 // teruskan file lewat file api: url publik tetap di domain utama
 async function relayFile(req, srv, name) {
   const src = RELAY + "/" + srv + "/f/" + encodeURIComponent(name);

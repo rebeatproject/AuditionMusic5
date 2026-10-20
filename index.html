@@ -158,6 +158,10 @@
         box-shadow: 0 0 6px rgba(53, 199, 89, 0.8);
         animation: onnowpulse 2s ease-in-out infinite;
       }
+      #onnow[data-off="1"] i {
+        background: #ff3b30;
+        box-shadow: 0 0 6px rgba(255, 59, 48, 0.8);
+      }
       @keyframes onnowpulse {
         0%,
         100% {
@@ -1584,7 +1588,7 @@
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v4.0.9)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v5.0.1)</span></h1>
         <div id="onnow" aria-label="Visitors online now">
           <span class="onnow-pill" data-tip="Visitors online now"
             ><i></i><span class="onnow-lbl">Online:</span><span class="onnow-n">–</span></span
@@ -1736,10 +1740,10 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=409"></script>
-    <script src="js/tip.js?v=409"></script>
-    <script src="js/auditionmusic5.js?v=409"></script>
-    <script src="js/chat.js?v=409"></script>
-    <script src="js/online-now.js?v=409"></script>
+    <script src="js/guard.js?v=501"></script>
+    <script src="js/tip.js?v=501"></script>
+    <script src="js/auditionmusic5.js?v=501"></script>
+    <script src="js/chat.js?v=501"></script>
+    <script src="js/online-now.js?v=501"></script>
   </body>
 </html>

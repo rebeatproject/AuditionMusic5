@@ -80,6 +80,12 @@ async function serveAssets(env, req) {
     const loc = res.headers.get("Location");
     if (loc) res = await a.fetch(new Request(new URL(loc, req.url).toString(), req));
   }
+  if (res && new URL(req.url).pathname === "/js/sw.js") {
+    const h = new Headers(res.headers);
+    h.set("Service-Worker-Allowed", "/");
+    h.set("Cache-Control", "no-cache");
+    res = new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
+  }
   return res;
 }
 

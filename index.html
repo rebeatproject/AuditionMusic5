@@ -1001,6 +1001,26 @@
         font-size: 13px;
         font-weight: 600;
       }
+      .amc-acts {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .amc-clear {
+        height: 26px;
+        padding: 0 8px;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .amc-clear:hover {
+        background: var(--hover);
+        color: #fff;
+      }
       .amc-x {
         width: 26px;
         height: 26px;
@@ -1050,6 +1070,66 @@
         background: var(--accent);
         color: #fff;
       }
+      .amc-bub.amc-hasfile {
+        padding: 6px 6px 16px;
+      }
+      .amc-imgwrap {
+        display: block;
+        line-height: 0;
+      }
+      .amc-img {
+        max-width: 100%;
+        max-height: 220px;
+        border-radius: 8px;
+        display: block;
+      }
+      .amc-imgname {
+        display: block;
+        margin: 5px 4px 0;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 10px;
+        opacity: 0.65;
+      }
+      .amc-file {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 2px 4px 0;
+        color: inherit;
+        text-decoration: none;
+      }
+      .amc-fileico {
+        font-size: 20px;
+        line-height: 1;
+        opacity: 0.8;
+      }
+      .amc-filemeta {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+      .amc-fname {
+        font-size: 12px;
+        font-weight: 600;
+        word-break: break-all;
+      }
+      .amc-fsize {
+        font-size: 10px;
+        opacity: 0.6;
+      }
+      .amc-row.err {
+        justify-content: center;
+      }
+      .amc-row.err .amc-bub {
+        max-width: 90%;
+        background: rgba(255, 70, 70, 0.12);
+        color: #ff7b7b;
+        border: 1px solid rgba(255, 70, 70, 0.35);
+        font-size: 12px;
+      }
       .amc-time {
         position: absolute;
         right: 8px;
@@ -1078,6 +1158,28 @@
       }
       .amc-foot input:focus {
         border-color: var(--accent);
+      }
+      .amc-attach {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 auto;
+        padding: 0;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .amc-attach:hover {
+        background: var(--hover);
+        color: #fff;
+      }
+      .amc-attach:disabled {
+        opacity: 0.45;
+        cursor: default;
       }
       .amc-send {
         padding: 0 14px;
@@ -1588,7 +1690,7 @@
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v5.0.2)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v5.0.7)</span></h1>
         <div id="onnow" aria-label="Visitors online now">
           <span class="onnow-pill" data-tip="Visitors online now"
             ><i></i><span class="onnow-lbl">Online:</span><span class="onnow-n">–</span></span
@@ -1740,10 +1842,10 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=502"></script>
-    <script src="js/tip.js?v=502"></script>
-    <script src="js/auditionmusic5.js?v=502"></script>
-    <script src="js/chat.js?v=502"></script>
-    <script src="js/online-now.js?v=502"></script>
+    <script src="js/guard.js?v=507"></script>
+    <script src="js/tip.js?v=507"></script>
+    <script src="js/auditionmusic5.js?v=507"></script>
+    <script src="js/chat.js?v=507"></script>
+    <script src="js/online-now.js?v=507"></script>
   </body>
 </html>

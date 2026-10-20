@@ -162,6 +162,30 @@ async function tgFileUrl(env, fileId) {
   } catch (e) { return ""; }
 }
 
+function tgMedia(m) {
+  const photo = Array.isArray(m.photo) && m.photo[m.photo.length - 1];
+  if (photo && photo.file_id) {
+    return { key: "tg:" + photo.file_id, name: "photo.jpg",
+             type: "image/jpeg", size: Number(photo.file_size) || 0 };
+  }
+  const kinds = [
+    [m.document, "file.bin", "application/octet-stream"],
+    [m.video, "video.mp4", "video/mp4"],
+    [m.animation, "animation.mp4", "video/mp4"],
+    [m.audio, "audio.mp3", "audio/mpeg"],
+    [m.voice, "voice.ogg", "audio/ogg"],
+    [m.video_note, "video-note.mp4", "video/mp4"],
+  ];
+  for (const [item, defName, defType] of kinds) {
+    if (!item || !item.file_id) continue;
+    return { key: "tg:" + item.file_id,
+             name: safeName(item.file_name || defName),
+             type: String(item.mime_type || defType),
+             size: Number(item.file_size) || 0 };
+  }
+  return null;
+}
+
 // rate limit: jeda antar pesan + cap per jam
 async function rateOk(env, sid) {
   const kv = env.MT_KV;
@@ -214,17 +238,21 @@ async function handleWebhook(req, env) {
   let upd = {};
   try { upd = await req.json(); } catch (e) { return json({ ok: true }); }
   const m = upd.message || upd.edited_message;
-  if (!m || !m.text) return json({ ok: true });
+  if (!m) return json({ ok: true });
   // cuma admin (chat id yang dikonfigurasi) yang boleh bales
   if (String((m.chat && m.chat.id) || "") !== String(env.TG_CHAT_ID || "")) return json({ ok: true });
 
-  const text = String(m.text).trim();
+  const text = String(m.text || "").trim();
+  const caption = String(m.caption || "").trim();
+  const media = tgMedia(m);
+  if (!text && !caption && !media) return json({ ok: true });
   const quoted = (m.reply_to_message && (m.reply_to_message.text || m.reply_to_message.caption)) || "";
   let sid = (quoted.match(/\[#([0-9a-f]{10})\]/i) || [])[1] || "";
-  let body = text;
+  let body = text || caption;
 
+  if (!sid && caption) sid = (caption.match(/\[#([0-9a-f]{10})\]/i) || [])[1] || "";
   if (!sid) {
-    const cmd = text.match(/^\/say\s+#?([0-9a-f]{10})\s+([\s\S]+)$/i);
+    const cmd = (text || caption).match(/^\/say\s+#?([0-9a-f]{10})\s+([\s\S]+)$/i);
     if (cmd) { sid = cmd[1]; body = cmd[2]; }
   }
   if (!sid) {
@@ -233,13 +261,14 @@ async function handleWebhook(req, env) {
   }
 
   sid = sid.toLowerCase();
+  body = body.replace(/^\s*\[#[0-9a-f]{10}\]\s*/i, "");
   await ensure(env);
   const chk = await db(env).prepare("SELECT COUNT(*) AS c FROM chat_msgs WHERE sid = ?").bind(sid).first();
   if (!chk || !chk.c) {
     await tgSend(env, "Thread #" + sid + " kosong / gak ada.");
     return json({ ok: true });
   }
-  await addMsg(env, sid, "a", body.slice(0, MAX_LEN));
+  await addMsg(env, sid, "a", body.slice(0, MAX_LEN), media);
   return json({ ok: true });
 }
 
@@ -288,7 +317,7 @@ export async function chatRoute(req, env, url, sess) {
     const type = String(r.file_type || "application/octet-stream");
     const name = safeName(r.file_name);
     const inline = /^image\/(?:jpeg|png|gif|webp|avif)$/i.test(type);
-    const len = source.size != null ? source.size : (r.file_size != null ? r.file_size : (source.headers && source.headers.get("content-length")));
+    const len = source.size != null ? source.size : ((source.headers && source.headers.get("content-length")) || (r.file_size != null ? r.file_size : null));
     const h = new Headers();
     h.set("Content-Type", type);
     if (len != null) h.set("Content-Length", String(len));

@@ -50,3 +50,7 @@ base_url_backup.txt
 
 # --- token DNS Cloudflare (jangan pernah ke GitHub) ---
 dns_token.txt
+
+# --- setup bot Telegram (jangan pernah ke GitHub) ---
+tg-setup.txt
+tg-*.txt

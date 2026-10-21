@@ -2,6 +2,7 @@ auayo_i0037.tbm
 auayo_i0088.tbm
 auayo_i0095.tbm
 auayo_i0096.tbm
+auayo_i0141.tbm
 auayo_i0151.tbm
 auayo_i0197.tbm
 auayo_i0245.tbm

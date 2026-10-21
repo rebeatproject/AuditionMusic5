@@ -8,6 +8,7 @@ js/ayo-decode-queue.js
 js/drive-cache.js
 
 # --- lokal / test (bukan bagian situs) ---
+edge-relay.py
 auditionmusic5-b4e08e109c41.json
 client_secret_159214436361-lbbvf92h3k5chmak3epbp4jq84q3as6q.apps.googleusercontent.com.json
 server-lokal.py
@@ -58,3 +59,4 @@ tg-setup.txt
 tg-*.txt
 script.py
 prompt-install-hermes-9router-cf.md
+edge-relay.py

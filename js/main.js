@@ -820,10 +820,10 @@ function originPath(srv, name) {
 // teruskan file dari origin; url publik tetap di domain utama (tanpa relay apa pun)
 async function handleFile(req, srv, name) {
   if (!/^[A-Za-z0-9_.-]{1,80}$/.test(name) || !/\.(tbm|abm)$/i.test(name))
-    return new Response("not found", { status: 404 });
+    return new Response("not found", { status: 404, headers: { "Cache-Control": "no-store" } });
   const hosts = UP[srv];
   const path = originPath(srv, name);
-  if (!hosts || !path) return new Response("not found", { status: 404 });
+  if (!hosts || !path) return new Response("not found", { status: 404, headers: { "Cache-Control": "no-store" } });
   const rg = req.headers.get("Range");
   const probe = rg === "bytes=0-0";
   const hh = new Headers();
@@ -832,10 +832,10 @@ async function handleFile(req, srv, name) {
   try {
     r = await fetch(hosts + path, { headers: hh });
   } catch (e) {
-    return new Response("upstream error", { status: 502 });
+    return new Response("upstream error", { status: 502, headers: { "Cache-Control": "no-store" } });
   }
-  if (r.status === 404) return new Response("File not found on the server: " + name, { status: 404 });
-  if (!r.ok && r.status !== 206) return new Response("upstream error " + r.status, { status: 502 });
+  if (r.status === 404) return new Response("File not found on the server: " + name, { status: 404, headers: { "Cache-Control": "no-store" } });
+  if (!r.ok && r.status !== 206) return new Response("upstream error " + r.status, { status: 502, headers: { "Cache-Control": "no-store" } });
   if (probe) return new Response(null, { status: 200, headers: { "Cache-Control": "no-store" } });
   const out = new Headers();
   out.set("Content-Type", "application/octet-stream");

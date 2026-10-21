@@ -71,6 +71,11 @@ function isAdminKey(req, env) {
 }
 
 // ---------- static assets ----------
+// legal pages: noindex header
+function isLegalPage(pathname) {
+  return /^\/(privacy|tos|data-deletion)\.html$/i.test(pathname);
+}
+
 async function serveAssets(env, req) {
   const a = env && env.BINDING_ASSETS;
   if (!a) return null;
@@ -84,6 +89,11 @@ async function serveAssets(env, req) {
     const h = new Headers(res.headers);
     h.set("Service-Worker-Allowed", "/");
     h.set("Cache-Control", "no-cache");
+    res = new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
+  }
+  if (res && isLegalPage(new URL(req.url).pathname)) {
+    const h = new Headers(res.headers);
+    h.set("X-Robots-Tag", "noindex, nofollow");
     res = new Response(res.body, { status: res.status, statusText: res.statusText, headers: h });
   }
   return res;
@@ -180,6 +190,84 @@ async function ghWriteFile(env, path, text, sha, message) {
     body: JSON.stringify(body),
   });
   return r.ok;
+}
+
+// ---------- playlist (satu file .txt per user di folder playlist/) ----------
+const PLAYLIST_DIR = "playlist/";
+const PLAYLIST_MAX = 5000;
+function cleanPlaylistId(v) {
+  return String(v || "").toLowerCase().replace(/[^a-z0-9._-]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 80);
+}
+// Identitas selalu dari session server-side, bukan dari body/client.
+function playlistFileId(s) {
+  if (!s) return "";
+  if (s.g) {
+    const email = String(s.e || "").toLowerCase();
+    const local = email.includes("@") ? email.slice(0, email.indexOf("@")) : "";
+    const id = cleanPlaylistId(local) || cleanPlaylistId(s.id);
+    return id ? "google_" + id : "";
+  }
+  if (s.fb) {
+    const id = cleanPlaylistId(s.u) || cleanPlaylistId(s.id) || cleanPlaylistId(s.n);
+    return id ? "fb_" + id : "";
+  }
+  if (s.t === "adm" || s.t === "usr" || s.r) {
+    const id = cleanPlaylistId(s.n);
+    return id ? "am5_" + id : "";
+  }
+  return "";
+}
+function playlistEntryOk(e) {
+  return /^[a-z0-9]{1,16}_[A-Za-z0-9_.-]{1,80}$/.test(e);
+}
+function parsePlaylist(text) {
+  const out = [];
+  const seen = new Set();
+  for (const raw of String(text || "").split(/\r?\n/)) {
+    const e = raw.trim();
+    if (!e || !playlistEntryOk(e) || seen.has(e)) continue;
+    seen.add(e);
+    out.push(e);
+    if (out.length >= PLAYLIST_MAX) break;
+  }
+  return out;
+}
+async function handlePlaylist(req, env, sess) {
+  if (!sess) return json({ ok: false, error: "login" }, 401);
+  const id = playlistFileId(sess);
+  if (!id) return json({ ok: false, error: "login" }, 401);
+  if (!env.GH_TOKEN || !env.GH_REPO) return json({ ok: false, error: "playlist storage not configured" }, 503);
+  const path = PLAYLIST_DIR + id + ".txt";
+  if (req.method === "GET") {
+    const f = await ghReadFile(env, path);
+    if (!f) return json({ ok: false, error: "read failed" }, 502);
+    return json({ ok: true, entries: parsePlaylist(f.text) });
+  }
+  if (req.method !== "POST") return json({ ok: false, error: "method" }, 405);
+  const raw = await req.text().catch(() => "");
+  if (raw.length > 250000) return json({ ok: false, error: "too large" }, 413);
+  let body = {};
+  try { body = JSON.parse(raw); } catch (e) { return json({ ok: false, error: "bad json" }, 400); }
+  const src = Array.isArray(body.entries) ? body.entries : [];
+  const entries = [];
+  const seen = new Set();
+  for (const v of src) {
+    const e = String(v || "").trim();
+    if (!playlistEntryOk(e) || seen.has(e)) continue;
+    seen.add(e);
+    entries.push(e);
+    if (entries.length >= PLAYLIST_MAX) break;
+  }
+  for (let i = 0; i < 3; i++) {
+    const cur = await ghReadFile(env, path);
+    if (!cur) return json({ ok: false, error: "read failed" }, 502);
+    const text = entries.length ? entries.join("\n") + "\n" : "";
+    if (await ghWriteFile(env, path, text, cur.sha, "playlist: update " + id)) {
+      return json({ ok: true, entries });
+    }
+    await new Promise((r) => setTimeout(r, 250 * (i + 1)));
+  }
+  return json({ ok: false, error: "save failed" }, 502);
 }
 
 // baca store: GitHub (prod) atau asset lokal (dev)
@@ -445,7 +533,7 @@ async function handleFbCallback(req, env, url, ctx) {
   } catch (e) {}
 
   // Facebook login = role 3 (user): general server + MP3/OGG download
-  const sess = await makeSession(env, { t: "usr", r: "user", fb: true, n: u.name || "Facebook user", id: u.id || "", exp: Date.now() + 7 * 864e5 });
+  const sess = await makeSession(env, { t: "usr", r: "user", fb: true, n: u.name || "Facebook user", u: fbUsername(u), id: u.id || "", exp: Date.now() + 7 * 864e5 });
   keep(ctx, logLogin(env, req, { user: u.name || "Facebook user", role: "user", type: "Facebook" }));
   return new Response(null, {
     status: 302,
@@ -508,7 +596,7 @@ async function handleGoogleCallback(req, env, url, ctx) {
   } catch (e) {}
 
   // Google login = role 3 (user): general server + MP3/OGG download
-  const sess = await makeSession(env, { t: "usr", r: "user", g: true, n: u.name || "Google user", id: u.sub || "", exp: Date.now() + 7 * 864e5 });
+  const sess = await makeSession(env, { t: "usr", r: "user", g: true, n: u.name || "Google user", e: u.email || "", id: u.sub || "", exp: Date.now() + 7 * 864e5 });
   keep(ctx, logLogin(env, req, { user: u.name || u.email || "Google user", role: "user", type: "Google" }));
   return new Response(null, {
     status: 302,
@@ -882,7 +970,8 @@ export default {
         || /(^|\/)(push|js)\.bat$/i.test(url.pathname)
         || /\.(src\.js|py|pyc|map)$/i.test(url.pathname)
         || /(^|\/)_(obf|tools)\//i.test(url.pathname)
-        || /(^|\/)data\//i.test(url.pathname)) {
+        || /(^|\/)data\//i.test(url.pathname)
+        || /^\/playlist(?:\/|$)/i.test(url.pathname)) {
       return new Response("not found", { status: 404 });
     }
 
@@ -947,6 +1036,9 @@ export default {
       const gate = await maintenanceGate(req, env, url, bypass, (r) => serveAssets(env, r));
       if (gate) return gate;
     }
+
+    // ---- playlist user (file .txt di repo, bukan static asset) ----
+    if (url.pathname === "/api/playlist") return handlePlaylist(req, env, sess);
 
     // halaman error custom
     if (url.pathname === "/403.aspx" || url.pathname === "/403") {

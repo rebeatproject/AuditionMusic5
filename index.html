@@ -759,6 +759,35 @@
         background: var(--accent-2);
         color: #fff;
       }
+      /* icon playlist: kecil, nempel di awal kolom Action */
+      button.plbtn {
+        background: transparent;
+        color: var(--muted);
+        padding: 5px;
+        margin: 0 3px 0 0;
+        vertical-align: middle;
+      }
+      button.plbtn:hover {
+        color: var(--accent);
+        filter: none;
+      }
+      button.plbtn.on {
+        color: var(--accent);
+      }
+      button.plbtn svg {
+        margin: 0;
+      }
+      .srvtag {
+        margin-top: 2px;
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .plmsg {
+        text-align: center;
+        padding: 26px 12px;
+        color: #aaaac4;
+      }
       button.mp3 {
         background: #ff9b2f;
         color: #000;
@@ -1951,7 +1980,7 @@
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v7.0.5)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v7.0.6)</span></h1>
         <div id="onnow" aria-label="Visitors online now">
           <span class="onnow-pill" data-tip="Visitors online now"
             ><i></i><span class="onnow-lbl">Online:</span><span class="onnow-n">–</span></span
@@ -2068,6 +2097,7 @@
           <button id="tab-all" class="on">All Music</button>
           <button id="tab-ball">Ballroom Music</button>
           <button id="tab-gt">Guitar Music</button>
+          <button id="tab-pl">Playlist</button>
         </div>
       </div>
     </header>
@@ -2097,19 +2127,19 @@
         <span class="fsep">|</span>
         <a href="/data-deletion.aspx" target="_blank" rel="nofollow noopener">Data Deletion</a>
         <span class="fsep">|</span>
-        <a href="/about.aspx" target="_blank" rel="nofollow noopener">About</a>
+        <a href="/about.aspx" target="_blank" rel="noopener">About</a>
       </nav>
-      &copy; <span id="yr">2026</span> AuditionMusic5 &mdash; Made by
+      &copy; <span id="yr">2026</span> AuditionMusic5 &bull; Made by
       <a href="https://www.facebook.com/raiszhe" target="_blank">mello</a>
     </footer>
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=705"></script>
-    <script src="js/tip.js?v=705"></script>
-    <script src="js/auditionmusic5.js?v=705"></script>
-    <script src="js/install.js?v=705"></script>
-    <script src="js/chat.js?v=705"></script>
-    <script src="js/online-now.js?v=705"></script>
+    <script src="js/guard.js?v=706"></script>
+    <script src="js/tip.js?v=706"></script>
+    <script src="js/auditionmusic5.js?v=706"></script>
+    <script src="js/install.js?v=706"></script>
+    <script src="js/chat.js?v=706"></script>
+    <script src="js/online-now.js?v=706"></script>
   </body>
 </html>

@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Block raw .html legal duplicates; canonical .aspx uses noindex.
+Disallow: /privacy.html
+Disallow: /tos.html
+Disallow: /data-deletion.html
+
 Sitemap: https://auditionmusic5.com/sitemap.xml

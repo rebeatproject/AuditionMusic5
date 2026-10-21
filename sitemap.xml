@@ -11,4 +11,10 @@
       <image:title>AuditionMusic5</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://auditionmusic5.com/about.aspx</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

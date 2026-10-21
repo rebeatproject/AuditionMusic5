@@ -89,6 +89,34 @@ async function serveAssets(env, req) {
   return res;
 }
 
+function wantsHtml(req) {
+  return (req.headers.get("Accept") || "").toLowerCase().includes("text/html");
+}
+
+async function errorPage(env, req, path, status) {
+  const u = new URL(req.url);
+  u.pathname = path;
+  const res = await serveAssets(
+    env,
+    new Request(u.toString(), { method: "GET", headers: req.headers })
+  );
+  if (res && res.status >= 200 && res.status < 300) {
+    const h = new Headers(res.headers);
+    h.set("Content-Type", "text/html; charset=utf-8");
+    h.set("Cache-Control", "no-store");
+    h.set("X-Robots-Tag", "noindex");
+    return new Response(res.body, {
+      status,
+      statusText: status === 403 ? "Forbidden" : "Not Found",
+      headers: h,
+    });
+  }
+  return new Response(status === 403 ? "forbidden" : "not found", {
+    status,
+    headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
+  });
+}
+
 // ---------- GitHub CSV storage ----------
 function ghConf(env) {
   return {
@@ -920,12 +948,20 @@ export default {
       if (gate) return gate;
     }
 
+    // halaman error custom
+    if (url.pathname === "/403.aspx" || url.pathname === "/403") {
+      return errorPage(env, req, "/403.html", 403);
+    }
+    if (url.pathname === "/404.aspx" || url.pathname === "/404") {
+      return errorPage(env, req, "/404.html", 404);
+    }
+
     // pretty URL: file tetap .html, tapi URL di browser selalu .aspx
     if (/\.aspx$/i.test(url.pathname)) {
       const t = new URL(url);
       t.pathname = url.pathname.replace(/\.aspx$/i, ".html");
       const res = await serveAssets(env, new Request(t.toString(), req));
-      if (res) return res;
+      if (res && res.status !== 404) return res;
     }
     if (/\.html$/i.test(url.pathname)) {
       const t = new URL(url);
@@ -945,7 +981,13 @@ export default {
     }
 
     const asset = await serveAssets(env, req);
-    if (asset) return asset;
-    return new Response("not found", { status: 404 });
+    if (asset && asset.status !== 404) return asset;
+    if (wantsHtml(req) && !/^\/api(?:\/|$)/.test(url.pathname)) {
+      return errorPage(env, req, "/404.html", 404);
+    }
+    return new Response("not found", {
+      status: 404,
+      headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
+    });
   },
 };

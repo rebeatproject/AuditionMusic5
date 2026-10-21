@@ -2,9 +2,11 @@
   "name": "AuditionMusic5",
   "short_name": "AM5",
   "description": "Play and download Audition music (ABM/TBM) from 8 servers.",
+  "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "prefer_related_applications": false,
   "background_color": "#000000",
   "theme_color": "#0a0a0a",
   "icons": [

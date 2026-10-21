@@ -31,6 +31,20 @@
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="image/apple-touch-icon-152x152.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon-180x180.png" />
     <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="AuditionMusic5" />
+    <script>
+      window.__am5InstallPrompt = null;
+      window.addEventListener("beforeinstallprompt", function (event) {
+        event.preventDefault();
+        window.__am5InstallPrompt = event;
+        try {
+          window.dispatchEvent(new Event("am5-installable"));
+        } catch (err) {}
+      });
+    </script>
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="AuditionMusic5" />
@@ -1538,6 +1552,178 @@
         margin: 0 7px;
         color: #3a3a3a;
       }
+      /* ---------- install app ---------- */
+      #pwa-install {
+        position: fixed;
+        left: 18px;
+        bottom: calc(74px + env(safe-area-inset-bottom, 0px));
+        z-index: 89;
+        display: none;
+        align-items: center;
+        height: 46px;
+        overflow: hidden;
+        border: 1px solid #3a3a3a;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #252525 0%, #181818 100%);
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      }
+      #pwa-install.on {
+        display: inline-flex;
+      }
+      #pwa-install-main {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        height: 100%;
+        padding: 0 10px 0 14px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      #pwa-install-main svg {
+        width: 19px;
+        height: 19px;
+        flex: 0 0 auto;
+        color: var(--accent);
+      }
+      #pwa-install-x {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 100%;
+        padding: 0;
+        border: 0;
+        border-left: 1px solid #363636;
+        border-radius: 0;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+      }
+      #pwa-install-main:hover,
+      #pwa-install-x:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+      }
+      .pwa-help {
+        position: fixed;
+        inset: 0;
+        z-index: 1002;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.76);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+      }
+      .pwa-help.on {
+        display: flex;
+      }
+      .pwa-help-card {
+        position: relative;
+        width: 100%;
+        max-width: 380px;
+        padding: 22px 20px 18px;
+        border: 1px solid #3a3a3a;
+        border-radius: 16px;
+        background: linear-gradient(180deg, #1e1e1e 0%, #131313 100%);
+        color: #fff;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7);
+      }
+      .pwa-help-card h2 {
+        margin: 0 32px 8px 0;
+        font-size: 20px;
+        line-height: 1.25;
+      }
+      .pwa-help-lead {
+        margin: 0 0 14px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .pwa-help-card ol {
+        margin: 0 0 14px 20px;
+        padding: 0;
+        color: #ddd;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .pwa-help-card li {
+        margin: 7px 0;
+        padding-left: 3px;
+      }
+      .pwa-help-card li strong {
+        color: #fff;
+      }
+      .pwa-help-note {
+        margin: 0 0 16px;
+        padding: 10px 12px;
+        border: 1px solid #333;
+        border-radius: 9px;
+        background: #191919;
+        color: #bbb;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .pwa-help-x {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 22px;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .pwa-help-x:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+      .pwa-help-done {
+        width: 100%;
+        padding: 11px 14px;
+        border: 0;
+        border-radius: 9px;
+        background: var(--accent-2);
+        color: #fff;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .pwa-help-done:hover {
+        filter: brightness(1.12);
+      }
+      body.pwa-help-open {
+        overflow: hidden;
+      }
+      @media (max-width: 340px) {
+        #pwa-install-main span {
+          display: none;
+        }
+        #pwa-install-main {
+          padding: 0 11px;
+        }
+      }
     
 /* ---------- mobile ---------- */
 @media (max-width: 760px) {
@@ -1765,7 +1951,7 @@
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v6.0.8)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v6.0.9)</span></h1>
         <div id="onnow" aria-label="Visitors online now">
           <span class="onnow-pill" data-tip="Visitors online now"
             ><i></i><span class="onnow-lbl">Online:</span><span class="onnow-n">–</span></span
@@ -1917,10 +2103,11 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=608"></script>
-    <script src="js/tip.js?v=608"></script>
-    <script src="js/auditionmusic5.js?v=608"></script>
-    <script src="js/chat.js?v=608"></script>
-    <script src="js/online-now.js?v=608"></script>
+    <script src="js/guard.js?v=609"></script>
+    <script src="js/tip.js?v=609"></script>
+    <script src="js/auditionmusic5.js?v=609"></script>
+    <script src="js/install.js?v=609"></script>
+    <script src="js/chat.js?v=609"></script>
+    <script src="js/online-now.js?v=609"></script>
   </body>
 </html>

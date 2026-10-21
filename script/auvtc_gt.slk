@@ -71,7 +71,7 @@ P;E?? ??;M220;L10
 P;EMalgun Gothic;M200;L9
 P;E?? ??;M160
 F;P0;DG0G8;M330
-B;Y3095;X14;D0 0 3094 13
+B;Y3117;X14;D0 0 3116 13
 O;F;D;V0;K47;T0;G100 0.001
 C;Y1;X1;K"SINGER"
 C;X2;K"MUSIC NAME"
@@ -10094,7 +10094,7 @@ C;X5;K0
 C;X6;K126
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K4
 C;X11;K110
 C;X12;K"MOMOLAND"
@@ -25940,7 +25940,7 @@ C;X5;K2
 C;X6;K135
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K1
 C;X11;K128
 C;X12;K"Audition"
@@ -25954,7 +25954,7 @@ C;X5;K2
 C;X6;K135
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K2
 C;X11;K128
 C;X12;K"Audition"
@@ -25968,7 +25968,7 @@ C;X5;K2
 C;X6;K135
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K3
 C;X11;K128
 C;X12;K"Audition"
@@ -26800,7 +26800,7 @@ C;X5;K3
 C;X6;K92
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K1
 C;X11;K999
 C;X12;K"Issac"
@@ -26813,7 +26813,7 @@ C;X5;K3
 C;X6;K92
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K2
 C;X11;K999
 C;X12;K"Issac"
@@ -26826,7 +26826,7 @@ C;X5;K3
 C;X6;K92
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K3
 C;X11;K999
 C;X12;K"Issac"
@@ -30682,8 +30682,8 @@ C;X8;K0
 C;X9;K1
 C;X10;K1
 C;X11;K110
-C;X12;K"Minh Tôìc & Lam"
-C;X13;K"Minh Tôìc"
+C;X12;K"NguyêÞn HaÒi Minh, NguyêÞn HoaÌng Ngoòc Lam"
+C;X13;K"NguyêÞn HaÒi Minh"
 C;X14;K"TFC Critics"
 C;Y2228;X1;K"Minh Tôìc & Lam"
 C;X2;K"145 (Lv.2 Normal)"
@@ -30696,8 +30696,8 @@ C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K110
-C;X12;K"Minh Tôìc & Lam"
-C;X13;K"Minh Tôìc"
+C;X12;K"NguyêÞn HaÒi Minh, NguyêÞn HoaÌng Ngoòc Lam"
+C;X13;K"NguyêÞn HaÒi Minh"
 C;X14;K"TFC Critics"
 C;Y2229;X1;K"Minh Tôìc & Lam"
 C;X2;K"145 (Lv.3 Hard)"
@@ -30710,8 +30710,8 @@ C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K110
-C;X12;K"Minh Tôìc & Lam"
-C;X13;K"Minh Tôìc"
+C;X12;K"NguyêÞn HaÒi Minh, NguyêÞn HoaÌng Ngoòc Lam"
+C;X13;K"NguyêÞn HaÒi Minh"
 C;X14;K"TFC Critics"
 C;Y2230;X1;K"Noko Shikanoko (CV: Megumi Han)"
 C;X2;K"Shikairo Days (Lv.1 Easy)"
@@ -33141,7 +33141,7 @@ C;X5;K0
 C;X6;K142
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K1
 C;X11;K153
 C;X12;K"Han Seong-ho, Kim Do-hun, Lee Sang-ho"
@@ -33155,7 +33155,7 @@ C;X5;K0
 C;X6;K142
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K2
 C;X11;K153
 C;X12;K"Han Seong-ho, Kim Do-hun, Lee Sang-ho"
@@ -33169,7 +33169,7 @@ C;X5;K0
 C;X6;K142
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K3
 C;X11;K153
 C;X12;K"Han Seong-ho, Kim Do-hun, Lee Sang-ho"
@@ -36463,7 +36463,7 @@ C;X5;K0
 C;X6;K120
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K4
 C;X11;K99
 C;X12;K"Yeonjun, Soobin"
@@ -37870,7 +37870,7 @@ C;X5;K0
 C;X6;K125
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K4
 C;X11;K119
 C;X12;K"BIGBANG"
@@ -37925,7 +37925,7 @@ C;X5;K5
 C;X6;K83
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K1
 C;X11;K93
 C;X12;K"chuotsamset, KET"
@@ -37939,7 +37939,7 @@ C;X5;K5
 C;X6;K83
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K2
 C;X11;K93
 C;X12;K"chuotsamset, KET"
@@ -37953,7 +37953,7 @@ C;X5;K5
 C;X6;K83
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K3
 C;X11;K93
 C;X12;K"chuotsamset, KET"
@@ -37967,7 +37967,7 @@ C;X5;K5
 C;X6;K83
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K4
 C;X11;K93
 C;X12;K"chuotsamset, KET"
@@ -38839,7 +38839,7 @@ C;X8;K0
 C;X9;K0
 C;X10;K1
 C;X11;K999
-C;X12;K"T.R.I"
+C;X12;K"NguyêÞn Ðýìc Triì"
 C;X14;K"TFC Critics"
 C;Y2821;X1;K"T.R.I"
 C;X2;K"môòt baÌi haìt không vui mâìy (Lv.2 ThýõÌng Thôi)"
@@ -38852,7 +38852,7 @@ C;X8;K0
 C;X9;K0
 C;X10;K2
 C;X11;K999
-C;X12;K"T.R.I"
+C;X12;K"NguyêÞn Ðýìc Triì"
 C;X14;K"TFC Critics"
 C;Y2822;X1;K"T.R.I"
 C;X2;K"môòt baÌi haìt không vui mâìy (Lv.3 Khoì NhãÌn)"
@@ -38865,7 +38865,7 @@ C;X8;K0
 C;X9;K0
 C;X10;K3
 C;X11;K999
-C;X12;K"T.R.I"
+C;X12;K"NguyêÞn Ðýìc Triì"
 C;X14;K"TFC Critics"
 C;Y2823;X1;K"H1-KEY"
 C;X2;K"Heart Light (Guitar ver.)(Lv.1 Easy)"
@@ -38875,7 +38875,7 @@ C;X5;K0
 C;X6;K130
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K1
 C;X11;K102
 C;X12;K"H1-KEY"
@@ -38889,7 +38889,7 @@ C;X5;K0
 C;X6;K130
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K2
 C;X11;K102
 C;X12;K"H1-KEY"
@@ -38903,7 +38903,7 @@ C;X5;K0
 C;X6;K130
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K3
 C;X11;K102
 C;X12;K"H1-KEY"
@@ -38917,7 +38917,7 @@ C;X5;K0
 C;X6;K130
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K4
 C;X11;K102
 C;X12;K"H1-KEY"
@@ -38983,7 +38983,7 @@ C;X5;K2
 C;X6;K125
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K1
 C;X11;K125
 C;X12;K"Brave Brothers"
@@ -38997,7 +38997,7 @@ C;X5;K2
 C;X6;K125
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K2
 C;X11;K125
 C;X12;K"Brave Brothers"
@@ -39011,7 +39011,7 @@ C;X5;K2
 C;X6;K125
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K3
 C;X11;K125
 C;X12;K"Brave Brothers"
@@ -39025,7 +39025,7 @@ C;X5;K2
 C;X6;K125
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K4
 C;X11;K125
 C;X12;K"Brave Brothers"
@@ -40401,7 +40401,7 @@ C;X5;K1
 C;X6;K110
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K3
 C;X11;K101
 C;X12;K"Ryuusei-P"
@@ -40415,7 +40415,7 @@ C;X5;K1
 C;X6;K110
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K1
 C;X11;K101
 C;X12;K"Ryuusei-P"
@@ -40429,7 +40429,7 @@ C;X5;K1
 C;X6;K110
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K2
 C;X11;K101
 C;X12;K"Ryuusei-P"
@@ -41895,7 +41895,6 @@ C;X9;K1
 C;X10;K2
 C;X11;K118
 C;X12;K"The East Light"
-C;X13;K"The East Light"
 C;X14;K"RonBWL"
 C;Y3045;X1;K"Lee Jung-Hyun"
 C;X2;K"Half (Guitar ver.)(Lv.1 Easy)"
@@ -41909,7 +41908,6 @@ C;X9;K0
 C;X10;K1
 C;X11;K129
 C;X12;K"Lee Jung-Hyun"
-C;X13;K"Leo"
 C;X14;K"RonBWL"
 C;Y3046;X1;K"The East Light"
 C;X2;K"Happy Day(Lv.3 Hard)"
@@ -42448,7 +42446,7 @@ C;X4;K14
 C;X5;K2
 C;X6;K130
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K1
 C;X11;K114
@@ -42461,7 +42459,7 @@ C;X4;K14
 C;X5;K2
 C;X6;K130
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K114
@@ -42474,7 +42472,7 @@ C;X4;K14
 C;X5;K2
 C;X6;K130
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K114
@@ -42487,7 +42485,7 @@ C;X4;K14
 C;X5;K3
 C;X6;K142
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K138
@@ -42500,7 +42498,7 @@ C;X4;K6
 C;X5;K2
 C;X6;K140
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K1
 C;X11;K140
@@ -42514,7 +42512,7 @@ C;X4;K6
 C;X5;K2
 C;X6;K140
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K140
@@ -42528,7 +42526,7 @@ C;X4;K6
 C;X5;K2
 C;X6;K140
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K140
@@ -42542,7 +42540,7 @@ C;X4;K6
 C;X5;K2
 C;X6;K140
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K4
 C;X11;K140
@@ -42556,7 +42554,7 @@ C;X4;K11
 C;X5;K-2
 C;X6;K103
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K1
 C;X11;K121
@@ -42569,7 +42567,7 @@ C;X4;K11
 C;X5;K-2
 C;X6;K103
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K121
@@ -42582,10 +42580,303 @@ C;X4;K3
 C;X5;K-2
 C;X6;K103
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K121
 C;X12;K"Adam Schlesinger & Steven M. Gold"
 C;X14;K"nongginga"
+C;Y3096;X1;K"LP"
+C;X2;K"Lost On You (Lv.2 Normal)"
+C;X3;K"vng0528.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K87
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K100
+C;X12;K"LP, Michael Gonzales, Nate Campany"
+C;X13;K"Laura Pergolizzi"
+C;X14;K"TFC Critics"
+C;Y3097;X1;K"LP"
+C;X2;K"Lost On You (Lv.3 Hard)"
+C;X3;K"vng0528.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K87
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K100
+C;X12;K"LP, Michael Gonzales, Nate Campany"
+C;X13;K"Laura Pergolizzi"
+C;X14;K"TFC Critics"
+C;Y3098;X1;K"LP"
+C;X2;K"Lost On You (Lv.4 Crazy)"
+C;X3;K"vng0528.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K87
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K4
+C;X11;K100
+C;X12;K"LP, Michael Gonzales, Nate Campany"
+C;X13;K"Laura Pergolizzi"
+C;X14;K"TFC Critics"
+C;Y3099;X1;K"Parcels"
+C;X2;K"tieduprightnow (Lv.1 Easy)"
+C;X3;K"vng0529.tbm"
+C;X4;K14
+C;X5;K-1
+C;X6;K102
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K110
+C;X12;K"Patrick Hetherington, Noah Hill, Louie Swain"
+C;X14;K"TFC Critics"
+C;Y3100;X1;K"Parcels"
+C;X2;K"tieduprightnow (Lv.2 Normal)"
+C;X3;K"vng0529.tbm"
+C;X4;K14
+C;X5;K-1
+C;X6;K102
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K110
+C;X12;K"Patrick Hetherington, Noah Hill, Louie Swain"
+C;X14;K"TFC Critics"
+C;Y3101;X1;K"Parcels"
+C;X2;K"tieduprightnow (Lv.3 Hard)"
+C;X3;K"vng0529.tbm"
+C;X4;K14
+C;X5;K-1
+C;X6;K102
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K110
+C;X12;K"Patrick Hetherington, Noah Hill, Louie Swain"
+C;X14;K"TFC Critics"
+C;Y3102;X1;K"Parcels"
+C;X2;K"tieduprightnow (Lv.4 Crazy)"
+C;X3;K"vng0529.tbm"
+C;X4;K14
+C;X5;K-1
+C;X6;K102
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K4
+C;X11;K110
+C;X12;K"Patrick Hetherington, Noah Hill, Louie Swain"
+C;X14;K"TFC Critics"
+C;Y3103;X1;K"Ngoòt"
+C;X2;K"Ðôìt (Lv.1 Easy)"
+C;X3;K"vng0530.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K110
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K110
+C;X12;K"VuÞ Ðinh Troòng Thãìng"
+C;X14;K10
+C;Y3104;X1;K"Ngoòt"
+C;X2;K"Ðôìt (Lv.2 Normal)"
+C;X3;K"vng0530.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K110
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K110
+C;X12;K"VuÞ Ðinh Troòng Thãìng"
+C;X14;K10
+C;Y3105;X1;K"Ngoòt"
+C;X2;K"Ðôìt (Lv.3 Hard)"
+C;X3;K"vng0531.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K110
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K110
+C;X12;K"VuÞ Ðinh Troòng Thãìng"
+C;X14;K10
+C;Y3106;X1;K"Bôì LýÞ Tiìch"
+C;X2;K"Daòo Býõìc HôÌng Kông 1999 (Lv.2 Normal)"
+C;X3;K"vng0532.tbm"
+C;X4;K16
+C;X5;K1
+C;X6;K99
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K93
+C;X12;K"Bôì LýÞ Tiìch"
+C;X14;K"TFC Critics"
+C;Y3107;X1;K"Bôì LýÞ Tiìch"
+C;X2;K"Daòo Býõìc HôÌng Kông 1999 (Lv.3 Hard)"
+C;X3;K"vng0532.tbm"
+C;X4;K16
+C;X5;K1
+C;X6;K99
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K93
+C;X12;K"Bôì LýÞ Tiìch"
+C;X14;K"TFC Critics"
+C;Y3108;X1;K"The Click Five"
+C;X2;K"Time Machine (Lv.2 Normal)"
+C;X3;K"vng0533.tbm"
+C;X4;K13
+C;X5;K0
+C;X6;K147.016
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K126
+C;X12;K"Ben Romans"
+C;X13;K"Joe Guese, Ethan Mentzer"
+C;X14;K"TFC Critics"
+C;Y3109;X1;K"The Click Five"
+C;X2;K"Time Machine (Lv.3 Hard)"
+C;X3;K"vng0533.tbm"
+C;X4;K13
+C;X5;K0
+C;X6;K147.016
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K126
+C;X12;K"Ben Romans"
+C;X13;K"Joe Guese, Ethan Mentzer"
+C;X14;K"TFC Critics"
+C;Y3110;X1;K"Audition"
+C;X2;K"Gloomy March (Lv.3 Hard)"
+C;X3;K"vng0534.tbm"
+C;X4;K13
+C;X5;K0
+C;X6;K92
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K110
+C;X12;K"Audition, Royce Da 5'9"
+C;X13;K"Phil (philpocket)"
+C;X14;K"TFC Critics"
+C;Y3111;X1;K"MOCOZI"
+C;X2;K"Rocket In The Sky (Lv.1 Easy)"
+C;X3;K"vng0535.tbm"
+C;X4;K6
+C;X5;K-1
+C;X6;K130
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K132
+C;X12;K"MOCOZI"
+C;X14;K"chives"
+C;Y3112;X1;K"MOCOZI"
+C;X2;K"Rocket In The Sky (Lv.2 Normal)"
+C;X3;K"vng0535.tbm"
+C;X4;K6
+C;X5;K-1
+C;X6;K130
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K132
+C;X12;K"MOCOZI"
+C;X14;K"chives"
+C;Y3113;X1;K"MOCOZI"
+C;X2;K"Rocket In The Sky (Lv.3 Hard)"
+C;X3;K"vng0535.tbm"
+C;X4;K6
+C;X5;K-1
+C;X6;K130
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K132
+C;X12;K"MOCOZI"
+C;X14;K"chives"
+C;Y3114;X1;K"MOCOZI"
+C;X2;K"This Is Love (Feat. Ma Huyn Kwon) (Lv.1 Easy)"
+C;X3;K"vng0536.tbm"
+C;X4;K12
+C;X5;K1
+C;X6;K100
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K90
+C;X12;K"MOCOZI"
+C;X14;K"TFC Critics"
+C;Y3115;X1;K"MOCOZI"
+C;X2;K"This Is Love (Feat. Ma Huyn Kwon) (Lv.2 Normal)"
+C;X3;K"vng0536.tbm"
+C;X4;K12
+C;X5;K1
+C;X6;K100
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K90
+C;X12;K"MOCOZI"
+C;X14;K"TFC Critics"
+C;Y3116;X1;K"MOCOZI"
+C;X2;K"This Is Love (Feat. Ma Huyn Kwon) (Lv.3 Hard)"
+C;X3;K"vng0536.tbm"
+C;X4;K12
+C;X5;K1
+C;X6;K100
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K90
+C;X12;K"MOCOZI"
+C;X14;K"TFC Critics"
+C;Y3117;X1;K"SHK"
+C;X2;K"Death Moon (Metal Version) (Lv.4 Crazy)"
+C;X3;K"vng0537.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K160
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K4
+C;X11;K114
+C;X12;K"SHK"
+C;X13;K"SHK"
+C;X14;K"TFC Critics"
 E

@@ -15,4 +15,5 @@ auayo_i0300.tbm
 auayo_i0339.tbm
 auayo_i0341.tbm
 auayo_i0447.tbm
+auayo_i0502.tbm
 auvtc_v2630.tbm

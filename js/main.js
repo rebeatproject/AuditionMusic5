@@ -426,10 +426,11 @@ async function handleMe(req, env, ctx) {
   const s = await readSession(env, req.headers.get("Cookie"));
   if (!s) {
     logSoon(env, req, ctx, { user: "-", power: "-", type: "guest" });
-    return json({ logged: false, fb: false, google: false, admin: false, dev: false, vip: false, user: false, name: "", role: "" });
+    return json({ logged: false, fb: false, google: false, admin: false, dev: false, vip: false, user: false, name: "", role: "", playlistId: "" });
   }
   const fb = s.t === "fb" || s.fb === true;
   const google = s.t === "goo" || s.g === true;
+  const playlistId = playlistFileId(s);
   const admin = s.t === "adm" || s.r === "admin";
   const vip = s.r === "vip";
   const dev = s.r === "dev";
@@ -441,7 +442,7 @@ async function handleMe(req, env, ctx) {
   };
   const p = logSoon(env, req, ctx, rec);
   if (!ctx || !ctx.waitUntil) await p;
-  return json({ logged: true, fb, google, admin, dev, vip, user, name: s.n || "", role: s.r || (fb || google ? "user" : "") });
+  return json({ logged: true, fb, google, admin, dev, vip, user, name: s.n || "", role: s.r || (fb || google ? "user" : ""), playlistId });
 }
 
 async function handleLogin(req, env, ctx) {

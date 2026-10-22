@@ -640,8 +640,8 @@ async function handleFf(req, env, name) {
   return new Response(obj.body, { status: 200, headers: h });
 }
 
-// ---------- admin: download a csv ----------
-async function adminDownload(req, env, filename) {
+// ---------- dev: download a csv/log ----------
+async function devDownload(req, env, filename) {
   const s = await readSession(env, req.headers.get("Cookie"));
   const ak = isAdminKey(req, env);
   // role 4 (DEV) only — dipakai tombol di dialog Create Account
@@ -657,6 +657,25 @@ async function adminDownload(req, env, filename) {
       "Content-Disposition": 'attachment; filename="' + filename + '"',
     },
   });
+}
+
+// ---------- dev: clear a log (login.log / online.log) ----------
+async function devClearLog(req, env, filename) {
+  const s = await readSession(env, req.headers.get("Cookie"));
+  const ak = isAdminKey(req, env);
+  // role 4 (DEV) only — tombol Clear log di dialog Create Account
+  if (!isDevSess(s) && ak !== "grant" && ak !== "ok") return json({ ok: false, error: "forbidden" }, 403);
+  const c = ghConf(env);
+  if (!c.token || !c.repo) return json({ ok: false, error: "store not available" }, 502);
+  const path = c.dir + "/" + filename;
+  for (let i = 0; i < 3; i++) {
+    const cur = await ghReadFile(env, path);
+    if (cur && await ghWriteFile(env, path, "", cur.sha, "log: clear " + filename)) {
+      return json({ ok: true, name: filename });
+    }
+    await new Promise((r) => setTimeout(r, 300 * (i + 1)));
+  }
+  return json({ ok: false, error: "clear failed" }, 502);
 }
 
 // ---------- admin: upload an SLK into KV ----------
@@ -952,11 +971,22 @@ export default {
     if (url.pathname === "/api/auth/google") return handleGoogleStart(req, env);
     if (url.pathname === "/api/auth/google/callback") return handleGoogleCallback(req, env, url, ctx);
     if (url.pathname === "/api/geo") return handleGeo(req, env);
-    if (url.pathname === "/api/admin/users") return adminDownload(req, env, "users.csv");
-    if (url.pathname === "/api/admin/fbusers") return adminDownload(req, env, "fb-users.csv");
-    if (url.pathname === "/api/admin/googleusers") return adminDownload(req, env, "google-users.csv");
-    if (url.pathname === "/api/admin/loginlog") return adminDownload(req, env, "login.log");
-    if (url.pathname === "/api/admin/onlinelog") return adminDownload(req, env, "online.log");
+    // ---- dev panel (role 4): csv/log downloads + clear log ----
+    if (url.pathname === "/api/dev/users") return devDownload(req, env, "users.csv");
+    if (url.pathname === "/api/dev/fbusers") return devDownload(req, env, "fb-users.csv");
+    if (url.pathname === "/api/dev/googleusers") return devDownload(req, env, "google-users.csv");
+    if (url.pathname === "/api/dev/loginlog") return devDownload(req, env, "login.log");
+    if (url.pathname === "/api/dev/onlinelog") return devDownload(req, env, "online.log");
+    if (url.pathname === "/api/dev/loginlog/clear" && req.method === "POST") return devClearLog(req, env, "login.log");
+    if (url.pathname === "/api/dev/onlinelog/clear" && req.method === "POST") return devClearLog(req, env, "online.log");
+    // legacy alias: nama lama /api/admin/*, tetap role 4
+    if (url.pathname === "/api/admin/users") return devDownload(req, env, "users.csv");
+    if (url.pathname === "/api/admin/fbusers") return devDownload(req, env, "fb-users.csv");
+    if (url.pathname === "/api/admin/googleusers") return devDownload(req, env, "google-users.csv");
+    if (url.pathname === "/api/admin/loginlog") return devDownload(req, env, "login.log");
+    if (url.pathname === "/api/admin/onlinelog") return devDownload(req, env, "online.log");
+    if (url.pathname === "/api/admin/loginlog/clear" && req.method === "POST") return devClearLog(req, env, "login.log");
+    if (url.pathname === "/api/admin/onlinelog/clear" && req.method === "POST") return devClearLog(req, env, "online.log");
 
     // ---- asset wasm/ffmpeg dari R2 (self-host, bukan CDN pihak ketiga) ----
     const mff = url.pathname.match(/^\/ff\/([A-Za-z0-9_.-]+)$/);
@@ -985,14 +1015,15 @@ export default {
     // ---- live chat (visitor -> Telegram admin) ----
     if (url.pathname.startsWith("/api/chat/")) return chatRoute(req, env, url, sess);
 
+    // ---- dev panel API (Create Account; role 4 only) ----
+    if (url.pathname === "/api/dev/createuser" || url.pathname === "/api/admin/createuser") {
+      if (req.method !== "POST") return json({ ok: false, error: "unknown" }, 404);
+      if (!isDevSess(sess)) return json({ ok: false, error: "forbidden" }, 403);
+      return handleCreateUser(req, env);
+    }
+
     // ---- admin panel API (maintenance = MT.js) ----
     if (url.pathname.startsWith("/api/admin/")) {
-      // create account = role 4 (dev) only; sisanya admin atau dev
-      if (url.pathname === "/api/admin/createuser") {
-        if (req.method !== "POST") return json({ ok: false, error: "unknown" }, 404);
-        if (!isDevSess(sess)) return json({ ok: false, error: "forbidden" }, 403);
-        return handleCreateUser(req, env);
-      }
       if (!isPanelSess(sess) && adminKey !== "grant" && adminKey !== "ok")
         return json({ ok: false, error: "forbidden" }, 403);
       if (url.pathname === "/api/admin/state") return json(await adminState(env));

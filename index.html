@@ -1457,6 +1457,32 @@
         white-space: pre-wrap;
         word-break: break-word;
       }
+      .plogfoot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .plogfoot .pmsg {
+        flex: 1 1 auto;
+      }
+      .lclear {
+        flex: 0 0 auto;
+        font-size: 11px;
+        padding: 6px 10px;
+        border-radius: 8px;
+        border: 1px solid #6a3a3a;
+        background: transparent;
+        color: #ff8a8a;
+      }
+      .lclear:hover {
+        background: rgba(255, 92, 92, 0.12);
+        border-color: #ff5c5c;
+      }
+      .lclear:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
       /* create account (dev): overlay bisa di-scroll + panel dilebarin biar log gak kepotong */
       #createov {
         overflow: auto;
@@ -1980,7 +2006,7 @@
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v7.1.3)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v7.1.5)</span></h1>
         <div id="onnow" aria-label="Visitors online now">
           <span class="onnow-pill" data-tip="Visitors online now"
             ><i></i><span class="onnow-lbl">Online:</span><span class="onnow-n">–</span></span
@@ -2135,11 +2161,11 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=713"></script>
-    <script src="js/tip.js?v=713"></script>
-    <script src="js/auditionmusic5.js?v=713"></script>
-    <script src="js/install.js?v=713"></script>
-    <script src="js/chat.js?v=713"></script>
-    <script src="js/online-now.js?v=713"></script>
+    <script src="js/guard.js?v=715"></script>
+    <script src="js/tip.js?v=715"></script>
+    <script src="js/auditionmusic5.js?v=715"></script>
+    <script src="js/install.js?v=715"></script>
+    <script src="js/chat.js?v=715"></script>
+    <script src="js/online-now.js?v=715"></script>
   </body>
 </html>

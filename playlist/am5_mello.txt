@@ -44,6 +44,7 @@ auvtc_v0588.tbm
 auvtc_v0946.tbm
 auvtc_v0974.tbm
 auvtc_v1321.tbm
+auvtc_v1488.tbm
 auvtc_v1561.tbm
 auvtc_v1601.tbm
 auvtc_v1778.tbm

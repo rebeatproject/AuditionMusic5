@@ -36,6 +36,7 @@ auayo_i3265.tbm
 auayo_i3304.tbm
 auayo_v1488.tbm
 auayo_v1561.tbm
+auayo_v1601.tbm
 auvtc_v0324.tbm
 auvtc_v0485.tbm
 auvtc_v0588.tbm

@@ -783,6 +783,14 @@ async function logLogin(env, req, rec) {
 }
 
 // ---------- online log (data/online.log) ----------
+function uaClient(ua) {
+  const s = String(ua || "").trim();
+  if (!s) return "none";
+  if (/headless|phantom|selenium|puppeteer|playwright|lighthouse|curl|wget|python|java|okhttp|go-http|node-fetch|axios|httpclient|libwww|scrapy|spider|crawler|googlebot|bingbot|yandexbot|duckduckbot|baiduspider|facebookexternalhit|slackbot|telegrambot|discordbot|twitterbot|linkedinbot/i.test(s)) return "bot";
+  if (/(?:^|[\/\s;-])bot(?:[\/\s;]|$)/i.test(s)) return "bot";
+  if (/Mozilla\/5\.0/.test(s) && /(Chrome|CriOS|Firefox|FxiOS|Safari|Edg|OPR)\//.test(s)) return "browser";
+  return "other";
+}
 function stampMs(stamp) {
   const m = /^\[(\d{1,2})\/(\d{1,2})\/(\d{4}) (\d{1,2}):(\d{2}):(\d{2}) ?(AM|PM)\]$/i.exec(String(stamp || "").trim());
   if (!m) return 0;
@@ -796,7 +804,8 @@ async function logOnline(env, req, rec) {
     if (!c.token || !c.repo) return false;
     const ip = (req && req.headers.get("CF-Connecting-IP")) || "";
     const path = c.dir + "/online.log";
-    const header = "Date|Username|PowerUser|Login Type|IP Address|Country\n";
+    const header = "Date|Username|PowerUser|Login Type|IP Address|Country|User-Agent|Client|BotScore\n";
+    const oldHeader = "Date|Username|PowerUser|Login Type|IP Address|Country\n";
     for (let i = 0; i < 2; i++) {
       const cur = await ghReadFile(env, path);
       if (!cur) return false;
@@ -812,8 +821,12 @@ async function logOnline(env, req, rec) {
       }
       if (dup) return false;
       const geo = await geoOf(env, ip);
-      const base = text.trim() ? text.replace(/\n*$/, "\n") : header;
-      const line = [jakartaStamp(), rec.user, rec.power, rec.type, ip || "-", geo.country || "-"]
+      let base = text.trim() ? text.replace(/\n*$/, "\n") : header;
+      if (base.indexOf(oldHeader) === 0) base = header + base.slice(oldHeader.length);
+      const ua = String((req && req.headers.get("User-Agent")) || "").replace(/[|\r\n]/g, " ").trim().slice(0, 200);
+      const bm = (req && req.cf && req.cf.botManagement) || {};
+      const botScore = bm.score == null ? "-" : bm.score;
+      const line = [jakartaStamp(), rec.user, rec.power, rec.type, ip || "-", geo.country || "-", ua || "-", uaClient(ua), botScore]
         .map((v) => String(v == null ? "" : v).replace(/[|\r\n]/g, " "))
         .join("|") + "\n";
       if (await ghWriteFile(env, path, base + line, cur.sha, "log: online " + rec.user)) return true;

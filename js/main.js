@@ -6,6 +6,7 @@ import { chatRoute } from "./chatapi.js";
 const enc = new TextEncoder();
 const ADMIN_COOKIE = "am5admin";
 const SESS_COOKIE = "am5sess";
+const GUEST_COOKIE = "am5guest";
 const SLK_PREFIX = "slk:";
 
 // ---------- session / crypto helpers ----------
@@ -45,9 +46,29 @@ async function readSession(env, cookieHeader) {
   if (!constEq(sig, await hmac(secret(env), payload))) return null;
   try {
     const o = JSON.parse(new TextDecoder().decode(unb64url(payload)));
-    if (!o.exp || o.exp < Date.now()) return null;
+    if (o.t === "guest" || !o.exp || o.exp < Date.now()) return null;
     return o;
   } catch (e) { return null; }
+}
+async function readGuest(env, cookieHeader) {
+  const m = (cookieHeader || "").match(new RegExp("(?:^|;\\s*)" + GUEST_COOKIE + "=([^;]+)"));
+  if (!m) return null;
+  const [payload, sig] = m[1].split(".");
+  if (!payload || !sig) return null;
+  if (!constEq(sig, await hmac(secret(env), payload))) return null;
+  try {
+    const o = JSON.parse(new TextDecoder().decode(unb64url(payload)));
+    if (o.t !== "guest" || !o.exp || o.exp < Date.now()) return null;
+    return o;
+  } catch (e) { return null; }
+}
+async function newGuestCookie(env) {
+  const g = {
+    t: "guest",
+    id: crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2),
+    exp: Date.now() + 7 * 864e5,
+  };
+  return setCookie(GUEST_COOKIE, await makeSession(env, g), 604800);
 }
 function setCookie(name, val, maxAge) {
   return name + "=" + val + "; Path=/; HttpOnly; SameSite=Lax; Secure; Max-Age=" + maxAge;
@@ -412,6 +433,46 @@ function fbUsername(u) {
 function clearCookie() {
   return SESS_COOKIE + "=; Path=/; HttpOnly; SameSite=Lax; Secure; Max-Age=0";
 }
+function isUserSess(s) {
+  return !!(s && (s.t === "usr" || s.t === "adm"));
+}
+function sameOriginAsset(req) {
+  const site = (req.headers.get("Sec-Fetch-Site") || "").toLowerCase();
+  if (site) return site === "same-origin";
+  const ref = req.headers.get("Referer") || "";
+  if (!ref) return false;
+  try { return new URL(ref).origin === new URL(req.url).origin; } catch (e) { return false; }
+}
+async function rawGate(req, env) {
+  if (!sameOriginAsset(req)) return 403;
+  const c = req.headers.get("Cookie");
+  if (await readSession(env, c)) return 0;
+  if (await readGuest(env, c)) return 0;
+  return 401;
+}
+function assetSecret(env) {
+  return env.ASSET_SECRET || env.SESSION_SECRET || "";
+}
+async function assetToken(env, srv, name, kind) {
+  const payload = b64url(enc.encode(JSON.stringify({
+    s: srv,
+    n: name,
+    k: kind,
+    e: Date.now() + 120000,
+  })));
+  return payload + "." + (await hmac(assetSecret(env), payload));
+}
+async function handleAssetToken(req, env, url) {
+  if (!env.SESSION_SECRET || !assetSecret(env)) return json({ ok: false, error: "asset token not configured" }, 503);
+  const s = await readSession(env, req.headers.get("Cookie"));
+  if (!isUserSess(s)) return json({ ok: false, error: "login" }, 401);
+  const kind = String(url.searchParams.get("k") || "");
+  const srv = String(url.searchParams.get("s") || "");
+  const name = String(url.searchParams.get("n") || "");
+  if ((kind !== "ogg" && kind !== "f") || !Object.prototype.hasOwnProperty.call(UP, srv) || !/^[A-Za-z0-9_.-]{1,80}$/.test(name) || !/\.(tbm|abm)$/i.test(name))
+    return json({ ok: false, error: "bad request" }, 400);
+  return json({ ok: true, t: await assetToken(env, srv, name, kind), exp: Date.now() + 120000 });
+}
 
 // ---------- auth handlers ----------
 // tulis log SETELAH response jalan: kalau nunggu, client timeout -> catatan ilang
@@ -425,8 +486,10 @@ function logSoon(env, req, ctx, rec) {
 async function handleMe(req, env, ctx) {
   const s = await readSession(env, req.headers.get("Cookie"));
   if (!s) {
+    const g = await readGuest(env, req.headers.get("Cookie"));
+    const extra = g ? undefined : { "Set-Cookie": await newGuestCookie(env) };
     logSoon(env, req, ctx, { user: "-", power: "-", type: "guest" });
-    return json({ logged: false, fb: false, google: false, admin: false, dev: false, vip: false, user: false, name: "", role: "", playlistId: "" });
+    return json({ logged: false, fb: false, google: false, admin: false, dev: false, vip: false, user: false, name: "", role: "", playlistId: "" }, 200, extra);
   }
   const fb = s.t === "fb" || s.fb === true;
   const google = s.t === "goo" || s.g === true;
@@ -957,13 +1020,15 @@ async function handleFile(req, srv, name) {
   }
   if (r.status === 404) return new Response("File not found on the server: " + name, { status: 404, headers: { "Cache-Control": "no-store" } });
   if (!r.ok && r.status !== 206) return new Response("upstream error " + r.status, { status: 502, headers: { "Cache-Control": "no-store" } });
-  if (probe) return new Response(null, { status: 200, headers: { "Cache-Control": "no-store" } });
+  if (probe) return new Response(null, { status: 200, headers: { "Cache-Control": "no-store", "Vary": "Cookie, Sec-Fetch-Site" } });
   const out = new Headers();
   out.set("Content-Type", "application/octet-stream");
   out.set("Content-Disposition", 'attachment; filename="' + name + '"');
   out.set("Accept-Ranges", "bytes");
   out.set("X-Content-Type-Options", "nosniff");
-  out.set("Cache-Control", rg ? "no-store" : "public, max-age=3600");
+  out.set("Cache-Control", "private, no-store");
+  out.set("CDN-Cache-Control", "no-store");
+  out.set("Vary", "Cookie, Sec-Fetch-Site");
   const cr = r.headers.get("Content-Range");
   if (cr) out.set("Content-Range", cr);
   const cl = r.headers.get("Content-Length");
@@ -984,6 +1049,7 @@ export default {
     if (url.pathname === "/api/auth/google") return handleGoogleStart(req, env);
     if (url.pathname === "/api/auth/google/callback") return handleGoogleCallback(req, env, url, ctx);
     if (url.pathname === "/api/geo") return handleGeo(req, env);
+    if (url.pathname === "/api/asset/token") return handleAssetToken(req, env, url);
     // ---- dev panel (role 4): csv/log downloads + clear log ----
     if (url.pathname === "/api/dev/users") return devDownload(req, env, "users.csv");
     if (url.pathname === "/api/dev/fbusers") return devDownload(req, env, "fb-users.csv");
@@ -1007,7 +1073,14 @@ export default {
 
     // ---- download mentah (tbm/abm) lewat domain utama ----
     const mfd = url.pathname.match(/^\/api\/([a-z0-9]+)\/f\/([^/]+)$/);
-    if (mfd) return handleFile(req, mfd[1], decodeURIComponent(mfd[2]));
+    if (mfd) {
+      const gate = await rawGate(req, env);
+      if (gate) return new Response(gate === 401 ? "login required" : "forbidden", {
+        status: gate,
+        headers: { "Cache-Control": "no-store", "CDN-Cache-Control": "no-store", "Vary": "Cookie, Sec-Fetch-Site" },
+      });
+      return handleFile(req, mfd[1], decodeURIComponent(mfd[2]));
+    }
 
     // block sensitive paths
     if (/\/\.(git|env|dev\.vars|wrangler)|(^|\/)\.(gitignore|gitattributes)$/i.test(url.pathname)

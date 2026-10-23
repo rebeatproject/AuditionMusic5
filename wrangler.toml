@@ -47,7 +47,7 @@ namespace_id = "1001"
 
 # NOTE: SECRETS tetap di Cloudflare dashboard (Settings > Variables and
 # Secrets, tipe Secret) — secret kebawa lintas build:
-#   ADMIN_KEY, ADMIN_USER, ADMIN_PASS, SESSION_SECRET,
+#   ADMIN_KEY, ADMIN_USER, ADMIN_PASS, SESSION_SECRET, ASSET_SECRET,
 #   GOOGLE_CLIENT_SECRET, FB_APP_ID, FB_APP_SECRET, GH_TOKEN
 # Aturan: secret -> dashboard; var non-secret -> [vars] di atas
 #   (GOOGLE_CLIENT_ID, MAINTENANCE, GH_REPO, GH_BRANCH, GH_DIR).

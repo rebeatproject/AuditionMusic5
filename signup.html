@@ -27,7 +27,7 @@
   input:focus { border-color:var(--accent); }
   .otprow { display:flex; gap:8px; }
   .otprow input { margin-bottom:18px; }
-  .otpbtn { flex:0 0 auto; width:80px; min-width:80px; height:48px; padding:0; border:1px solid var(--accent); border-radius:8px;
+  .otpbtn { flex:0 0 auto; width:86px; min-width:86px; height:48px; padding:0; border:1px solid var(--accent); border-radius:8px;
     background:var(--accent); color:#fff; font:inherit; font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap; }
   .otpbtn:hover:not(:disabled) { filter:brightness(1.1); }
   .otpbtn:disabled { background:var(--accent); border-color:var(--accent); color:#fff; opacity:.55; cursor:default; }
@@ -67,9 +67,9 @@
     <label for="e">Email</label>
     <div class="otprow">
       <input type="email" id="e" autocomplete="email" maxlength="254" required>
-      <button class="otpbtn" type="button" id="otpbtn">Get OTP</button>
+      <button class="otpbtn" type="button" id="otpbtn">Get Code</button>
     </div>
-    <label for="o">OTP</label>
+    <label for="o">Verification Code</label>
     <input type="text" id="o" inputmode="numeric" autocomplete="one-time-code" maxlength="6" required>
     <label for="p">Password</label>
     <input type="password" id="p" autocomplete="new-password" minlength="6" required>
@@ -85,8 +85,8 @@
   </button>
   <a class="alt" href="/">&larr; Back to AuditionMusic5</a>
 </main>
-<script src="js/guard.js?v=744"></script>
-<script src="js/tip.js?v=744"></script>
+<script src="js/guard.js?v=745"></script>
+<script src="js/tip.js?v=745"></script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
   const $ = (id) => document.getElementById(id);
@@ -125,7 +125,7 @@
       if (n <= 0) {
         clearInterval(waitTimer);
         b.disabled = false;
-        b.textContent = "Get OTP";
+        b.textContent = "Resend Code";
       } else b.textContent = "Wait " + n + "s";
     }, 1000);
   }
@@ -139,7 +139,7 @@
     busy($("otpbtn"));
     const tk = await waitToken();
     if (!tk) {
-      idle($("otpbtn"), "Get OTP");
+      idle($("otpbtn"), "Get Code");
       return msg("Verification is still loading. Try again in a moment.");
     }
     try {
@@ -155,12 +155,12 @@
         if (window.turnstile) window.turnstile.reset();
       } else {
         msg(j.error || "Could not send code.");
-        idle($("otpbtn"), "Get OTP");
+        idle($("otpbtn"), "Get Code");
         if (window.turnstile) window.turnstile.reset();
       }
     } catch (e) {
       msg("Could not send code. Try again.");
-      idle($("otpbtn"), "Get OTP");
+      idle($("otpbtn"), "Get Code");
     }
   });
 

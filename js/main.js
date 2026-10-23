@@ -2,6 +2,7 @@
 
 import { readMT, adminState, adminSet, maintenanceGate } from "./MT.js";
 import { chatRoute } from "./chatapi.js";
+import { connect } from "cloudflare:sockets";
 
 const enc = new TextEncoder();
 const ADMIN_COOKIE = "am5admin";
@@ -543,6 +544,221 @@ async function handleLogin(req, env, ctx) {
   return json({ ok: true, role }, 200, { "Set-Cookie": setCookie(SESS_COOKIE, sess, 604800) });
 }
 
+// ---------- signup + email OTP ----------
+const OTP_TTL = 600;
+const OTP_WAIT = 60;
+const OTP_TRIES = 5;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+const otpKey = (email) => "otp:" + email;
+function otpCode() {
+  const a = new Uint32Array(1);
+  crypto.getRandomValues(a);
+  return String(a[0] % 1000000).padStart(6, "0");
+}
+const otpHash = (env, email, code) => hmac(secret(env), email + ":" + code);
+
+async function turnstileOk(env, token, ip) {
+  if (!env.TURNSTILE_SECRET) return true;
+  if (!token) return false;
+  const fd = new FormData();
+  fd.append("secret", env.TURNSTILE_SECRET);
+  fd.append("response", token);
+  if (ip) fd.append("remoteip", ip);
+  try {
+    const r = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", { method: "POST", body: fd });
+    const j = await r.json();
+    return !!j.success;
+  } catch (e) { return false; }
+}
+
+async function mailAccessToken(env) {
+  const r = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      client_id: env.SMTP_CLIENT_ID || env.GOOGLE_CLIENT_ID || "",
+      client_secret: env.SMTP_CLIENT_SECRET || env.GOOGLE_CLIENT_SECRET || "",
+      refresh_token: env.SMTP_REFRESH_TOKEN || "",
+      grant_type: "refresh_token",
+    }).toString(),
+  });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok || !j.access_token) throw new Error("oauth " + (j.error || r.status));
+  return j.access_token;
+}
+
+async function smtpSend(env, to, subject, body) {
+  const host = env.SMTP_HOST || "smtp.gmail.com";
+  const port = Number(env.SMTP_PORT || 465);
+  const user = env.SMTP_USER || "";
+  const pass = env.SMTP_PASS || "";
+  const from = env.SMTP_FROM || user;
+  if (!user || !from || (!pass && !env.SMTP_REFRESH_TOKEN)) throw new Error("smtp not configured");
+
+  const sock = connect({ hostname: host, port }, { secureTransport: "on" });
+  const reader = sock.readable.getReader();
+  const writer = sock.writable.getWriter();
+  const dec = new TextDecoder();
+  let buf = "";
+  let done = false;
+
+  const read = async () => {
+    for (;;) {
+      const i = buf.indexOf("\r\n");
+      if (i >= 0) {
+        const line = buf.slice(0, i);
+        buf = buf.slice(i + 2);
+        if (/^\d{3} /.test(line)) return line;
+        continue;
+      }
+      const r = await Promise.race([
+        reader.read(),
+        new Promise((_, rej) => setTimeout(() => rej(new Error("smtp timeout")), 15000)),
+      ]);
+      if (r.done) throw new Error("smtp closed");
+      buf += dec.decode(r.value, { stream: true });
+    }
+  };
+  const send = (line) => writer.write(enc.encode(line + "\r\n"));
+  const step = async (line, code) => {
+    if (line !== null) await send(line);
+    const r = await read();
+    if (r.slice(0, 3) !== code) throw new Error("smtp " + r);
+    return r;
+  };
+
+  try {
+    await step(null, "220");
+    await step("EHLO auditionmusic5.com", "250");
+    if (env.SMTP_REFRESH_TOKEN) {
+      const at = await mailAccessToken(env);
+      await step("AUTH XOAUTH2 " + btoa("user=" + user + "\x01auth=Bearer " + at + "\x01\x01"), "235");
+    } else {
+      await step("AUTH LOGIN", "334");
+      await step(btoa(user), "334");
+      await step(btoa(pass), "235");
+    }
+    await step("MAIL FROM:<" + from + ">", "250");
+    await step("RCPT TO:<" + to + ">", "250");
+    await step("DATA", "354");
+    const head = [
+      'From: "AuditionMusic5" <' + from + ">",
+      "To: <" + to + ">",
+      "Subject: " + subject,
+      "Date: " + new Date().toUTCString(),
+      "Message-ID: <" + crypto.randomUUID() + "@auditionmusic5.com>",
+      "MIME-Version: 1.0",
+      "Content-Type: text/plain; charset=UTF-8",
+      "Content-Transfer-Encoding: 8bit",
+    ].join("\r\n");
+    const text = body.split(/\r?\n/).map((l) => (l.startsWith(".") ? "." + l : l)).join("\r\n");
+    await writer.write(enc.encode(head + "\r\n\r\n" + text + "\r\n.\r\n"));
+    const r = await read();
+    if (r.slice(0, 3) !== "250") throw new Error("smtp " + r);
+    await send("QUIT").catch(() => {});
+    done = true;
+  } finally {
+    if (!done) { try { await writer.close(); } catch (e) {} }
+    try { sock.close(); } catch (e) {}
+  }
+}
+
+async function handleSignupOtp(req, env) {
+  let body = {};
+  try { body = await req.json(); } catch (e) {}
+  const u = String(body.u || "").trim();
+  const email = String(body.email || "").trim().toLowerCase();
+  if (!/^[A-Za-z0-9_.-]{3,32}$/.test(u))
+    return json({ ok: false, error: "Username must be 3-32 chars (letters, numbers, . _ -)" }, 400);
+  if (!EMAIL_RE.test(email) || email.length > 254) return json({ ok: false, error: "Invalid email" }, 400);
+  if (!(await turnstileOk(env, String(body.token || ""), req.headers.get("CF-Connecting-IP") || "")))
+    return json({ ok: false, error: "Verification failed. Try again." }, 400);
+
+  const users = await readStore(env, "users.csv");
+  if (!users) return json({ ok: false, error: "User store not available" }, 502);
+  for (const r of parseTable(users.text)) {
+    if ((r[0] || "").trim().toLowerCase() === u.toLowerCase())
+      return json({ ok: false, error: "Username already taken" }, 409);
+    if ((r[3] || "").trim().toLowerCase() === email)
+      return json({ ok: false, error: "Email already registered" }, 409);
+  }
+
+  if (!env.MT_KV) return json({ ok: false, error: "OTP store not available" }, 502);
+  const prev = await env.MT_KV.get(otpKey(email), "json");
+  if (prev && prev.at && Date.now() - prev.at < OTP_WAIT * 1000)
+    return json({ ok: false, error: "Wait", wait: Math.ceil((OTP_WAIT * 1000 - (Date.now() - prev.at)) / 1000) }, 429);
+
+  const code = otpCode();
+  const rec = { h: await otpHash(env, email, code), exp: Date.now() + OTP_TTL * 1000, at: Date.now(), tries: 0 };
+  await env.MT_KV.put(otpKey(email), JSON.stringify(rec), { expirationTtl: OTP_TTL });
+  try {
+    await smtpSend(env, email, "AuditionMusic5 verification code",
+      "Your AuditionMusic5 verification code:\n\n" + code + "\n\nValid for 10 minutes. If you did not request this, ignore this email.");
+  } catch (e) {
+    await env.MT_KV.delete(otpKey(email));
+    return json({ ok: false, error: "Could not send email. Try again." }, 502);
+  }
+  return json({ ok: true, wait: OTP_WAIT });
+}
+
+async function handleSignup(req, env, ctx) {
+  let body = {};
+  try { body = await req.json(); } catch (e) {}
+  const u = String(body.u || "").trim();
+  const email = String(body.email || "").trim().toLowerCase();
+  const code = String(body.otp || "").replace(/\D/g, "");
+  const p = String(body.p || "");
+  if (!/^[A-Za-z0-9_.-]{3,32}$/.test(u))
+    return json({ ok: false, error: "Username must be 3-32 chars (letters, numbers, . _ -)" }, 400);
+  if (!EMAIL_RE.test(email) || email.length > 254) return json({ ok: false, error: "Invalid email" }, 400);
+  if (p.length < 6) return json({ ok: false, error: "Password must be at least 6 characters" }, 400);
+  if (/[;\r\n]/.test(p)) return json({ ok: false, error: "Password cannot contain ; or line breaks" }, 400);
+  if (code.length !== 6) return json({ ok: false, error: "Wrong code" }, 400);
+
+  if (env.LOGIN_LIMITER) {
+    const gate = await env.LOGIN_LIMITER.limit({ key: "signup:" + (req.headers.get("CF-Connecting-IP") || "x") });
+    if (!gate.success) return json({ ok: false, error: "Too many attempts. Wait a minute." }, 429);
+  }
+
+  if (!env.MT_KV) return json({ ok: false, error: "OTP store not available" }, 502);
+  const rec = await env.MT_KV.get(otpKey(email), "json");
+  if (!rec || !rec.exp || rec.exp < Date.now()) return json({ ok: false, error: "Code expired. Request a new one." }, 400);
+  if (rec.tries >= OTP_TRIES) return json({ ok: false, error: "Too many wrong codes. Request a new one." }, 400);
+  if (!constEq(rec.h, await otpHash(env, email, code))) {
+    rec.tries = (rec.tries || 0) + 1;
+    await env.MT_KV.put(otpKey(email), JSON.stringify(rec), { expirationTtl: Math.max(60, Math.ceil((rec.exp - Date.now()) / 1000)) });
+    return json({ ok: false, error: "Wrong code" }, 400);
+  }
+
+  if (await readMT(env)) return json({ ok: false, error: "maintenance" }, 403);
+
+  const path = userPath(env);
+  const header = "Username;Password;PowerUser;Email\n";
+  for (let i = 0; i < 3; i++) {
+    const cur = await ghReadFile(env, path);
+    if (!cur) return json({ ok: false, error: "User store not available" }, 502);
+    const lines = String(cur.text || "").split(/\r?\n/).filter((l) => l.trim() !== "");
+    const head = lines.length && /^username/i.test(lines[0]) ? lines.shift() : header.trim();
+    for (const l of lines) {
+      const cells = splitLine(l, detectDelim(l));
+      if ((cells[0] || "").trim().toLowerCase() === u.toLowerCase())
+        return json({ ok: false, error: "Username already taken" }, 409);
+      if ((cells[3] || "").trim().toLowerCase() === email)
+        return json({ ok: false, error: "Email already registered" }, 409);
+    }
+    const h = /email/i.test(head) ? head : head + ";Email";
+    const text = [h, ...lines].join("\n") + "\n" + u + ";" + p + ";3;" + email + "\n";
+    if (await ghWriteFile(env, path, text, cur.sha, "user: signup " + u)) {
+      await env.MT_KV.delete(otpKey(email));
+      const sess = await makeSession(env, { t: "usr", n: u, r: "user", exp: Date.now() + 7 * 864e5 });
+      keep(ctx, logLogin(env, req, { user: u, role: "user", type: "AM5" }));
+      return json({ ok: true }, 200, { "Set-Cookie": setCookie(SESS_COOKIE, sess, 604800) });
+    }
+    await new Promise((r) => setTimeout(r, 300 * (i + 1)));
+  }
+  return json({ ok: false, error: "Write failed, try again." }, 502);
+}
+
 function handleLogout() {
   return json({ ok: true }, 200, { "Set-Cookie": clearCookie() });
 }
@@ -665,6 +881,70 @@ async function handleGoogleCallback(req, env, url, ctx) {
   return new Response(null, {
     status: 302,
     headers: { Location: "/", "Set-Cookie": setCookie(SESS_COOKIE, sess, 604800) },
+  });
+}
+
+// ---------- one-time: refresh token pengirim OTP ----------
+async function handleMailAuthStart(req, env) {
+  const cid = env.SMTP_CLIENT_ID || env.GOOGLE_CLIENT_ID;
+  const csec = env.SMTP_CLIENT_SECRET || env.GOOGLE_CLIENT_SECRET;
+  if (!cid || !csec) return json({ ok: false, error: "SMTP_CLIENT_ID/SECRET (atau GOOGLE_CLIENT_ID/SECRET) not set" }, 500);
+  const url = new URL(req.url);
+  const redirect = url.origin + "/api/auth/google/mail/callback";
+  const payload = b64url(
+    enc.encode(JSON.stringify({ n: Math.random().toString(36).slice(2), exp: Date.now() + 600000 }))
+  );
+  const st = payload + "." + (await hmac(secret(env), payload));
+  const go =
+    "https://accounts.google.com/o/oauth2/v2/auth" +
+    "?client_id=" + encodeURIComponent(cid) +
+    "&redirect_uri=" + encodeURIComponent(redirect) +
+    "&response_type=code" +
+    "&scope=" + encodeURIComponent("https://mail.google.com/") +
+    "&access_type=offline" +
+    "&prompt=consent" +
+    "&state=" + encodeURIComponent(st);
+  return new Response(null, { status: 302, headers: { Location: go, "Cache-Control": "no-store" } });
+}
+
+async function handleMailAuthCallback(req, env, url) {
+  const code = url.searchParams.get("code");
+  const st = url.searchParams.get("state") || "";
+  const [payload, sig] = st.split(".");
+  if (!code || !payload || !constEq(sig || "", await hmac(secret(env), payload)))
+    return new Response("bad state", { status: 400 });
+  const redirect = url.origin + "/api/auth/google/mail/callback";
+  const tr = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      code: code,
+      client_id: env.SMTP_CLIENT_ID || env.GOOGLE_CLIENT_ID || "",
+      client_secret: env.SMTP_CLIENT_SECRET || env.GOOGLE_CLIENT_SECRET || "",
+      redirect_uri: redirect,
+      grant_type: "authorization_code",
+    }).toString(),
+  });
+  const tok = await tr.json().catch(() => ({}));
+  if (!tr.ok) return new Response("google token error: " + (tok.error || tr.status), { status: 502 });
+  if (!tok.refresh_token)
+    return new Response("no refresh_token (ulangi, pastikan prompt=consent)", { status: 502 });
+  let who = "";
+  try {
+    const ur = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+      headers: { Authorization: "Bearer " + (tok.access_token || "") },
+    });
+    if (ur.ok) who = (await ur.json()).email || "";
+  } catch (e) {}
+  const html =
+    "<!doctype html><meta charset=utf-8><title>mail token</title>" +
+    "<style>body{background:#000;color:#fff;font:14px monospace;padding:24px;word-break:break-all}" +
+    "code{color:#b98cff}</style><h3>Refresh token</h3>" +
+    (who ? "<p>Account: <code>" + who.replace(/[<>&]/g, "") + "</code></p>" : "") +
+    "<p><code>" + tok.refresh_token + "</code></p>" +
+    "<p>Set sebagai Secret <b>SMTP_REFRESH_TOKEN</b>. SMTP_USER/SMTP_FROM = alamat di atas.</p>";
+  return new Response(html, {
+    headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" },
   });
 }
 
@@ -1054,11 +1334,15 @@ export default {
 
     if (url.pathname === "/api/auth/me") return handleMe(req, env, ctx);
     if (url.pathname === "/api/auth/login" && req.method === "POST") return handleLogin(req, env, ctx);
+    if (url.pathname === "/api/auth/signup/otp" && req.method === "POST") return handleSignupOtp(req, env);
+    if (url.pathname === "/api/auth/signup" && req.method === "POST") return handleSignup(req, env, ctx);
     if (url.pathname === "/api/auth/logout") return handleLogout();
     if (url.pathname === "/api/auth/fb") return handleFbStart(req, env);
     if (url.pathname === "/api/auth/fb/callback") return handleFbCallback(req, env, url, ctx);
     if (url.pathname === "/api/auth/google") return handleGoogleStart(req, env);
     if (url.pathname === "/api/auth/google/callback") return handleGoogleCallback(req, env, url, ctx);
+    if (url.pathname === "/api/auth/google/mail") return handleMailAuthStart(req, env);
+    if (url.pathname === "/api/auth/google/mail/callback") return handleMailAuthCallback(req, env, url);
     if (url.pathname === "/api/geo") return handleGeo(req, env);
     if (url.pathname === "/api/asset/token") return handleAssetToken(req, env, url);
     // ---- dev panel (role 4): csv/log downloads + clear log ----

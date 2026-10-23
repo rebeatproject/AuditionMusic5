@@ -867,12 +867,13 @@ async function logOnline(env, req, rec) {
     if (!c.token || !c.repo) return false;
     const ip = (req && req.headers.get("CF-Connecting-IP")) || "";
     const path = c.dir + "/online.log";
-    const header = "Date|Username|PowerUser|Login Type|IP Address|Country|User-Agent|Client|BotScore\n";
+    const header = "Date|Username|PowerUser|Login Type|IP Address|Country|Client|BotScore\n";
+    const uaHeader = "Date|Username|PowerUser|Login Type|IP Address|Country|User-Agent|Client|BotScore\n";
     const oldHeader = "Date|Username|PowerUser|Login Type|IP Address|Country\n";
     for (let i = 0; i < 2; i++) {
       const cur = await ghReadFile(env, path);
       if (!cur) return false;
-      const text = cur.text || "";
+      const text = String(cur.text || "").replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let dup = false;
       for (let k = lines.length - 1, n = 0; k >= 0 && n < 400; k--, n++) {
@@ -885,11 +886,21 @@ async function logOnline(env, req, rec) {
       if (dup) return false;
       const geo = await geoOf(env, ip);
       let base = text.trim() ? text.replace(/\n*$/, "\n") : header;
-      if (base.indexOf(oldHeader) === 0) base = header + base.slice(oldHeader.length);
+      if (base.indexOf(uaHeader) === 0 || base.indexOf(oldHeader) === 0) {
+        const old = base.indexOf(uaHeader) === 0 ? uaHeader : oldHeader;
+        const rows = base.slice(old.length).split("\n");
+        base = header + rows.map((row) => {
+          if (!row) return row;
+          const f = row.replace(/\r$/, "").split("|");
+          if (old === uaHeader && f.length >= 9) f.splice(6, f.length - 8);
+          else if (f.length === 6) f.push("-", "-");
+          return f.join("|");
+        }).join("\n");
+      }
       const ua = String((req && req.headers.get("User-Agent")) || "").replace(/[|\r\n]/g, " ").trim().slice(0, 200);
       const bm = (req && req.cf && req.cf.botManagement) || {};
       const botScore = bm.score == null ? "-" : bm.score;
-      const line = [jakartaStamp(), rec.user, rec.power, rec.type, ip || "-", geo.country || "-", ua || "-", uaClient(ua), botScore]
+      const line = [jakartaStamp(), rec.user, rec.power, rec.type, ip || "-", geo.country || "-", uaClient(ua), botScore]
         .map((v) => String(v == null ? "" : v).replace(/[|\r\n]/g, " "))
         .join("|") + "\n";
       if (await ghWriteFile(env, path, base + line, cur.sha, "log: online " + rec.user)) return true;

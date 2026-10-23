@@ -2,6 +2,12 @@ name = "auditionmusic5"
 main = "js/main.js"
 compatibility_date = "2024-01-01"
 
+# Custom domain routes: samakan dengan dashboard biar deploy lokal gak menghapusnya.
+routes = [
+  { pattern = "auditionmusic5.com", custom_domain = true },
+  { pattern = "www.auditionmusic5.com", custom_domain = true },
+]
+
 # Non-secret vars WAJIB di sini: Workers Builds (deploy dari git) HANYA baca
 # wrangler.toml. Var yang ditambah di dashboard UI TIDAK sampai ke runtime
 # (makanya Cloudflare nge-warning "keep deployments in sync").

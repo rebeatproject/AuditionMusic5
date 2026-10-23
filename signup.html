@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Sign up &mdash; AuditionMusic5</title>
+<title>Sign up - AuditionMusic5</title>
 <link rel="icon" href="image/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon-180x180.png" />
 <link rel="manifest" href="manifest.webmanifest" />
 <style>
   :root { --accent:#a238ff; --bg:#000; --panel:#1a1a1a; --text:#fff; --muted:#a7a7a7; --rail:#2a2a2a; }
   * { box-sizing: border-box; }
+  a { text-decoration: none; }
   body { margin:0; background:var(--bg); color:var(--text);
     font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; min-height:100vh; }
   header { padding:16px 22px; border-bottom:1px solid var(--rail); }
@@ -21,16 +22,17 @@
   h2 { text-align:center; font-size:40px; font-weight:800; margin:0 0 30px; letter-spacing:-1px; }
   label { display:block; font-size:13px; color:var(--muted); margin:0 0 6px; }
   input[type=text], input[type=email], input[type=password] {
-    width:100%; padding:14px; margin-bottom:18px; background:var(--panel); color:#fff;
+    width:100%; height:48px; padding:0 14px; margin-bottom:18px; background:var(--panel); color:#fff;
     border:1px solid var(--rail); border-radius:8px; font-size:16px; outline:none; }
   input:focus { border-color:var(--accent); }
   .otprow { display:flex; gap:8px; }
   .otprow input { margin-bottom:18px; }
-  .otpbtn { flex:0 0 auto; width:80px; min-width:80px; height:50px; padding:0; border:1px solid var(--accent); border-radius:8px;
-    background:transparent; color:var(--accent); font:inherit; font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap; }
-  .otpbtn:hover { background:rgba(162,56,255,.12); }
-  .otpbtn:disabled { border-color:var(--rail); color:var(--muted); cursor:default; background:transparent; }
-  .btn { width:100%; padding:14px; background:var(--accent); color:#fff; border:0; border-radius:8px;
+  .otpbtn { flex:0 0 auto; width:80px; min-width:80px; height:48px; padding:0; border:1px solid var(--accent); border-radius:8px;
+    background:var(--accent); color:#fff; font:inherit; font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap; }
+  .otpbtn:hover:not(:disabled) { filter:brightness(1.1); }
+  .otpbtn:disabled { background:var(--accent); border-color:var(--accent); color:#fff; opacity:.55; cursor:default; }
+  .otpbtn.loading { opacity:1; background:#3a3a3a; border-color:#444; color:#d0d0d0; }
+  .btn { width:100%; height:48px; padding:0 14px; background:var(--accent); color:#fff; border:0; border-radius:8px;
     font-size:15px; font-weight:700; cursor:pointer; }
   .btn:hover { filter:brightness(1.1); }
   .btn:disabled { filter:saturate(.5) brightness(.8); cursor:default; }
@@ -40,11 +42,17 @@
   @keyframes spin { to { transform:rotate(360deg); } }
   @media (prefers-reduced-motion: reduce) { .spin { animation-duration:1.4s; } }
   .cf { margin:0 0 18px; min-height:65px; }
-  .msg { min-height:18px; margin:10px 0 0; font-size:13px; text-align:center; color:#ff6b6b; }
+  .or { text-align:center; color:var(--muted); margin:18px 0; font-size:14px; }
+  .goog { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; height:48px; padding:0 14px; font-family:inherit;
+    background:#fff; color:#1f1f1f; border:0; border-radius:8px; font-size:15px; font-weight:700;
+    cursor:pointer; text-decoration:none; }
+  .goog:hover { filter:brightness(.95); }
+  .goog svg { width:20px; height:20px; flex:0 0 auto; }
+  .msg { min-height:18px; margin:0 0 12px; font-size:13px; text-align:center; color:#ff6b6b; }
   .msg.ok { color:#6ee7a8; }
-  .alt { display:block; text-align:center; margin-top:18px; color:var(--muted); font-size:13px; text-decoration:none; }
+  .alt { display:block; text-align:center; margin-top:14px; color:var(--muted); font-size:13px; text-decoration:none; }
   .alt a { color:var(--accent); font-weight:700; text-decoration:none; }
-  .alt a:hover { text-decoration:underline; }
+  .alt a:hover { text-decoration: none; }
   @media (max-width:420px) { h2 { font-size:34px; } }
 </style>
 </head>
@@ -52,6 +60,7 @@
 <header><h1><a href="/">Audition<span>Music5</span></a></h1></header>
 <main class="wrap">
   <h2>Sign up</h2>
+  <div class="msg" id="msg"></div>
   <form id="f" novalidate>
     <label for="u">Username</label>
     <input type="text" id="u" autocomplete="username" maxlength="32" required>
@@ -66,19 +75,32 @@
     <input type="password" id="p" autocomplete="new-password" minlength="6" required>
     <!-- turnstile -->
     <div class="cf cf-turnstile" data-sitekey="0x4AAAAAAFi1HvDgsFLNHXGT" data-theme="dark"></div>
-    <button class="btn" type="submit" id="createbtn">Create Account</button>
-    <div class="msg" id="msg"></div>
+    <button class="btn" type="submit" id="createbtn">Sign up for free</button>
   </form>
   <div class="alt">Already have an account? <a href="/login.aspx">Log in</a></div>
+  <div class="or">or</div>
+  <button class="goog" type="button" id="gbtn">
+    <svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+    Continue with Gmail
+  </button>
   <a class="alt" href="/">&larr; Back to AuditionMusic5</a>
 </main>
-<script src="js/guard.js?v=728"></script>
-<script src="js/tip.js?v=728"></script>
+<script src="js/guard.js?v=739"></script>
+<script src="js/tip.js?v=739"></script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
   const $ = (id) => document.getElementById(id);
   const msg = (t, ok) => { $("msg").textContent = t || ""; $("msg").className = "msg" + (ok ? " ok" : ""); };
   const token = () => (window.turnstile && document.querySelector(".cf-turnstile") && window.turnstile.getResponse()) || "";
+  const waitToken = async (ms) => {
+    const end = Date.now() + (ms || 8000);
+    let t = token();
+    while (!t && Date.now() < end) {
+      await new Promise((r) => setTimeout(r, 200));
+      t = token();
+    }
+    return t;
+  };
   let waitTimer = 0;
   const busy = (b, text) => {
     b.disabled = true;
@@ -114,13 +136,17 @@
     const email = $("e").value.trim();
     if (!u) return msg("Username is required.");
     if (!email) return msg("Email is required.");
-    if (!token()) return msg("Complete the verification first.");
     busy($("otpbtn"));
+    const tk = await waitToken();
+    if (!tk) {
+      idle($("otpbtn"), "Get OTP");
+      return msg("Verification is still loading. Try again in a moment.");
+    }
     try {
       const r = await fetch("/api/auth/signup/otp", {
         method: "POST", credentials: "same-origin",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ u, email, token: token() }),
+        body: JSON.stringify({ u, email, token: tk }),
       });
       const j = await r.json();
       if (j.ok) {
@@ -148,9 +174,7 @@
     if (!u || !email || !otp || !p) return msg("Fill all fields.");
     if (otp.length !== 6) return msg("OTP must be 6 digits.");
     if (p.length < 6) return msg("Password must be at least 6 characters.");
-    $("createbtn").disabled = true;
-    $("createbtn").classList.add("loading");
-    $("createbtn").innerHTML = '<span class="spin"></span><span>Creating...</span>';
+    busy($("createbtn"));
     try {
       const r = await fetch("/api/auth/signup", {
         method: "POST", credentials: "same-origin",
@@ -163,11 +187,11 @@
     } catch (err) {
       msg("Sign up failed. Try again.");
     }
-    $("createbtn").disabled = false;
-    $("createbtn").classList.remove("loading");
-    $("createbtn").textContent = "Create Account";
+    idle($("createbtn"), "Sign up for free");
     if (window.turnstile) window.turnstile.reset();
   });
+
+  $("gbtn").onclick = () => { location.href = "/api/auth/google"; };
 </script>
 </body>
 </html>

@@ -587,8 +587,15 @@ async function mailAccessToken(env) {
   return j.access_token;
 }
 
-async function smtpSend(env, to, subject, body) {
-  const host = env.SMTP_HOST || "smtp.gmail.com";
+function mailFromName(env, from) {
+  const raw = String(env.SMTP_NAME || from.split("@")[0].replace(/[._-]+/g, " ")).trim() || "AuditionMusic5";
+  const name = raw.replace(/["\\]/g, "");
+  return /[^\x20-\x7E]/.test(name)
+    ? "=?UTF-8?B?" + btoa(unescape(encodeURIComponent(name))) + "?="
+    : '"' + name + '"';
+}
+
+async function smtpSend(env, to, subject, body) {  const host = env.SMTP_HOST || "smtp.gmail.com";
   const port = Number(env.SMTP_PORT || 465);
   const user = env.SMTP_USER || "";
   const pass = env.SMTP_PASS || "";
@@ -642,7 +649,7 @@ async function smtpSend(env, to, subject, body) {
     await step("RCPT TO:<" + to + ">", "250");
     await step("DATA", "354");
     const head = [
-      'From: "AuditionMusic5" <' + from + ">",
+      "From: " + mailFromName(env, from) + " <" + from + ">",
       "To: <" + to + ">",
       "Subject: " + subject,
       "Date: " + new Date().toUTCString(),
@@ -803,7 +810,7 @@ async function handleFbCallback(req, env, url, ctx) {
   );
   const u = ur.ok ? await ur.json() : {};
 
-  // history: data/fb-user.csv  (Nama, Username, url) — best effort
+  // history: data/fb-user.csv  (Nama, Username, url) - best effort
   try {
     await appendFbUser(env, {
       name: u.name || "",
@@ -870,7 +877,7 @@ async function handleGoogleCallback(req, env, url, ctx) {
     if (ur.ok) u = await ur.json();
   } catch (e) {}
 
-  // history: data/google-users.csv (Nama, Email, Id) — best effort
+  // history: data/google-users.csv (Nama, Email, Id) - best effort
   try {
     await appendGoogleUser(env, { name: u.name || "", email: u.email || "", id: u.sub || "" });
   } catch (e) {}
@@ -987,7 +994,7 @@ async function handleFf(req, env, name) {
 async function devDownload(req, env, filename) {
   const s = await readSession(env, req.headers.get("Cookie"));
   const ak = isAdminKey(req, env);
-  // role 4 (DEV) only — dipakai tombol di dialog Create Account
+  // role 4 (DEV) only - dipakai tombol di dialog Create Account
   if (!isDevSess(s) && ak !== "grant" && ak !== "ok") return json({ ok: false, error: "forbidden" }, 403);
   const cur = await readStore(env, filename);
   if (!cur) return json({ ok: false, error: "store not available" }, 502);
@@ -1006,7 +1013,7 @@ async function devDownload(req, env, filename) {
 async function devClearLog(req, env, filename) {
   const s = await readSession(env, req.headers.get("Cookie"));
   const ak = isAdminKey(req, env);
-  // role 4 (DEV) only — tombol Clear log di dialog Create Account
+  // role 4 (DEV) only - tombol Clear log di dialog Create Account
   if (!isDevSess(s) && ak !== "grant" && ak !== "ok") return json({ ok: false, error: "forbidden" }, 403);
   const c = ghConf(env);
   if (!c.token || !c.repo) return json({ ok: false, error: "store not available" }, 502);

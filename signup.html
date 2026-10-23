@@ -26,7 +26,7 @@
   input:focus { border-color:var(--accent); }
   .otprow { display:flex; gap:8px; }
   .otprow input { margin-bottom:18px; }
-  .otpbtn { flex:0 0 auto; height:50px; padding:0 14px; border:1px solid var(--accent); border-radius:8px;
+  .otpbtn { flex:0 0 auto; width:80px; min-width:80px; height:50px; padding:0; border:1px solid var(--accent); border-radius:8px;
     background:transparent; color:var(--accent); font:inherit; font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap; }
   .otpbtn:hover { background:rgba(162,56,255,.12); }
   .otpbtn:disabled { border-color:var(--rail); color:var(--muted); cursor:default; background:transparent; }
@@ -72,8 +72,8 @@
   <div class="alt">Already have an account? <a href="/login.aspx">Log in</a></div>
   <a class="alt" href="/">&larr; Back to AuditionMusic5</a>
 </main>
-<script src="js/guard.js?v=727"></script>
-<script src="js/tip.js?v=727"></script>
+<script src="js/guard.js?v=728"></script>
+<script src="js/tip.js?v=728"></script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
   const $ = (id) => document.getElementById(id);

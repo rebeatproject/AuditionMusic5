@@ -587,12 +587,33 @@ async function mailAccessToken(env) {
   return j.access_token;
 }
 
-function mailFromName(env, from) {
-  const raw = String(env.SMTP_NAME || from.split("@")[0].replace(/[._-]+/g, " ")).trim() || "AuditionMusic5";
+function mailFromName(env, from, acct) {
+  const raw = String(env.SMTP_NAME || acct || from.split("@")[0].replace(/[._-]+/g, " ")).trim() || "AuditionMusic5";
   const name = raw.replace(/["\\]/g, "");
   return /[^\x20-\x7E]/.test(name)
     ? "=?UTF-8?B?" + btoa(unescape(encodeURIComponent(name))) + "?="
     : '"' + name + '"';
+}
+
+async function mailAccountName(env, token) {
+  if (env.SMTP_NAME) return env.SMTP_NAME;
+  if (env.MT_KV) {
+    const hit = await env.MT_KV.get("mailname");
+    if (hit) return hit;
+  }
+  try {
+    const r = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+      headers: { Authorization: "Bearer " + token },
+    });
+    if (r.ok) {
+      const n = String((await r.json()).name || "").trim();
+      if (n) {
+        if (env.MT_KV) await env.MT_KV.put("mailname", n, { expirationTtl: 604800 });
+        return n;
+      }
+    }
+  } catch (e) {}
+  return "";
 }
 
 async function smtpSend(env, to, subject, body) {  const host = env.SMTP_HOST || "smtp.gmail.com";
@@ -637,8 +658,10 @@ async function smtpSend(env, to, subject, body) {  const host = env.SMTP_HOST ||
   try {
     await step(null, "220");
     await step("EHLO auditionmusic5.com", "250");
+    let acct = "";
     if (env.SMTP_REFRESH_TOKEN) {
       const at = await mailAccessToken(env);
+      acct = await mailAccountName(env, at);
       await step("AUTH XOAUTH2 " + btoa("user=" + user + "\x01auth=Bearer " + at + "\x01\x01"), "235");
     } else {
       await step("AUTH LOGIN", "334");
@@ -649,7 +672,7 @@ async function smtpSend(env, to, subject, body) {  const host = env.SMTP_HOST ||
     await step("RCPT TO:<" + to + ">", "250");
     await step("DATA", "354");
     const head = [
-      "From: " + mailFromName(env, from) + " <" + from + ">",
+      "From: " + mailFromName(env, from, acct) + " <" + from + ">",
       "To: <" + to + ">",
       "Subject: " + subject,
       "Date: " + new Date().toUTCString(),
@@ -936,18 +959,23 @@ async function handleMailAuthCallback(req, env, url) {
   if (!tr.ok) return new Response("google token error: " + (tok.error || tr.status), { status: 502 });
   if (!tok.refresh_token)
     return new Response("no refresh_token (ulangi, pastikan prompt=consent)", { status: 502 });
-  let who = "";
+  let who = "", whoName = "";
   try {
     const ur = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
       headers: { Authorization: "Bearer " + (tok.access_token || "") },
     });
-    if (ur.ok) who = (await ur.json()).email || "";
+    if (ur.ok) {
+      const uj = await ur.json();
+      who = uj.email || "";
+      whoName = String(uj.name || "").trim();
+      if (whoName && env.MT_KV) await env.MT_KV.put("mailname", whoName, { expirationTtl: 604800 });
+    }
   } catch (e) {}
   const html =
     "<!doctype html><meta charset=utf-8><title>mail token</title>" +
     "<style>body{background:#000;color:#fff;font:14px monospace;padding:24px;word-break:break-all}" +
     "code{color:#b98cff}</style><h3>Refresh token</h3>" +
-    (who ? "<p>Account: <code>" + who.replace(/[<>&]/g, "") + "</code></p>" : "") +
+    (who ? "<p>Account: <code>" + who.replace(/[<>&]/g, "") + "</code>" + (whoName ? " (" + whoName.replace(/[<>&]/g, "") + ")" : "") + "</p>" : "") +
     "<p><code>" + tok.refresh_token + "</code></p>" +
     "<p>Set sebagai Secret <b>SMTP_REFRESH_TOKEN</b>. SMTP_USER/SMTP_FROM = alamat di atas.</p>";
   return new Response(html, {

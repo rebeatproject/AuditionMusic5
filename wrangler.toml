@@ -15,6 +15,7 @@ routes = [
 GOOGLE_CLIENT_ID = "483244673286-tfs8p9ove2f9310gnfonqltpuehq4trf.apps.googleusercontent.com"
 SMTP_CLIENT_ID = "483244673286-b44rl3fdog6b21mtros5nknrkqlflg18.apps.googleusercontent.com"
 SMTP_FROM = "account@auditionmusic5.com"
+SMTP_NAME = "AM5 Account Support"
 SMTP_USER = "account@auditionmusic5.com"
 MAINTENANCE = "0"
 GH_REPO = "rebeatproject/AuditionMusic5"

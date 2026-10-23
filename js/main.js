@@ -616,7 +616,8 @@ async function mailAccountName(env, token) {
   return "";
 }
 
-async function smtpSend(env, to, subject, body) {  const host = env.SMTP_HOST || "smtp.gmail.com";
+async function smtpSend(env, to, subject, body, html) {
+  const host = env.SMTP_HOST || "smtp.gmail.com";
   const port = Number(env.SMTP_PORT || 465);
   const user = env.SMTP_USER || "";
   const pass = env.SMTP_PASS || "";
@@ -671,6 +672,7 @@ async function smtpSend(env, to, subject, body) {  const host = env.SMTP_HOST ||
     await step("MAIL FROM:<" + from + ">", "250");
     await step("RCPT TO:<" + to + ">", "250");
     await step("DATA", "354");
+    const bnd = "am5_" + crypto.randomUUID().replace(/-/g, "");
     const head = [
       "From: " + mailFromName(env, from, acct) + " <" + from + ">",
       "To: <" + to + ">",
@@ -678,10 +680,17 @@ async function smtpSend(env, to, subject, body) {  const host = env.SMTP_HOST ||
       "Date: " + new Date().toUTCString(),
       "Message-ID: <" + crypto.randomUUID() + "@auditionmusic5.com>",
       "MIME-Version: 1.0",
-      "Content-Type: text/plain; charset=UTF-8",
+      html ? "Content-Type: multipart/alternative; boundary=\"" + bnd + "\"" : "Content-Type: text/plain; charset=UTF-8",
       "Content-Transfer-Encoding: 8bit",
     ].join("\r\n");
-    const text = body.split(/\r?\n/).map((l) => (l.startsWith(".") ? "." + l : l)).join("\r\n");
+    let payload = body;
+    if (html) {
+      payload =
+        "--" + bnd + "\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n" + body +
+        "\r\n--" + bnd + "\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n" + html +
+        "\r\n--" + bnd + "--";
+    }
+    const text = payload.split(/\r?\n/).map((l) => (l.startsWith(".") ? "." + l : l)).join("\r\n");
     await writer.write(enc.encode(head + "\r\n\r\n" + text + "\r\n.\r\n"));
     const r = await read();
     if (r.slice(0, 3) !== "250") throw new Error("smtp " + r);
@@ -690,6 +699,25 @@ async function smtpSend(env, to, subject, body) {  const host = env.SMTP_HOST ||
   } finally {
     if (!done) { try { await writer.close(); } catch (e) {} }
     try { sock.close(); } catch (e) {}
+  }
+}
+
+function escHtml(s) {
+  return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+}
+
+async function mailOtpHtml(env, req, code, email) {
+  const fallback =
+    '<div style="font:15px Arial,sans-serif;color:#111">Your AuditionMusic5 code: <b style="font-size:22px">' +
+    code + "</b><br>Valid for 10 minutes.</div>";
+  try {
+    const u = new URL("/email/otp.html", req.url).toString();
+    const r = await env.BINDING_ASSETS.fetch(new Request(u));
+    if (!r.ok) return fallback;
+    const t = await r.text();
+    return t.replace(/\{\{CODE\}\}/g, code).replace(/\{\{EMAIL\}\}/g, escHtml(email));
+  } catch (e) {
+    return fallback;
   }
 }
 
@@ -722,8 +750,9 @@ async function handleSignupOtp(req, env) {
   const rec = { h: await otpHash(env, email, code), exp: Date.now() + OTP_TTL * 1000, at: Date.now(), tries: 0 };
   await env.MT_KV.put(otpKey(email), JSON.stringify(rec), { expirationTtl: OTP_TTL });
   try {
-    await smtpSend(env, email, "AuditionMusic5 verification code",
-      "Your AuditionMusic5 verification code:\n\n" + code + "\n\nValid for 10 minutes. If you did not request this, ignore this email.");
+    const html = await mailOtpHtml(env, req, code, email);
+    await smtpSend(env, email, "Your AuditionMusic5 verification code: " + code,
+      "Your AuditionMusic5 verification code:\n\n" + code + "\n\nValid for 10 minutes. If you did not request this, ignore this email.", html);
   } catch (e) {
     await env.MT_KV.delete(otpKey(email));
     return json({ ok: false, error: "Could not send email. Try again." }, 502);

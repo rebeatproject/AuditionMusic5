@@ -44,11 +44,10 @@ data/
 # playlist user (ditulis Worker ke GitHub; JANGAN jadi asset publik)
 playlist/
 
-# decoder + heads (server-side only)
+# decoder (server-side only; thd.am5 di-upload sebagai asset)
 js/tbm.js
 js/tbm-crypto.js
 js/server-vps.js
-js/heads.au5
 js/ayo-decode-queue.js
 js/drive-cache.js
 

@@ -34,6 +34,11 @@
     font-size:15px; font-weight:700; cursor:pointer; }
   .btn:hover { filter:brightness(1.1); }
   .btn:disabled { filter:saturate(.5) brightness(.8); cursor:default; }
+  .btn.loading, .otpbtn.loading { display:flex; align-items:center; justify-content:center; gap:7px; }
+  .spin { width:13px; height:13px; flex:0 0 auto; border:2px solid currentColor; border-right-color:transparent;
+    border-radius:50%; animation:spin .7s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spin { animation-duration:1.4s; } }
   .cf { margin:0 0 18px; min-height:65px; }
   .msg { min-height:18px; margin:10px 0 0; font-size:13px; text-align:center; color:#ff6b6b; }
   .msg.ok { color:#6ee7a8; }
@@ -67,18 +72,29 @@
   <div class="alt">Already have an account? <a href="/login.aspx">Log in</a></div>
   <a class="alt" href="/">&larr; Back to AuditionMusic5</a>
 </main>
-<script src="js/guard.js?v=726"></script>
-<script src="js/tip.js?v=726"></script>
+<script src="js/guard.js?v=727"></script>
+<script src="js/tip.js?v=727"></script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
   const $ = (id) => document.getElementById(id);
   const msg = (t, ok) => { $("msg").textContent = t || ""; $("msg").className = "msg" + (ok ? " ok" : ""); };
   const token = () => (window.turnstile && document.querySelector(".cf-turnstile") && window.turnstile.getResponse()) || "";
   let waitTimer = 0;
+  const busy = (b, text) => {
+    b.disabled = true;
+    b.classList.add("loading");
+    b.innerHTML = '<span class="spin"></span>' + (text ? "<span>" + text + "</span>" : "");
+  };
+  const idle = (b, text) => {
+    b.disabled = false;
+    b.classList.remove("loading");
+    b.textContent = text;
+  };
 
   function countdown(sec) {
     const b = $("otpbtn");
     clearInterval(waitTimer);
+    b.classList.remove("loading");
     let n = sec;
     b.disabled = true;
     b.textContent = "Wait " + n + "s";
@@ -99,7 +115,7 @@
     if (!u) return msg("Username is required.");
     if (!email) return msg("Email is required.");
     if (!token()) return msg("Complete the verification first.");
-    $("otpbtn").disabled = true;
+    busy($("otpbtn"));
     try {
       const r = await fetch("/api/auth/signup/otp", {
         method: "POST", credentials: "same-origin",
@@ -113,12 +129,12 @@
         if (window.turnstile) window.turnstile.reset();
       } else {
         msg(j.error || "Could not send code.");
-        $("otpbtn").disabled = false;
+        idle($("otpbtn"), "Get OTP");
         if (window.turnstile) window.turnstile.reset();
       }
     } catch (e) {
       msg("Could not send code. Try again.");
-      $("otpbtn").disabled = false;
+      idle($("otpbtn"), "Get OTP");
     }
   });
 
@@ -133,6 +149,8 @@
     if (otp.length !== 6) return msg("OTP must be 6 digits.");
     if (p.length < 6) return msg("Password must be at least 6 characters.");
     $("createbtn").disabled = true;
+    $("createbtn").classList.add("loading");
+    $("createbtn").innerHTML = '<span class="spin"></span><span>Creating...</span>';
     try {
       const r = await fetch("/api/auth/signup", {
         method: "POST", credentials: "same-origin",
@@ -146,6 +164,8 @@
       msg("Sign up failed. Try again.");
     }
     $("createbtn").disabled = false;
+    $("createbtn").classList.remove("loading");
+    $("createbtn").textContent = "Create Account";
     if (window.turnstile) window.turnstile.reset();
   });
 </script>

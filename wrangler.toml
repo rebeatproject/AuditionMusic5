@@ -13,7 +13,7 @@ routes = [
 # (makanya Cloudflare nge-warning "keep deployments in sync").
 [vars]
 GOOGLE_CLIENT_ID = "483244673286-tfs8p9ove2f9310gnfonqltpuehq4trf.apps.googleusercontent.com"
-MAINTENANCE = "1"
+MAINTENANCE = "0"
 GH_REPO = "rebeatproject/AuditionMusic5"
 GH_BRANCH = "main"
 GH_DIR = "data"

@@ -41,7 +41,7 @@
     border-radius:50%; animation:spin .7s linear infinite; }
   @keyframes spin { to { transform:rotate(360deg); } }
   @media (prefers-reduced-motion: reduce) { .spin { animation-duration:1.4s; } }
-  .cf { margin:0 0 18px; min-height:65px; }
+  .cf { width:100%; margin:0 0 18px; min-height:65px; }
   .or { text-align:center; color:var(--muted); margin:18px 0; font-size:14px; }
   .goog { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; height:48px; padding:0 14px; font-family:inherit;
     background:#fff; color:#1f1f1f; border:0; border-radius:8px; font-size:15px; font-weight:700;
@@ -74,7 +74,7 @@
     <label for="p">Password</label>
     <input type="password" id="p" autocomplete="new-password" minlength="6" required>
     <!-- turnstile -->
-    <div class="cf cf-turnstile" data-sitekey="0x4AAAAAAFi1HvDgsFLNHXGT" data-theme="dark"></div>
+    <div class="cf cf-turnstile" data-sitekey="0x4AAAAAAFi1HvDgsFLNHXGT" data-theme="dark" data-size="flexible"></div>
     <button class="btn" type="submit" id="createbtn">Sign up for free</button>
   </form>
   <div class="alt">Already have an account? <a href="/login.aspx">Log in</a></div>

@@ -85,8 +85,8 @@
   </button>
   <a class="alt" href="/">&larr; Back to AuditionMusic5</a>
 </main>
-<script src="js/guard.js?v=745"></script>
-<script src="js/tip.js?v=745"></script>
+<script src="js/guard.js?v=746"></script>
+<script src="js/tip.js?v=746"></script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
   const $ = (id) => document.getElementById(id);
@@ -137,26 +137,19 @@
     if (!u) return msg("Username is required.");
     if (!email) return msg("Email is required.");
     busy($("otpbtn"));
-    const tk = await waitToken();
-    if (!tk) {
-      idle($("otpbtn"), "Get Code");
-      return msg("Verification is still loading. Try again in a moment.");
-    }
     try {
       const r = await fetch("/api/auth/signup/otp", {
         method: "POST", credentials: "same-origin",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ u, email, token: tk }),
+        body: JSON.stringify({ u, email }),
       });
       const j = await r.json();
       if (j.ok) {
         msg("Code sent. Check your inbox.", true);
         countdown(j.wait || 60);
-        if (window.turnstile) window.turnstile.reset();
       } else {
         msg(j.error || "Could not send code.");
         idle($("otpbtn"), "Get Code");
-        if (window.turnstile) window.turnstile.reset();
       }
     } catch (e) {
       msg("Could not send code. Try again.");
@@ -175,11 +168,16 @@
     if (otp.length !== 6) return msg("OTP must be 6 digits.");
     if (p.length < 6) return msg("Password must be at least 6 characters.");
     busy($("createbtn"));
+    const tk = await waitToken();
+    if (!tk) {
+      idle($("createbtn"), "Sign up for free");
+      return msg("Complete the verification first, then press Sign up again.");
+    }
     try {
       const r = await fetch("/api/auth/signup", {
         method: "POST", credentials: "same-origin",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ u, email, otp, p }),
+        body: JSON.stringify({ u, email, otp, p, token: tk }),
       });
       const j = await r.json();
       if (j.ok) { location.href = "/"; return; }

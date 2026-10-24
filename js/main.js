@@ -729,8 +729,10 @@ async function handleSignupOtp(req, env) {
   if (!/^[A-Za-z0-9_.-]{3,32}$/.test(u))
     return json({ ok: false, error: "Username must be 3-32 chars (letters, numbers, . _ -)" }, 400);
   if (!EMAIL_RE.test(email) || email.length > 254) return json({ ok: false, error: "Invalid email" }, 400);
-  if (!(await turnstileOk(env, String(body.token || ""), req.headers.get("CF-Connecting-IP") || "")))
-    return json({ ok: false, error: "Verification failed. Try again." }, 400);
+  if (env.LOGIN_LIMITER) {
+    const gate = await env.LOGIN_LIMITER.limit({ key: "otp:" + (req.headers.get("CF-Connecting-IP") || "x") });
+    if (!gate.success) return json({ ok: false, error: "Too many requests. Wait a minute." }, 429);
+  }
 
   const users = await readStore(env, "users.csv");
   if (!users) return json({ ok: false, error: "User store not available" }, 502);
@@ -773,6 +775,8 @@ async function handleSignup(req, env, ctx) {
   if (p.length < 6) return json({ ok: false, error: "Password must be at least 6 characters" }, 400);
   if (/[;\r\n]/.test(p)) return json({ ok: false, error: "Password cannot contain ; or line breaks" }, 400);
   if (code.length !== 6) return json({ ok: false, error: "Wrong code" }, 400);
+  if (!(await turnstileOk(env, String(body.token || ""), req.headers.get("CF-Connecting-IP") || "")))
+    return json({ ok: false, error: "Verification failed. Try again." }, 400);
 
   if (env.LOGIN_LIMITER) {
     const gate = await env.LOGIN_LIMITER.limit({ key: "signup:" + (req.headers.get("CF-Connecting-IP") || "x") });

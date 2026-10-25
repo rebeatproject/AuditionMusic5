@@ -5,3 +5,4 @@ auayo_i2803.tbm
 auayo_i3287.tbm
 auayo_i3288.tbm
 auayo_k3525.tbm
+auayo_k3527.tbm

@@ -11,7 +11,7 @@
     <title>AuditionMusic5 - Audition Music Streaming & Download</title>
     <meta
       name="description"
-      content="AuditionMusic5: play and download Audition music (ABM/TBM) from 8 servers - AyoDance, VTC, Next Gen, Thailand, 9you and more. Free, in browser."/>
+      content="AuditionMusic5: free in-browser player to play and download Audition songs (ABM/TBM) from 8 servers - AyoDance, VTC, Next Gen, Thailand, 9you and more."/>
     <meta
       name="keywords"
       content="AuditionMusic5, Download ABM, Download TBM, Audition music, Audition song, Audition download, download Audition music"/>
@@ -51,7 +51,7 @@
     <meta property="og:title" content="AuditionMusic5 - Audition Music Streaming & Download" />
     <meta
       property="og:description"
-      content="AuditionMusic5: play or download Audition ABM/TBM music from 8 servers - AyoDance, VTC, Next Gen and more."/>
+      content="AuditionMusic5: free in-browser player to play or download Audition songs (ABM/TBM) from 8 servers - AyoDance, VTC, Next Gen and more."/>
     <meta property="og:url" content="https://auditionmusic5.com/" />
     <meta
       property="og:image"
@@ -64,19 +64,48 @@
     <meta name="twitter:title" content="AuditionMusic5 - Audition Music Streaming & Download" />
     <meta
       name="twitter:description"
-      content="AuditionMusic5: play or download Audition ABM/TBM music from 8 servers - AyoDance, VTC, Next Gen and more."/>
+      content="AuditionMusic5: free in-browser player to play or download Audition songs (ABM/TBM) from 8 servers - AyoDance, VTC, Next Gen and more."/>
     <meta name="twitter:image" content="https://auditionmusic5.com/image/og-image.jpg"/>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "AuditionMusic5",
-        "url": "https://auditionmusic5.com/",
-        "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "Web",
-        "description": "AuditionMusic5 lets you play and download Audition music (ABM/TBM) from 8 servers in your browser.",
-        "image": "https://auditionmusic5.com/image/og-image.jpg",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "name": "AuditionMusic5",
+            "url": "https://auditionmusic5.com/",
+            "inLanguage": "en",
+            "description": "Free web player for Audition Online music: play, browse and download ABM/TBM songs from 8 regional servers in the browser.",
+            "publisher": {
+              "@type": "Organization",
+              "name": "AuditionMusic5",
+              "url": "https://auditionmusic5.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://auditionmusic5.com/image/icon-512.png"
+              }
+            }
+          },
+          {
+            "@type": "WebApplication",
+            "name": "AuditionMusic5",
+            "url": "https://auditionmusic5.com/",
+            "applicationCategory": "MultimediaApplication",
+            "operatingSystem": "Web",
+            "inLanguage": "en",
+            "description": "AuditionMusic5 lets you play and download Audition music (ABM/TBM) from 8 servers in your browser.",
+            "image": "https://auditionmusic5.com/image/og-image.jpg",
+            "featureList": [
+              "Play Audition songs in the browser",
+              "Browse catalogs from 8 regional Audition servers",
+              "Download tracks as TBM, MP3, or OGG",
+              "Guitar Music mode with backing and note audio",
+              "Personal cross-server playlist",
+              "Offline access for recently played audio"
+            ],
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+          }
+        ]
       }
     </script>
     <style>
@@ -101,7 +130,7 @@
       body {
         font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         margin: 0;
-        padding-bottom: 62px; /* ruang buat bar bawah fixed */
+        padding-bottom: 62px; /* space for fixed bottom bar */
         background: var(--bg);
         color: var(--text);
         -webkit-font-smoothing: antialiased;
@@ -592,7 +621,7 @@
         border-collapse: separate;
         border-spacing: 0;
       }
-      /* row bg: nutup celah sub-pixel antar-cell */
+      /* row bg: covers sub-pixel gaps */
       thead tr {
         background: #101010;
       }
@@ -682,7 +711,7 @@
         font-variant-numeric: tabular-nums;
         color: var(--muted);
       }
-      /* header harus sejajar dengan isi kolomnya */
+      /* header aligns with column content */
       th.bpmc {
         text-align: right;
       }
@@ -692,7 +721,7 @@
       th.lvlc {
         text-align: center;
       }
-      /* kolom Action selalu menyusut ke lebar tombol (mobile juga, biar mp3 gak kepotong) */
+      /* Action column hugs button width */
       th.btns,
       td.btns {
         width: 1px;
@@ -710,7 +739,7 @@
       tr.pair + tr td {
         padding-top: 2px;
       }
-      /* mode Guitar: padding sel Action simetris */
+      /* Guitar mode: symmetric Action padding */
       tr.pair td.btns {
         padding-top: 5.5px;
         padding-bottom: 5.5px;
@@ -762,7 +791,7 @@
         background: var(--accent-2);
         color: #fff;
       }
-      /* icon playlist: kecil, nempel di awal kolom Action */
+      /* playlist icon */
       button.plbtn {
         background: transparent;
         color: var(--muted);
@@ -836,7 +865,7 @@
         align-items: center;
         gap: 8px;
         position: relative;
-        min-height: 36px; /* ruang tetap: cegah CLS saat tombol login muncul */
+        min-height: 36px; /* fixed space: prevent CLS */
       }
       #authbox #userbtn {
         width: 34px;
@@ -1501,7 +1530,7 @@
         opacity: 0.5;
         cursor: default;
       }
-      /* create account (dev): overlay bisa di-scroll + panel dilebarin biar log gak kepotong */
+      /* create account (dev): scrollable overlay */
       #createov {
         overflow: auto;
         padding: 16px 0;
@@ -1598,8 +1627,7 @@
         color: #6a6a6a;
         padding: 14px;
         background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
-        /* fixed, bukan sticky: sticky bikin bar dihitung
-           menutupi tombol baris tabel (target-size) */
+        /* fixed: sticky overlaps table buttons */
         position: fixed;
         left: 0;
         right: 0;
@@ -1624,6 +1652,43 @@
       .fsep {
         margin: 0 7px;
         color: #3a3a3a;
+      }
+      /* home info: description above footer */
+      .home-info {
+        max-width: 820px;
+        margin: 40px 0 28px;
+        padding: 0 22px;
+        color: #a7a7a7;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .home-info summary {
+        color: #c9c9d1;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        list-style-position: inside;
+      }
+      .home-info summary::marker {
+        color: var(--accent);
+      }
+      .home-info h2 {
+        margin: 0 0 8px;
+        padding: 0;
+        border: 0;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .home-info p {
+        margin: 0 0 8px;
+        color: #a7a7a7;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .home-info a {
+        color: var(--accent);
+        text-decoration: none;
       }
       /* ---------- install app ---------- */
       #pwa-install {
@@ -1930,7 +1995,7 @@
   .btns button {
     font-size: 10.5px;
     padding: 5px 7px;
-    /* target sentuh >= 24px tanpa ubah tinggi baris */
+    /* touch target >= 24px */
     min-height: 24px;
     margin-top: -0.75px;
     margin-bottom: -0.75px;
@@ -1946,13 +2011,13 @@
   body {
     padding-bottom: 48px;
   }
-  /* install app: sejajar tombol chat */
+  /* install app: align with chat button */
   #pwa-install {
     bottom: 62px;
     height: 42px;
     margin: 1px 0;
   }
-  /* live chat: posisi di atas bar bawah */
+  /* live chat: above bottom bar */
   #amc-btn {
     right: 14px;
     bottom: 62px;
@@ -1973,15 +2038,14 @@
   .amc-foot input {
     font-size: 16px;
   }
-  /* iOS auto-zoom kalau font input < 16px */
+  /* iOS auto-zoom below 16px input */
   #q,
   .prow input[type="text"],
   .prow input[type="file"] {
     font-size: 16px;
   }
 }
-/* ---------- HP kecil: kolom BPM dilebarin dikit biar ikon sort gak kepotong ---------- */
-/* ikon sort TIDAK diubah: tetap 6px, margin-left 4px, ▲▼ asli */
+/* ---------- small phones: BPM column ---------- */
 @media (max-width: 430px) {
   th.sngc,
   td.sngc {
@@ -2030,7 +2094,7 @@
   <body>
     <header>
       <div id="topline">
-        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v7.5.6)</span></h1>
+        <h1><a href="/">Audition<span>Music5</span></a> <span class="ver">(v7.5.9)</span></h1>
         <div id="onnow" aria-label="Visitors online now">
           <span class="onnow-pill" data-tip="Visitors online now"
             ><i></i><span class="onnow-lbl">Online:</span><span class="onnow-n">–</span></span
@@ -2169,6 +2233,25 @@
         </table>
       </main>
     <button id="more" style="display: none">Show more</button>
+    <details class="home-info">
+      <summary>About AuditionMusic5</summary>
+      <h2>AuditionMusic5 - Audition Music Streaming &amp; Download</h2>
+      <p>AuditionMusic5 is a free web music player for the Audition community. Listen to songs from the online dance game Audition directly in your browser, no game installation needed. Login is required to play music.</p>
+      <p>The game stores its music in proprietary TBM/ABM container files. AuditionMusic5 loads them into standard OGG audio on the server and streams them to your browser, so songs play on desktop and mobile without the game client.</p>
+      <ul>
+        <li>Songs from 8 official regional Audition servers: AyoDance (Indonesia), VTC (Vietnam), Thailand, 9You (China), Hanbiton (Korea), MangoT5 (Taiwan), NextGen (Philippines), and Axeso5 (Latin America)</li>
+        <li>Download tracks as TBM, MP3, or OGG, TBM downloads need no login, MP3 and OGG downloads require login</li>
+        <li>Search by singer, title, music code, or BPM; filter by All Music, Ballroom Music, or Guitar Music</li>
+        <li>Play, Shuffle, Repeat &amp; Loop tracks in the browser</li>
+        <li>Use Guitar Music mode, where backing and note audio are played together</li>
+        <li>Save All Music tracks to a personal cross-server playlist (login required)</li>
+        <li>Recently played tracks are cached locally for offline access</li>
+        <li>Live chat connects visitors with the admin</li>
+        <li>Use the public shoutbox for everyone</li>
+        <li>The NEW badge marks the latest music updates</li>
+      </ul>
+      <p><a href="/about.aspx">Learn more on the About page</a></p>
+    </details>
     <footer>
       <nav class="flinks">
         <a href="/privacy.aspx" target="_blank" rel="nofollow noopener">Privacy Policy</a>
@@ -2185,11 +2268,11 @@
     <script>
       document.getElementById("yr").textContent = new Date().getFullYear();
     </script>
-    <script src="js/guard.js?v=756"></script>
-    <script src="js/tip.js?v=756"></script>
-    <script src="js/auditionmusic5.js?v=756"></script>
-    <script src="js/install.js?v=756"></script>
-    <script src="js/chat.js?v=756"></script>
-    <script src="js/online-now.js?v=756"></script>
+    <script src="js/guard.js?v=759"></script>
+    <script src="js/tip.js?v=759"></script>
+    <script src="js/auditionmusic5.js?v=759"></script>
+    <script src="js/install.js?v=759"></script>
+    <script src="js/chat.js?v=759"></script>
+    <script src="js/online-now.js?v=759"></script>
   </body>
 </html>

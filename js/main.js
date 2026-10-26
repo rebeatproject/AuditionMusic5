@@ -1399,6 +1399,9 @@ export default {
   async fetch(req, env, ctx) {
     env = env || {};
     const url = new URL(req.url);
+    if (["/api/admin/onlinelog", "/api/admin/state", "/api/admin/loginlog"].includes(url.pathname)) {
+      return new Response(null, { status: 302, headers: { Location: "/403.aspx", "Cache-Control": "no-store" } });
+    }
 
     if (url.pathname === "/api/auth/me") return handleMe(req, env, ctx);
     if (url.pathname === "/api/auth/login" && req.method === "POST") return handleLogin(req, env, ctx);

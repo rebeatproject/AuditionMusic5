@@ -19,6 +19,86 @@
 <link rel="apple-touch-icon-precomposed" sizes="152x152" href="image/apple-touch-icon-152x152.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon-180x180.png" />
 <link rel="manifest" href="manifest.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AuditionMusic5?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A free web player that lets you listen to songs from the dance game Audition Online without installing the game. It runs entirely in the browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the site is free to use. Playing music requires login (AM5 account, Facebook, or Google); downloading the original TBM file needs no login."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install anything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Everything runs in the browser, and the song is fetched from the origin server and processed on our server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are ABM and TBM files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ABM and TBM are the proprietary music container formats used by Audition's patch servers. AuditionMusic5 loads them into OGG Vorbis, which browsers can play natively."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which servers are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eight: Indonesia (AyoDance), Vietnam (VTC Game), Thailand, China (9You), Korea (Hanbiton), Taiwan (MangoT5), Philippines (NextGen), and Axeso5 (Latin America)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I download songs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, tracks can be downloaded as TBM, MP3, or OGG. TBM downloads need no login; MP3 and OGG downloads require login."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save a playlist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can save All Music tracks to a personal cross-server playlist, but login is required to add or remove tracks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who owns the songs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All music belongs to the respective game publishers. AuditionMusic5 is an independent community project and is not affiliated with, endorsed, or sponsored by any publisher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I have a question / found a bug. Where do I go?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "See the Contact section above."
+      }
+    }
+  ]
+}
+</script>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="AuditionMusic5" />
 <meta property="og:title" content="AuditionMusic5 - Audition Music Streaming &amp; Download" />
@@ -162,12 +242,12 @@
   <div class="about-grid" aria-label="AuditionMusic5 at a glance">
     <div class="about-card"><strong>8 servers</strong><span>AyoDance, VTC, NextGen, Thailand, 9you, Hanbiton, Mangot5 and Axeso5.</span></div>
     <div class="about-card"><strong>ABM &amp; TBM</strong><span>Browse All Music, Ballroom and Guitar music in one library. Guitar mode plays backing and note audio together.</span></div>
-    <div class="about-card"><strong>No game client</strong><span>Use the library from a modern desktop or mobile browser, with offline mode access support.</span></div>
+    <div class="about-card"><strong>No game client</strong><span>Use the library from a modern desktop or mobile browser, with offline access support.</span></div>
   </div>
 
   <h2>What is AuditionMusic5?</h2>
   <p>AuditionMusic5 began as a simple way to find music from Audition Online without opening the game. The site collects publicly available track lists from supported servers and presents them in a searchable music library. You can preview a track, let it play in the browser, or download the original file.</p>
-  <p>The goal is straightforward: make it easier to rediscover old favourites, check a track name before a match, and keep a personal copy of the music you enjoy. Login is required to play tracks, and the site works on both mobile and desktop.</p>
+  <p>The goal is straightforward: make it easier to rediscover old favorites, check a track name before a match, and keep a personal copy of the music you enjoy. Login is required to play tracks, and the site works on both mobile and desktop.</p>
 
   <h2>What you can do</h2>
   <ul>
@@ -179,7 +259,7 @@
     <li>Save <strong>All Music</strong> tracks to a personal cross-server playlist. Login is required to add or remove tracks.</li>
     <li>Download TBM, MP3, and OGG tracks. Login is required for MP3 and OGG downloads.</li>
     <li>Look for the <strong>NEW badge</strong> to spot the latest music updates.</li>
-    <li>Use the site on mobile or desktop, including offline mode access.</li>
+    <li>Use the site on mobile or desktop, including offline access.</li>
     <li>Talk to the admin through <strong>live chat</strong>.</li>
   </ul>
 
@@ -215,8 +295,37 @@
   <h2>Credits and disclaimer</h2>
   <p>AuditionMusic5 is an independent fan project. It is not affiliated with, endorsed by, or operated by any Audition game publisher. Audition and related names, music, and game assets belong to their respective owners.</p>
 
-  <h2>Contact</h2>
+  <h2 id="contact">Contact</h2>
   <p>Questions or corrections: <a href="mailto:dev@auditionmusic5.com">dev@auditionmusic5.com</a>.</p>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>What is AuditionMusic5?</h3>
+  <p>A free web player that lets you listen to songs from the dance game Audition Online without installing the game. It runs entirely in the browser.</p>
+
+  <h3>Is it really free?</h3>
+  <p>Yes, the site is free to use. Playing music requires login (AM5 account, Facebook, or Google); downloading the original TBM file needs no login.</p>
+
+  <h3>Do I need to install anything?</h3>
+  <p>No. Everything runs in the browser, and the song is fetched from the origin server and processed on our server.</p>
+
+  <h3>What are ABM and TBM files?</h3>
+  <p>ABM and TBM are the proprietary music container formats used by Audition's patch servers. AuditionMusic5 loads them into OGG Vorbis, which browsers can play natively.</p>
+
+  <h3>Which servers are supported?</h3>
+  <p>Eight: Indonesia (AyoDance), Vietnam (VTC Game), Thailand, China (9You), Korea (Hanbiton), Taiwan (MangoT5), Philippines (NextGen), and Axeso5 (Latin America).</p>
+
+  <h3>Can I download songs?</h3>
+  <p>Yes, tracks can be downloaded as TBM, MP3, or OGG. TBM downloads need no login; MP3 and OGG downloads require login.</p>
+
+  <h3>Can I save a playlist?</h3>
+  <p>Yes, you can save All Music tracks to a personal cross-server playlist, but login is required to add or remove tracks.</p>
+
+  <h3>Who owns the songs?</h3>
+  <p>All music belongs to the respective game publishers. AuditionMusic5 is an independent community project and is not affiliated with, endorsed, or sponsored by any publisher.</p>
+
+  <h3>I have a question / found a bug. Where do I go?</h3>
+  <p>See the <a href="#contact">Contact</a> section above.</p>
 
   <a class="back" href="/">&larr; Back to AuditionMusic5</a>
 </main>

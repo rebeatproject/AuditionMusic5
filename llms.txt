@@ -1,0 +1,62 @@
+# AuditionMusic5
+
+> A free web music player for the Audition Online (dance rhythm game) community.
+> Listen to official Audition songs from 8 regional game servers directly in the browser.
+
+## About
+
+AuditionMusic5 (https://auditionmusic5.com) is a free, no-install web player for
+songs from the online dance game Audition (also known as AyoDance in Indonesia).
+The game stores its music in proprietary TBM/ABM container files; AuditionMusic5
+loads them server-side into standard OGG Vorbis audio and streams them to any
+modern browser. Login is required to play music (AM5 account, Facebook, or
+Google sign-in). Downloading the original TBM file does not require login; MP3
+and OGG downloads require login.
+
+## Features
+
+- Play Audition songs in the browser with a built-in media player
+- Guitar Music mode plays backing and note audio together
+- Filter the library by All Music, Ballroom Music, or Guitar Music
+- Search by singer, title, music code, or BPM
+- Browse song catalogs from 8 official regional Audition servers
+- Download tracks as TBM, MP3, or OGG
+- Save tracks to a personal cross-server playlist (login required)
+- Public shoutbox for visitor chat
+- Works on desktop and mobile browsers with offline cache support
+- Static About/FAQ pages describe the project for search engines and AI assistants
+
+## Servers
+
+Song sources mirror the official patch servers of these regional Audition publishers:
+
+- Indonesia - Audition AyoDance
+- Vietnam - Audition VTC Game
+- Thailand - Audition Playpark TH
+- China - Audition 9You
+- Korea - Audition Hanbiton
+- Taiwan - Audition MangoT5
+- Philippines - Audition Next Gen / Audition Playpark PH
+- Latin America - Audition Axeso5
+
+## Key pages
+
+- Home / player: https://auditionmusic5.com/
+- About & FAQ: https://auditionmusic5.com/about.aspx
+- Privacy policy: https://auditionmusic5.com/privacy.aspx
+- Terms of service: https://auditionmusic5.com/tos.aspx
+- Data deletion: https://auditionmusic5.com/data-deletion.aspx
+
+## Technical notes
+
+- Game audio arrives as .tbm/.abm containers; the backend converts them to
+  OGG Vorbis on the fly and serves them with HTTP range support.
+- robots.txt is open to all crawlers, including AI crawlers (GPTBot, ClaudeBot,
+  PerplexityBot, Google-Extended).
+- All song copyrights belong to the respective game publishers; AuditionMusic5 is
+  an independent community tool and is not affiliated with them.
+
+## Contact
+
+- Questions and corrections: dev@auditionmusic5.com
+- Live chat on the site connects visitors directly with the admin team

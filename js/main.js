@@ -1559,7 +1559,7 @@ export default {
     const asset = await serveAssets(env, req);
     if (asset && asset.status !== 404) return asset;
     if (wantsHtml(req) && !/^\/api(?:\/|$)/.test(url.pathname)) {
-      return errorPage(env, req, "/404.html", 404);
+      return new Response(null, { status: 302, headers: { Location: "/404.aspx", "Cache-Control": "no-store" } });
     }
     return new Response("not found", {
       status: 404,

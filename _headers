@@ -32,6 +32,9 @@
 /data-deletion.html
   X-Robots-Tag: noindex, nofollow
 
+/plans.html
+  Cache-Control: no-store
+
 /403.html
   Cache-Control: no-store
   X-Robots-Tag: noindex

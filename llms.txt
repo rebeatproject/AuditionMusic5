@@ -5,7 +5,7 @@
 
 ## About
 
-AuditionMusic5 (https://auditionmusic5.com) is a free, no-install web player for
+AuditionMusic5 ([auditionmusic5.com](https://auditionmusic5.com)) is a free, no-install web player for
 songs from the online dance game Audition (also known as AyoDance in Indonesia).
 The game stores its music in proprietary TBM/ABM container files; AuditionMusic5
 loads them server-side into standard OGG Vorbis audio and streams them to any
@@ -41,11 +41,13 @@ Song sources mirror the official patch servers of these regional Audition publis
 
 ## Key pages
 
-- Home / player: https://auditionmusic5.com/
-- About & FAQ: https://auditionmusic5.com/about.aspx
-- Privacy policy: https://auditionmusic5.com/privacy.aspx
-- Terms of service: https://auditionmusic5.com/tos.aspx
-- Data deletion: https://auditionmusic5.com/data-deletion.aspx
+- [Home / player](https://auditionmusic5.com/)
+- [About & FAQ](https://auditionmusic5.com/about.aspx)
+- [Plans](https://auditionmusic5.com/plans.aspx)
+- [Docs](https://auditionmusic5.com/docs.aspx)
+- [Privacy policy](https://auditionmusic5.com/privacy.aspx)
+- [Terms of service](https://auditionmusic5.com/tos.aspx)
+- [Data deletion](https://auditionmusic5.com/data-deletion.aspx)
 
 ## Technical notes
 
@@ -58,5 +60,5 @@ Song sources mirror the official patch servers of these regional Audition publis
 
 ## Contact
 
-- Questions and corrections: dev@auditionmusic5.com
+- Questions and corrections: [dev@auditionmusic5.com](mailto:dev@auditionmusic5.com)
 - Live chat on the site connects visitors directly with the admin team

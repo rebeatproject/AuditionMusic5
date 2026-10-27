@@ -1,6 +1,7 @@
 auayo_b0295.tbm
 auayo_i3253.tbm
 auayo_i3302.tbm
+auayo_k2833.tbm
 auayo_k3038.tbm
 auayo_k4089.tbm
 auayo_k4112.tbm

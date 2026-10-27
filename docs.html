@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<title>Docs - AuditionMusic5</title>
+<meta name="description" content="How to use AuditionMusic5: browse servers, search songs, play in the browser, use Guitar Music mode, manage playlists, and download TBM, MP3, or OGG.">
+<link rel="canonical" href="https://auditionmusic5.com/docs.aspx">
+<link rel="icon" href="image/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon-180x180.png">
+<style>
+  :root {
+    --bg: #000;
+    --panel: #121212;
+    --rail: #2a2a2a;
+    --text: #fff;
+    --muted: #a7a7a7;
+    --accent: #b054f8;
+  }
+  * { box-sizing: border-box; }
+  a { color: var(--accent); text-decoration: none; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--rail);
+  }
+  header h1 { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.4px; }
+  header h1 span { color: var(--accent); }
+  header h1 a { color: inherit; }
+  main { max-width: 820px; margin: 0 auto; padding: 36px 22px 56px; }
+  h2 { margin: 34px 0 10px; padding-left: 12px; border-left: 3px solid var(--accent); color: #fff; font-size: 19px; }
+  h2.ttl { margin: 0 0 22px; padding: 0; border: 0; color: var(--accent); font-size: 30px; font-weight: 800; letter-spacing: -0.6px; }
+  h3 { margin: 26px 0 6px; padding-left: 12px; border-left: 3px solid var(--accent); color: #fff; font-size: 16.5px; }
+  p { margin: 8px 0; color: #c9c9d1; font-size: 14.5px; line-height: 1.75; }
+  ul, ol { margin: 8px 0; padding-left: 22px; }
+  li { margin: 6px 0; color: #c9c9d1; font-size: 14.5px; line-height: 1.7; }
+  code {
+    padding: 1px 5px;
+    border: 1px solid var(--rail);
+    border-radius: 4px;
+    background: #0a0a0a;
+    color: #d4a8ff;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12.5px;
+  }
+  .lead { color: #e8e8ef; font-size: 15.5px; }
+  .note {
+    margin: 14px 0;
+    padding: 10px 14px;
+    border-left: 3px solid var(--rail);
+    border-radius: 0 8px 8px 0;
+    background: #0d0d0d;
+    color: #a7a7b2;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .back {
+    display: inline-block;
+    margin-top: 36px;
+    padding: 11px 18px;
+    border: 1px solid var(--rail);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+  .back:hover { border-color: var(--accent); }
+  footer {
+    padding: 14px;
+    border-top: 1px solid var(--rail);
+    background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
+    color: #6a6a6a;
+    font-size: 11px;
+    text-align: center;
+  }
+  @media (max-width: 560px) {
+    header { padding: 12px 16px; }
+    header h1 { font-size: 19px; }
+    main { padding: 26px 16px 44px; }
+    h2 { font-size: 17.5px; }
+    h2.ttl { margin-bottom: 18px; font-size: 24px; letter-spacing: -0.4px; }
+    h3 { font-size: 15.5px; }
+    p, li { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+<header><h1><a href="/">Audition<span>Music5</span></a></h1></header>
+<main>
+  <h2 class="ttl">Docs</h2>
+  <p class="lead">AuditionMusic5 plays Audition music in your browser. This page explains every feature and how to use it, from first login to downloading tracks.</p>
+
+  <h2>Getting started</h2>
+  <ol>
+    <li>Open the homepage and press <strong>Sign up</strong> to create an account, or <strong>Log in</strong> if you already have one.</li>
+    <li>You can sign in with an AM5 account or with Google.</li>
+    <li>After logging in, the song list loads automatically.</li>
+  </ol>
+  <p class="note">Login is required to play music and to download MP3 or OGG. Downloading the original TBM/ABM file works without login.</p>
+
+  <h2>Browsing the library</h2>
+  <h3>Server selector</h3>
+  <p>Use the server dropdown to switch between regional Audition catalogs. Each server has its own song list, so the table changes when you switch.</p>
+  <h3>Categories</h3>
+  <p>The tabs above the list filter the catalog:</p>
+  <ul>
+    <li><strong>All Music</strong> - the full catalog of the selected server.</li>
+    <li><strong>Ballroom Music</strong> - ballroom tracks only.</li>
+    <li><strong>Guitar Music</strong> - guitar tracks, which have a separate backing and note audio.</li>
+    <li><strong>Playlist</strong> - only the tracks you saved.</li>
+  </ul>
+  <h3>Search and sort</h3>
+  <ul>
+    <li>Type in the search box to filter by singer, song title, file name, or BPM.</li>
+    <li>Press the clear button inside the search box to reset the filter.</li>
+    <li>Click the <strong>Singer</strong>, <strong>Music Name</strong>, or <strong>BPM</strong> column header to sort. Click again to reverse the order.</li>
+    <li>Press <strong>Show more</strong> at the bottom to load the next part of the list.</li>
+  </ul>
+  <h3>NEW badge</h3>
+  <p>A <strong>NEW</strong> marker in the New column means the track was recently added at the source server.</p>
+
+  <h2>Playing music</h2>
+  <p>Press the <strong>play</strong> button on any row. The player bar appears at the top with these controls:</p>
+  <ul>
+    <li><strong>Previous</strong> and <strong>Next</strong> - move between tracks in the current list.</li>
+    <li><strong>Play / Pause</strong> - the large center button.</li>
+    <li><strong>Shuffle</strong> - play the list in random order.</li>
+    <li><strong>Repeat</strong> - cycles through off, repeat all, and repeat one.</li>
+    <li><strong>Seek bar</strong> - drag to jump inside a track. The time label follows the cursor.</li>
+    <li><strong>Volume</strong> - drag the slider; the percentage is shown next to it.</li>
+  </ul>
+  <p>The first play of a track takes longer because the audio has to be prepared. Later plays of the same track are faster.</p>
+
+  <h2>Guitar Music mode</h2>
+  <p>Guitar tracks have two audio parts: backing and note. In the Guitar Music category, the row can show a <strong>both</strong> button. It plays the backing and note audio together, the way the mode works in the game.</p>
+
+  <h2>Playlist</h2>
+  <ol>
+    <li>Press the playlist icon in the Action column to add a track.</li>
+    <li>Press it again to remove the track.</li>
+    <li>Open the <strong>Playlist</strong> tab to see only your saved tracks.</li>
+  </ol>
+  <p>Your playlist is linked to your account and works across servers, so you can keep Indonesia, Vietnam, and other tracks in one list.</p>
+  <p class="note">Free accounts can save up to 30 tracks. VIP accounts can save up to 100 tracks.</p>
+
+  <h2>Downloads</h2>
+  <p>Each row has download buttons depending on the track type:</p>
+  <ul>
+    <li><strong>tbm / abm</strong> - the original file from the source server. No login needed.</li>
+    <li><strong>mp3</strong> - converted audio, works on any device. Login required.</li>
+    <li><strong>ogg</strong> - converted audio at the original quality. Login required.</li>
+  </ul>
+  <p class="note">Downloads are personal use only. Do not resell or reupload the files as another public library.</p>
+
+  <h2>Offline access</h2>
+  <p>Recently played audio is stored on your device. If the connection drops or you open the site without internet, tracks you already played can still be played again on the same device and browser.</p>
+
+  <h2>Mobile and installing the app</h2>
+  <p>The site works on desktop and mobile browsers.</p>
+
+  <h3>iOS</h3>
+  <p><strong>Install on iPhone / iPad</strong></p>
+  <p>Add AuditionMusic5 to your Home Screen from Safari.</p>
+  <ol>
+    <li>Tap the Share button (square with an arrow) in Safari.</li>
+    <li>Scroll down and tap Add to Home Screen.</li>
+    <li>Tap Add to finish.</li>
+  </ol>
+  <p class="note">The Share button is in the top or bottom toolbar. If Add to Home Screen is missing, open this page in Safari.</p>
+
+  <h3>Android</h3>
+  <p>Not available yet. Open AuditionMusic5 in your phone browser instead.</p>
+
+  <h2>Live chat</h2>
+  <p>The chat button sits above the footer. Use it to reach the admin for account problems, payment questions, or song requests. You can also attach an image or file to your message.</p>
+
+  <h2>VIP plans</h2>
+  <p>VIP adds hidden and private server access, a larger playlist, and external song requests. Full pricing and payment steps are on the <a href="/plans.aspx">Plans</a> page.</p>
+
+  <h2>Supported servers</h2>
+  <ul>
+    <li>Indonesia - Audition AyoDance</li>
+    <li>Vietnam - Audition VTC Game</li>
+    <li>Thailand - Audition Playpark TH</li>
+    <li>China - Audition 9You</li>
+    <li>Korea - Audition Hanbiton</li>
+    <li>Taiwan - Audition MangoT5</li>
+    <li>Philippines - Audition Next Gen</li>
+    <li>Latin America - Audition Axeso5</li>
+  </ul>
+  <p class="note">Server availability can change. If a track or a whole list is missing, it may have been removed or renamed at the source.</p>
+
+  <h2>Troubleshooting</h2>
+  <h3>A track will not play</h3>
+  <p>Make sure you are logged in. Playback, MP3, and OGG are locked for guests.</p>
+  <h3>The list is empty or a song disappeared</h3>
+  <p>Switch server, then reload the page. If it is still missing, the source server probably removed or renamed the file.</p>
+  <h3>Download does nothing</h3>
+  <p>Downloads need a secure connection. Open the site over HTTPS, and allow downloads in your browser settings.</p>
+  <h3>A song sounds wrong or is cut off</h3>
+  <p>Report it in live chat with the song name and server. Include the exact title so it can be checked.</p>
+
+  <a class="back" href="/">&larr; Back to AuditionMusic5</a>
+</main>
+<footer>&copy; <span id="yr">2026</span> AuditionMusic5 &bull; Made by <a href="https://www.facebook.com/raiszhe" target="_blank">Ais Hikki</a></footer>
+<script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -548,6 +548,15 @@
     filter: brightness(1.12);
   }
 
+  /* mobile: pricing table fits without horizontal scroll */
+  @media (max-width: 560px) {
+    .price-card { padding: 14px 10px; }
+    .price-table { font-size: 12px; }
+    .price-table th,
+    .price-table td { padding: 7px 4px; }
+    .price-table th { white-space: normal; line-height: 1.25; }
+    .price-table td { white-space: nowrap; }
+  }
   /* live chat: same gap to footer as index (footer 44px + 12px) */
   #amc-btn { bottom: 56px; }
   #amc-panel { bottom: 115px; }

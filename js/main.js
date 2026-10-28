@@ -217,6 +217,13 @@ async function ghWriteFile(env, path, text, sha, message) {
 // ---------- playlist (satu file .txt per user di folder playlist/) ----------
 const PLAYLIST_DIR = "playlist/";
 const PLAYLIST_MAX = 5000;
+// limit per role: 0 = unlimited
+const PLAYLIST_LIMIT = { user: 30, vip: 100, admin: 0, dev: 0 };
+function playlistLimit(sess) {
+  const r = String((sess && sess.r) || "user").toLowerCase();
+  const n = PLAYLIST_LIMIT[r];
+  return typeof n === "number" ? n : PLAYLIST_LIMIT.user;
+}
 function cleanPlaylistId(v) {
   return String(v || "").toLowerCase().replace(/[^a-z0-9._-]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 80);
 }
@@ -263,7 +270,7 @@ async function handlePlaylist(req, env, sess) {
   if (req.method === "GET") {
     const f = await ghReadFile(env, path);
     if (!f) return json({ ok: false, error: "read failed" }, 502);
-    return json({ ok: true, entries: parsePlaylist(f.text) });
+    return json({ ok: true, limit: playlistLimit(sess), entries: parsePlaylist(f.text) });
   }
   if (req.method !== "POST") return json({ ok: false, error: "method" }, 405);
   const raw = await req.text().catch(() => "");
@@ -271,6 +278,7 @@ async function handlePlaylist(req, env, sess) {
   let body = {};
   try { body = JSON.parse(raw); } catch (e) { return json({ ok: false, error: "bad json" }, 400); }
   const src = Array.isArray(body.entries) ? body.entries : [];
+  const limit = playlistLimit(sess);
   const entries = [];
   const seen = new Set();
   for (const v of src) {
@@ -280,6 +288,8 @@ async function handlePlaylist(req, env, sess) {
     entries.push(e);
     if (entries.length >= PLAYLIST_MAX) break;
   }
+  if (limit > 0 && entries.length > limit)
+    return json({ ok: false, error: "limit", limit, entries: entries.slice(0, limit) }, 409);
   for (let i = 0; i < 3; i++) {
     const cur = await ghReadFile(env, path);
     if (!cur) return json({ ok: false, error: "read failed" }, 502);
@@ -364,9 +374,192 @@ async function findUser(env, username) {
   const target = username.toLowerCase();
   for (const r of parseTable(f.text)) {
     if ((r[0] || "").trim().toLowerCase() === target)
-      return { username: (r[0] || "").trim(), password: r[1] || "", poweruser: (r[2] || "").trim() };
+      return {
+        username: (r[0] || "").trim(),
+        password: r[1] || "",
+        poweruser: (r[2] || "").trim(),
+        email: (r[3] || "").trim(),
+        expires: Number((r[4] || "0").trim()) || 0,
+        plan: Number((r[5] || "0").trim()) || 0,
+      };
   }
   return null;
+}
+
+// duration in months: 0 = lifetime
+function vipExpiry(months) {
+  const m = Number(months) || 0;
+  if (!m) return 0;
+  const d = new Date();
+  d.setMonth(d.getMonth() + m);
+  return d.getTime();
+}
+
+function vipAlive(expires) {
+  const e = Number(expires) || 0;
+  return !e || e > Date.now();
+}
+
+// ---------- song requests (VIP) ----------
+const REQ_FILE = "requests.csv";
+const REQ_HEADER = "User;Time;Singer;Musicname;Link;Notes;Status";
+const REQ_STATUS = ["Pending", "Approved", "Processing", "Published", "Rejected", "Duplicate", "Invalid"];
+const PLAN_QUOTA = { 0: 60, 1: 4, 3: 12, 6: 30, 12: 60 };
+
+function planQuota(plan) {
+  const p = Number(plan);
+  return PLAN_QUOTA[p] === undefined ? 60 : PLAN_QUOTA[p];
+}
+
+function periodStart(expires, plan) {
+  const p = Number(plan) || 0;
+  const e = Number(expires) || 0;
+  if (!p || !e) return 0;
+  const d = new Date(e);
+  d.setMonth(d.getMonth() - p);
+  return d.getTime();
+}
+
+function cleanField(v, max) {
+  return String(v == null ? "" : v).replace(/[;\r\n]/g, " ").trim().slice(0, max);
+}
+
+async function readRequests(env) {
+  const f = await ghReadFile(env, ghConf(env).dir + "/" + REQ_FILE);
+  if (!f) return null;
+  const rows = parseTable(f.text).map((r) => ({
+    user: (r[0] || "").trim(),
+    time: Number((r[1] || "0").trim()) || 0,
+    singer: (r[2] || "").trim(),
+    name: (r[3] || "").trim(),
+    link: (r[4] || "").trim(),
+    notes: (r[5] || "").trim(),
+    status: (r[6] || "Pending").trim(),
+  }));
+  return { text: f.text || "", sha: f.sha, rows };
+}
+
+function reqLine(e) {
+  return [e.user, String(e.time), e.singer, e.name, e.link, e.notes, e.status].join(";") + "\n";
+}
+
+async function requestQuota(env, sess) {
+  const rec = await findUser(env, sess.n || "");
+  const plan = rec ? Number(rec.plan) || 0 : 0;
+  const expires = rec ? rec.expires : Number(sess.ve) || 0;
+  const start = periodStart(expires, plan);
+  const store = await readRequests(env);
+  const rows = store ? store.rows : [];
+  const user = String(sess.n || "").toLowerCase();
+  const used = rows.filter((r) => r.user.toLowerCase() === user && (!start || r.time >= start)).length;
+  return { plan, limit: planQuota(plan), used, left: Math.max(0, planQuota(plan) - used), start };
+}
+
+async function handleRequestMine(req, env, url) {
+  const sess = await readSession(env, req.headers.get("Cookie"));
+  if (!sess) return json({ ok: false, error: "login" }, 401);
+  const vip = sess.r === "vip" && vipAlive(Number(sess.ve) || 0);
+  const q = await requestQuota(env, sess);
+  const store = await readRequests(env);
+  const user = String(sess.n || "").toLowerCase();
+  const entries = (store ? store.rows : [])
+    .filter((r) => r.user.toLowerCase() === user && (!q.start || r.time >= q.start))
+    .sort((a, b) => b.time - a.time)
+    .slice(0, 100)
+    .map((r) => ({ singer: r.singer, name: r.name, status: r.status, time: r.time }));
+  return json({ ok: true, vip, limit: vip ? q.limit : 0, used: q.used, left: vip ? q.left : 0, entries });
+}
+
+async function handleRequestCreate(req, env) {
+  const sess = await readSession(env, req.headers.get("Cookie"));
+  if (!sess) return json({ ok: false, error: "login" }, 401);
+  if (sess.r !== "vip" || !vipAlive(Number(sess.ve) || 0)) return json({ ok: false, error: "vip" }, 403);
+  let body = {};
+  try { body = await req.json(); } catch (e) {}
+  const singer = cleanField(body.singer, 80);
+  const name = cleanField(body.name, 120);
+  const link = cleanField(body.link, 200);
+  const notes = cleanField(body.notes, 500);
+  if (!name) return json({ ok: false, error: "name" }, 400);
+
+  const q = await requestQuota(env, sess);
+  if (q.used >= q.limit) return json({ ok: false, error: "limit", limit: q.limit, left: q.left }, 429);
+
+  const store = await readRequests(env);
+  if (!store) return json({ ok: false, error: "store not available" }, 502);
+  const dup = store.rows.some((r) => r.user.toLowerCase() === String(sess.n || "").toLowerCase() && r.name.toLowerCase() === name.toLowerCase());
+  if (dup) return json({ ok: false, error: "duplicate" }, 409);
+
+  const entry = {
+    user: String(sess.n || "").trim(),
+    time: Date.now(),
+    singer,
+    name,
+    link,
+    notes,
+    status: "Pending",
+  };
+  const path = ghConf(env).dir + "/" + REQ_FILE;
+  for (let i = 0; i < 3; i++) {
+    const cur = await ghReadFile(env, path);
+    if (!cur) return json({ ok: false, error: "store not available" }, 502);
+    const base = cur.text && cur.text.trim() ? cur.text.replace(/\n*$/, "\n") : REQ_HEADER + "\n";
+    if (await ghWriteFile(env, path, base + reqLine(entry), cur.sha, "request: " + entry.user + " " + name))
+      return json({ ok: true, entry: { singer, name, status: "Pending", time: entry.time }, left: Math.max(0, q.limit - (q.used + 1)), limit: q.limit });
+    await new Promise((r) => setTimeout(r, 300 * (i + 1)));
+  }
+  return json({ ok: false, error: "write failed" }, 502);
+}
+
+async function handleDevRequests(req, env, url) {
+  const s = await readSession(env, req.headers.get("Cookie"));
+  const ak = isAdminKey(req, env);
+  if (!isDevSess(s) && ak !== "grant" && ak !== "ok") return json({ ok: false, error: "forbidden" }, 403);
+  const want = String(url.searchParams.get("status") || "").trim();
+  const store = await readRequests(env);
+  if (!store) return json({ ok: false, error: "store not available" }, 502);
+  const rows = store.rows
+    .filter((r) => !want || r.status.toLowerCase() === want.toLowerCase())
+    .sort((a, b) => b.time - a.time)
+    .slice(0, 200);
+  return json({ ok: true, statuses: REQ_STATUS, requests: rows });
+}
+
+async function handleDevRequestStatus(req, env) {
+  const s = await readSession(env, req.headers.get("Cookie"));
+  const ak = isAdminKey(req, env);
+  if (!isDevSess(s) && ak !== "grant" && ak !== "ok") return json({ ok: false, error: "forbidden" }, 403);
+  let body = {};
+  try { body = await req.json(); } catch (e) {}
+  const user = String(body.user || "").trim().toLowerCase();
+  const time = Number(body.time) || 0;
+  const status = String(body.status || "").trim();
+  if (!user || !time) return json({ ok: false, error: "missing target" }, 400);
+  if (!REQ_STATUS.includes(status)) return json({ ok: false, error: "bad status" }, 400);
+  const path = ghConf(env).dir + "/" + REQ_FILE;
+  for (let i = 0; i < 3; i++) {
+    const cur = await ghReadFile(env, path);
+    if (!cur) return json({ ok: false, error: "store not available" }, 502);
+    const lines = String(cur.text || "").split(/\r?\n/).filter((l) => l.trim() !== "");
+    const out = [];
+    let found = false;
+    for (const l of lines) {
+      const c = splitLine(l, detectDelim(l));
+      if (/^(user|username)$/i.test((c[0] || "").trim())) { out.push(REQ_HEADER); continue; }
+      const isTarget = (c[0] || "").trim().toLowerCase() === user && (Number(c[1]) || 0) === time;
+      if (!isTarget) { out.push(l); continue; }
+      found = true;
+      const cells = [...c];
+      while (cells.length < 7) cells.push("");
+      cells[6] = status;
+      out.push(cells.join(";"));
+    }
+    if (!found) return json({ ok: false, error: "request not found" }, 404);
+    if (await ghWriteFile(env, path, out.join("\n") + "\n", cur.sha, "request status: " + user + " " + status))
+      return json({ ok: true, user, time, status });
+    await new Promise((r) => setTimeout(r, 300 * (i + 1)));
+  }
+  return json({ ok: false, error: "write failed" }, 502);
 }
 
 async function appendFbUser(env, u) {
@@ -490,13 +683,14 @@ async function handleMe(req, env, ctx) {
     const g = await readGuest(env, req.headers.get("Cookie"));
     const extra = g ? undefined : { "Set-Cookie": await newGuestCookie(env) };
     logSoon(env, req, ctx, { user: "-", power: "-", type: "guest" });
-    return json({ logged: false, fb: false, google: false, admin: false, dev: false, vip: false, user: false, name: "", role: "", playlistId: "" }, 200, extra);
+    return json({ logged: false, fb: false, google: false, admin: false, dev: false, vip: false, vipUntil: 0, user: false, name: "", role: "", playlistId: "" }, 200, extra);
   }
   const fb = s.t === "fb" || s.fb === true;
   const google = s.t === "goo" || s.g === true;
   const playlistId = playlistFileId(s);
   const admin = s.t === "adm" || s.r === "admin";
-  const vip = s.r === "vip";
+  const vipUntil = Number(s.ve) || 0;
+  const vip = s.r === "vip" && vipAlive(vipUntil);
   const dev = s.r === "dev";
   const user = s.t === "usr" || admin || fb || google;
   const rec = {
@@ -506,7 +700,7 @@ async function handleMe(req, env, ctx) {
   };
   const p = logSoon(env, req, ctx, rec);
   if (!ctx || !ctx.waitUntil) await p;
-  return json({ logged: true, fb, google, admin, dev, vip, user, name: s.n || "", role: s.r || (fb || google ? "user" : ""), playlistId });
+  return json({ logged: true, fb, google, admin, dev, vip, vipUntil, user, name: s.n || "", role: s.r || (fb || google ? "user" : ""), playlistId });
 }
 
 async function handleLogin(req, env, ctx) {
@@ -523,9 +717,14 @@ async function handleLogin(req, env, ctx) {
   }
 
   let role = null;
+  let vipUntil = 0;
   const rec = await findUser(env, u);
   if (rec && rec.password === p) {
     role = roleOf(rec.poweruser);
+    if (role === "vip") {
+      vipUntil = rec.expires || 0;
+      if (!vipAlive(vipUntil)) role = "user";
+    }
   } else if (env.ADMIN_USER && constEq(u, env.ADMIN_USER) && constEq(p, env.ADMIN_PASS || "")) {
     // env fallback admin (used only if the CSV store has no match)
     role = "admin";
@@ -539,7 +738,7 @@ async function handleLogin(req, env, ctx) {
   }
 
   const t = role === "admin" ? "adm" : "usr";
-  const sess = await makeSession(env, { t, n: u, r: role, exp: Date.now() + 7 * 864e5 });
+  const sess = await makeSession(env, { t, n: u, r: role, ve: vipUntil, exp: Date.now() + 7 * 864e5 });
   keep(ctx, logLogin(env, req, { user: u, role, type: "AM5" }));
   return json({ ok: true, role }, 200, { "Set-Cookie": setCookie(SESS_COOKIE, sess, 604800) });
 }
@@ -875,9 +1074,12 @@ async function handleFbCallback(req, env, url, ctx) {
     });
   } catch (e) {}
 
-  // Facebook login = role 3 (user): general server + MP3/OGG download
-  const sess = await makeSession(env, { t: "usr", r: "user", fb: true, n: u.name || "Facebook user", u: fbUsername(u), id: u.id || "", exp: Date.now() + 7 * 864e5 });
-  keep(ctx, logLogin(env, req, { user: u.name || "Facebook user", role: "user", type: "Facebook" }));
+  // Facebook login: role from data/fb-users.csv (default user)
+  const fbKey = fbUsername(u) || u.name || "";
+  let fbInfo = { role: "user", expires: 0 };
+  try { fbInfo = await roleFromStore(env, "fb", fbKey); } catch (e) {}
+  const sess = await makeSession(env, { t: "usr", r: fbInfo.role, ve: fbInfo.expires, fb: true, n: u.name || "Facebook user", u: fbUsername(u), id: u.id || "", exp: Date.now() + 7 * 864e5 });
+  keep(ctx, logLogin(env, req, { user: u.name || "Facebook user", role: fbInfo.role, type: "Facebook" }));
   return new Response(null, {
     status: 302,
     headers: { Location: "/", "Set-Cookie": setCookie(SESS_COOKIE, sess, 604800) },
@@ -938,9 +1140,11 @@ async function handleGoogleCallback(req, env, url, ctx) {
     await appendGoogleUser(env, { name: u.name || "", email: u.email || "", id: u.sub || "" });
   } catch (e) {}
 
-  // Google login = role 3 (user): general server + MP3/OGG download
-  const sess = await makeSession(env, { t: "usr", r: "user", g: true, n: u.name || "Google user", e: u.email || "", id: u.sub || "", exp: Date.now() + 7 * 864e5 });
-  keep(ctx, logLogin(env, req, { user: u.name || u.email || "Google user", role: "user", type: "Google" }));
+  // Google login: role from data/google-users.csv (default user)
+  let ggInfo = { role: "user", expires: 0 };
+  try { ggInfo = await roleFromStore(env, "google", u.email || ""); } catch (e) {}
+  const sess = await makeSession(env, { t: "usr", r: ggInfo.role, ve: ggInfo.expires, g: true, n: u.name || "Google user", e: u.email || "", id: u.sub || "", exp: Date.now() + 7 * 864e5 });
+  keep(ctx, logLogin(env, req, { user: u.name || u.email || "Google user", role: ggInfo.role, type: "Google" }));
   return new Response(null, {
     status: 302,
     headers: { Location: "/", "Set-Cookie": setCookie(SESS_COOKIE, sess, 604800) },
@@ -1107,30 +1311,155 @@ async function handleCreateUser(req, env) {
   const u = String(body.u || "").trim();
   const p = String(body.p || "");
   const power = String(body.power == null ? "" : body.power).trim();
+  const email = String(body.email == null ? "" : body.email).trim();
+  const months = Number(body.months || 0);
   if (!u || !p) return json({ ok: false, error: "Username and password are required" }, 400);
   if (!/^[A-Za-z0-9_.-]{3,32}$/.test(u))
     return json({ ok: false, error: "Username must be 3-32 chars (letters, numbers, . _ -)" }, 400);
   if (!["1", "2", "3"].includes(power)) return json({ ok: false, error: "Role must be 1, 2 or 3" }, 400);
-  if (/[;\r\n]/.test(u) || /[;\r\n]/.test(p))
-    return json({ ok: false, error: "Username or password contains an illegal character" }, 400);
+  if (email && !EMAIL_RE.test(email)) return json({ ok: false, error: "Email is not valid" }, 400);
+  if (/[;\r\n]/.test(u) || /[;\r\n]/.test(p) || /[;\r\n]/.test(email))
+    return json({ ok: false, error: "Username, password or email contains an illegal character" }, 400);
 
+  const expires = power === "2" ? vipExpiry(months) : 0;
   const path = userPath(env);
-  const header = "Username;Password;PowerUser\n";
+  const header = "Username;Password;PowerUser;Email;Expires;Plan";
   for (let i = 0; i < 3; i++) {
     const cur = await ghReadFile(env, path);
     if (!cur) return json({ ok: false, error: "user store not available" }, 502);
     const lines = String(cur.text || "").split(/\r?\n/).filter((l) => l.trim() !== "");
-    const head = lines.length && /^username/i.test(lines[0]) ? lines.shift() : "Username;Password;PowerUser";
+    if (lines.length && /^username/i.test(lines[0])) lines.shift();
     for (const l of lines) {
       const cells = splitLine(l, detectDelim(l));
       if ((cells[0] || "").trim().toLowerCase() === u.toLowerCase())
         return json({ ok: false, error: "Username already exist" }, 409);
     }
-    const text = [head, ...lines].join("\n") + "\n" + u + ";" + p + ";" + power + "\n";
-    if (await ghWriteFile(env, path, text, cur.sha, "user: create " + u)) return json({ ok: true, username: u, power });
+    const text = [header, ...lines].join("\n") + "\n" + [u, p, power, email, String(expires), String(power === "2" ? (Number(months) || 0) : 0)].join(";") + "\n";
+    if (await ghWriteFile(env, path, text, cur.sha, "user: create " + u))
+      return json({ ok: true, username: u, power, email, expires });
     await new Promise((r) => setTimeout(r, 300 * (i + 1)));
   }
   return json({ ok: false, error: "write failed, try again" }, 502);
+}
+
+// ---------- dev: multi-source user store (am5 / fb / google) ----------
+const USER_SRC = {
+  am5: { file: "users.csv", key: 0, name: 0, power: 2, exp: 4, header: "Username;Password;PowerUser;Email;Expires;Plan" },
+  fb: { file: "fb-users.csv", key: 1, name: 0, power: 3, exp: 4, header: "Nama;Username;Url;PowerUser;Expires" },
+  google: { file: "google-users.csv", key: 1, name: 0, power: 3, exp: 4, header: "Nama,Email,Id,PowerUser,Expires" },
+};
+
+function srcConf(src) {
+  return USER_SRC[String(src || "am5").toLowerCase()] || USER_SRC.am5;
+}
+
+function parseStore(text) {
+  const lines = String(text || "").split(/\r?\n/).filter((l) => l.trim() !== "");
+  if (!lines.length) return { delim: ";", rows: [] };
+  const delim = detectDelim(lines[0]);
+  const head = /^(username|nama|user|name|email)/i.test(lines[0]);
+  const rows = (head ? lines.slice(1) : lines).map((l) => splitLine(l, delim));
+  return { delim, rows };
+}
+
+function joinCells(cells, delim) {
+  if (delim !== ",") return cells.join(delim);
+  return cells.map((v) => {
+    const s = String(v == null ? "" : v);
+    return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+  }).join(",");
+}
+
+async function handleFindUsers(req, env, url) {
+  const s = await readSession(env, req.headers.get("Cookie"));
+  const ak = isAdminKey(req, env);
+  if (!isDevSess(s) && ak !== "grant" && ak !== "ok") return json({ ok: false, error: "forbidden" }, 403);
+  const src = String(url.searchParams.get("src") || "am5").toLowerCase();
+  const conf = srcConf(src);
+  const f = await readStore(env, conf.file);
+  if (!f) return json({ ok: false, error: "store not available" }, 502);
+  const q = String(url.searchParams.get("q") || "").trim().toLowerCase();
+  const users = parseStore(f.text).rows
+    .map((c) => {
+      const key = (c[conf.key] || "").trim();
+      const label = (c[conf.name] || "").trim();
+      return {
+        key,
+        label: label && label.toLowerCase() !== key.toLowerCase() ? label : key,
+        power: (c[conf.power] || "").trim(),
+        expires: Number((c[conf.exp] || "0").trim()) || 0,
+      };
+    })
+    .filter((x) => x.key && (!q || x.key.toLowerCase().includes(q) || x.label.toLowerCase().includes(q)))
+    .slice(0, 50);
+  return json({ ok: true, src, users });
+}
+
+// ---------- dev: update role / duration on any source ----------
+async function handleUpdateUser(req, env) {
+  let body = {};
+  try { body = await req.json(); } catch (e) {}
+  const src = String(body.src || "am5").toLowerCase();
+  const conf = srcConf(src);
+  const key = String(body.key || body.u || "").trim();
+  const power = String(body.power == null ? "" : body.power).trim();
+  const months = Number(body.months || 0);
+  const hasEmail = body.email !== undefined;
+  const email = String(body.email == null ? "" : body.email).trim();
+  if (!key) return json({ ok: false, error: "Pick a user first" }, 400);
+  if (!["1", "2", "3"].includes(power)) return json({ ok: false, error: "Role must be 1, 2 or 3" }, 400);
+  if (src === "am5" && hasEmail && email && !EMAIL_RE.test(email)) return json({ ok: false, error: "Email is not valid" }, 400);
+  if (src === "am5" && /[;\r\n]/.test(email)) return json({ ok: false, error: "Email contains an illegal character" }, 400);
+
+  const expires = power === "2" ? vipExpiry(months) : 0;
+  const path = ghConf(env).dir + "/" + conf.file;
+  const header = src === "am5" ? "Username;Password;PowerUser;Email;Expires;Plan" : conf.header;
+  for (let i = 0; i < 3; i++) {
+    const cur = await ghReadFile(env, path);
+    if (!cur) return json({ ok: false, error: "user store not available" }, 502);
+    const st = parseStore(cur.text);
+    let found = false;
+    const out = [];
+    for (const c of st.rows) {
+      const cells = [...c];
+      const need = src === "am5" ? 6 : 5;
+      while (cells.length < need) cells.push("");
+      if ((cells[conf.key] || "").trim().toLowerCase() !== key.toLowerCase()) {
+        out.push(cells);
+        continue;
+      }
+      found = true;
+      if (src === "am5") {
+        if (hasEmail) cells[3] = email;
+        cells[5] = String(power === "2" ? (Number(months) || 0) : 0);
+      }
+      cells[conf.power] = power;
+      cells[conf.exp] = String(expires);
+      out.push(cells);
+    }
+    if (!found) return json({ ok: false, error: "User not found in " + conf.file }, 404);
+    const text = [header, ...out.map((c) => joinCells(c, st.delim))].join("\n") + "\n";
+    if (await ghWriteFile(env, path, text, cur.sha, "user: update " + conf.file + " " + key))
+      return json({ ok: true, src, key, power, expires });
+    await new Promise((r) => setTimeout(r, 300 * (i + 1)));
+  }
+  return json({ ok: false, error: "write failed, try again" }, 502);
+}
+
+// role + expiry for fb/google logins (am5 handled by findUser)
+async function roleFromStore(env, src, key) {
+  const conf = srcConf(src);
+  const f = await readStore(env, conf.file);
+  if (!f || !f.text) return { role: "user", expires: 0 };
+  const target = String(key || "").trim().toLowerCase();
+  for (const c of parseStore(f.text).rows) {
+    if ((c[conf.key] || "").trim().toLowerCase() !== target) continue;
+    let role = roleOf(c[conf.power]);
+    const expires = Number((c[conf.exp] || "0").trim()) || 0;
+    if (role === "vip" && !vipAlive(expires)) role = "user";
+    return { role, expires };
+  }
+  return { role: "user", expires: 0 };
 }
 
 // ---------- login log (data/login.log) ----------
@@ -1422,6 +1751,13 @@ export default {
     if (url.pathname === "/api/dev/googleusers") return devDownload(req, env, "google-users.csv");
     if (url.pathname === "/api/dev/loginlog") return devDownload(req, env, "login.log");
     if (url.pathname === "/api/dev/onlinelog") return devDownload(req, env, "online.log");
+    if (url.pathname === "/api/dev/findusers") return handleFindUsers(req, env, url);
+    if (url.pathname === "/api/dev/updateuser" && req.method === "POST") {
+      const ds = await readSession(env, req.headers.get("Cookie"));
+      const dak = isAdminKey(req, env);
+      if (!isDevSess(ds) && dak !== "grant" && dak !== "ok") return json({ ok: false, error: "forbidden" }, 403);
+      return handleUpdateUser(req, env);
+    }
     if (url.pathname === "/api/dev/loginlog/clear" && req.method === "POST") return devClearLog(req, env, "login.log");
     if (url.pathname === "/api/dev/onlinelog/clear" && req.method === "POST") return devClearLog(req, env, "online.log");
     // legacy alias: nama lama /api/admin/*, tetap role 4
@@ -1522,6 +1858,10 @@ export default {
     }
 
     // ---- playlist user (file .txt di repo, bukan static asset) ----
+    if (url.pathname === "/api/request/mine") return handleRequestMine(req, env, url);
+    if (url.pathname === "/api/request" && req.method === "POST") return handleRequestCreate(req, env);
+    if (url.pathname === "/api/dev/requests") return handleDevRequests(req, env, url);
+    if (url.pathname === "/api/dev/requeststatus" && req.method === "POST") return handleDevRequestStatus(req, env);
     if (url.pathname === "/api/playlist") return handlePlaylist(req, env, sess);
 
     // halaman error custom

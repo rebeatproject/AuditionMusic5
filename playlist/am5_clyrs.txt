@@ -11,6 +11,7 @@ auayo_k1042.tbm
 auayo_k2005.tbm
 auayo_k2468.tbm
 auayo_k2499.tbm
+auayo_k2627.tbm
 auayo_k2771.tbm
 auayo_k2832.tbm
 auayo_k2951.tbm

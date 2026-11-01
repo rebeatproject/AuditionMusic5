@@ -1,4 +1,4 @@
-// live chat: visitor <-> admin Telegram (D1 + R2 + webhook)
+﻿// live chat: visitor <-> admin Telegram (D1 + R2 + webhook)
 
 const MAX_LEN = 500;      // panjang pesan visitor
 const MIN_GAP_MS = 2000;  // jeda minimal antar pesan
@@ -290,7 +290,7 @@ export async function chatRoute(req, env, url, sess) {
   }
 
   if (path.startsWith("/api/chat/file/") && req.method === "GET") {
-    if (!sess) return json({ ok: false, error: "login required" }, 401);
+    if (!sess) return json({ ok: false, error: "are you kidding me dude?" }, 401);
     const id = parseInt(path.slice("/api/chat/file/".length), 10);
     if (!(id > 0)) return json({ ok: false, error: "bad file" }, 400);
     await ensure(env);
@@ -329,7 +329,7 @@ export async function chatRoute(req, env, url, sess) {
   }
 
   if (path === "/api/chat/poll") {
-    if (!sess) return json({ ok: false, error: "login required" }, 401);
+    if (!sess) return json({ ok: false, error: "are you kidding me dude?" }, 401);
     await ensure(env);
     const sid = await sidOf(env, identOf(sess));
     const read = url.searchParams.get("read") === "1";
@@ -345,7 +345,7 @@ export async function chatRoute(req, env, url, sess) {
   }
 
   if (path === "/api/chat/clear" && req.method === "POST") {
-    if (!sess) return json({ ok: false, error: "login required" }, 401);
+    if (!sess) return json({ ok: false, error: "are you kidding me dude?" }, 401);
     await ensure(env);
     const sid = await sidOf(env, identOf(sess));
     const d = db(env);
@@ -362,7 +362,7 @@ export async function chatRoute(req, env, url, sess) {
   }
 
   if (path === "/api/chat/upload" && req.method === "POST") {
-    if (!sess) return json({ ok: false, error: "login required" }, 401);
+    if (!sess) return json({ ok: false, error: "are you kidding me dude?" }, 401);
     if (!env.TG_TOKEN || !env.TG_CHAT_ID) return json({ ok: false, error: "telegram not configured" }, 503);
     let form;
     try { form = await req.formData(); } catch (e) { return json({ ok: false, error: "bad upload" }, 400); }
@@ -400,7 +400,7 @@ export async function chatRoute(req, env, url, sess) {
   }
 
   if (path === "/api/chat/send" && req.method === "POST") {
-    if (!sess) return json({ ok: false, error: "login required" }, 401);
+    if (!sess) return json({ ok: false, error: "are you kidding me dude?" }, 401);
     let body = {};
     try { body = await req.json(); } catch (e) {}
     const text = String(body.text || "").replace(/\s+/g, " ").trim().slice(0, MAX_LEN);

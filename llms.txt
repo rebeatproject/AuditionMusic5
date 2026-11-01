@@ -46,7 +46,7 @@ Song sources mirror the official patch servers of these regional Audition publis
 - [Plans](https://auditionmusic5.com/plans.aspx)
 - [Docs](https://auditionmusic5.com/docs.aspx)
 - [Privacy policy](https://auditionmusic5.com/privacy.aspx)
-- [Terms of service](https://auditionmusic5.com/tos.aspx)
+- [Terms of service](https://auditionmusic5.com/terms.aspx)
 - [Data deletion](https://auditionmusic5.com/data-deletion.aspx)
 
 ## Technical notes

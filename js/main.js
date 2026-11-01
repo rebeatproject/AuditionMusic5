@@ -1777,7 +1777,7 @@ export default {
     const mfd = url.pathname.match(/^\/api\/([a-z0-9]+)\/f\/([^/]+)$/);
     if (mfd) {
       const gate = await rawGate(req, env);
-      if (gate) return new Response(gate === 401 ? "login required" : "forbidden", {
+      if (gate) return new Response(gate === 401 ? "are you kidding me dude?" : "forbidden", {
         status: gate,
         headers: { "Cache-Control": "no-store", "CDN-Cache-Control": "no-store", "Vary": "Cookie, Sec-Fetch-Site" },
       });

@@ -5,6 +5,7 @@ auayo_i0612.tbm
 auayo_i0627.tbm
 auayo_i0717.tbm
 auayo_i0882.tbm
+auayo_i0892.tbm
 auayo_i2108.tbm
 auayo_i3235.tbm
 auayo_i3247.tbm

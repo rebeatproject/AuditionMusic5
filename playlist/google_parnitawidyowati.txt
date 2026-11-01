@@ -3,4 +3,5 @@ auayo_b0497.tbm
 auayo_b0499.tbm
 auayo_b0501.tbm
 auayo_i3280.tbm
+auayo_i3296.tbm
 auayo_i3312.tbm

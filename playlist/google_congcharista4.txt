@@ -18,6 +18,7 @@ auayo_i2983.tbm
 auayo_i3040.tbm
 auayo_i3115.tbm
 auayo_i3118.tbm
+auayo_i3138.tbm
 auayo_i3218.tbm
 auayo_i3235.tbm
 auayo_i3253.tbm

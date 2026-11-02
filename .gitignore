@@ -45,6 +45,9 @@ desktop.ini
 .DS_Store
 data/chat-lokal.json
 data/chat-files/
+image/qr.jpg
+image/qr.psd
+
 
 .dev.vars
 

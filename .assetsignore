@@ -40,6 +40,9 @@ wrangler.toml
 
 # user access log (stored in GitHub; local data/ cuma buat dev, jangan di-upload)
 data/
+image/qr.jpg
+image/qr.psd
+
 
 # playlist user (ditulis Worker ke GitHub; JANGAN jadi asset publik)
 playlist/

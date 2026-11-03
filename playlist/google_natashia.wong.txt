@@ -1,4 +1,5 @@
 auayo_b0312.tbm
+auayo_i0688.tbm
 auayo_i1012.tbm
 auayo_i1270.tbm
 auayo_i1585.tbm

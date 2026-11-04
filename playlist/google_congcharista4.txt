@@ -26,5 +26,6 @@ auayo_i3264.tbm
 auayo_i3303.tbm
 auayo_i3310.tbm
 auvtc_v0978.tbm
+auth_th2526.tbm
 auth_th3152.tbm
 auth_th3581.tbm

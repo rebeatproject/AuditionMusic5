@@ -21,3 +21,4 @@ auayo_k3522.tbm
 auayo_k3523.tbm
 auayo_k4143.tbm
 auayo_k9762.tbm
+auvtc_v2836.tbm

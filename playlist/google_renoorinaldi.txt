@@ -27,3 +27,4 @@ auayo_k2754.tbm
 auayo_k2840.tbm
 auayo_k2892.tbm
 auayo_k3159.tbm
+auayo_k4230.tbm

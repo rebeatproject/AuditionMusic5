@@ -23,9 +23,6 @@ js.bat
 mobile-preview.bat
 mobile-preview.py
 _obf/
-_bla/
-_blatmp_in/
-_blatmp_out/
 node_modules/
 package.json
 package-lock.json

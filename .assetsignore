@@ -15,6 +15,10 @@ push.bat
 deploy.bat
 js.bat
 _obf/
+_bla/
+_blatmp_in/
+_blatmp_out/
+.blarc
 node_modules/
 package.json
 package-lock.json

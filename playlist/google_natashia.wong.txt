@@ -22,4 +22,5 @@ auayo_k3523.tbm
 auayo_k4143.tbm
 auayo_k9762.tbm
 auvtc_v2836.tbm
+auth_th4006.tbm
 auth_th4007.tbm

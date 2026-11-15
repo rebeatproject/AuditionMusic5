@@ -1613,7 +1613,7 @@ async function handleGeo(req, env) {
 }
 
 // ---------- visitor online (realtime, D1) ----------
-const ONLINE_TTL = 75000;   // 3x ping client (25s)
+const ONLINE_TTL = 180000;   // toleransi throttle timer di tab background
 let ONLINE_SCHEMA = false;
 async function onlineEnsure(env) {
   if (ONLINE_SCHEMA) return true;

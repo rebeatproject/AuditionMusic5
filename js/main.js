@@ -683,7 +683,7 @@ async function handleMe(req, env, ctx) {
     const g = await readGuest(env, req.headers.get("Cookie"));
     const extra = g ? undefined : { "Set-Cookie": await newGuestCookie(env) };
     logSoon(env, req, ctx, { user: "-", power: "-", type: "guest" });
-    return json({ logged: false, fb: false, google: false, admin: false, dev: false, vip: false, vipUntil: 0, user: false, name: "", role: "", playlistId: "" }, 200, extra);
+    return json({ logged: false, fb: false, google: false, admin: false, dev: false, vip: false, vipUntil: 0, user: false, name: "", role: "", playlistId: "", pic: "" }, 200, extra);
   }
   const fb = s.t === "fb" || s.fb === true;
   const google = s.t === "goo" || s.g === true;
@@ -700,7 +700,7 @@ async function handleMe(req, env, ctx) {
   };
   const p = logSoon(env, req, ctx, rec);
   if (!ctx || !ctx.waitUntil) await p;
-  return json({ logged: true, fb, google, admin, dev, vip, vipUntil, user, name: s.n || "", role: s.r || (fb || google ? "user" : ""), playlistId });
+  return json({ logged: true, fb, google, admin, dev, vip, vipUntil, user, name: s.n || "", role: s.r || (fb || google ? "user" : ""), playlistId, pic: google && /^https:\/\//.test(String(s.p || "")) ? s.p : "" });
 }
 
 async function handleLogin(req, env, ctx) {
@@ -1143,7 +1143,7 @@ async function handleGoogleCallback(req, env, url, ctx) {
   // Google login: role from data/google-users.csv (default user)
   let ggInfo = { role: "user", expires: 0 };
   try { ggInfo = await roleFromStore(env, "google", u.email || ""); } catch (e) {}
-  const sess = await makeSession(env, { t: "usr", r: ggInfo.role, ve: ggInfo.expires, g: true, n: u.name || "Google user", e: u.email || "", id: u.sub || "", exp: Date.now() + 7 * 864e5 });
+  const sess = await makeSession(env, { t: "usr", r: ggInfo.role, ve: ggInfo.expires, g: true, n: u.name || "Google user", e: u.email || "", id: u.sub || "", p: u.picture || "", exp: Date.now() + 7 * 864e5 });
   keep(ctx, logLogin(env, req, { user: u.name || u.email || "Google user", role: ggInfo.role, type: "Google" }));
   return new Response(null, {
     status: 302,

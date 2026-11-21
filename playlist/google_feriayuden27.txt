@@ -10,6 +10,7 @@ auayo_i3156.tbm
 auayo_k0650.tbm
 auayo_k0983.tbm
 auayo_k2473.tbm
+auayo_k2839.tbm
 auayo_k2966.tbm
 auayo_k3074.tbm
 auayo_k3185.tbm

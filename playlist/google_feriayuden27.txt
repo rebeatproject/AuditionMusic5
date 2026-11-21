@@ -9,5 +9,6 @@ auayo_i0547.tbm
 auayo_i3156.tbm
 auayo_k3074.tbm
 auayo_k3185.tbm
+auayo_k3497.tbm
 auayo_k4160.tbm
 auayo_k5319.tbm

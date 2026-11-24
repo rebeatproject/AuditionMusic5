@@ -66,7 +66,7 @@ P;E?? ??;M220;L10
 P;EMalgun Gothic;M200;L9
 P;E?? ??;M160
 F;P0;DG0G8;M330
-B;Y591;X11;D0 0 590 10
+B;Y611;X11;D0 0 610 10
 O;L;F;D;V0;K47;T0;G100 0.001
 C;Y1;X1;K"SINGER"
 C;X2;K"MUSIC NAME"
@@ -6433,7 +6433,7 @@ C;X4;K13
 C;X5;K1
 C;X6;K99.992999999999995
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K1
 C;X11;K79
@@ -6444,7 +6444,7 @@ C;X4;K13
 C;X5;K1
 C;X6;K99.992999999999995
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K79
@@ -6455,7 +6455,7 @@ C;X4;K13
 C;X5;K1
 C;X6;K99.992999999999995
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K79
@@ -6466,7 +6466,7 @@ C;X4;K11
 C;X5;K-2
 C;X6;K103
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K1
 C;X11;K121
@@ -6477,7 +6477,7 @@ C;X4;K11
 C;X5;K-2
 C;X6;K103
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K121
@@ -6488,7 +6488,7 @@ C;X4;K3
 C;X5;K-2
 C;X6;K103
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K121
@@ -6499,7 +6499,7 @@ C;X4;K3
 C;X5;K-2
 C;X6;K103
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K4
 C;X11;K121
@@ -6510,7 +6510,7 @@ C;X4;K6
 C;X5;K2
 C;X6;K140
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K1
 C;X11;K146
@@ -6521,7 +6521,7 @@ C;X4;K6
 C;X5;K2
 C;X6;K140
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K146
@@ -6532,7 +6532,7 @@ C;X4;K6
 C;X5;K2
 C;X6;K140
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K146
@@ -6543,7 +6543,7 @@ C;X4;K13
 C;X5;K1
 C;X6;K136
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K1
 C;X11;K104
@@ -6554,7 +6554,7 @@ C;X4;K13
 C;X5;K1
 C;X6;K136
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K104
@@ -6565,8 +6565,228 @@ C;X4;K13
 C;X5;K1
 C;X6;K136
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K104
+C;Y592;X1;K"International Song"
+C;X2;K"I Don't Love You (Lv.1 Easy)"
+C;X3;K"tg0153.tbm"
+C;X4;K13
+C;X5;K2
+C;X6;K85
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K87
+C;Y593;X1;K"International Song"
+C;X2;K"I Don't Love You (Lv.2 Normal)"
+C;X3;K"tg0153.tbm"
+C;X4;K13
+C;X5;K2
+C;X6;K85
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K87
+C;Y594;X1;K"International Song"
+C;X2;K"I Don't Love You (Lv.3 Hard)"
+C;X3;K"tg0153.tbm"
+C;X4;K13
+C;X5;K2
+C;X6;K85
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K87
+C;Y595;X1;K"International Song"
+C;X2;K"Something Just Like This (Lv.1 Easy)"
+C;X3;K"tg0154.tbm"
+C;X4;K8
+C;X5;K-1
+C;X6;K103
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K107
+C;Y596;X1;K"International Song"
+C;X2;K"Something Just Like This (Lv.2 Normal)"
+C;X3;K"tg0154.tbm"
+C;X4;K8
+C;X5;K-1
+C;X6;K103
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K107
+C;Y597;X1;K"International Song"
+C;X2;K"Something Just Like This (Lv.3 Hard)"
+C;X3;K"tg0154.tbm"
+C;X4;K8
+C;X5;K-1
+C;X6;K103
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K107
+C;Y598;X1;K"International Song"
+C;X2;K"Something Just Like This (Lv.4 Crazy)"
+C;X3;K"tg0154.tbm"
+C;X4;K8
+C;X5;K-1
+C;X6;K103
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K4
+C;X11;K107
+C;Y599;X1;K"International Song"
+C;X2;K"The Reason (Lv.1 Easy)"
+C;X3;K"tg0155.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K83
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K81
+C;Y600;X1;K"International Song"
+C;X2;K"The Reason (Lv.2 Normal)"
+C;X3;K"tg0155.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K83
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K81
+C;Y601;X1;K"International Song"
+C;X2;K"The Reason (Lv.3 Hard)"
+C;X3;K"tg0155.tbm"
+C;X4;K6
+C;X5;K2
+C;X6;K83
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K81
+C;Y602;X1;K"International Song"
+C;X2;K"Troubled Times (Lv.1 Easy)"
+C;X3;K"tg0156.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K118
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K94
+C;Y603;X1;K"International Song"
+C;X2;K"Troubled Times (Lv.2 Normal)"
+C;X3;K"tg0156.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K118
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K94
+C;Y604;X1;K"International Song"
+C;X2;K"Troubled Times (Lv.3 Hard)"
+C;X3;K"tg0156.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K118
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K94
+C;Y605;X1;K"Japanese Song"
+C;X2;K"BLACK STAR (Lv.1 Easy)"
+C;X3;K"tg0157.tbm"
+C;X4;K10
+C;X5;K1
+C;X6;K178
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K166
+C;Y606;X1;K"Japanese Song"
+C;X2;K"BLACK STAR (Lv.2 Normal)"
+C;X3;K"tg0157.tbm"
+C;X4;K10
+C;X5;K1
+C;X6;K178
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K166
+C;Y607;X1;K"Japanese Song"
+C;X2;K"BLACK STAR (Lv.3 Hard)"
+C;X3;K"tg0157.tbm"
+C;X4;K10
+C;X5;K1
+C;X6;K178
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K166
+C;Y608;X1;K"Japanese Song"
+C;X2;K"BLACK STAR (Lv.4 Crazy)"
+C;X3;K"tg0157.tbm"
+C;X4;K10
+C;X5;K1
+C;X6;K178
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K4
+C;X11;K166
+C;Y609;X1;K"Korean Song"
+C;X2;K"Love Song (Lv.1 Easy)"
+C;X3;K"tg0158.tbm"
+C;X4;K11
+C;X5;K3
+C;X6;K87
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K87
+C;Y610;X1;K"Korean Song"
+C;X2;K"Love Song (Lv.2 Normal)"
+C;X3;K"tg0158.tbm"
+C;X4;K11
+C;X5;K3
+C;X6;K87
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K87
+C;Y611;X1;K"Korean Song"
+C;X2;K"Love Song (Lv.3 Hard)"
+C;X3;K"tg0158.tbm"
+C;X4;K11
+C;X5;K3
+C;X6;K87
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K87
 E

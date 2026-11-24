@@ -71,13 +71,13 @@ P;E¸¼Àº °íµñ;M220;SB;L9
 P;E¸¼Àº °íµñ;M220;L10
 P;EMalgun Gothic;M200;L9
 F;P0;DG0G8;M330
-B;Y2964;X15;D0 0 2963 14
+B;Y2983;X15;D0 0 2982 14
 O;L;D;V0;K47;T0;G100 0.001
 F;W1 1 61
 F;W2 2 52
 F;W3 3 11
 F;W15 15 17
-NN;N_FilterDatabase;ER1C1:R2964C15
+NN;N_FilterDatabase;ER1C1:R2983C15
 C;Y1;X1;K"SINGER"
 C;X2;K"MUSIC NAME"
 C;X3;K"FILE NAME"
@@ -287,7 +287,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y15;X1;K"Audition"
 C;X2;K"Digital Soul"
 C;X3;K"k1006.abm"
@@ -317,7 +317,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y17;X1;K"Audition"
 C;X2;K"Chinese Lady"
 C;X3;K"k1008.abm"
@@ -377,7 +377,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y21;X1;K"Audition"
 C;X2;K"Beat City"
 C;X3;K"k1012.abm"
@@ -392,7 +392,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y22;X1;K"Audition"
 C;X2;K"Elec Bossa"
 C;X3;K"k1013.tbm"
@@ -407,7 +407,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y23;X1;K"Audition"
 C;X2;K"Canon Groove"
 C;X3;K"k1014.tbm"
@@ -497,7 +497,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y29;X1;K"Audition"
 C;X2;K"Blackout House"
 C;X3;K"k1020.tbm"
@@ -512,7 +512,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y30;X1;K"Audition"
 C;X2;K"DJ Euro Mix"
 C;X3;K"k1021.tbm"
@@ -617,7 +617,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y37;X1;K"Audition"
 C;X2;K"Cant Let You Go"
 C;X3;K"k1028.tbm"
@@ -647,7 +647,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y39;X1;K"Audition"
 C;X2;K"Dance Fish"
 C;X3;K"k1030.tbm"
@@ -677,7 +677,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y41;X1;K"Audition"
 C;X2;K"Gloomy March"
 C;X3;K"k1032.tbm"
@@ -767,7 +767,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y47;X1;K"Audition"
 C;X2;K"Yo! DJ!"
 C;X3;K"k1038.tbm"
@@ -812,7 +812,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y50;X1;K"Audition"
 C;X2;K"Mov Mov"
 C;X3;K"k1041.tbm"
@@ -857,7 +857,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y53;X1;K"Audition"
 C;X2;K"Can Can"
 C;X3;K"k1044.tbm"
@@ -887,7 +887,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y55;X1;K"Audition"
 C;X2;K"Party Party"
 C;X3;K"k1046.tbm"
@@ -992,7 +992,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y62;X1;K"Audition"
 C;X2;K"Catch"
 C;X3;K"k1053.tbm"
@@ -1052,7 +1052,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y66;X1;K"Audition"
 C;X2;K"Canon 2007 (Easy)"
 C;X3;K"k1058.tbm"
@@ -1082,7 +1082,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y68;X1;K"Audition"
 C;X2;K"Listen"
 C;X3;K"k1060.tbm"
@@ -1112,7 +1112,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y70;X1;K"Audition"
 C;X2;K"At The Same Time"
 C;X3;K"k1062.tbm"
@@ -1157,7 +1157,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y73;X1;K"Audition"
 C;X2;K"Good"
 C;X3;K"k1065.tbm"
@@ -1202,7 +1202,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y76;X1;K"Audition"
 C;X2;K"Like U"
 C;X3;K"k1068.tbm"
@@ -1277,7 +1277,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y81;X1;K"Cindy Wang"
 C;X2;K"Ai Ni (Love You)"
 C;X3;K"p0870.tbm"
@@ -1307,7 +1307,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y83;X1;K"Audition"
 C;X2;K"Move"
 C;X3;K"k1075.tbm"
@@ -1442,7 +1442,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y92;X1;K"Audition"
 C;X2;K"Timing"
 C;X3;K"k1083.tbm"
@@ -1592,7 +1592,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y102;X1;K"Audition"
 C;X2;K"What To Do"
 C;X3;K"k1093.tbm"
@@ -1637,7 +1637,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y105;X1;K"Audition"
 C;X2;K"Don't Cry My Heart"
 C;X3;K"k1096.tbm"
@@ -1697,7 +1697,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y109;X1;K"Audition"
 C;X2;K"Still (My Girl)"
 C;X3;K"k1100.tbm"
@@ -1817,7 +1817,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y117;X1;K"Audition"
 C;X2;K"X Girlfriend"
 C;X3;K"k1108.tbm"
@@ -1847,7 +1847,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y119;X1;K"Audition"
 C;X2;K"K.O"
 C;X3;K"k1110.tbm"
@@ -2110,13 +2110,13 @@ C;X4;K5
 C;X5;K0
 C;X6;K111.967
 C;X7;K0
-C;X8;K0
+C;X8;K1
 C;X9;K"_0919"
 C;X10;K0
 C;X11;K0
-C;X12;K0
-C;X13;K0
-C;X14;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
 C;X15;K0
 C;Y137;X1;K"Troye Sivan"
 C;X2;K"Angel Baby"
@@ -2335,13 +2335,13 @@ C;X4;K15
 C;X5;K0
 C;X6;K172.1
 C;X7;K0
-C;X8;K0
+C;X8;K1
 C;X9;K"explanation"
 C;X10;K0
 C;X11;K0
-C;X12;K0
-C;X13;K0
-C;X14;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
 C;X15;K0
 C;Y152;X1;K"Cy"
 C;X2;K"Bird"
@@ -2594,7 +2594,7 @@ C;X8;K1
 C;X9;K"_0118"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K0
 C;X14;K0
 C;X15;K0
@@ -2789,7 +2789,7 @@ C;X8;K1
 C;X9;K"explanation"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K0
 C;X14;K0
 C;X15;K0
@@ -2879,7 +2879,7 @@ C;X8;K1
 C;X9;K"_0919"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K0
 C;X14;K0
 C;X15;K0
@@ -3242,7 +3242,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y212;X1;K"Koyote"
 C;X2;K"Disco King"
 C;X3;K"k0632.tbm"
@@ -3580,13 +3580,13 @@ C;X4;K4
 C;X5;K0
 C;X6;K98.03
 C;X7;K0
-C;X8;K0
+C;X8;K1
 C;X9;K"_0118"
 C;X10;K0
 C;X11;K0
-C;X12;K0
-C;X13;K0
-C;X14;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
 C;X15;K0
 C;Y235;X1;K"Nova sonic"
 C;X2;K"Dear You"
@@ -3734,7 +3734,7 @@ C;X8;K1
 C;X9;K"_0919"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K0
 C;X14;K0
 C;X15;K0
@@ -4454,7 +4454,7 @@ C;X8;K1
 C;X9;K"_100519"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
 C;X14;K0
 C;X15;K0
@@ -4532,7 +4532,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y298;X1;K"Audition"
 C;X2;K"Get Up"
 C;X3;K"k1116.tbm"
@@ -4937,7 +4937,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y325;X1;K"Audition"
 C;X2;K"Dancing Queen"
 C;X3;K"k1144.tbm"
@@ -5852,7 +5852,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y386;X1;K"Super Junior"
 C;X2;K"Sorry Sorry"
 C;X3;K"k2796.tbm"
@@ -6482,7 +6482,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y428;X1;K"Justin Timberlake"
 C;X2;K"My Love (Feat. T.I)"
 C;X3;K"k2679.tbm"
@@ -6842,7 +6842,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y452;X1;K"Jordin Spark"
 C;X2;K"Battlefield"
 C;X3;K"k2650.tbm"
@@ -7637,7 +7637,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y505;X1;K"HUS"
 C;X2;K"xoxo (feat. As One)"
 C;X3;K"k3280.tbm"
@@ -7727,7 +7727,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y511;X1;K"Audition"
 C;X2;K"Play Boy"
 C;X3;K"k1122.tbm"
@@ -7997,7 +7997,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y529;X1;K"KARD"
 C;X2;K"BOMB BOMB"
 C;X3;K"p0695.tbm"
@@ -8507,7 +8507,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y563;X1;K"4Minute"
 C;X2;K"Volume up"
 C;X3;K"k3386.tbm"
@@ -8597,7 +8597,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y569;X1;K"G.NA"
 C;X2;K"Black & White"
 C;X3;K"k3047.tbm"
@@ -8672,7 +8672,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y574;X1;K"Kang Ji-young"
 C;X2;K"Merry Love"
 C;X3;K"k3024.tbm"
@@ -8777,7 +8777,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y581;X1;K"Kim Jong Kook"
 C;X2;K"2005 White Love (Feat. Mikey)"
 C;X3;K"k2500.tbm"
@@ -9212,7 +9212,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y610;X1;K"F (x)"
 C;X2;K"Electric Shock"
 C;X3;K"k3436.tbm"
@@ -9722,7 +9722,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y644;X1;K"Cross Gene"
 C;X2;K"La-Di Da-Di"
 C;X3;K"k3428.tbm"
@@ -10217,7 +10217,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y677;X1;K"N Sync"
 C;X2;K"Bye Bye Bye (Easy)"
 C;X3;K"k0864.tbm"
@@ -10847,7 +10847,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y719;X1;K"West Life"
 C;X2;K"My Love"
 C;X3;K"k0830.tbm"
@@ -10907,7 +10907,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y723;X1;K"Miley Cyrus"
 C;X2;K"Party in the USA"
 C;X3;K"p0079.tbm"
@@ -11117,7 +11117,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y737;X1;K"Audition"
 C;X2;K"Sorry, I Don't Know"
 C;X3;K"k1155.tbm"
@@ -12077,7 +12077,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y801;X1;K"Monday Kids&Illak"
 C;X2;K"Letter"
 C;X3;K"k3651.tbm"
@@ -12704,7 +12704,7 @@ C;X8;K1
 C;X9;K"_150520"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
 C;X14;K0
 C;X15;K0
@@ -12932,7 +12932,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y858;X1;K"Cosmic Gate & J¡¯Something "
 C;X2;K"Over the Rainbow (Radio Edit)"
 C;X3;K"k3688.tbm"
@@ -13337,7 +13337,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y885;X1;K"Ferry Corsten"
 C;X2;K"Live Forever(Radio Edit)(featuring Aruna)"
 C;X3;K"k3705.tbm"
@@ -13922,7 +13922,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y924;X1;K"Beyonce "
 C;X2;K"TheDay"
 C;X3;K"k3730.tbm"
@@ -16997,7 +16997,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1129;X1;K"GOT7"
 C;X2;K"Just Right"
 C;X3;K"p0278.tbm"
@@ -18047,7 +18047,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1199;X1;K"SHAUN"
 C;X2;K"Way Back Home"
 C;X3;K"p0345.tbm"
@@ -18182,7 +18182,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1208;X1;K"Lauren Aquilina"
 C;X2;K"King"
 C;X3;K"p0354.tbm"
@@ -18362,7 +18362,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1220;X1;K"Alan Walker"
 C;X2;K"All Falls Down (feat. Noah Cyrus & Digital Farm Animals)"
 C;X3;K"p0366.tbm"
@@ -18812,7 +18812,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1250;X1;K"AOA"
 C;X2;K"Miniskirt"
 C;X3;K"p0392.tbm"
@@ -19187,7 +19187,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1275;X1;K"Bonnie Loo"
 C;X2;K"YOLO"
 C;X3;K"s0739.tbm"
@@ -20117,7 +20117,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1337;X1;K"Touyama Mirei"
 C;X2;K"Dear My Boo"
 C;X3;K"p0463.tbm"
@@ -20147,7 +20147,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1339;X1;K"HENRY"
 C;X2;K"1-4-3 (I Love You) (feat. f(Amber))"
 C;X3;K"s0596.tbm"
@@ -20237,7 +20237,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1345;X1;K"EPIK HIGH"
 C;X2;K"FAN"
 C;X3;K"p1022.tbm"
@@ -20252,7 +20252,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1346;X1;K"ITZY"
 C;X2;K"WANNABE"
 C;X3;K"p0469.tbm"
@@ -20567,7 +20567,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1367;X1;K"Eunha"
 C;X2;K"Hope (Grand Chase for Kakao OST)"
 C;X3;K"p0482.tbm"
@@ -20762,7 +20762,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1380;X1;K"BIGBANG"
 C;X2;K"Haru Haru"
 C;X3;K"k2422.tbm"
@@ -21167,7 +21167,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1407;X1;K"TWICE"
 C;X2;K"MORE & MORE (Hard)"
 C;X3;K"p0504.tbm"
@@ -21557,7 +21557,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1433;X1;K"BLACKPINK"
 C;X2;K"How You Like That"
 C;X3;K"p0509.tbm"
@@ -22937,7 +22937,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1525;X1;K"Wonder Girls"
 C;X2;K"Nobody"
 C;X3;K"p0556.tbm"
@@ -23222,7 +23222,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1544;X1;K"Sexbomb Girls"
 C;X2;K"Halukay Ube"
 C;X3;K"p0567.tbm"
@@ -23342,7 +23342,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1552;X1;K"Audition"
 C;X2;K"Take On Me"
 C;X3;K"k1151.tbm"
@@ -23372,7 +23372,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1554;X1;K"Vengaboys"
 C;X2;K"We like to Party!"
 C;X3;K"s0627.tbm"
@@ -23402,7 +23402,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1556;X1;K"2PM"
 C;X2;K"Tired of Waiting"
 C;X3;K"k2756.tbm"
@@ -23492,7 +23492,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1562;X1;K"Shuang Sheng"
 C;X2;K"Qian Nian Zhi Lian (Thousand Years of Love)"
 C;X3;K"p0574.tbm"
@@ -23522,7 +23522,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1564;X1;K"Crowd Lu"
 C;X2;K"Ke Zai Wo Xin Di De Ming Zi (Your Name Engraved Herein)"
 C;X3;K"p0576.tbm"
@@ -23597,7 +23597,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1569;X1;K"Audition"
 C;X2;K"Halloween Party"
 C;X3;K"k8089.tbm"
@@ -23672,7 +23672,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1574;X1;K"BIGBANG"
 C;X2;K"Haru Haru (Fahjah & KICKCHEEZE Remix)"
 C;X3;K"p1192.tbm"
@@ -23747,7 +23747,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1579;X1;K"Audition"
 C;X2;K"DANCE DANCE"
 C;X3;K"k5562.tbm"
@@ -23837,7 +23837,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1585;X1;K"Pitbull"
 C;X2;K"Give Me Everything (feat. Ne-Yo, Afrojack & Nayer)"
 C;X3;K"s0312.tbm"
@@ -23972,7 +23972,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1594;X1;K"Outsider"
 C;X2;K"Acquaintance"
 C;X3;K"p0586.tbm"
@@ -24212,7 +24212,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1610;X1;K"Sunny Hill"
 C;X2;K"The Grasshopper Song"
 C;X3;K"s0401.tbm"
@@ -24332,7 +24332,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1618;X1;K"The Wanted"
 C;X2;K"Glad You Came"
 C;X3;K"p0594.tbm"
@@ -24422,7 +24422,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1624;X1;K"TAEYANG"
 C;X2;K"EYES, NOSE, LIPS"
 C;X3;K"p0600.tbm"
@@ -24452,7 +24452,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1626;X1;K"K.Garden"
 C;X2;K"Hope of Spring"
 C;X3;K"j0016.tbm"
@@ -24647,7 +24647,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1639;X1;K"Shakra"
 C;X2;K"Hey U"
 C;X3;K"k0100.abm"
@@ -24722,7 +24722,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1644;X1;K"SPICA"
 C;X2;K"Tonight"
 C;X3;K"s0599.tbm"
@@ -24827,7 +24827,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1651;X1;K"NewJeans"
 C;X2;K"Hurt"
 C;X3;K"p1163.tbm"
@@ -24872,7 +24872,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1654;X1;K"BIGBANG"
 C;X2;K"FANTASTIC BABY"
 C;X3;K"p0606.tbm"
@@ -24932,7 +24932,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1658;X1;K"2NE1"
 C;X2;K"COME BACK HOME"
 C;X3;K"p0610.tbm"
@@ -25112,7 +25112,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1670;X1;K"Lady Gaga"
 C;X2;K"Born This Way"
 C;X3;K"k3061.tbm"
@@ -25232,7 +25232,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1678;X1;K"Jewelry"
 C;X2;K"I Love You"
 C;X3;K"k0270.tbm"
@@ -25337,7 +25337,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1685;X1;K"Eve"
 C;X2;K"Kaikai Kitan"
 C;X3;K"p0621.tbm"
@@ -25577,7 +25577,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1701;X1;K"Touhou Project"
 C;X2;K"Bad Apple (feat. Niconico & nomico)"
 C;X3;K"s0315.tbm"
@@ -25607,7 +25607,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1703;X1;K"JJ Lin, A-Do, Tanya, Stefanie Sun"
 C;X2;K"Every Touching Moment"
 C;X3;K"s0213.tbm"
@@ -25727,7 +25727,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1711;X1;K"aespa"
 C;X2;K"Next Level"
 C;X3;K"p0625.tbm"
@@ -25817,7 +25817,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1717;X1;K"YOASOBI"
 C;X2;K"Ano Yume wo Nazotte (Tracing That Dream)"
 C;X3;K"p0631.tbm"
@@ -25847,7 +25847,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1719;X1;K"Loco, HwaSa"
 C;X2;K"Don't Give It To Me"
 C;X3;K"p0633.tbm"
@@ -25937,7 +25937,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1725;X1;K"Ayo97"
 C;X2;K"Gan Xie Ni Ceng Lai Guo (Thank You For Being Here) (feat. A Han)"
 C;X3;K"p0639.tbm"
@@ -26087,7 +26087,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1735;X1;K"Martin Garrix & Dua Lipa"
 C;X2;K"Scared to be Lonely"
 C;X3;K"s0997.tbm"
@@ -26117,7 +26117,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1737;X1;K"Jewelry"
 C;X2;K"Again"
 C;X3;K"k0275.tbm"
@@ -26162,7 +26162,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1740;X1;K"Mayonnaise"
 C;X2;K"Jopay"
 C;X3;K"p1031.tbm"
@@ -26387,7 +26387,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1755;X1;K"The Weeknd & Ariana Grande"
 C;X2;K"Save Your Tears (Remix)"
 C;X3;K"p0645.tbm"
@@ -26612,7 +26612,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1770;X1;K"Lady Gaga"
 C;X2;K"Judas"
 C;X3;K"s0314.tbm"
@@ -26687,7 +26687,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1775;X1;K"Jewelry"
 C;X2;K"Trust Me"
 C;X3;K"k027b.tbm"
@@ -26747,7 +26747,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1779;X1;K"IZ*ONE"
 C;X2;K"La Vie en Rose"
 C;X3;K"p0328.tbm"
@@ -26852,7 +26852,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1786;X1;K"The Black Eyed Peas"
 C;X2;K"Let's Get It Started"
 C;X3;K"p1180.tbm"
@@ -26987,7 +26987,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1795;X1;K"en"
 C;X2;K"Xiao Zhang (Arrogant)"
 C;X3;K"p0662.tbm"
@@ -27182,7 +27182,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1808;X1;K"The Script"
 C;X2;K"Superheroes (Easy)"
 C;X3;K"s0710.tbm"
@@ -27407,7 +27407,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1823;X1;K"Jung Yong Hwa"
 C;X2;K"You've Fallen For Me"
 C;X3;K"s0347.tbm"
@@ -27497,7 +27497,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1829;X1;K"YOASOBI"
 C;X2;K"Tasho Roman (Romance)"
 C;X3;K"p0672.tbm"
@@ -27557,7 +27557,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1833;X1;K"CL"
 C;X2;K"Lover Like Me"
 C;X3;K"p0676.tbm"
@@ -27632,7 +27632,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1838;X1;K"Audition"
 C;X2;K"Love Is Here"
 C;X3;K"k5559.tbm"
@@ -27782,7 +27782,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1848;X1;K"ORANGE CARAMEL, NU'EST"
 C;X2;K"Dashing through the snow in high heels"
 C;X3;K"s0615.tbm"
@@ -28007,7 +28007,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1863;X1;K"TWICE"
 C;X2;K"The Feels"
 C;X3;K"p0683.tbm"
@@ -28142,7 +28142,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1872;X1;K"Schnuffel"
 C;X2;K"Schnuffels Weihnachtslied"
 C;X3;K"s0966.tbm"
@@ -28307,7 +28307,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1883;X1;K"Rain"
 C;X2;K"Love Song"
 C;X3;K"k2862.tbm"
@@ -28772,7 +28772,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1914;X1;K"Coldplay X BTS"
 C;X2;K"My Universe"
 C;X3;K"p0726.tbm"
@@ -29117,7 +29117,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1937;X1;K"ENHYPEN"
 C;X2;K"Polaroid Love"
 C;X3;K"p0749.tbm"
@@ -29357,7 +29357,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1953;X1;K"Destiny Rogers"
 C;X2;K"Tomboy"
 C;X3;K"p0765.tbm"
@@ -29387,7 +29387,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1955;X1;K"LeeSSang"
 C;X2;K"Can't Breakup Girl, Can't Breakaway Boy (feat. Jung In)"
 C;X3;K"p0767.tbm"
@@ -29402,7 +29402,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1956;X1;K"Tiara"
 C;X2;K"Be With You"
 C;X3;K"p0768.tbm"
@@ -29462,7 +29462,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1960;X1;K"Kep1er"
 C;X2;K"WA DA DA"
 C;X3;K"p0772.tbm"
@@ -29537,7 +29537,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1965;X1;K"ITZY"
 C;X2;K"MAFIA In The Morning"
 C;X3;K"p0777.tbm"
@@ -29597,7 +29597,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1969;X1;K"TREASURE"
 C;X2;K"DARARI"
 C;X3;K"p0781.tbm"
@@ -29882,7 +29882,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y1988;X1;K"OSN"
 C;X2;K"Mei Liao Ni (Without You)"
 C;X3;K"p0591.tbm"
@@ -29987,7 +29987,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y1995;X1;K"Mo Jiao Jie Jie"
 C;X2;K"Dang Wo Qu Guo Ta (DJ Remix)"
 C;X3;K"p0807.tbm"
@@ -30392,7 +30392,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2022;X1;K"VIVIZ"
 C;X2;K"Bop Bop!"
 C;X3;K"p0834.tbm"
@@ -30407,7 +30407,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y2023;X1;K"Xiao Ah Qi"
 C;X2;K"Cong Qian Shuo (DJ Remix)"
 C;X3;K"p0835.tbm"
@@ -30512,7 +30512,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2030;X1;K"Ye Ke"
 C;X2;K"Bu Ru"
 C;X3;K"p0842.tbm"
@@ -30527,7 +30527,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2031;X1;K"BTS"
 C;X2;K"MIC Drop"
 C;X3;K"p0843.tbm"
@@ -30662,7 +30662,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y2040;X1;K"Imagine Dragon"
 C;X2;K"Enemy (feat. JID)"
 C;X3;K"p0852.tbm"
@@ -31022,7 +31022,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y2064;X1;K"BTS"
 C;X2;K"DNA"
 C;X3;K"p0876.tbm"
@@ -31202,7 +31202,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y2076;X1;K"Bon Jovi"
 C;X2;K"It's My Life"
 C;X3;K"p0888.tbm"
@@ -31532,7 +31532,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2098;X1;K"K.Will"
 C;X2;K"Love 119 (feat. MC MONG)"
 C;X3;K"p0910.tbm"
@@ -31637,7 +31637,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y2105;X1;K"benny blanco"
 C;X2;K"Bad Decisions (with BTS, Snoop Dogg)"
 C;X3;K"p0917.tbm"
@@ -31802,7 +31802,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2116;X1;K"The OYSTARS"
 C;X2;K"Nanka Shiawase (What Happiness)"
 C;X3;K"p0928.tbm"
@@ -32027,7 +32027,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y2131;X1;K"CHINA DOLLS"
 C;X2;K"Muay Nee Ka"
 C;X3;K"p0943.tbm"
@@ -32402,7 +32402,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y2156;X1;K"G.E.M"
 C;X2;K"Wo De Mi Mi (DJ Remix)"
 C;X3;K"p0968.tbm"
@@ -32657,7 +32657,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2173;X1;K"TWICE"
 C;X2;K"Queen of Hearts"
 C;X3;K"p0984.tbm"
@@ -32732,7 +32732,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y2178;X1;K"Tatsuya Kitani"
 C;X2;K"Suka (Scar)"
 C;X3;K"p0989.tbm"
@@ -32987,7 +32987,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y2195;X1;K"Jay Chou"
 C;X2;K"Shuo Hao De Xing Fu Ne (The Promised Love) (DJ Douyin Edition)"
 C;X3;K"p1006.tbm"
@@ -33017,7 +33017,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K1
+C;X15;K0
 C;Y2197;X1;K"Ado"
 C;X2;K"Shinjidai (New Genesis)"
 C;X3;K"p0930.tbm"
@@ -33212,7 +33212,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2210;X1;K"Wang Li Wen"
 C;X2;K"Hou Lai De Wo Men"
 C;X3;K"p1021.tbm"
@@ -33227,7 +33227,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2211;X1;K"Pop Girls"
 C;X2;K"Sige Sayaw"
 C;X3;K"p0048.tbm"
@@ -33377,7 +33377,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2221;X1;K"Wilbert Ross"
 C;X2;K"Langga"
 C;X3;K"p1032.tbm"
@@ -33572,7 +33572,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2234;X1;K"3P"
 C;X2;K"PA SANG ANTHEM"
 C;X3;K"p1045.tbm"
@@ -33917,7 +33917,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2257;X1;K"Jiang Xue Er"
 C;X2;K"Feng Ye Xing (Walking in Windy Night) (Douyin Hit DJ ver.)"
 C;X3;K"p1068.tbm"
@@ -34502,7 +34502,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K0
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2296;X1;K"Li Ronghao"
 C;X2;K"Wu Mei Zi Jiang (The Dark Plum Sauce)"
 C;X3;K"p1107.tbm"
@@ -34562,7 +34562,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2300;X1;K"natori"
 C;X2;K"Overdose"
 C;X3;K"p1110.tbm"
@@ -34697,7 +34697,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2309;X1;K"DJ Xiong Ti"
 C;X2;K"Ai Wo De Ren He Wo Ai De Ren (Remix)"
 C;X3;K"p1119.tbm"
@@ -34772,7 +34772,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2314;X1;K"imase"
 C;X2;K"Night Dancer"
 C;X3;K"p1124.tbm"
@@ -34892,7 +34892,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2322;X1;K"OneRepublic"
 C;X2;K"Secrets"
 C;X3;K"p1132.tbm"
@@ -35402,7 +35402,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2356;X1;K"Kim Min Jong"
 C;X2;K"White Nostalgia"
 C;X3;K"k0912.tbm"
@@ -35627,7 +35627,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2371;X1;K"Doja Cat"
 C;X2;K"Paint The Town Red"
 C;X3;K"p1181.tbm"
@@ -35657,7 +35657,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2373;X1;K"Katy Perry"
 C;X2;K"Champagne Problems"
 C;X3;K"p1183.tbm"
@@ -35852,7 +35852,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2386;X1;K"So'Fly"
 C;X2;K"Really Into U"
 C;X3;K"p1196.tbm"
@@ -35882,7 +35882,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2388;X1;K"Red Velvet X aespa"
 C;X2;K"Beautiful Christmas"
 C;X3;K"p1198.tbm"
@@ -35897,7 +35897,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2389;X1;K"Imagine Dragons"
 C;X2;K"Bones"
 C;X3;K"p1199.tbm"
@@ -36107,7 +36107,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2403;X1;K"NMIXX"
 C;X2;K"Young, Dumb, Stupid"
 C;X3;K"p1091.tbm"
@@ -36302,7 +36302,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2416;X1;K"ONE OK ROCK"
 C;X2;K"Wherever You Are"
 C;X3;K"p1224.tbm"
@@ -36347,7 +36347,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2419;X1;K"Shakira"
 C;X2;K"Try Everything"
 C;X3;K"p1227.tbm"
@@ -36527,7 +36527,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2431;X1;K"D.O."
 C;X2;K"Somebody"
 C;X3;K"p1239.tbm"
@@ -36827,7 +36827,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2451;X1;K"Adele"
 C;X2;K"I Drink Wine"
 C;X3;K"p1259.tbm"
@@ -37202,7 +37202,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2476;X1;K"TWICE"
 C;X2;K"ONE SPARK"
 C;X3;K"p1284.tbm"
@@ -37307,7 +37307,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2483;X1;K"LE SSERAFIM"
 C;X2;K"Smart"
 C;X3;K"p1291.tbm"
@@ -37457,7 +37457,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2493;X1;K"Taylor Swift"
 C;X2;K"Fortnight (feat. Post Malone)"
 C;X3;K"p1301.tbm"
@@ -37682,7 +37682,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2508;X1;K"DJ Wei Ran"
 C;X2;K"Da Guo Qiang Fang Guo Yang (I've Carried A Gun And Let Go Of The Sheep) (Remix)"
 C;X3;K"p1316.tbm"
@@ -38012,7 +38012,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2530;X1;K"LISA"
 C;X2;K"ROCKSTAR"
 C;X3;K"p1338.tbm"
@@ -38027,7 +38027,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2531;X1;K"BINI"
 C;X2;K"Cherry On Top"
 C;X3;K"p1339.tbm"
@@ -38192,7 +38192,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2542;X1;K"Super Junior"
 C;X2;K"Black Suit"
 C;X3;K"p1349.tbm"
@@ -38312,7 +38312,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2550;X1;K"KATSEYE"
 C;X2;K"Touch"
 C;X3;K"p1357.tbm"
@@ -38327,7 +38327,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2551;X1;K"James Reid"
 C;X2;K"Randomantic"
 C;X3;K"p1358.tbm"
@@ -38597,7 +38597,7 @@ C;X11;K0
 C;X12;K0
 C;X13;K1
 C;X14;K0
-C;X15;K0
+C;X15;K1
 C;Y2569;X1;K"The Click Five"
 C;X2;K"Jenny"
 C;X3;K"p1376.tbm"
@@ -44279,9 +44279,9 @@ C;X8;K1
 C;X9;K"_260910"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2948;X1;K"Vitamin A"
 C;X2;K"Look for a long time (FLIP Cover)"
@@ -44354,9 +44354,9 @@ C;X8;K1
 C;X9;K"_261008"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2953;X1;K"Pmarusama"
 C;X2;K"S¡¯il Vous President (Easy)"
@@ -44369,9 +44369,9 @@ C;X8;K1
 C;X9;K"_261008"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2954;X1;K"Heart of Space ft. Jean Luc"
 C;X2;K"Somebody That I Used To Know (Radio Edit)"
@@ -44384,9 +44384,9 @@ C;X8;K1
 C;X9;K"_261008"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2955;X1;K"Larusso"
 C;X2;K"On ne s'aimera plus jamais"
@@ -44399,9 +44399,9 @@ C;X8;K1
 C;X9;K"_261008"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2956;X1;K"DJ Cupcakes"
 C;X2;K"PICK IT UP (EXTENDED MIX)"
@@ -44414,9 +44414,9 @@ C;X8;K1
 C;X9;K"_261008"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2957;X1;K"DICERED"
 C;X2;K"LOCK PAO"
@@ -44429,9 +44429,9 @@ C;X8;K1
 C;X9;K"_261008"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2958;X1;K"CYPARISS & Layse"
 C;X2;K"DARLING (feat. SEKAI)"
@@ -44444,9 +44444,9 @@ C;X8;K1
 C;X9;K"_261008"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2959;X1;K"LANY"
 C;X2;K"Thru These Tears"
@@ -44459,9 +44459,9 @@ C;X8;K1
 C;X9;K"_261008"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2960;X1;K"STi"
 C;X2;K"Ghost (Extended Ver.)"
@@ -44474,9 +44474,9 @@ C;X8;K1
 C;X9;K"_261008"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2961;X1;K"Kobasolo"
 C;X2;K"Kimi Sae Inakerya (feat. Harutya)"
@@ -44489,9 +44489,9 @@ C;X8;K1
 C;X9;K"_261008"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2962;X1;K"Katy Perry"
 C;X2;K"CRUSH"
@@ -44504,9 +44504,9 @@ C;X8;K1
 C;X9;K"_261008"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2963;X1;K"DJ Love (Sherwin Tuna) & Masculados"
 C;X2;K"Jumbo Hotdog (Budots Remix)"
@@ -44519,9 +44519,9 @@ C;X8;K1
 C;X9;K"_261008"
 C;X10;K0
 C;X11;K0
-C;X12;K1
+C;X12;K0
 C;X13;K1
-C;X14;K1
+C;X14;K0
 C;X15;K0
 C;Y2964;X1;K"Billie Bust Up & Black Gryph0n"
 C;X2;K"A Million Gruesome Ways To Die"
@@ -44532,6 +44532,291 @@ C;X6;K142
 C;X7;K0
 C;X8;K1
 C;X9;K"_261008"
+C;X10;K0
+C;X11;K0
+C;X12;K0
+C;X13;K1
+C;X14;K0
+C;X15;K0
+C;Y2965;X1;K"aespa"
+C;X2;K"KISS N TELL"
+C;X3;K"p1758.tbm"
+C;X4;K12
+C;X5;K0
+C;X6;K126
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2966;X1;K"TAK"
+C;X2;K"LEMON MELON COOKIE (feat. Hatsune Miku) (Easy)"
+C;X3;K"p1759.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K90
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2967;X1;K"TAK"
+C;X2;K"LEMON MELON COOKIE (feat. Hatsune Miku) (Hard)"
+C;X3;K"p1760.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K180
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K0
+C;X15;K0
+C;Y2968;X1;K"UNIS"
+C;X2;K"Sky Land, Star Land"
+C;X3;K"p1761.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2969;X1;K"LISA"
+C;X2;K"SaWaDiKa"
+C;X3;K"p1762.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K140
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2970;X1;K"PROXIE"
+C;X2;K"Jeep Mai Jop (Someday, Say Yes)"
+C;X3;K"p1763.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K102
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2971;X1;K"muque"
+C;X2;K"bestie"
+C;X3;K"p1764.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K103
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2972;X1;K"Kaia"
+C;X2;K"TANGA"
+C;X3;K"p1765.tbm"
+C;X4;K4
+C;X5;K0
+C;X6;K114
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2973;X1;K"2PM"
+C;X2;K"I Hate You"
+C;X3;K"p1766.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K133.965
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2974;X1;K"DJ Hobo"
+C;X2;K"Proud Of You (feat. Fiona Fung) (Dance Mix)"
+C;X3;K"p1767.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K129.98
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2975;X1;K"Leslie Parrish"
+C;X2;K"Remember Me"
+C;X3;K"p1768.tbm"
+C;X4;K18
+C;X5;K0
+C;X6;K153.739
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2976;X1;K"sasane"
+C;X2;K"mosi mosi?"
+C;X3;K"p1769.tbm"
+C;X4;K10
+C;X5;K0
+C;X6;K144
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2977;X1;K"Mili"
+C;X2;K"Chocological"
+C;X3;K"p1770.tbm"
+C;X4;K16
+C;X5;K0
+C;X6;K134
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2978;X1;K"Naotyu ft. maya"
+C;X2;K"Retrospective"
+C;X3;K"p1771.tbm"
+C;X4;K9
+C;X5;K0
+C;X6;K130
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2979;X1;K"Hiiragi Magnetite"
+C;X2;K"Tetoris (Easy)"
+C;X3;K"p1772.tbm"
+C;X4;K2
+C;X5;K0
+C;X6;K85
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2980;X1;K"Hiiragi Magnetite"
+C;X2;K"Tetoris (Hard)"
+C;X3;K"p1773.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K170
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2981;X1;K"Gloc 9"
+C;X2;K"Sumayaw Ka"
+C;X3;K"p1774.tbm"
+C;X4;K7
+C;X5;K0
+C;X6;K120.24
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2982;X1;K"ra'z"
+C;X2;K"Hoshifuru Yoruni (feat. 9maBear & Noa Tamaki)"
+C;X3;K"p1775.tbm"
+C;X4;K6
+C;X5;K0
+C;X6;K135
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
+C;X10;K0
+C;X11;K0
+C;X12;K1
+C;X13;K1
+C;X14;K1
+C;X15;K0
+C;Y2983;X1;K"Samsara 304"
+C;X2;K"Sinungaling"
+C;X3;K"p1776.tbm"
+C;X4;K8
+C;X5;K0
+C;X6;K105
+C;X7;K0
+C;X8;K1
+C;X9;K"_261112"
 C;X10;K0
 C;X11;K0
 C;X12;K1

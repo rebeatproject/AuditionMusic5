@@ -71,7 +71,7 @@ P;E?? ??;M220;L10
 P;EMalgun Gothic;M200;L9
 P;E?? ??;M160
 F;P0;DG0G8;M330
-B;Y3117;X14;D0 0 3116 13
+B;Y3137;X14;D0 0 3136 13
 O;F;D;V0;K47;T0;G100 0.001
 C;Y1;X1;K"SINGER"
 C;X2;K"MUSIC NAME"
@@ -9709,7 +9709,7 @@ C;X5;K0
 C;X6;K127
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K4
 C;X11;K92
 C;X12;K"Nam Ji Hyun & Jun Ji Yoon"
@@ -12287,7 +12287,7 @@ C;X5;K0
 C;X6;K140
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K1
 C;X11;K125
 C;X12;K"Wu Jia-Ying"
@@ -12301,7 +12301,7 @@ C;X5;K0
 C;X6;K140
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K2
 C;X11;K125
 C;X12;K"Wu Jia-Ying"
@@ -12315,7 +12315,7 @@ C;X5;K0
 C;X6;K140
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K3
 C;X11;K125
 C;X12;K"Wu Jia-Ying"
@@ -12329,7 +12329,7 @@ C;X5;K0
 C;X6;K140
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K4
 C;X11;K125
 C;X12;K"Wu Jia-Ying"
@@ -15073,7 +15073,7 @@ C;X5;K0
 C;X6;K122
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K4
 C;X11;K111
 C;X12;K"Paul Anka"
@@ -22346,7 +22346,7 @@ C;X5;K2
 C;X6;K115
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K1
 C;X11;K111
 C;X12;K"Wayne Hector, Daniel Davidsen"
@@ -22359,7 +22359,7 @@ C;X5;K2
 C;X6;K115
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K2
 C;X11;K111
 C;X12;K"Wayne Hector, Daniel Davidsen"
@@ -22372,7 +22372,7 @@ C;X5;K2
 C;X6;K115
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K3
 C;X11;K111
 C;X12;K"Wayne Hector, Daniel Davidsen"
@@ -23823,7 +23823,7 @@ C;X5;K3
 C;X6;K112.119
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K4
 C;X11;K86
 C;X12;K"Clairo"
@@ -29979,7 +29979,7 @@ C;X5;K2
 C;X6;K208
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K1
 C;X11;K170
 C;X12;K"Ayase"
@@ -29993,7 +29993,7 @@ C;X5;K2
 C;X6;K208
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K2
 C;X11;K170
 C;X12;K"Ayase"
@@ -30007,7 +30007,7 @@ C;X5;K2
 C;X6;K208
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K3
 C;X11;K170
 C;X12;K"Ayase"
@@ -37925,7 +37925,7 @@ C;X5;K5
 C;X6;K83
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K1
 C;X11;K93
 C;X12;K"chuotsamset, KET"
@@ -37939,7 +37939,7 @@ C;X5;K5
 C;X6;K83
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K2
 C;X11;K93
 C;X12;K"chuotsamset, KET"
@@ -37953,7 +37953,7 @@ C;X5;K5
 C;X6;K83
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K3
 C;X11;K93
 C;X12;K"chuotsamset, KET"
@@ -37967,7 +37967,7 @@ C;X5;K5
 C;X6;K83
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K4
 C;X11;K93
 C;X12;K"chuotsamset, KET"
@@ -38392,7 +38392,7 @@ C;X5;K0
 C;X6;K123.987
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K1
 C;X11;K116
 C;X12;K"Younha"
@@ -38406,7 +38406,7 @@ C;X5;K0
 C;X6;K123.987
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K2
 C;X11;K116
 C;X12;K"Younha"
@@ -38420,7 +38420,7 @@ C;X5;K0
 C;X6;K123.987
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K3
 C;X11;K116
 C;X12;K"Younha"
@@ -40043,7 +40043,7 @@ C;X5;K-2
 C;X6;K110
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K1
 C;X11;K84
 C;X12;K"Teddy Park, 24"
@@ -40056,7 +40056,7 @@ C;X5;K-2
 C;X6;K110
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K2
 C;X11;K84
 C;X12;K"Teddy Park, 24"
@@ -40069,7 +40069,7 @@ C;X5;K-2
 C;X6;K110
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K3
 C;X11;K84
 C;X12;K"Teddy Park, 24"
@@ -40177,7 +40177,7 @@ C;X5;K0
 C;X6;K120
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K1
 C;X11;K135
 C;X12;K"Teepakorn Kumsuree, Prod"
@@ -40191,7 +40191,7 @@ C;X5;K0
 C;X6;K120
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K2
 C;X11;K135
 C;X12;K"Teepakorn Kumsuree, Prod"
@@ -40205,7 +40205,7 @@ C;X5;K0
 C;X6;K120
 C;X7;K0
 C;X8;K0
-C;X9;K0
+C;X9;K1
 C;X10;K3
 C;X11;K135
 C;X12;K"Teepakorn Kumsuree, Prod"
@@ -40401,7 +40401,7 @@ C;X5;K1
 C;X6;K110
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K3
 C;X11;K101
 C;X12;K"Ryuusei-P"
@@ -40415,7 +40415,7 @@ C;X5;K1
 C;X6;K110
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K1
 C;X11;K101
 C;X12;K"Ryuusei-P"
@@ -40429,7 +40429,7 @@ C;X5;K1
 C;X6;K110
 C;X7;K0
 C;X8;K0
-C;X9;K1
+C;X9;K0
 C;X10;K2
 C;X11;K101
 C;X12;K"Ryuusei-P"
@@ -42593,7 +42593,7 @@ C;X4;K12
 C;X5;K0
 C;X6;K87
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K100
@@ -42607,7 +42607,7 @@ C;X4;K12
 C;X5;K0
 C;X6;K87
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K100
@@ -42621,7 +42621,7 @@ C;X4;K12
 C;X5;K0
 C;X6;K87
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K4
 C;X11;K100
@@ -42635,7 +42635,7 @@ C;X4;K14
 C;X5;K-1
 C;X6;K102
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K1
 C;X11;K110
@@ -42648,7 +42648,7 @@ C;X4;K14
 C;X5;K-1
 C;X6;K102
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K110
@@ -42661,7 +42661,7 @@ C;X4;K14
 C;X5;K-1
 C;X6;K102
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K110
@@ -42674,7 +42674,7 @@ C;X4;K14
 C;X5;K-1
 C;X6;K102
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K4
 C;X11;K110
@@ -42687,7 +42687,7 @@ C;X4;K12
 C;X5;K0
 C;X6;K110
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K1
 C;X11;K110
@@ -42700,7 +42700,7 @@ C;X4;K12
 C;X5;K0
 C;X6;K110
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K110
@@ -42713,7 +42713,7 @@ C;X4;K12
 C;X5;K0
 C;X6;K110
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K110
@@ -42726,7 +42726,7 @@ C;X4;K16
 C;X5;K1
 C;X6;K99
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K93
@@ -42739,7 +42739,7 @@ C;X4;K16
 C;X5;K1
 C;X6;K99
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K93
@@ -42752,7 +42752,7 @@ C;X4;K13
 C;X5;K0
 C;X6;K147.016
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K126
@@ -42766,7 +42766,7 @@ C;X4;K13
 C;X5;K0
 C;X6;K147.016
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K126
@@ -42780,7 +42780,7 @@ C;X4;K13
 C;X5;K0
 C;X6;K92
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K110
@@ -42794,7 +42794,7 @@ C;X4;K6
 C;X5;K-1
 C;X6;K130
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K1
 C;X11;K132
@@ -42807,7 +42807,7 @@ C;X4;K6
 C;X5;K-1
 C;X6;K130
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K132
@@ -42820,7 +42820,7 @@ C;X4;K6
 C;X5;K-1
 C;X6;K130
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K132
@@ -42833,7 +42833,7 @@ C;X4;K12
 C;X5;K1
 C;X6;K100
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K1
 C;X11;K90
@@ -42846,7 +42846,7 @@ C;X4;K12
 C;X5;K1
 C;X6;K100
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K2
 C;X11;K90
@@ -42859,7 +42859,7 @@ C;X4;K12
 C;X5;K1
 C;X6;K100
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K3
 C;X11;K90
@@ -42872,11 +42872,284 @@ C;X4;K6
 C;X5;K0
 C;X6;K160
 C;X7;K0
-C;X8;K1
+C;X8;K0
 C;X9;K1
 C;X10;K4
 C;X11;K114
 C;X12;K"SHK"
 C;X13;K"SHK"
+C;X14;K"TFC Critics"
+C;Y3118;X1;K"MOCOZI"
+C;X2;K"Love Song (Lv.1 Easy)"
+C;X3;K"vng0538.tbm"
+C;X4;K11
+C;X5;K3
+C;X6;K87
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K87
+C;X12;K"MOCOZI"
+C;X14;K"TFC Critics"
+C;Y3119;X1;K"MOCOZI"
+C;X2;K"Love Song (Lv.2 Normal)"
+C;X3;K"vng0538.tbm"
+C;X4;K11
+C;X5;K3
+C;X6;K87
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K87
+C;X12;K"MOCOZI"
+C;X14;K"TFC Critics"
+C;Y3120;X1;K"MOCOZI"
+C;X2;K"Love Song (Lv.3 Hard)"
+C;X3;K"vng0538.tbm"
+C;X4;K11
+C;X5;K3
+C;X6;K87
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K87
+C;X12;K"MOCOZI"
+C;X14;K"TFC Critics"
+C;Y3121;X1;K"Paryoka Ni Edgar"
+C;X2;K"Trip (Siopao Na Special) (Lv.1 Easy)"
+C;X3;K"vng0539.tbm"
+C;X4;K11
+C;X5;K3
+C;X6;K90
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K87
+C;X12;K"Thom Yorke, Chito Miranda"
+C;X13;K"Gab Chee Kee, Darius Semaña"
+C;X14;K"TFC Critics"
+C;Y3122;X1;K"Paryoka Ni Edgar"
+C;X2;K"Trip (Siopao Na Special) (Lv.2 Normal)"
+C;X3;K"vng0539.tbm"
+C;X4;K11
+C;X5;K3
+C;X6;K90
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K87
+C;X12;K"Thom Yorke, Chito Miranda"
+C;X13;K"Gab Chee Kee, Darius Semaña"
+C;X14;K"TFC Critics"
+C;Y3123;X1;K"Paryoka Ni Edgar"
+C;X2;K"Trip (Siopao Na Special) (Lv.3 Hard)"
+C;X3;K"vng0539.tbm"
+C;X4;K11
+C;X5;K3
+C;X6;K90
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K87
+C;X12;K"Thom Yorke, Chito Miranda"
+C;X13;K"Gab Chee Kee, Darius Semaña"
+C;X14;K"TFC Critics"
+C;Y3124;X1;K"Bread"
+C;X2;K"Everything I Own (Lv.1 Easy)"
+C;X3;K"vng0540.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K83
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K68
+C;X12;K"David Gates"
+C;X13;K"David Gates"
+C;X14;K"TFC Critics"
+C;Y3125;X1;K"Bread"
+C;X2;K"Everything I Own (Lv.2 Normal)"
+C;X3;K"vng0540.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K83
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K68
+C;X12;K"David Gates"
+C;X13;K"David Gates"
+C;X14;K"TFC Critics"
+C;Y3126;X1;K"Bread"
+C;X2;K"Everything I Own (Lv.3 Hard)"
+C;X3;K"vng0540.tbm"
+C;X4;K5
+C;X5;K0
+C;X6;K83
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K68
+C;X12;K"David Gates"
+C;X13;K"David Gates"
+C;X14;K"TFC Critics"
+C;Y3127;X1;K"Alvin & The Chipmunks"
+C;X2;K"The Chipmunk Song (Christmas Don't Be Late) – Rock Mix (Lv.1 Easy)"
+C;X3;K"vng0541.tbm"
+C;X4;K21
+C;X5;K0
+C;X6;K154
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K95
+C;X12;K"Ross Bagdasarian"
+C;X14;K"10 & NextGen Thailand"
+C;Y3128;X1;K"Alvin & The Chipmunks"
+C;X2;K"The Chipmunk Song (Christmas Don't Be Late) – Rock Mix (Lv.2 Normal)"
+C;X3;K"vng0541.tbm"
+C;X4;K21
+C;X5;K0
+C;X6;K154
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K95
+C;X12;K"Ross Bagdasarian"
+C;X14;K"10 & NextGen Thailand"
+C;Y3129;X1;K"Alvin & The Chipmunks"
+C;X2;K"The Chipmunk Song (Christmas Don't Be Late) – Rock Mix (Lv.3 Hard)"
+C;X3;K"vng0541.tbm"
+C;X4;K21
+C;X5;K0
+C;X6;K154
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K95
+C;X12;K"Ross Bagdasarian"
+C;X14;K"10 & NextGen Thailand"
+C;Y3130;X1;K"Into The Air"
+C;X2;K"NgýõÌi ÕÒ Laòi Sau (Lv.1 Easy)"
+C;X3;K"vng0542.tbm"
+C;X4;K6
+C;X5;K3
+C;X6;K140
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K124
+C;X12;K"Lê NguyêÞn Minh Quân"
+C;X13;K"NguyêÞn Gia BaÒo (Giba)"
+C;X14;K"TFC Critics"
+C;Y3131;X1;K"Into The Air"
+C;X2;K"NgýõÌi ÕÒ Laòi Sau (Lv.2 Normal)"
+C;X3;K"vng0542.tbm"
+C;X4;K6
+C;X5;K3
+C;X6;K140
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K124
+C;X12;K"Lê NguyêÞn Minh Quân"
+C;X13;K"NguyêÞn Gia BaÒo (Giba)"
+C;X14;K"TFC Critics"
+C;Y3132;X1;K"Into The Air"
+C;X2;K"NgýõÌi ÕÒ Laòi Sau (Lv.3 Hard)"
+C;X3;K"vng0542.tbm"
+C;X4;K6
+C;X5;K3
+C;X6;K140
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K124
+C;X12;K"Lê NguyêÞn Minh Quân"
+C;X13;K"NguyêÞn Gia BaÒo (Giba)"
+C;X14;K"TFC Critics"
+C;Y3133;X1;K"Audition"
+C;X2;K"Halloween Party (Lv.4 Crazy)"
+C;X3;K"vng0543.tbm"
+C;X4;K6
+C;X5;K4
+C;X6;K124
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K4
+C;X11;K106
+C;X12;K"Audition"
+C;X14;K"TFC Critics"
+C;Y3134;X1;K"Lazybone"
+C;X2;K"Monster Party (Lv.1 Easy)"
+C;X3;K"vng0544.tbm"
+C;X4;K5
+C;X5;K2
+C;X6;K92
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K1
+C;X11;K76
+C;X12;K"Lee Jun-won / Im Jun-kyu"
+C;X13;K"Im Jun-kyu"
+C;X14;K"TFC Critics"
+C;Y3135;X1;K"Lazybone"
+C;X2;K"Monster Party (Lv.2 Normal)"
+C;X3;K"vng0544.tbm"
+C;X4;K5
+C;X5;K2
+C;X6;K92
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K2
+C;X11;K76
+C;X12;K"Lee Jun-won / Im Jun-kyu"
+C;X13;K"Im Jun-kyu"
+C;X14;K"TFC Critics"
+C;Y3136;X1;K"Lazybone"
+C;X2;K"Monster Party (Lv.3 Hard)"
+C;X3;K"vng0545.tbm"
+C;X4;K5
+C;X5;K2
+C;X6;K92
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K3
+C;X11;K76
+C;X12;K"Lee Jun-won / Im Jun-kyu"
+C;X13;K"Im Jun-kyu"
+C;X14;K"TFC Critics"
+C;Y3137;X1;K"Lazybone"
+C;X2;K"Monster Party (Lv.4 Crazy)"
+C;X3;K"vng0545.tbm"
+C;X4;K5
+C;X5;K2
+C;X6;K92
+C;X7;K0
+C;X8;K1
+C;X9;K1
+C;X10;K4
+C;X11;K76
+C;X12;K"Lee Jun-won / Im Jun-kyu"
+C;X13;K"Im Jun-kyu"
 C;X14;K"TFC Critics"
 E
